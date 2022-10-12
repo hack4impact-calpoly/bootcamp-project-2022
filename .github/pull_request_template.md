@@ -1,7 +1,7 @@
-Milestone: {Milestone #}
-Developer: {Full Name}
+# Milestone: {Milestone #}
+# Developer: {Full Name}
 
-# Pull Request Summary
+### Pull Request Summary
 
 {Describe the purpose of your pull request}
 
