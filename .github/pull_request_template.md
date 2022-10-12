@@ -5,14 +5,21 @@
 
 {Describe the purpose of your pull request}
 
-### Which issues does this pull request fix or reference?
-
-- Resolves: {Choose this option if this PR will close the issue and link to issue}
-- Relates to: {Choose this option if this PR only references an issue for context but does not fully resolve it}
-
 ### Pull Request Checklist
+- [ ] Code is neat, readable, and works
+- [ ] Comments are appropriate
 - [ ] The commit message follows our guidelines
 - [ ] The milestone number is specified
 - [ ] The developer name is specified
 - [ ] The summary is completed
-- [ ] Issue(s) is/are listed
+
+### Reviewer Checklist  - PULL REQUEST REVIEWER ONLY
+
+IMPORTANT: The rest of the sections in this checklist should only be filled out by authorized pull request reviewers. If you are the individual template contributor, do not fill out the rest of the fields or check the boxes.
+
+NOTE: Milestones can only be completed when all boxes are checked.
+
+- [ ] The code is fully reviewed
+- [ ] Meaningful feedback is given
+- [ ] Comment that you have reviewed the code
+- [ ] This box is checked
