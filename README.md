@@ -1,6 +1,6 @@
 
 # Getting Started With Your Project
-2022 bootcamp project!
+This is the start of your 2022 bootcamp project!
 
 This repo will serve as a place to "turn in" your work. More info about bootcamp can be found on the [Developer Bootcamp Notion Page](https://h4i.notion.site/Developer-Bootcamp-2022-27ea8d57abff452abe572e31b8762f8e).
 
