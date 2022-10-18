@@ -48,12 +48,6 @@ main {
     background-color: var(--light-green);
 }
 
-main h2 {
-    font-size: 2rem;
-    margin: 20px 0;
-    color: var(--dark-brown);
-}
-
 .recipe-container {
     background-color: var(--med-green);
     padding: 40px;
