@@ -1,0 +1,33 @@
+* {
+    /* removed embedded margin/padding */
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #cfdbd5;
+    height: 90px;
+}
+.navbar-items {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: flex-end; */
+    /* align-items: center; */
+}
+.navbar-item {
+    text-decoration: none;
+    padding: 0px 10px;
+    margin: 0px 5px;
+    list-style: none;
+    font-size: 1.7rem;
+    /* border: 1px solid black; */
+}
+.nav-link {
+    text-decoration: none;
+    color: #242423;
+}
+.navbar-logo {
+    font-size: 3rem;
+}
