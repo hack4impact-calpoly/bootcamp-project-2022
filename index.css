@@ -1,0 +1,35 @@
+img {
+    width: 20%;
+    height: 20%;
+}
+
+/* .welcome-container{
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+} */
+
+.flex-container {
+    display: flex;
+    background-color: #588157;
+    color: white;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+}
+
+a:link {
+    color: green;
+    background-color: transparent;
+}
+
+a:visited {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+  }
