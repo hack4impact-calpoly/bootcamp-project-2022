@@ -3,6 +3,9 @@
     margin: 0;
     padding: 0;
 }
+body {
+    background-color: #e8eddf;
+}
 .navbar {
     display: flex;
     align-items: center;
@@ -13,8 +16,6 @@
 .navbar-items {
     display: flex;
     flex-direction: row;
-    /* justify-content: flex-end; */
-    /* align-items: center; */
 }
 .navbar-item {
     text-decoration: none;
@@ -22,7 +23,6 @@
     margin: 0px 5px;
     list-style: none;
     font-size: 1.7rem;
-    /* border: 1px solid black; */
 }
 .nav-link {
     text-decoration: none;
@@ -30,4 +30,36 @@
 }
 .navbar-logo {
     font-size: 3rem;
+}
+.container-recipes {
+    margin-top: 50px;
+}
+.card {
+    /* display: inline-block; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px auto;
+    border: 4px solid black;
+    border-radius: 10px;
+    height: 600px;
+    width: 350px;
+    background-color: #f5cb5c;
+}
+.title {
+    margin: 50px 0px;
+    text-align: center;
+    color: #333533;
+}
+.card-title {
+    margin: 20px 0px;
+}
+.card-img {
+    /* margin: 0px 20px; */
+    margin: auto;
+    border-radius: 50%;
+}
+.container-recipes {
+    display: flex;
+    flex-direction: row;
 }
