@@ -105,6 +105,20 @@ body {
     justify-content: space-evenly;
     align-items: center;
 } */
+
+.title-color {
+    background-color: #dae28f;
+    color: rgb(89, 123, 86);
+    padding: 0px 20px;
+}
+.recipe-instruct {
+    margin-top: 50px;
+    font-size: 20px;
+    padding: 0px 50px;
+}
+.recipe-instruct ol li {
+    margin: 10px 0px;
+}
 .recipe-disc {
     font-size: 1.2rem;
     width: 700px;
