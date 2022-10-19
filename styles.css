@@ -87,6 +87,30 @@ body {
 .card-btn:hover {
     background-color: rgb(93, 101, 84);
 }
+.recipe-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 100px;
+}
+.recipe-img {
+    /* margin: 50px 40px; */
+    margin-top: 50px;
+    border: 5px solid rgb(130, 178, 127);
+}
+/* .container-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+} */
+.recipe-disc {
+    font-size: 1.2rem;
+    width: 700px;
+    margin: auto;
+}
+
 @media screen and (max-width: 1100px) {
     .container-recipes {
         flex-direction: column;
