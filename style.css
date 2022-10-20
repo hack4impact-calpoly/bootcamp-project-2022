@@ -133,6 +133,10 @@ body {
   cursor: pointer;
 }
 
+.recipe-r .recipe-title:hover{
+  color: var(--main-accent);
+}
+
 .recipe-r .recipe-descrip {
   color: var(--black);
 }
