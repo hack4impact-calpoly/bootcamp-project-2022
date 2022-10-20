@@ -51,6 +51,10 @@ nav h2 {
   font-size: 2em;
 }
 
+nav img {
+  cursor: pointer;
+}
+
 .nav-menu {
   display: flex;
   list-style-type: none;
@@ -88,6 +92,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 30px 0px;
+  margin-bottom: 20px;
 }
 
 .hero-r img {
@@ -97,7 +102,7 @@ body {
 
 .recipe-cards {
   display: flex;
-  gap: 20px;
+  gap: 30px;
 }
 
 .recipe-card {
@@ -167,13 +172,14 @@ body {
   text-align: center;
 }
 
-.recipe-body{
+.recipe-body {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.ingredients, .instructions {
+.ingredients,
+.instructions {
   margin-bottom: 30px;
   width: 70%;
 }
@@ -182,7 +188,8 @@ body {
   width: 100%;
 }
 
-.ingredients h3, .instructions h3 {
+.ingredients h3,
+.instructions h3 {
   color: var(--paler);
   text-align: center;
   font-size: 1.5em;
@@ -192,13 +199,13 @@ body {
   column-span: all;
 }
 
-.ingredient-list li{
+.ingredient-list li {
   list-style-type: disc;
   margin: 4px 0px;
   list-style-position: inside;
 }
 
-.instruction-list li{
+.instruction-list li {
   margin: 10px 0px;
   list-style-position: inside;
 }
