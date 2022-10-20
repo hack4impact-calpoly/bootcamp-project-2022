@@ -11,6 +11,17 @@
   --main-accent: #df7f60;
 }
 
+a {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+
+a:hover{
+  color: var(--main-accent);
+}
+
 body {
   padding-bottom: 20px;
 }
