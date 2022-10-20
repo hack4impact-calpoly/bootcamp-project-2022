@@ -130,6 +130,13 @@ body {
 .small-font {
     font-size: 1.2rem;
 }
+.text-center {
+    text-align: center;
+}
+.abt-p {
+    padding: 0px 40px;
+    margin-top: 50px;
+}
 @media screen and (max-width: 1200px) {
     .container-recipes {
         flex-direction: column;
