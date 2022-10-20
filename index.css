@@ -1,0 +1,83 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  color: white;
+  text-decoration: underline;
+  font-weight: 300;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: #f4978e; 
+  color: #ffdab9;
+  box-shadow: 0 0 10px rgba(0,0,0,0.26);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+h1 {
+  font-weight: 100;
+}
+
+h2 {
+  font-weight: 100;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.navBarLinks {
+  list-style-type: none;
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+}
+
+.recipeBoxContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.recipeBox {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  background-color: #ffdab9;
+  padding: 1rem;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.26);
+}
+
+.recipeBox a {
+  color: #f4978e;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.recipeBox p {
+  color: #343434;
+  font-weight: 300;
+}
