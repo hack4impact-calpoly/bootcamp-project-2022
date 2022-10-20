@@ -12,7 +12,7 @@
   --gray: #9b9a99;
   --paler: #fcfaf8;
   --main-accent: #df7f60;
-  --sub-accent: #aba882;
+  --sub-accent: #99ab82;
 }
 
 a {
@@ -91,7 +91,6 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 0px;
   margin-bottom: 20px;
 }
 
@@ -141,6 +140,7 @@ body {
 .recipe-r .recipe-descrip {
   color: var(--black);
 }
+
 
 /* recipe page */
 .recipe-wrapper {
