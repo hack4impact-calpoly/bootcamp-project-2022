@@ -69,6 +69,10 @@ nav img {
   font-size: 0.8em;
 }
 
+.nav-menu li:hover{
+  color: var(--sub-accent);
+}
+
 body {
   background-color: var(--pale);
 }
