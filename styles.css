@@ -137,6 +137,25 @@ body {
     padding: 0px 40px;
     margin-top: 50px;
 }
+.source-links {
+    /* text-decoration: none; */
+    color: #423718;
+    font-weight: bold;
+}
+.source-links:hover {
+    color: rgb(89, 123, 86);
+}
+.sources {
+    margin: 20px 0px;
+}
+.remove-bullet {
+    list-style: none;
+}
+.source-img {
+    border-radius: 50%;
+    border: 1px solid rgb(209, 228, 85);
+}
+
 @media screen and (max-width: 1200px) {
     .container-recipes {
         flex-direction: column;
