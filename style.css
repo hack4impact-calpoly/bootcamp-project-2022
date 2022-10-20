@@ -7,7 +7,9 @@
   --pale: #f7f5f4;
   --white: #fff;
   --black: #000;
+  --light-gray: #dadada;
   --gray: #9b9a99;
+  --paler: #fcfaf8;
   --main-accent: #df7f60;
 }
 
@@ -104,9 +106,9 @@ body {
   gap: 20px;
   padding: 20px;
   width: 33%;
-  background-color: var(--white);
+  background-color: var(--paler);
   border-radius: 10px;
-  box-shadow: 2px 2px 7px var(--gray);
+  box-shadow: 2px 2px 7px var(--light-gray);
 }
 
 .recipe-card:hover {
