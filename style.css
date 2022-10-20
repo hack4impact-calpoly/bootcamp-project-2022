@@ -107,7 +107,6 @@ body {
 .recipe-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   gap: 20px;
   padding: 20px;
@@ -115,10 +114,6 @@ body {
   background-color: var(--paler);
   border-radius: 10px;
   box-shadow: 2px 2px 7px var(--light-gray);
-}
-
-.recipe-card:hover {
-  cursor: pointer;
 }
 
 .recipe-l img {
@@ -135,6 +130,7 @@ body {
   margin-bottom: 10px;
   text-align: center;
   color: var(--sub-accent);
+  cursor: pointer;
 }
 
 .recipe-r .recipe-descrip {
