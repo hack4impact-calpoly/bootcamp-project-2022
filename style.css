@@ -12,7 +12,7 @@
   --gray: #9b9a99;
   --paler: #fcfaf8;
   --main-accent: #df7f60;
-  --sub-accent: #c4c197;
+  --sub-accent: #aba882;
 }
 
 a {
@@ -130,6 +130,7 @@ body {
   font-size: 1.2em;
   margin-bottom: 10px;
   text-align: center;
+  color: var(--sub-accent);
 }
 
 .recipe-r .recipe-descrip {
