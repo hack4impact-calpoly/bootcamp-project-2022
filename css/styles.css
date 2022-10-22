@@ -48,6 +48,7 @@ nav ul{
     text-decoration: none;
     padding: 7px 15px;
     transition: all 0.3s ease-in-out;
+    font-weight: bold;
 }
 
 .nav.active{
