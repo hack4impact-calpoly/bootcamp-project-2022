@@ -11,7 +11,7 @@ html{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     height: 100%;
 }
-
+/* -----All pages----- */
 /* Full width body with background colour */
 body{
     background-color:var(--cornsilk);
@@ -20,7 +20,6 @@ body{
     margin: 0;
     color: var(--kombu-green);
 }
-/* Header banner */
 header{
     display: flex;
     background-color: var(--kombu-green);
@@ -35,9 +34,17 @@ nav{
     display: flex;
     align-items: center;
 }
+
 .nav-item{
     margin: 0 1rem;
 }
+
+h3 a, h3 a:active, h3 a:visited, h3 a:hover{
+    text-decoration: underline;
+    color:var(--cornsilk);
+    font-weight: normal;
+}
+
 /* Main rounded content box with background colour */
 main{
     margin: 1rem 5rem;
@@ -54,41 +61,10 @@ main{
     justify-content: space-evenly;
 }
 
-/* Homepage */
-h3 a, h3 a:active, h3 a:visited, h3 a:hover{
-    text-decoration: underline;
-    color:var(--cornsilk);
-    font-weight: normal;
-}
-
+/* -----Homepage----- */
 h1 a, h1 a:active, h1 a:visited, h1 a:hover{
     text-decoration: none;
     color:var(--cornsilk);
-}
-.content h1{
-    background-color: var(--liver-dogs);
-    width: 100%;
-    text-align: center;
-    border-radius: 1rem;
-}
-h2{
-    background-color: var(--liver-dogs);
-    width: 100%;
-    border-radius: 1rem;
-    text-align: center;
-}
-
-h4 a, h4 a:active, h4 a:visited{
-    text-decoration: none;
-    color:var(--cornsilk);
-}
-
-h4 a:hover{
-    text-decoration: none;
-    color:var(--liver-dogs);
-}
-h4{
-    text-align: center;
 }
 
 .recipe{
@@ -104,8 +80,41 @@ h4{
 .recipe p{
     color:var(--cornsilk);
 }
+
+h4 a, h4 a:active, h4 a:visited{
+    text-decoration: none;
+    color:var(--cornsilk);
+}
+
+h4 a:hover{
+    text-decoration: none;
+    color:var(--liver-dogs);
+}
+
+/* -----Recipe pages----- */
+.content h1{
+    background-color: var(--liver-dogs);
+    width: 100%;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+h2{
+    background-color: var(--liver-dogs);
+    width: 100%;
+    border-radius: 1rem;
+    text-align: center;
+}
+
 /* Image scaling */
 img{
     max-width: 50%;
     max-height: 100%;
 }
+
+/* -----About page----- */
+h4{
+    text-align: center;
+}
+
+
