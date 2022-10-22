@@ -1,31 +1,38 @@
 html{
-    font-family:Verdana, Geneva, Tahoma, sans-serif
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    height: 100%;
 }
 
 body{
     background-color:gainsboro;
+    width: 100%;
+    padding: 0;
     margin: 0;
+}
+main{
+    margin: 2rem 5rem 2rem 5rem;
+    padding: 2rem 2rem 3rem 2rem;
+    background-color:seashell;
+    border-radius: 4rem;
 }
 
 .content{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 20px;
     justify-content: space-evenly;
 }
-.header{
+header{
     display: flex;
     background-color: dimgray;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     color:whitesmoke;
-    padding: 0 4rem;
+    padding: 0 2em;
 }
-.nav{
+nav{
     display: flex;
-    flex-direction: row;
     align-items: center;
 }
 .nav-item{
@@ -34,15 +41,33 @@ body{
 h3 a, h3 a:active, h3 a:visited, h3 a:hover{
     text-decoration: underline;
     color:whitesmoke;
+    font-weight: normal;
 }
 
-h4 a, h4 a:active, h4 a:visited, h4 a:hover{
+h1 a, h1 a:active, h1 a:visited, h1 a:hover{
     text-decoration: none;
-    color:darkolivegreen;
+    color:whitesmoke;
 }
 
-.card{
-    background-color: seagreen;
-    border-radius: 4rem;
-    display: flex;
+h4 a, h4 a:active, h4 a:visited{
+    text-decoration: none;
+    color:whitesmoke;
+}
+h4 a:hover{
+    text-decoration: none;
+    color:dodgerblue;
+}
+
+.recipe{
+    border: solid 0.2rem black ;
+    border-radius: 1rem;
+    margin: 0.6rem;
+    padding: 0.6rem;
+    text-decoration: none;
+    background-color: dimgray;
+}
+
+img{
+    max-width: 50%;
+    max-height: 100%;
 }
