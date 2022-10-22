@@ -1,5 +1,5 @@
 img {
-    width: 200px;
+    width: 150px;
     border: 5px solid;
     border-radius: 10px;
 }
@@ -8,10 +8,53 @@ body {
     background-color: #FAEDCD;
 }
 
-.body-of-frontpage{
+
+
+.text {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.recipe1{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0px 40px 10px;
+    background-color: #D4A373;
+    color: white;
+    border: 7px solid #BC6C25;
+    padding: 20px 20px;
+    border-radius: 25px;
+}
+
+.recipe1_subpage{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0px 40px 10px;
+    background-color: #D4A373;
+    color: white;
+    border: 7px solid #BC6C25;
+    padding: 20px 20px;
+    border-radius: 25px;
+}
+
+.recipe2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 40px 10px;
+    background-color: #D4A373;
+    color: white;
+    border: 7px solid #BC6C25;
+    padding: 20px 20px;
+    border-radius: 25px;
+}
+
+.recipe3{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     padding: 0px 40px 10px;
     background-color: #D4A373;
     color: white;
@@ -43,9 +86,17 @@ body {
     margin-bottom: 10px;
 }
 
+.Recipe1_subpage {
+    background-color: #A3B18A;
+    color: white;
+    border: 7px solid #3A5A40;
+    border-radius: 25px;
+    padding: 10px;
+}
+
 .Recipe1_body {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background-color: #A3B18A;
     color: white;
     border: 7px solid #3A5A40;
@@ -55,7 +106,7 @@ body {
 
 .grilled_chk {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 0px 40px 10px;
     background-color: #A3B18A;
     color: white;
@@ -67,7 +118,7 @@ body {
 
 ._dip {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 0px 40px 10px;
     background-color: #A3B18A;
     color: white;
@@ -79,7 +130,7 @@ body {
 
 .zucchini {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 0px 40px 10px;
     background-color: #A3B18A;
     color: white;
