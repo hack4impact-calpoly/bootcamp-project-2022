@@ -1,26 +1,132 @@
 img {
-    width: 20%;
-    height: 20%;
+    width: 200px;
+    border: 5px solid;
+    border-radius: 10px;
 }
 
-/* .welcome-container{
-    display: block;
-    font-size: 2em;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-} */
+body {
+    background-color: #FAEDCD;
+}
 
-.flex-container {
+.body-of-frontpage{
     display: flex;
-    background-color: #588157;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 40px 10px;
+    background-color: #D4A373;
     color: white;
-    border: 1px solid black;
+    border: 7px solid #BC6C25;
+    padding: 20px 20px;
+    border-radius: 25px;
+}
+
+
+.header {
+    display: flex;
+    background-color: #D4A373;
+    color: white;
+    border: 7px solid #BC6C25;
     align-items: center;
     justify-content: space-between;
     padding: 20px 20px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+}
+
+.Recipe1 {
+    padding: 0px 40px 10px;
+    background-color: #A3B18A;
+    color: white;
+    border: 7px solid #3A5A40;
+    padding: 20px 20px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+}
+
+.Recipe1_body {
+    display: flex;
+    justify-content: space-between;
+    background-color: #A3B18A;
+    color: white;
+    border: 7px solid #3A5A40;
+    border-radius: 25px;
+    margin-bottom: 10px;
+}
+
+.grilled_chk {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 40px 10px;
+    background-color: #A3B18A;
+    color: white;
+    border: 7px solid #3A5A40;
+    padding: 20px 20px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+}
+
+._dip {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 40px 10px;
+    background-color: #A3B18A;
+    color: white;
+    border: 7px solid #3A5A40;
+    padding: 20px 20px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+}
+
+.zucchini {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 40px 10px;
+    background-color: #A3B18A;
+    color: white;
+    border: 7px solid #3A5A40;
+    padding: 20px 20px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+}
+
+.Recipe2 {
+    padding: 0px 40px 10px;
+    background-color: #A3B18A;
+    color: white;
+    border: 7px solid #3A5A40;
+    padding: 20px 20px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+}
+
+.Recipe2_body {
+    display: flex;
+    justify-content: space-between;
+    background-color: #A3B18A;
+    color: white;
+    border: 7px solid #3A5A40;
+    border-radius: 25px;
+    margin-bottom: 10px;
+}
+
+.Recipe3 {
+    padding: 0px 40px 10px;
+    background-color: #A3B18A;
+    color: white;
+    border: 7px solid #3A5A40;
+    padding: 20px 20px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+}
+
+.Recipe3_body {
+    display: flex;
+    justify-content: space-between;
+    background-color: #A3B18A;
+    color: white;
+    border: 7px solid #3A5A40;
+    border-radius: 25px;
+    margin-bottom: 10px;
 }
 
 a:link {
@@ -28,8 +134,8 @@ a:link {
     background-color: transparent;
 }
 
+
 a:visited {
     color: green;
     background-color: transparent;
-    text-decoration: none;
   }
