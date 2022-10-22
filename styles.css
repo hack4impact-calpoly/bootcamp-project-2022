@@ -114,8 +114,8 @@ a:hover {
 }
 
 .recipe-photo {
-  width: 500px;
-  min-height: 120px; 
+  width: 600px;
+  min-height: 620px; 
   max-height: auto;
   float: left;
   margin: 0px 50px 5px 0px;
