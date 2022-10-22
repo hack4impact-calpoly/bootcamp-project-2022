@@ -1,0 +1,76 @@
+* {
+  font-size: 100%;
+  font-family: Arial;
+}
+
+/* Make header 1 title to be in the middle and nav links below */
+#site-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title {
+  /* nice title style */
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 10px #000;
+}
+
+#title:hover {
+  /* nice title hover style */
+  color: rgb(77, 40, 40);
+  text-shadow: 0 0 10px #000;
+  cursor: pointer;
+}
+
+#nav-bar {
+  /* nice nav bar style */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #000;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card {
+  max-width: 400px;
+  height: 40vh;
+  border-radius: 10px;
+  border: 3px solid #7c7c7c;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease-in-out;
+}
+
+.card:hover {
+  scale: 1.02;
+  cursor: pointer;
+}
+
+.food-title {
+  text-align: center;
+}
+
+.card-prev {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+#squashsoup-img {
+  transform: scaleX(-1);
+}
+
+.food-description {
+  padding: 0% 3%;
+}
