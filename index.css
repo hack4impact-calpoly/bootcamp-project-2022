@@ -1,0 +1,31 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: start;
+    column-gap: 20px;
+    background-color: #F0FFFF;
+}
+
+.page{
+    padding: 20px;
+}
+
+.header{
+    text-align: center;
+}
+
+img{
+    width:300px;
+    height: auto;
+    padding: 20px;
+}
+
+.flex-container-recipes {
+    display: flex;
+    background-color:#F0FFFF
+}
+
+.text {
+    display: inline-block;
+}
