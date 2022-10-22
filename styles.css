@@ -47,6 +47,11 @@ a:hover {
   background-color: var(--title-backround-color);
 }
 
+#header {
+  border-bottom: var(--bar-color) 2px solid;
+  padding-bottom: 1%;
+}
+
 #title:hover {
   /* nice title hover style */
   color: var(--link-after);
@@ -67,9 +72,7 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding-top: 5%;
-  border-top: var(--bar-color) 2px solid;
-  margin-top: 1%;
+  padding-top: 4%;
 }
 
 .card {
