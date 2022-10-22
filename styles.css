@@ -1,0 +1,48 @@
+html{
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+body{
+    background-color:gainsboro;
+    margin: 0;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px;
+    justify-content: space-evenly;
+}
+.header{
+    display: flex;
+    background-color: dimgray;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color:whitesmoke;
+    padding: 0 4rem;
+}
+.nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.nav-item{
+    margin: 0 1rem;
+}
+h3 a, h3 a:active, h3 a:visited, h3 a:hover{
+    text-decoration: underline;
+    color:whitesmoke;
+}
+
+h4 a, h4 a:active, h4 a:visited, h4 a:hover{
+    text-decoration: none;
+    color:darkolivegreen;
+}
+
+.card{
+    background-color: seagreen;
+    border-radius: 4rem;
+    display: flex;
+}
