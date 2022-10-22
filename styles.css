@@ -1,13 +1,13 @@
 :root {
-  --background: #F7F9F9;
-  --foreground: #28464B;
+  --background: #f7f9f9;
+  --foreground: #28464b;
   --card-color: #f5fdff;
-  --card-border-color: #28464B;
+  --card-border-color: #28464b;
   --title-color: #326771;
   --title-border-color: #326771;
   --title-backround-color: #ecfcff;
   --nav-color: #326771;
-  --link-after: #28464B;
+  --link-after: #28464b;
   --bar-color: #365e65;
 }
 
@@ -106,4 +106,17 @@ a:hover {
 
 .food-description {
   padding: 0% 3%;
+}
+
+.recipe-title {
+  text-align: center;
+  font-size: 150%;
+}
+
+.recipe-photo {
+  width: 500px;
+  min-height: 120px; 
+  max-height: auto;
+  float: left;
+  margin: 0px 50px 5px 0px;
 }
