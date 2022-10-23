@@ -1,17 +1,17 @@
-# Milestone: {Milestone #}
-# Developer: {Full Name}
+# Milestone: 1
+# Developer: Ryan Agdassi
 
 ### Pull Request Summary
 
 {Describe the purpose of your pull request}
 
 ### Pull Request Checklist
-- [ ] Code is neat, readable, and works
-- [ ] Comments are appropriate
+- [x] Code is neat, readable, and works
+- [x] Comments are appropriate
 - [ ] The commit message follows our guidelines
-- [ ] The milestone number is specified
-- [ ] The developer name is specified
-- [ ] The summary is completed
+- [x] The milestone number is specified
+- [x] The developer name is specified
+- [x] The summary is completed
 
 ### Reviewer Checklist  - PULL REQUEST REVIEWER ONLY
 
