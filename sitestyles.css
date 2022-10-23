@@ -1,3 +1,7 @@
+html {
+    font-family: Garamond, serif;
+}
+
 body {
     margin: 0px;
     padding: 0px;
@@ -13,8 +17,8 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: oldlace;
-    padding: 10px 20px;
+    background-color: darkkhaki;
+    padding: 20px 20px;
 }
 
 .title-box {
@@ -47,7 +51,6 @@ main {
     font-size: 36px;
     align-items: center;
     justify-content: center;
-    background-color: darkkhaki;
     margin: 20px;
 }
 
@@ -57,4 +60,25 @@ main {
     border-color: gray;
     display: block;
     margin: auto;
+}
+
+.image2 {
+    width: 500px;
+    border: 5px solid;
+    border-color: gray;
+    margin: 0px;
+}
+
+.ingredient-box {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: darkkhaki;
+    margin: 20px 225px;
+    border-radius: 30px;
+    padding: 10px 10px;
+}
+
+.ingredient-list {
+    margin: 0px 50px;
+    font-size: 24px;
 }
