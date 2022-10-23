@@ -114,10 +114,11 @@ nav ul{
 main{
     display: flex;
     flex-wrap: wrap ;
+    justify-content: center;
 }
 
 .recipe{
-    width: 300px;
+    width: 30%;
     margin: 1rem;
     background-color: var(bg-color);
     box-shadow: 0 4px 5px rgba(0,0,0,0.2);
