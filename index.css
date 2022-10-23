@@ -1,3 +1,30 @@
+nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #C0B0F0;
+  display: flex;
+  align-items: center;
+
+}
+nav-ul{
+  justify-content: flex-end;
+  
+}
+
+.navlist {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  float: right;
+  flex-direction: row-reverse;
+}
 .recipe_body {
     display: flex;
     flex-wrap: wrap;
@@ -8,31 +35,19 @@
     flex-basis: 50px;
     flex-grow: 1;
 }
+.recipe {
+  background-color: #F0C0B0;
+  padding: 10px 20px;
+  margin: 20px 0px;
+  border-radius: 20px;
+  
+}
+
 
   
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  li {
-    float: left;
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  /* Change the link color to #111 (black) on hover */
-  li a:hover {
-    background-color: #111;
+  /* Change the link color to #998cc0 (black) on hover */
+  .navlist:hover {
+    background-color: #998cc0;
   }
 p {
     display: block;
@@ -41,17 +56,13 @@ p {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+h2-a{
+  font-weight: 1500;
+  color: black;
+}
 .small_image {
     width: 200px;
-    border: 5px solid;
+    /* border: 5px solid; */
     border-color: var(--deep-space-sparkle);
     border-radius: 10px;
 }
-  
-  .flex-container {
-    display: flex;
-    border: 5px solid black;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: end;
-  }
