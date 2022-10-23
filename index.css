@@ -9,16 +9,20 @@
 }
 
 .flex-container{
+    background-color: #FF5733;
     display: flex;
-    border: 2px solid black;
     flex-direction: row;
-    width: 200px;
-
     align-items: center;
-    justify-content: space-between;
 }
+
+
 
 .important{
     color: #FF5733;
-    font: 30px; 
+    font: 300px; 
 }
+
+.essential{
+    font: 500px;
+}
+
