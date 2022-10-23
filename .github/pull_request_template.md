@@ -3,12 +3,12 @@
 
 ### Pull Request Summary
 
-{Describe the purpose of your pull request}
+I completed milestone one- I updated the recipe home page and linked 3 different recipe pages and an about page. I also incorporated a css file that sets the theming and flex box's, etc for the website.
 
 ### Pull Request Checklist
 - [x] Code is neat, readable, and works
 - [x] Comments are appropriate
-- [ ] The commit message follows our guidelines
+- [x] The commit message follows our guidelines
 - [x] The milestone number is specified
 - [x] The developer name is specified
 - [x] The summary is completed
