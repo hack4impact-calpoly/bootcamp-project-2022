@@ -28,6 +28,7 @@ body{
     left: 0;
     right: 0;
     transition: all 0.3s ease-in-out;
+    z-index: 1;
 }
 
 .nav .container{
@@ -123,7 +124,7 @@ main{
     position: relative;
     overflow: hidden;
     border-radius: 3px;
-    z-index: -3;
+    
 }
 
 .recipe img{
