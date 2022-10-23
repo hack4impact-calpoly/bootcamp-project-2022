@@ -12,3 +12,8 @@ This allows us to review your work in a reasonably quick manner.
 
 For a walkthrough of how to turn in your work, check out this [Notion Page about git!](https://h4i.notion.site/Turning-in-Work-652e6bf24fac4103b30847618591a658)
 If you are still stuck, leave a message in the #cp-bootcamp-help channel on Slack, or reach out to one of your Bootcamp Instructors!
+
+# Hay's Recipe site summary
+This website is about three recipes: avocado toast, eggs and tomato, and oatmeal
+MadeWithLau was the reference used for tomato and eggs
+The other recipes were written with my limited knowledge of cooking.

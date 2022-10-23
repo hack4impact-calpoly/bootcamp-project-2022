@@ -1,10 +1,13 @@
-nav {
+/* style  nav bar */
+nav { 
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  /* make nav purple */
   background-color: #C0B0F0;
   display: flex;
+  /* make nav in center of block */
   align-items: center;
 
 }
@@ -35,10 +38,13 @@ nav-ul{
     flex-basis: 50px;
     flex-grow: 1;
 }
+
 .recipe {
+  /* make recipe block pink */
   background-color: #F0C0B0;
   padding: 10px 20px;
   margin: 20px 0px;
+  /* give recipe block rounded edges */
   border-radius: 20px;
   
 }
@@ -62,7 +68,6 @@ h2-a{
 }
 .small_image {
     width: 200px;
-    /* border: 5px solid; */
-    border-color: var(--deep-space-sparkle);
+    /* make border curved */
     border-radius: 10px;
 }
