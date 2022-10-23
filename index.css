@@ -1,0 +1,62 @@
+/* p{
+    color: blue
+} */
+/* classes apply to one or more css tags */
+.important{
+    color: red;
+    font-size: 48px;
+}
+
+.container{
+    background-color: lightskyblue;
+
+} 
+
+.flex-containter{
+    display: flex;
+    border: 5px solid black;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-flex{
+    display: flex; 
+    background-color: rgb(204, 204, 255);
+    padding: 5px;
+    flex-direction: row;
+    align-items: center;
+    font-size: 15px;
+    
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.title{
+    display: flex;
+    background-color: rgb(204, 217, 255);
+    padding: 0px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.recipe-descriptions{
+    display: flex;
+    background-color:rgb(204, 204, 255);
+    flex-direction: column;
+    align-items: left;
+    gap: 30 px;
+    padding: 30 px;
+    border: 30 px;
+    
+
+}
+.photo{
+    display: flex;
+    border-width: 20;
+    border-color: rgb(204, 204, 255);
+    align-items: center;
+}
+
