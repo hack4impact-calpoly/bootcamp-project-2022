@@ -6,7 +6,7 @@ body {
 }
 
 main {
-    padding: 10px 30px;
+    padding: 20px 0px;
 }
 
 .header {
@@ -31,4 +31,30 @@ main {
     color: gray;
     font-size: 16px;
     padding: 15px;
+}
+
+.recipe-box {
+    background-color: darkkhaki;
+    margin: 20px 225px;
+    border-radius: 30px;
+    padding: 10px 10px;
+
+}
+.recipe-title {
+    display: flex;
+    color: brown;
+    font-family: Garamond, serif;
+    font-size: 36px;
+    align-items: center;
+    justify-content: center;
+    background-color: darkkhaki;
+    margin: 20px;
+}
+
+.image {
+    width: 500px;
+    border: 5px solid;
+    border-color: gray;
+    display: block;
+    margin: auto;
 }
