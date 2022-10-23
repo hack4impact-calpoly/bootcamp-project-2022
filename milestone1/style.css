@@ -1,0 +1,75 @@
+/* tag classes */
+html {
+    background-color: #222;
+    font-family: Tahoma;
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+p {
+    color: cornsilk;
+    padding-left: 3%;
+}
+
+ul {
+    color: cornsilk;
+    padding-left: 3%;
+}
+
+ol {
+    color: cornsilk;
+    padding-left: 3%;
+}
+/* my classes */
+.header {
+    display: flex;
+    align-items: center;
+    background-color: darkgoldenrod;
+    flex-direction: column;
+    border-radius: 15px;
+    justify-content: space-around;
+    color: cornsilk;
+}
+
+.minititle {
+    display: flex;
+    color: cornsilk;
+    align-items: center;
+    padding-left: 3%;
+}
+
+.page {
+    display: flex;
+    background-color: cornsilk;
+    border-radius: 10px;
+    padding: 4px 20px;
+    margin: 10px;
+    color: #222;
+}
+
+.item {
+    display: flex;
+    width: 300px;
+    margin: 20px;
+    border: 6px solid darkgoldenrod;
+    border-radius: 10px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+}
+
+.recipe-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.recipe {
+    display: flex;
+    flex-direction: column;
+}
