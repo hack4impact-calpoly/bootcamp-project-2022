@@ -91,3 +91,8 @@ main {
     text-align: left;
     font-size: 24px;
 }
+
+.description {
+    text-align: center;
+    font-size: 24px;
+}
