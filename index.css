@@ -1,17 +1,23 @@
+body{
+    background-color: #cda4da;
+    font-family: 'Ubuntu', sans-serif;
+}
+
 .flex-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: start;
     column-gap: 20px;
-    background-color: #F0FFFF;
+    background-color: #67a5a3;
+    border-radius: 1em;
 }
 
 .page{
     padding: 20px;
 }
 
-.header{
+header{
     text-align: center;
 }
 
@@ -19,13 +25,25 @@ img{
     width:300px;
     height: auto;
     padding: 20px;
+    border-radius: 2em;
 }
 
 .flex-container-recipes {
     display: flex;
-    background-color:#F0FFFF
+    background-color:#67a5a3;
+    margin: 20px; /* gets each recipe box to have space between */
+    border-radius: 1em; /* rounded edges*/
 }
 
 .text {
     display: inline-block;
+}
+
+a{
+    color: black;
+    text-decoration: none; /*Gets rid of underline underneath links */
+}
+
+a:hover {
+    background-color: lightblue;
 }
