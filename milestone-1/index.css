@@ -1,0 +1,110 @@
+/* color palette */
+:root {
+    --light-teal: #BEE9E8;
+    --teal: #62B6CB;
+    --navy-blue: #1B4965;
+    --sky-blue: #CAE9FF;
+    --rain-blue: #5FA8D3;
+}
+
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--sky-blue);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+h1 {
+    color: white;
+    font-size: 64px;
+    font-weight: bold;
+}
+
+h2 {
+    color: white;
+    font-weight: bold;
+    background-color: var(--teal);
+    padding: 1%
+}
+
+h2 a:hover {
+    color: var(--sky-blue);
+    transition: color 0.5s;
+}
+
+/* header */
+.heading {
+    display: flex;
+    background-color: var(--navy-blue);
+    /* border: 5px solid black; */
+    justify-content: space-between;
+    flex-direction: row;
+    padding-left: 5%;
+    padding-right: 2%;
+}
+
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: bottom;
+    flex-direction: row;
+
+}
+
+.menu-item {
+    margin: 5px;
+    color: white
+}
+
+/* recipe cards */
+.recipe {
+    display: flex;
+    border: 10px solid white;
+    background-color: var(--light-teal);
+    align-items: bottom;
+    flex-direction: column;
+    margin: 5%;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+.image {
+    width: 300px;
+    border: 5px solid;
+    border-color: white;
+    border-radius: 10px;
+    margin: 2%;
+}
+
+.recipe-body {
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px solid black; */
+    flex-direction: row;
+}
+.recipe-title {
+    color: var(--navy-blue);
+    font-size: 50px;
+    font-weight: bold;
+}
+
+/* recipe pages */
+.content {
+    display: flex;
+    flex-direction: row;
+}
