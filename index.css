@@ -10,6 +10,7 @@ a{
     text-decoration: none;
 }
 
+
 .text--purple 
 {
     color: #6030b1;
@@ -19,16 +20,7 @@ h1{
     padding-left: 10%;
     padding-right: 10%;
 }
-h2{
-    background-color: #6030b1;
-    padding: 1% 1%;
-    margin-bottom: 5px;
-    border-radius: 15px;
-    width:100%;
-    color: white;
-    text-decoration: underline;
-    text-decoration-color: white;
-}
+
 /* HEADER*/
 .title_link
 {
@@ -81,7 +73,7 @@ nav{
     padding-bottom: 3%;
 }
 
-.recipe{
+.recipe-home{
     width: 95%;
     height: 400px;
     margin-left: 30px;
@@ -90,9 +82,16 @@ nav{
 
 }
 .recipe-header{
-    width: 100%;
+        background-color: #6030b1;
+        padding: 1% 1%;
+        margin-bottom: 5px;
+        border-radius: 15px;
+        width:100%;
+        color: white;
+        text-decoration: underline;
+        text-decoration-color: white;
 }
-.card-body{
+.recipe-card{
     width: 100%;
     display: flex;
     align-items: center;
@@ -101,7 +100,7 @@ nav{
 
 }
 
-.small-img-card{
+.small-img{
     border-radius: 25px;
     width: 200px;
     height: 200px;
@@ -109,8 +108,52 @@ nav{
     border: 5px solid black;
 }
 
-.card-desc{
+.card-desc-home{
     width: 80%;
     margin-left: 20px;
     color: rgb(240, 238, 238);
+}
+
+
+/* RECIPE PAGES */
+
+.recipe-page{
+    margin-top: 5%;
+    margin-left: 5%;
+    display: flex;
+}
+.big-img{
+    border-radius: 25px;
+    width: 400px;
+    height: 600px;
+    border: 5px solid black;
+}
+
+.card-desc-page{
+    padding: 3%;
+    width: 80%;
+    height: 20%;
+    margin-left: 20px;
+    border: 5px solid black;
+    border-radius: 10px;
+}
+
+.ingredients{
+    width: 80%;
+    margin-left: 20px;
+    margin-top: 20px;
+    padding-left: 3%;
+    padding-right: 3%;
+    height: 410px;
+    border-radius: 10px;
+    margin-left: 20px;
+    border: 5px solid black;
+}
+
+.ingredient-body{
+    margin-top: 2%;
+}
+
+.instructions{
+  
 }
