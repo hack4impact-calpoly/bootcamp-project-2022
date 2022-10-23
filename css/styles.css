@@ -71,7 +71,7 @@ nav ul{
 }
 
 .hero{
-    background-image: url('../img/pexels-antoni-shkraba-production-8902114.jpg');
+    background-image: url('../img/hero.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: buttom center;
@@ -105,4 +105,55 @@ nav ul{
 .hero p{
     font-size: 20px;
     letter-spacing: 1px;
+}
+
+
+main{
+    display: flex;
+    flex-wrap: wrap ;
+}
+
+.recipe{
+    width: 300px;
+    margin: 1rem;
+    background-color: var(bg-color);
+    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.recipe img{
+   
+    width: 100%;
+}
+
+.recipe-info{
+    color: var(--font-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+}
+
+.recipe-info h3{
+    margin-top: 0;
+}
+
+
+.overview{
+    background-color: gray;
+    padding: 2rem;
+    position: absolute;
+    left:0;
+    right: 0;
+    bottom:0;
+    max-height: 100%;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in;
+}
+
+.recipe:hover .overview{
+    transform: translateY(0);
 }
