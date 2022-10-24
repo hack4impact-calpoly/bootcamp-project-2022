@@ -1,0 +1,20 @@
+.about{
+    text-align: center;
+    margin-top: 100px;
+}
+.seal{
+    position: relative;
+    top: 100px;
+    width: 300px;
+    height: 250px;
+    border: 1px dashed;
+    border-color: var(--deep-space-sparkle);
+    border-radius: px;
+}
+.text{
+    margin-top: 150px;
+}
+.home{
+    margin-top: 100px;
+    font-size: larger;
+}
