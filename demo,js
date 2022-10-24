@@ -1,0 +1,60 @@
+let x = 5;
+let x2 = Math.sqrt(9);
+let x3 = Math.floor(3.2);
+let s = "This is a string";
+let s2 = "Hello";
+let s3 = `The square root of 9 is ${x2}`;
+
+// if (1 === 1) {
+//   console.log("true");
+// }
+
+if (2 <= 3) {
+  console.log("hello");
+}
+
+let numbers = [1, 2, 3];
+let empty = [2];
+empty.push(3);
+console.log(empty);
+
+// numbers.push(4);
+console.log(numbers);
+
+let [a, b, c] = numbers;
+console.log(a, b, c);
+
+let copy = [...numbers, ...numbers];
+console.log(copy);
+
+let notCopy = numbers;
+console.log(notCopy);
+
+let all = [...numbers, 10, 20, ...empty];
+console.log(all);
+
+let student = {
+  name: "Khoa",
+  major: "Computer Science",
+  year: 2,
+  id: 123,
+  classes: [101, 202],
+};
+
+console.log(student.name, student.year, student.nothing);
+console.log(`Student: ${student.name}`);
+
+let { name, year, classes } = student;
+console.log(classes);
+
+let sCopy = { ...student };
+
+sCopy.name = "Ryan";
+console.log(sCopy);
+
+if (true) {
+  console.log("hi");
+}
+
+const number = require("./newfile.js");
+console.log(number);

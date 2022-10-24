@@ -1,0 +1,87 @@
+/*
+brown color palatte
+#7e4a35 : standard brown
+#cab577 : golden tan
+#dbceb0 : beige
+#838060 : dark grey beige tone
+*/
+
+a.toolbar {
+    background: #dbceb0;
+    padding: 10px 20px;
+    border-radius: 5px;
+
+    text-align: center;
+    font-size: 18pt;
+    color:#7e4a35;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 25px;
+}
+
+a.toolbar:hover {
+    color:lightcoral;
+}
+
+h1 {
+    font-size: 44pt;
+    color: white;
+}
+
+.header-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 4%;
+    background-color: #7e4a35;
+}
+
+.recipe-section {
+    background:#cab577;
+    padding: 1% 8%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+
+.recipe-section img {
+    float: right;
+    border: 5px solid;
+    border-color: white;
+    width: 450px;
+}
+
+.recipe-section img:hover {
+    opacity: 90%;
+    border: 5px solid;
+    border-color: white;
+}
+
+h2 {
+    font-size: 32pt;
+    color:#838060;
+    font-style: italic;
+}
+
+a.recipe-name {
+    text-decoration: none;
+}
+
+/* not working.. probably b/c of h2 tag */
+a.recipe-name:hover {
+    color:lightcoral;
+}
+
+a.recipe-name:visited {
+    color:#838060;
+}
+
