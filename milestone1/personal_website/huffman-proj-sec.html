@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+        <title>igloo's portfolio</title>
+        <link rel="stylesheet" href = "style.css">
+        <script src="https://kit.fontawesome.com/2c55df8f44.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+    </head>    
+
+    <section class="huffman-page"id="huffman-page">
+        <body>
+            <div class="max-width">
+                <div class="top-sec">
+                    <a href="index.html#proj-jump">Home</a>
+                    <h2 class="title">Huffman Encoding/Decoding (python)</h2>
+                    
+                </div>
+                <div class="huffman-content">
+                    
+                        
+                        <!-- <h2 class="huffman-sec">Huffman Encoding/Decoding (python)</h2> -->
+                        <!-- go back button to go back to the index.html -->
+                        <div class="col left">
+                            <img src="images/Image 6-19-22 at 7.29 PM.jpeg">
+                            <img src="images/Image 6-19-22 at 7.30 PM (1).jpeg" alt="" class="">
+                            <img src="images/Image 6-19-22 at 7.30 PM.jpeg" alt="" class="">
+                        </div>
+
+                        <div class="col right">
+                            <div class="first">
+                                <p> 
+                                    huffman.py takes in a txt file of variable length. Shown is an example but more complicated txt files were also used.
+                                </p>
+                            </div>
+                            <div class="second">
+                                <p>
+                                    
+                                    returned was a header with ascii value followed by the number of times that character showed up in the txt file. sorted from smallest to greatest ascii value.
+                                    <span>1's and 0's represent the encoded version of the txt file. it was created by storing character and character frequency in a linked list with priority and then traversing the tree
+                                        to get 1's for every right traversal and 0's for every left traversal until finally reaching a desired character. 
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="third">
+                                <p>
+                                    <span>compressed file was also returned which contains the same header as encoded file, as well as compressed version of the string</span>
+                                    <span>to decode, the program takes in one of the two compressed files and outputs the original txt file (ex. takes in file2_soln.txt -> outputs file2.txt) </span>
+                                </p>
+                            </div>
+                        </div>
+                    
+                </div>
+
+
+
+
+            <script src ="script.js"></script>
+        </body>
+    </section>
+    
+
+</html>
+
