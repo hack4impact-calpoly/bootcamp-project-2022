@@ -1,0 +1,165 @@
+html body{
+    margin: 0;
+    /* background-color: rgba(19, 32, 75, 0.729); */
+    background-image: url('./imgs/double-bubble-dark.webp');
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+
+}
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.center{
+    justify-content: center;
+}
+
+
+h1.flex-container{
+    color: white;
+    margin: 1.5em 0em 1em 0em;
+    font-size: 40px;
+}
+
+hr{
+    margin: 0em 3em;
+    border-radius: 10%;
+    border: .2px solid rgb(132, 117, 98);
+    opacity: 80%;
+}
+
+#menu-items{
+    margin:2em 3em 1.5em 2em;
+}
+
+.menu-columns{
+    color:rgba(255, 255, 255, 0.552);
+    font-size: 20px;
+    padding-bottom: 5em;
+    flex: 0 1 auto
+}
+
+.menu-columns h2{
+    text-decoration: underline;
+    text-decoration-style: double;
+
+}
+
+.menu-columns h3{
+    font-size: 18px;
+}
+
+.menu-columns hr{
+    margin: auto auto;
+    border: .2px solid rgb(132, 117, 98);
+}
+
+.image-text span{
+    display:none;
+}
+
+h3{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.width-50{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+}
+
+.width-40{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+
+}
+
+.width-50 img{
+    width: 100%;
+    padding-right: 50%;
+    padding-bottom: 5em;
+    gap: 2em;
+    align-self: flex-end;
+}
+
+.width-40 img{
+    width: 80%;
+    margin-right: 20%;
+    padding-bottom: 5em;
+    align-self: flex-end;
+}
+
+.absolute {
+    min-width: 200px;
+    width: 200%;
+    height: 300px
+}
+
+
+li, a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 1%;
+    border-bottom: white;
+    border-bottom-width: 1px;
+    border-bottom: 1px solid white;
+    margin-bottom: 10em;
+    background-color: rgba(56, 79, 255, 0.1);
+}
+
+.logo{
+    cursor:pointer;
+    margin-right: 24px;
+}
+
+.navbar-links li{
+    display: inline-block;
+    padding: 0px 100px;
+}
+
+.menu_rows{
+    color: rgba(255, 255, 255, 0.552);
+    font-size: 20px;
+    padding-bottom: 5em;
+    flex: 0 1 auto;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.visible{
+    visibility: hidden;
+}
+
+s{
+    opacity: 50%;
+    color:red;
+}
+
+@media only screen and (min-width: 800px){
+    .hidden{
+        visibility: hidden;
+    }
+    .visible{
+        visibility: visible;
+    }
+
+}
+
+#humble{
+    color:white;
+    padding:5% 10% ;
+}

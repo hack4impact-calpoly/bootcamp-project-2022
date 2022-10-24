@@ -1,0 +1,67 @@
+html body{
+    margin: 0;
+    background-color: rgba(231, 224, 216, 0.463);
+}
+
+.flex-container{
+    display: flex;
+}
+
+.center{
+    margin: 1em 0em 1.5em 0em;
+    justify-content: center;
+}
+
+
+
+.navbar{
+    background-color: rgba(62, 62, 161, 0.44);
+    padding: 12px 0px;
+    display:flex;
+    align-items: center;
+    justify-content: right;
+    gap: 1em;
+}
+
+.navbar > a {
+    margin-right: 2em;
+    text-decoration: none;
+    font-size: large;
+}
+
+.navbar a:hover{
+    color: white;
+}
+
+.navbar a:visited{
+    color:black;
+}
+
+.navbar a:visited:hover{
+    color:white
+}
+
+.navbar .left {
+    display: flex;
+    flex-grow: 1;
+    margin-left: 1em;
+}
+
+
+
+.recipes-container{
+    border: 2px solid black;
+    margin: 2em;
+    padding: 2em 2em;
+}
+
+.recipes h2{
+    color: rgb(59, 56, 56);
+}
+
+
+#icon{
+    position: absolute;
+    width: 10%;
+    height: 10%;
+}
