@@ -9,7 +9,7 @@ body{
     justify-content: flex-start;
     align-items: start;
     column-gap: 20px;
-    background-color: #67a5a3;
+    background-color: #7bb3b1;
     border-radius: 1em;
 }
 
@@ -30,7 +30,7 @@ img{
 
 .flex-container-recipes {
     display: flex;
-    background-color:#67a5a3;
+    background-color:#7bb3b1;
     margin: 20px; /* gets each recipe box to have space between */
     border-radius: 1em; /* rounded edges*/
 }
@@ -46,4 +46,14 @@ a{
 
 a:hover {
     background-color: lightblue;
+}
+
+.steps {
+    padding: 20px;
+    line-height: 1.5;
+}
+
+.about {
+    text-align: center;
+    padding: 10px;
 }
