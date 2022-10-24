@@ -1,8 +1,11 @@
+/* Currently represents css for entire site */
+
 body{
     background-color: #cda4da;
     font-family: 'Ubuntu', sans-serif;
 }
 
+/* navbar */
 .flex-container {
     display: flex;
     flex-direction: row;
@@ -23,11 +26,12 @@ header{
 
 img{
     width:300px;
-    height: auto;
+    height: auto; /* keeps image ratio */
     padding: 20px;
     border-radius: 2em;
 }
 
+/* recipe boxes on home page and ingredients/steps on recipe pages */
 .flex-container-recipes {
     display: flex;
     background-color:#7bb3b1;
@@ -41,13 +45,15 @@ img{
 
 a{
     color: black;
-    text-decoration: none; /*Gets rid of underline underneath links */
+    text-decoration: none; /*Gets rid of prespecified link formatting */
 }
 
 a:hover {
     background-color: lightblue;
 }
 
+/* Since the boxes on the ingredients part of the recipe pages don't have a picture inside, 
+this adds some padding to them. Also increases line spacing */
 .steps {
     padding: 20px;
     line-height: 1.5;
