@@ -1,0 +1,85 @@
+
+main{
+    padding:10px 50px 10px;
+    
+}
+
+body{
+    background-color: yellow;
+}
+
+.header{
+
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    background-color: chartreuse;
+    border:5px solid chartreuse;
+    justify-content: space-between;
+    padding: 20px 20px;
+
+}
+
+.bighead{
+    font-family: "Futura-CondensedExtraBold", Futura, sans-serif; 
+    text-align: center;
+    color:chocolate;
+    font-size: 30px;
+}
+
+.recdiv{
+    font-family: "Futura-CondensedExtraBold", Futura, sans-serif; 
+    border:4px dotted blue;
+    padding:100px;
+    margin: 50px;
+}
+
+.recdiv2{
+    display:flex;
+    justify-content: space-between;
+}
+.rectit{
+    font-size: 30px;
+    color:fuchsia;
+}
+.recdes{
+    font-family: "Futura-CondensedExtraBold", Futura, sans-serif; 
+    color:orange;
+}
+
+
+.recpic{
+    width:300px;
+    height:200px;
+    padding:1px 1px;
+    border:4px dotted white;
+}
+
+
+.headermain{
+    font-size: 50px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:red;
+}
+
+.navel{
+    font-size: 20px;
+    color:blue;
+    padding:10px 30px;
+    border:2px solid gold;
+    background-color: black;
+    text-decoration: none;
+
+}
+
+
+.recnumdiv{
+    display:flex;
+    font-family: "Futura-CondensedExtraBold", Futura, sans-serif; 
+    padding:50px;
+    margin: 50px;
+}
+
+li{
+    margin:10px;
+}
