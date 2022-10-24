@@ -9,7 +9,7 @@
 
 
 body{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Almendra', serif;
     color: black;
     padding-bottom: 50px;
     margin: 0;
@@ -35,7 +35,6 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
     transition: all 0.3s ease-in-out;
 }
 
@@ -174,7 +173,6 @@ main{
     width: 100%;
     height: 100vh;
     text-align: center;
-    background-color: #ccc;
     padding-top: 10rem;
     margin-bottom: 0px;
  
@@ -198,19 +196,14 @@ main{
  } 
 
 
-
-
- /* recipe */
- 
-
 .recipe_page header{
-    background: orange;
+    background: var(--secondary-color);
     padding-top: 5px;
     padding-bottom: 5px;
  }
 
 .recipe_page header h1{
-    color: gray;
+    color: black;
     text-align: center;
     font-size: 2em;
     line-height: 1.5em;
@@ -223,7 +216,7 @@ main{
     flex-direction: row;
  } 
 .recipe_page h3{
-    color: chocolate;
+    color:var(--font-color);
     font-size: 1em;
 }
 
@@ -231,7 +224,6 @@ main{
 
 .recipe_page #left_section {
     width: 50%;
-   
     text-align: center;
     color: white;
 }
@@ -241,7 +233,7 @@ main{
 .recipe_page #left_section img{
     border-width: 2px;
     border-style: solid;
-    border-color: #672b00;
+    border-color: var(--primary-color);
     margin-left: 20px;
     margin-top: 13%;
     
@@ -270,7 +262,6 @@ main{
     .recipe{
         width: 60%;
         margin: 2rem;
-     
         box-shadow: 0 4px 5px rgba(0,0,0,0.2);
         position: relative;
         overflow: hidden;
