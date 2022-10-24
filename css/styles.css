@@ -23,7 +23,7 @@ body{
 
 .nav{
     position: fixed;
-    background-color: var(--bg-color);
+    background-color: var(--primary-color);
     top: 0;
     left: 0;
     right: 0;
@@ -60,7 +60,7 @@ nav ul{
 }
 
 .nav.active a{
-    color:#000;
+    color:var(--primary-color);
 }
 
 .nav.active .container{
@@ -87,6 +87,7 @@ nav ul{
     position: relative;
     margin-bottom: 20px;
     z-index: -2;
+    
 }
 
 .hero::before{
@@ -152,7 +153,7 @@ main{
 
 
 .overview{
-    background-color: gray;
+    background-color:var(--secondary-color);
     padding: 2rem;
     position: absolute;
     left:0;
@@ -161,6 +162,7 @@ main{
     max-height: 80%;
     transform: translateY(100%);
     transition: transform 0.3s ease-in;
+    color: #fff;
    
 }
 
