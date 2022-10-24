@@ -118,15 +118,19 @@ main{
 }
 
 .recipe{
-    width: 30%;
-    margin: 1rem;
-    background-color: var(bg-color);
+    width: 20%;
+    margin: 2rem;
     box-shadow: 0 4px 5px rgba(0,0,0,0.2);
     position: relative;
     overflow: hidden;
     border-radius: 3px;
     
 }
+
+.recipe a{
+    text-decoration: none;
+}
+
 
 .recipe img{
    
@@ -218,13 +222,13 @@ main{
  } 
 .recipe_page h3{
     color: chocolate;
+    font-size: 1em;
 }
 
  
 
 .recipe_page #left_section {
     width: 50%;
-    
    
     text-align: center;
     color: white;
@@ -237,26 +241,40 @@ main{
     border-style: solid;
     border-color: #672b00;
     margin-left: 20px;
-    margin-top: 15%;
-  
+    margin-top: 13%;
+    
     width: 60%;
 }
 
 .recipe_page #right_section{
     width: 50%;
-    
+    margin-top: 10%;
+    margin-right:10%;
     height: 100vh;
 }
 
 
 .recipe_page ol, ul{
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 
+.recipe_page header h3{
+    text-align: center;
+}
  
 
 
 @media only screen and (max-width: 768px){
+    .recipe{
+        width: 60%;
+        margin: 2rem;
+     
+        box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+        position: relative;
+        overflow: hidden;
+        border-radius: 3px;
+        
+    }
     .recipe_page h1{
         font-size: 3em;
     }
