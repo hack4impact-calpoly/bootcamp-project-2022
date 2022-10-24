@@ -116,11 +116,15 @@ nav{
 
 
 /* RECIPE PAGES */
-
-.recipe-page{
+.entire-page{
     margin-top: 5%;
     margin-left: 5%;
+}
+.recipe-page-first{
     display: flex;
+    width: 85%;
+    border-radius: 25px;
+    background-color: rgb(252, 220, 220);
 }
 .big-img{
     border-radius: 25px;
@@ -131,7 +135,7 @@ nav{
 
 .card-desc-page{
     padding: 3%;
-    width: 80%;
+    width: 100%;
     height: 20%;
     margin-left: 20px;
     border: 5px solid black;
@@ -139,21 +143,32 @@ nav{
 }
 
 .ingredients{
-    width: 80%;
-    margin-left: 20px;
+    width: 100%;
     margin-top: 20px;
-    padding-left: 3%;
-    padding-right: 3%;
     height: 410px;
-    border-radius: 10px;
     margin-left: 20px;
-    border: 5px solid black;
 }
 
 .ingredient-body{
     margin-top: 2%;
+    line-height: 30px;
 }
 
+/* INSTRUCTIONS on RECIPE PAGE*/
+
 .instructions{
-  
+    margin-top: 5%;
+    line-height: 35px;
+    width: 100%;
+    padding-bottom: 150px;
+}
+
+.recipe-header-page{
+    background-color: #6030b1;
+    padding: 1% 1%;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    width:85%;
+    color: white;
+    text-decoration-color: white;
 }
