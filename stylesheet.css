@@ -1,0 +1,124 @@
+header {
+    color: darkblue;
+    font-family: Verdana;
+    font-size: 2em;
+    display: flex;
+    flex-direction: row;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 0%;
+    margin-top: 0%;
+    background-color: aqua;
+}
+.alignrow {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.plswork{
+    background-color: aliceblue;
+    padding: 2%;
+}
+
+a{
+    color: darkgreen;
+}
+
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-container2{
+    margin: 2%;
+    justify-content: space-around;
+
+}
+
+.bigcontainer{
+    background-color:greenyellow;
+    border-radius: 30px;
+    margin-top: 3%;
+    margin-left: 13%;
+    margin-right: 13%;
+    padding: 2%;
+}
+.help{
+    display: flex;
+    padding: 20px;
+    flex-basis: auto;
+    justify-content: center;
+
+}
+
+.container2{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: whitesmoke;
+    border: 1% lightcyan;
+    margin-left: 2%;
+    margin-right: 3%;
+    padding: 1%;
+}
+
+img {
+    width: 20%;
+    height: auto;
+    border: 10px solid;
+    border-color: darkblue;
+    border-radius: 10%;
+}
+
+.floated {
+    float: left
+}
+
+.mainstuff {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3%
+}
+
+.pictures{
+    width: 30%;
+    height: auto;
+    border: 10px solid;
+    border-color: darkblue;
+    border-radius: 10%;
+}
+
+.flex-container4{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5%;
+} 
+
+.flex-container6{
+    flex-basis: auto;
+    flex-grow: 1;
+}
+
+.bar{
+    background-color: greenyellow;
+    padding: 2%;
+    display: block;
+    font-size: 18;
+    margin-block-end: 1em;
+    font-weight: bold;
+}
+
+.background{
+    background-color: lightcyan;
+}
