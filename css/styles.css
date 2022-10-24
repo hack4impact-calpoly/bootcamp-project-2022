@@ -133,7 +133,6 @@ main{
 
 
 .recipe img{
-   
     width: 100%;
 }
 
@@ -235,7 +234,7 @@ main{
     border-style: solid;
     border-color: var(--primary-color);
     margin-left: 20px;
-    margin-top: 13%;
+    margin-top: 26%;
     
     width: 60%;
 }
@@ -247,6 +246,11 @@ main{
     height: 100vh;
 }
 
+.recipe_page #description{
+    font-size: 1.2em;
+  
+    list-style: none
+}
 
 .recipe_page ol, ul{
     font-size: 1.2em;
@@ -255,7 +259,8 @@ main{
 .recipe_page header h3{
     text-align: center;
 }
- 
+
+
 
 
 @media only screen and (max-width: 768px){
@@ -270,6 +275,10 @@ main{
     }
     .recipe_page h1{
         font-size: 3em;
+    }
+    .recipe_page #description{
+        font-size: 1em;
+        list-style: none
     }
     .recipe_page ol, ul{
         font-size: 1em;
