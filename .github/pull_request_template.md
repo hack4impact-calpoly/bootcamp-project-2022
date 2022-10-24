@@ -6,12 +6,12 @@
 {Describe the purpose of your pull request}
 
 ### Pull Request Checklist
-- [ ] Code is neat, readable, and works
-- [ ] Comments are appropriate
-- [ ] The commit message follows our guidelines
-- [ ] The milestone number is specified
-- [ ] The developer name is specified
-- [ ] The summary is completed
+- [x] Code is neat, readable, and works
+- [x] Comments are appropriate
+- [x] The commit message follows our guidelines
+- [x] The milestone number is specified
+- [x] The developer name is specified
+- [x] The summary is completed
 
 ### Reviewer Checklist  - PULL REQUEST REVIEWER ONLY
 
