@@ -1,0 +1,95 @@
+/* General */
+
+body {
+    height: 100%;
+    margin: 0px;
+    overflow: hidden;
+}
+
+p, li {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header */
+
+.site-header {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#site-title-text {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    margin-left: 40vw;
+}
+
+.navigator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    color: #de2349;
+    margin-left: 0.75vw;
+    margin-right: 0.75vw;
+}
+
+/* Main */
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Recipe Info */
+
+.recipe-info {
+    overflow: auto;
+    max-width: 50vw;
+    max-height: 100vh;
+    font-size: 150%;
+    word-wrap: break-word;
+}
+
+.recipe-info-body {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 10vh;
+}
+
+.recipe-title-text {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.recipe-desc {
+
+}
+
+.ingredients-info {
+
+}
+
+.preparation-info {
+
+}
+
+.info-label {
+    margin-bottom: 0%;
+}
+
+.info-list {
+    margin-top: 0.5%;
+}
+
+/* Recipe Image */
+
+.recipe-image {
+    overflow: hidden;
+    width: 50vw;
+    height:92vh;
+}
