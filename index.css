@@ -20,6 +20,21 @@
     align-items: center;
     margin-right: 3;
     margin-left: 3;
+    justify-content: space-between;
+    padding: 5px;
+    
+}
+/*flex container for the navigation links (smaller font and in a row!)*/
+.flex-container2{
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+/*padding so that there is space between the 'home' and 'about' links*/
+.padding{
+    padding: 5px;
 }
 
 

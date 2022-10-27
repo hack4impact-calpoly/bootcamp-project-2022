@@ -9,15 +9,15 @@
     <link rel = "stylesheet" href="index.css"> <!--site wide color theme-->
 </head>
 
-<div class = "flex-container"> <!--flexbox for title and navigation. Use a bunch of &nbsp to make space between title (left)and nav (right).. hopefully I find a more efficient way to do this!-->
-    <h1> &nbsp&nbspAbout the Chef&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </h1>
+<div class = "flex-container"> <!--flexbox for title and navigation. Use a bunch of &nbsp to make space between title (left)and nav (right).. hopefully I find a more efficient way to do this! UPDATE: created flex-container2 class in index.css which allows for proper spacing btwn title and nav links!-->
+    <h1> About the Chef </h1>
         <nav>
-            <h2> <a href = "recipe.html"> Home </a> </h2> <!--nav to home-->
-            <h2> <a href = "about.html"> About </a> </h2> <!--nav to about-->
+            <div class = "flex-container2">
+                <h2 class = "padding"> <a href = "recipe.html"> Home </a> </h2> <!--nav to home-->
+                <h2 class = "padding"> <a href = "about.html"> About </a> </h2> <!--nav to about-->
         </nav>
+            </div>
+
 </div>
 
 <body style = "background-color: peachpuff;">
