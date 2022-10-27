@@ -8,6 +8,7 @@
     <link rel= "stylesheet" href= "index.css">
 </head>
 <body>
+    <!-- Banner same as all pages -->
     <div class = "banner">
         <a style = "text-decoration: none" href = "index.html">
             <div class = "banner-head">
@@ -27,10 +28,14 @@
             </a>
         </nav>
     </div>
+    <!-- Flex container for top of recipe page, which has an image to the right of the recipe name, description, and ingredients -->
     <div class = "recipe_page_flex">
+        <!-- Name, description, and ingredient list are in a column which is contained within the flex above -->
         <div class = "name_description_ingredients">
+            <!-- most text given recipe_page_text class for fixes described in the css -->
             <h2 class = "recipe_page_text"> Fudgy Brownies </h2>
             <p class = "recipe_page_text">  These are the most fudgy brownies you will ever make. Filled with chocolate chunks, these brownies will satisfy anyone who loves all things chocolate.</p>
+            <!-- The word "Ingredients" has its own color, size, and background color, hence unique class -->
             <h3 class = "ingredient_accent"> Ingredients </h3>
             <ul class = "recipe_page_text">
                 <li> 8 oz good-quality chocolate, semi-sweet </li>
@@ -43,9 +48,12 @@
                 <li> 1 teaspoon salt </li>
             </ul>
         </div>
+        <!-- image class slightly modified from the class given to the images in the recipe cards on the main page -->
         <img class = "food_full_size" src = "https://img.buzzfeed.com/video-api-prod/assets/fafe8090b4f3434f80c33b6e4ce40e24/BFV21539_BestFudgyBrownies-ThumbB1080.jpg?resize=1200:*">
     </div>
     <div class = "prep_and_list_margin">
+        <!-- Accent on "Preparation" very similar to the one on Ingredients -->
+        <!-- Seperate classes to account for the fact that the div class "recipe_page_flex" styles ingredients, but not this -->
         <h3 class = "preparation_accent"> Preparation </h3>
         <ol class = "recipe_page_text">
             <li> Preheat the oven to 350°F (180°C). Line an 8-inch (20 cm) square baking dish with parchment paper. </li>
