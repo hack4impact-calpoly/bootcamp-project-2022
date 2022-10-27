@@ -1,14 +1,13 @@
 .header {
     display: flex;
     justify-content: space-between;
-    margin: 20px;
 }
 .logo {
     font-family: Arial, Helvetica, sans-serif;
     color: #054F48;
     text-decoration: none;
-    margin: 0px 10px;
-    font-size: 85%;
+    margin: 0px 30px;
+    font-size: 80%;
 }
 nav {
     display: flex;
@@ -17,6 +16,55 @@ nav {
 .nav-links {
     font-family: Arial, Helvetica, sans-serif;
     color: #054F48;
-    margin: 0px 15px;
-    text-decoration: none;
+    margin: 0px 30px;
+}
+h2 {
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #054F48;
+    font-size: 28px;
+    margin: 32px 0 0 0;
+}
+.cards {
+    display: flex;
+    background-color: #FFCB45;
+    border-radius: 20px;
+    flex-direction: column;
+    width: 100%;
+    margin: 40px 20px 0 20px;
+}
+.card-img {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+}
+p {
+    margin: 10px 40px 60px 40px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #054F48;
+}
+.recipe-btn {
+    border: 2px solid #054F48;
+    background-color: #FFCB45;
+    color: #054F48;
+    border-radius: 40px;
+    padding: 10px;
+    margin: 50px 40px 20px 40px;
+    width: fit-content;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.three-cards {
+    display: flex;
+    margin: 0 80px 0 ;
+}
+body {
+    background-color: #FFFCF5;
 }
