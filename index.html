@@ -1,35 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Cutters</title>
+  <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-    <h1>Our first webpage</h1>
-    <h6>small header</h6>
-    <p>this is my first webpage, <br/> I can write <span>anything</span>anything I want here <a href="https://calpoly.hack4impact.org/" target = "_blank"> link to H4Impact</a></p>
-<!--
-    creating two lists
--->
-    <ul>
-    <li>first</li>
-    <li>second - these arent numbered</li>
-</ul>
-<ol>
-    <li>prepare raw ingredients</li>
-    <li>cook</li>
-    <li>eat</li>
-</ol>
+  <!-- page header -->
+  <header class="header">
+    <a class="title-container" href="index.html">
+      <h1 class="title">Cookie Cutters</h1>
+    </a>
+    <nav>
+      <a class="nav-item" href="index.html">Home</a>
+      <a class="nav-item" href="about.html">About Me</a>
+    </nav>
+  </header>
+  <!-- page content -->
+  <main>
+    <h1>Select a Cookie!</h1>
+    <!-- recipes list -->
+    <div class="card">
+      <h2><a href="recipes/recipe-1.html">Snickerdoodle</a></h2>
+      <div class="card-body">
+        <img class="img-small" src="images/snickerdoodle.jpg" alt="snickerdoodle">
+        <p class="card-text">Here's a cookie recipe just like mom made! These Classic Snickerdoodle cookies get their signature puffy texture and warm flavor via cream of tartar in the dough and a cinnamon-sugar coating.</p>
+      </div>
+    </div>
 
-<div>
-    <h2>together</h2>
-    <p>these things are hanging out together</p>
-</div>
-<button>big button</button>
-<input type="text">
+    <div class="card">
+      <h2><a href="recipes/recipe-2.html">Oatmeal-Rasin</a></h2>
+      <div class="card-body">
+        <img class="img-small" src="images/oatmeal_rasin.jpg" alt="oatmeal_rasin">
+        <p class="card-text">Oatmeal-Raisin Cookies just like grandma made! Serve with a tall glass of milk for an oatmeal cookie break that will take you back to childhood.</p>
+      </div>
+    </div>
 
-<img src="https://media-exp1.licdn.com/dms/image/C560BAQGDbdhpmxRmrg/company-logo_200_200/0/1633548684667?e=2147483647&v=beta&t=uzgi1imN65DlpVvbd0TUb-S1L4pTNXwoS0tkolTipKs" alt="this is the hack4Impact logo">
+    <div class="card">
+      <h2><a href="recipes/recipe-3.html">Gingersnaps</a></h2>
+      <div class="card-body">
+        <img class="img-small" src="images/gingersnaps.jpg" alt="gingersnaps">
+        <p class="card-text">Crisp on the edges and slightly chewy on the inside, these snappy ginger-flavor cookies are a favorite any time of the year.</p>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
