@@ -1,0 +1,28 @@
+body
+{
+    background-color: rgb(218, 100, 100);
+    color: white;
+}
+
+.header
+{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    /* align-items: center; */
+    margin: 5px;
+    /* margin-bottom: 10px; */
+    /* justify-content: space-around; */
+}
+
+.header-links {
+    display: flex;
+    list-style: none;
+    gap: 16px;
+  }
+
+  a
+  {
+    text-decoration: none;
+    color: white;
+  }
