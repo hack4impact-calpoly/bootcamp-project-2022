@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --dark-green: #a5a58d;
+    --light-green: #f0efeb;
+    --light-yellow: #fefae0;
+    --dark-brown: #392314;
+    --med-green: rgb(221, 221, 192);
+    --army-green: #303822;
+}
