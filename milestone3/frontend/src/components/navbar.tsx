@@ -5,7 +5,9 @@ import "./navbar.css";
 export default function Navbar() {
   return (
     <header>
-      <h1> Recipe Website </h1>
+      <Link to='/'>
+        <h1 className="title">Recipe Website</h1>
+      </Link>
       <nav>
         <Link to='/'>Home</Link>
         <Link to='/about'>About</Link>

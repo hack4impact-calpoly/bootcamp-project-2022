@@ -4,6 +4,7 @@ import Home from './components/Home';
 import About from './components/About';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import RecipeDetail from './components/RecipePage';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path = "about" element={<About />} />
+        <Route path='about' element={<About />} />
+        <Route path='recipe/:id' element={<RecipeDetail />} />
       </Routes>
     </BrowserRouter>
   );

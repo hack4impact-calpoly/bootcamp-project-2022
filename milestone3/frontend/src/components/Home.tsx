@@ -6,8 +6,13 @@ import './Home.css'
 export default function Home() {
   return (
     <div className='home'>
-        {recipes.map(recipe => (
-            <RecipePreview {...recipe}/>
+        {recipes.map((recipe, idx) => (
+            <RecipePreview 
+                name={recipe.name}
+                image={recipe.image}
+                description={recipe.description}
+                idx = {idx}
+            />
         ))}
     </div>
   )
