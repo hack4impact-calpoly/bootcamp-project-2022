@@ -1,12 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import RecipeCard from './components/RecipeCard';
-import recipeData from './recipeData.json';
+import RecipeCard from "./components/RecipeCard";
+import recipeData from "./recipeData.json";
+import Navbar from "./components/Navbar"
 
 function App() {
     return (
         <div className="App">
+            <Navbar />
             <main>
                 <h1 className="title">Check out some of our favorites!</h1>
                 {/* <!-- list of recipes --> */}
