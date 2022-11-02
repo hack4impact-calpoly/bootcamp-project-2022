@@ -1,3 +1,4 @@
+import "./RecipeCard.css"
 interface Recipe {
     name: string;
     image: string;
