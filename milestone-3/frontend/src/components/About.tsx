@@ -1,7 +1,7 @@
-import "./About.css"
+import "./About.css";
 import RecipeCard from "./RecipeCard";
 import recipeData from "../recipeData.json";
-import Navbar from "./Navbar"
+import Navbar from "./Navbar";
 
 function About() {
     return (
@@ -10,20 +10,21 @@ function About() {
             <main>
                 <h1 className="title-color text-center">About Me</h1>
                 <p className="abt-p text-center">
-                    I don't really know how to cook, but my roomate suggested I do
-                    baking recipes, so I included recipes to my three favorite
-                    treats. Enjoy.
+                    I don't really know how to cook, but my roomate suggested I
+                    do baking recipes, so I included recipes to my three
+                    favorite treats. Enjoy.
                 </p>
                 <h1 className="title-color text-center margin-spacing">
-                Recipe sources
+                    Recipe sources
                 </h1>
                 <ol>
                     <li className="text-center sources">
                         <a
                             className="source-links ft-size"
                             href="https://preppykitchen.com/lemon-bars/"
-                            >Lemon Bars Recipe</a
                         >
+                            Lemon Bars Recipe
+                        </a>
                     </li>
                     <li className="text-center">
                         <img
@@ -37,8 +38,9 @@ function About() {
                         <a
                             className="source-links ft-size"
                             href="https://www.tasteofhome.com/recipes/poppy-seed-cake/"
-                            >Poppy Cake Recipe</a
                         >
+                            Poppy Cake Recipe
+                        </a>
                     </li>
                     <li className="text-center">
                         <img
@@ -52,8 +54,9 @@ function About() {
                         <a
                             className="source-links ft-size"
                             href="https://tastesbetterfromscratch.com/peach-cobbler/"
-                            >Peach Cobbler Recipe</a
                         >
+                            Peach Cobbler Recipe
+                        </a>
                     </li>
                     <li className="text-center">
                         <img
