@@ -6,7 +6,6 @@ import Navbar from "./Navbar";
 function Home() {
     return (
         <div className="App">
-            <Navbar />
             <main>
                 <h1 className="title">Check out some of our favorites!</h1>
                 {/* <!-- list of recipes --> */}

@@ -6,7 +6,6 @@ import Navbar from "./Navbar";
 function About() {
     return (
         <div className="App">
-            <Navbar />
             <main>
                 <h1 className="title-color text-center">About Me</h1>
                 <p className="abt-p text-center">
