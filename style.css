@@ -1,0 +1,16 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: maroon;
+}
+
+.title-container {
+
+}
+
+h1 {
+    display: block;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
