@@ -21,6 +21,7 @@ function About() {
                         <a
                             className="source-links ft-size"
                             href="https://preppykitchen.com/lemon-bars/"
+                            target="_blank"
                         >
                             Lemon Bars Recipe
                         </a>
@@ -37,6 +38,7 @@ function About() {
                         <a
                             className="source-links ft-size"
                             href="https://www.tasteofhome.com/recipes/poppy-seed-cake/"
+                            target="_blank"
                         >
                             Poppy Cake Recipe
                         </a>
@@ -53,6 +55,7 @@ function About() {
                         <a
                             className="source-links ft-size"
                             href="https://tastesbetterfromscratch.com/peach-cobbler/"
+                            target="_blank"
                         >
                             Peach Cobbler Recipe
                         </a>
