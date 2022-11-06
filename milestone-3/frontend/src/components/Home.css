@@ -1,0 +1,92 @@
+.home {
+  display: flex;
+  background-color: #f3f1db;
+  height: 100vh;
+  color: #9dcac2;
+  min-height: 500px;
+  font-family: "Namun Gothic", sans-serif;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.home .home-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home .home-content .left {
+  width: 55%;
+}
+
+.home .home-content .text-1 {
+  font-size: 27px;
+}
+
+.home .home-content .text-2 {
+  font-size: 75px;
+  font-weight: 600;
+  margin: -3px;
+}
+
+.home .home-content .text-2 span {
+  color: darkslategray;
+  font-weight: 600;
+}
+
+.home .home-content a {
+  display: inline-block;
+  background: darkseagreen;
+  color: darkslategray;
+  font-size: 25px;
+  padding: 12px 36px;
+  margin-top: 20px;
+  border-radius: 6px;
+  border: 2px solid darkseagreen;
+  transition: all 0.3s ease;
+}
+.home .home-content a:hover {
+  color: darkslategray;
+  background: none;
+}
+
+.home .home-content .right {
+  width: 45%;
+}
+
+.home .home-profile-pic img {
+  position: relative;
+  height: 400px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-right: 100px;
+}
+
+/*slideshow container */
+.slideshow-container {
+  max-width: 400px;
+  position: relative;
+  margin: auto;
+}
+/* images hidden by default */
+.mySlides {
+  display: none;
+}
+/* next and prev butt */
+.slideshow-container .prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6 ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
