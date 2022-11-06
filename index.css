@@ -1,8 +1,6 @@
-.title{
-    
+.title{    
     background-color: whitesmoke; 
-    border-radius: 25px;
-  
+    border-radius: 25px;  
 }
 
 .title-container{
@@ -14,7 +12,6 @@
     align-items: center;
     margin-bottom: 2%;
     padding-bottom: 1%;
-
 }
 
 .nav-item{
@@ -22,13 +19,6 @@
     font-family: Didot, serif;
     align-items: center;
     justify-content: space-between;
-}
-
-.flex-container{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2%;
-
 }
 
 .recipe-container{
@@ -63,13 +53,14 @@ button{
 button:hover {
     background-color: #4CAF50; 
     color: white;
-  }
+    cursor: pointer
+}
 
-h3{
+h3 {
     text-decoration: underline;
 }
 
-h2{
+h2 {
     padding: 2%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: lavender;
@@ -79,7 +70,7 @@ h2{
     
 }
 
-h1{
+h1 {
     color: transparent;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: xx-large;
@@ -90,7 +81,6 @@ h1{
     background-size: 1000%;
     -webkit-background-size: 1000%;
 }
-
 
 /* for color changing text animation in navigation bar */
 @keyframes animate{
