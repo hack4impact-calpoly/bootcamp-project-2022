@@ -8,9 +8,7 @@ export default function Navbar() {
     <nav>
       <div className="container">
         <div className="nav-wrapper">
-          <a href="index.html">
-            <img src={eggstroke} alt="eggielogo" width="50px" />
-          </a>
+            <Link to="/"><img src={eggstroke} alt="eggielogo" width="50px" /></Link>
           <ul className="nav-menu">
             <Link to="/">
               <li>home</li>
