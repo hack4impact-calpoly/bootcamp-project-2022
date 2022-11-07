@@ -7,8 +7,8 @@
 .nav-menu{
     display: flex;
     flex-direction: row; 
-    justify-content: ;
-    align-items: flex-start;
+    justify-content: space-evenly;
+    align-items: center;
 
     border-color: black;
     border-width: 2pt;
@@ -23,14 +23,16 @@
 }
 
 .nav-text{
-    margin: 15pt;
+    margin: 10pt;
     flex-shrink: 0;
     font-size: 14pt;
     color: var(--text-color);
 }
 
 .nav-image{
-    margin: 15pt;
+    margin: 10pt;
     flex-shrink: 0;
+    width: 40px;
+    height: auto;
 }
 
