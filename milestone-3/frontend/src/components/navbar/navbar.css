@@ -1,0 +1,36 @@
+.nav-wrapper {
+  display: flex;
+  padding: 10px 0px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--pale);
+  color: var(--main-accent);
+}
+
+nav h2 {
+  font-weight: 600;
+  font-size: 2em;
+}
+
+nav img {
+  cursor: pointer;
+}
+
+.nav-menu {
+  display: flex;
+  list-style-type: none;
+  margin: none;
+  gap: 10px;
+}
+
+.nav-menu li {
+  cursor: pointer;
+  color: var(--gray);
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+
+.nav-menu li:hover {
+  color: var(--sub-accent);
+}

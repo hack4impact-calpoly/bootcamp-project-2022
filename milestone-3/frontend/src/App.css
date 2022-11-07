@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  box-sizing: border-box;
+
+  --pale: #f7f5f4;
+  --pale-d: #ddd2cc;
+  --white: #fff;
+  --black: #000;
+  --light-gray: #dadada;
+  --gray: #9b9a99;
+  --paler: #fcfaf8;
+  --main-accent: #df7f60;
+  --sub-accent: #99ab82;
+}
+
+a {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+
+a:hover {
+  color: var(--main-accent);
+}

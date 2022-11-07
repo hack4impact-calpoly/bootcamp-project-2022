@@ -1,0 +1,36 @@
+.recipe-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  width: 33%;
+  background-color: var(--paler);
+  border-radius: 10px;
+  box-shadow: 2px 2px 7px var(--light-gray);
+}
+
+.recipe-l img {
+  border-radius: 150px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  box-shadow: 2px 2px 7px var(--gray);
+}
+
+.recipe-r .recipe-title {
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  text-align: center;
+  color: var(--sub-accent);
+  cursor: pointer;
+}
+
+.recipe-r .recipe-title:hover {
+  color: var(--main-accent);
+}
+
+.recipe-r .recipe-descrip {
+  color: var(--black);
+}
