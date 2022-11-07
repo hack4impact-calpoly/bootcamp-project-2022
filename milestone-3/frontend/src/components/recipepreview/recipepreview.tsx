@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom";
 import './recipepreview.css';
 
 interface recipePreviewProps {
@@ -17,9 +18,7 @@ export default function RecipePreview({name, desc, image}: recipePreviewProps){
       />
     </div>
     <div className="recipe-r">
-      <a href="quinoa.html"
-        ><h4 className="recipe-title">{name}</h4></a
-      >
+      <Link to={`recipe/:${name}`}><h4 className="recipe-title">{name}</h4></Link>
       <p className="recipe-descrip">
         {desc}
       </p>
