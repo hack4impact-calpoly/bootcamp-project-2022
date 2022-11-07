@@ -1,4 +1,5 @@
 import React from "react";
+import eggstroke from "../../images/eggstroke.png";
 import "./navbar.css";
 
 export default function Navbar() {
@@ -9,7 +10,7 @@ export default function Navbar() {
     <div className="container">
       <div className="nav-wrapper">
         <a href="index.html"
-          ><img src="images/eggstroke.png" alt="eggielogo" width="50px"
+          ><img src={eggstroke} alt="eggielogo" width="50px"
         /></a>
         <ul className="nav-menu">
           <a href="index.html"><li>home</li></a>
