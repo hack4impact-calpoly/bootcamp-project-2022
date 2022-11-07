@@ -1,4 +1,5 @@
 import recipes from "../../recipeData";
+import cookinggirl from "../../images/Cooking-pana.png";
 import RecipePreview  from "../recipepreview/recipepreview";
 import "./home.css";
 
@@ -18,7 +19,7 @@ export const Home = () => {
                   </p>
                 </div>
                 <div className="hero-r">
-                  <img src="images/Cooking-pana.png" alt="girl cooking" />
+                  <img src={cookinggirl} alt="girl cooking" />
                 </div>
               </div>
             </div>
