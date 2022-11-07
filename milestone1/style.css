@@ -213,3 +213,15 @@ body {
   margin: 10px 0px;
   list-style-position: inside;
 }
+
+/* about */
+.about-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 35vh;
+  justify-content: center;
+  background-color: var(--paler);
+  border-radius: 10px;
+  border: 1px solid var(--black);
+}
