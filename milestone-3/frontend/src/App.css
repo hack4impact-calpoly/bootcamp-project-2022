@@ -25,3 +25,9 @@ a {
 a:hover {
   color: var(--main-accent);
 }
+
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
