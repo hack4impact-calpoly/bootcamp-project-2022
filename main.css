@@ -4,7 +4,8 @@
     --text-color: hsl(4, 46%, 49%);
 }
 
-.nav-menu{
+/*Top menu bar*/
+.nav-menu{ 
     display: flex;
     flex-direction: row; 
     justify-content: space-evenly;
@@ -22,6 +23,7 @@
     border-color: var(--border-color);
 }
 
+/*Any text items in the top menu bar*/
 .nav-text{
     margin: 10pt;
     flex-shrink: 0;
@@ -29,6 +31,7 @@
     color: var(--text-color);
 }
 
+/*Icon in the top menu bar*/
 .nav-image{
     margin: 10pt;
     flex-shrink: 0;
@@ -36,6 +39,7 @@
     height: auto;
 }
 
+/*Container containing recipe cards*/
 .recipe-container{
     display: flex;
     flex-direction: column;
@@ -50,6 +54,7 @@
     margin-right: auto;
 }
 
+/*Recipe cards*/
 .recipe{
     display: flex;
     flex-direction: column;
