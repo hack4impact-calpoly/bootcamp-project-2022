@@ -1,0 +1,34 @@
+li {
+  color: white;
+  text-decoration: underline;
+  font-weight: 300;
+}
+
+.link {
+  text-decoration: none;
+}
+
+li:hover {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bg {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: #f4978e; 
+  color: #ffdab9;
+  box-shadow: 0 0 10px rgba(0,0,0,0.26);
+}

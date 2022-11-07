@@ -1,0 +1,55 @@
+.bigImage {
+  width: 500px;
+  height: 500px;
+  border-radius: 10px;
+  margin: 1rem;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.26);
+}
+
+.recipePanel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.26);
+  gap: 3rem;
+  border-radius: 10px;
+  color: black;
+}
+
+
+.preparationPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.26);
+  border-radius: 10px;
+  color: black;
+}
+
+.preparationPanel li {
+  color: black;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.recipePanel li {
+  color: black;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.recipePanel ul {
+  list-style-type: disc; 
+  list-style-position: inside; 
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  align-items: flex-start;
+}

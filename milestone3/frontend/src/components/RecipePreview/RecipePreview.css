@@ -1,0 +1,27 @@
+.recipeBoxContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.recipeBox {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  background-color: #ffdab9;
+  padding: 1rem;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.26);
+}
+
+.recipeBox a {
+  color: #f4978e;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.recipeBox p {
+  color: #343434;
+  font-weight: 300;
+}

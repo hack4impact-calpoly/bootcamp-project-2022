@@ -1,0 +1,24 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 2rem 2rem 2rem;
+}
+
+h1 {
+  font-weight: 100;
+}
+
+h2 {
+  font-weight: 100;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
