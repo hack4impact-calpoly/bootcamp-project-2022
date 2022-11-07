@@ -8,6 +8,7 @@ import recipeData from "./recipeData.json";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
+import RecipePreview from "./components/RecipePreview";
 
 function App() {
     return (
@@ -17,6 +18,18 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
+                    <Route
+                        path="/recipes"
+                        element={recipeData.map((recipe) => (
+                            <RecipePreview
+                                name={recipe.name}
+                                image={recipe.image}
+                                desc={recipe.description}
+                                ingredients={recipe.ingredients}
+                                instructions={recipe.instructions[0]}
+                            />
+                        ))}
+                    />
                 </Routes>
             </BrowserRouter>
         </div>
