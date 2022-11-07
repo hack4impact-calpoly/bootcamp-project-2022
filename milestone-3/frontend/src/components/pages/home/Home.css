@@ -1,0 +1,61 @@
+/* Home */
+#body-home {
+    background-color: white;
+    height: 100%;
+    margin: 0px;
+    overflow: hidden;
+}
+
+#home-main {
+    padding: 0.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    overflow: auto;
+    max-height: 100vh;
+}
+
+#dishlist-title-text {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 1vw;
+}
+
+#dish-list {
+    
+}
+
+.dish-card {
+    background-color: black;
+    padding: 1vw;
+    border-radius: 2vw;
+    margin-bottom: 2.5vh;
+}
+
+.dish-title-text {
+    color: #de2349;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-left: 0.5vw;
+}
+
+.dish-card-body {
+    display: flex;
+}
+
+.dish-image {
+    border: 8px solid;
+    border-radius: 6%;
+    border-color: aqua;
+}
+
+.dish-image:hover {
+    border: 8px solid;
+    border-radius: 6%;
+    border-color: yellow;
+}
+
+.dish-desc {
+    margin-left: 1vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: larger;
+}

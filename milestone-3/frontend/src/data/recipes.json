@@ -1,0 +1,83 @@
+{
+    "list": [
+        {
+            "id": "0",
+            "name": "Superfood Tomato Soup",
+            "desc": "Amazing soup filled with healthy superfoods that is sure to make any food connoisseur jump for joy.",
+            "imagePath": "res/images/recipe1.png",
+            "ingredients": [
+                "1 serving Tomato Basil Soup",
+                "~3 pieces of steak",
+                "1 Tuna&Veggie Patty",
+                "10 blueberries",
+                "2 tbsp. onion",
+                "2 tbsp. cilantro",
+                "2 tbsp. carrots and raisins",
+                "2 tbsp. olive oil",
+                "Chipotle Black Pepper (spice)",
+                "Chipotle Tobasco Sauce",
+                "1 tbsp. Cheddar Monterey Jack shredded cheese mix"
+            ],
+            "preparation": [
+                "Cook the steaks and prepare it by cutting them into pieces.",
+                "Cook the Tuna&Veggie patty and prepare it by cutting it into pieces.",
+                "Cook carrots and raisins together with olive oil on the stove.",
+                "Cook the tomato basil soup in a bowl either by microwave or on the stove (according to package instructions).",
+                "After getting to a good temperature, throw in the onions, cilantro, pieces of tuna&veggie patty, and pieces of steak.",
+                "Put in the carrots and raisins.",
+                "Sprinkle chipotle black pepper spice and put in chipotle tobasco sauce.",
+                "Enjoy the masterpiece!"
+            ]
+        },
+        {
+            "id": "1",
+            "name": "Hearty Fiesta Sandwich",
+            "desc": "Oriental dish of legends with a varied history. It's like a party in your mouth!",
+            "imagePath": "res/images/recipe2.png",
+            "ingredients": [
+                "1 piece of sandwich bread ", 
+                "1 chicken patty", 
+                "3 tbsp. Lean Ground Beef", 
+                "14 blueberries", 
+                "Handful of fruity pebbles", 
+                "1 tbsp cream cheese", 
+                "Cholula Chipotle Sauce", 
+                "Pepper"
+            ],
+            "preparation": [
+                "Cut the sandwich bread in half.", 
+                "Microwave the chicken patty for 1.25 minutes.", 
+                "Cut the chicken patty into pieces.", 
+                "Cook and prepare the ground beef.", 
+                "Put the ground beef on one half of the bread and the chicken pieces on the other half.", 
+                "Put the fruity pebbles and blueberries in the sandwich.", 
+                "Put the chipotle sauce on.", 
+                "Glue it together with the cream cheese.",
+                "Bon apetit!"
+            ]
+        },
+        {
+            "id": "2",
+            "name": "Crunchy Blueberry Yakisoba",
+            "desc": "A wild card of a dish that defies tradition in order to go for a fresh, new taste.",
+            "imagePath": "res/images/recipe3.png",
+            "ingredients": [
+                "1 serving Yakisoba", 
+                "A lot of blueberries", 
+                "Handful of Granola", 
+                "Curry Sauce", 
+                "Garlic sauce", 
+                "2 eggs", 
+                "1 tbsp olive oil"
+            ],
+            "preparation": [
+                "Put olive oil into a pan and cook both eggs in there.", 
+                "After cooking, put them into a bowl to use as a base.", 
+                "Cook Yakisoba according to the packaging instructions. Put it in the bowl on top of the eggs.", 
+                "Put granola and blueberries on top.", 
+                "Put garlic and curry sauce on the dish.", 
+                "C'est extraordinairement délicieux! Enjoy!"
+            ]
+        }
+    ]
+}
