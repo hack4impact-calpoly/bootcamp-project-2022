@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { ChangeEvent, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import recipes from '../recipeData';
 import './RecipePage.css'
 
-export default function RecipeDetail() {
+export default function RecipePage() {
     const { id } = useParams();
     const recipe = recipes[Number(id)];
+    const [newIngredient, setNewIngredient] = useState('');
+    const [allIngredients, setAllIngredients] = useState(recipe.ingredients)
     
     return (
         <div className='recipe-page'>
@@ -19,10 +21,18 @@ export default function RecipeDetail() {
                     <div className="ingredients">
                         <h2>Ingredients</h2>
                         <ul>
-                            {recipe.ingredients.map((item, idx) => (
+                            {allIngredients.map((item, idx) => (
                                 <li key={idx}>{item}</li>
                             ))}
                         </ul>
+                        <input
+                            placeholder='2 cups of spinach'
+                            value={newIngredient}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => setNewIngredient(e.target.value)}
+                        />
+                        <button onClick={() => setAllIngredients([...allIngredients, newIngredient])}>
+                            Add Ingredient
+                        </button>
                     </div>
                 </div>
             </div>
