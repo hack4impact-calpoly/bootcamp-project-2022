@@ -1,27 +1,21 @@
-interface Recipe {
+import { Link } from "react-router-dom";
+
+export interface RecipePreviewData {
+  id: number;
   name: string;
-  link: string;
-  desc: string;
+  description: string;
   image: string;
+  imgAlt: string;
 }
 
-function RecipePreview(props: Recipe) {
+export default function RecipePreview(props: RecipePreviewData) {
   return (
-    <div className="recipe">
-      <h4>
-        <a href={props.link + ".html"}>{props.name}</a>
-      </h4>
-      <p>{props.desc}</p>
-
-      <div className="flex-content">
-        <h2>
-          <a href={props.link + ".html"}>{props.name}</a>
-        </h2>
-        <p>{props.desc}</p>
-        <img className="flex-image" src={props.link} />
-      </div>
+    <div className="flex-content">
+      <h2>
+        <Link to={"/recipe/" + props.id}>{props.name}</Link>
+      </h2>
+      <p>{props.description}</p>
+      <img className="flex-image" src={props.image} alt={props.imgAlt} />
     </div>
   );
 }
-
-export default RecipePreview;

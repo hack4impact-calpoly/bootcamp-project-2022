@@ -1,16 +1,16 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
+
 export default function Navigation() {
-  return ( 
-    <header>
+  return (
+    <header className="header">
       <h1>
-        <a href="index.html">Sam's Recipes</a>
+        <Link to="/">Sam's Recipes</Link>
       </h1>
       <nav>
-        <h3 className="nav-item">
-          <a href="index.html">Home</a>
-        </h3>
-        <h3 className="nav-item">
-          <a href="about.html">About</a>
-        </h3>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
       </nav>
     </header>
   );
