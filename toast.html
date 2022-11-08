@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="recipes.css">
     <title>Document</title>
 </head>
-<body>
+<body class="background-color">
+    <!--Banner at the top of the page (icon, site title, then navigation)-->
     <header class="header">
         <img src="site-icon.png" class="site-icon">
         <h1><em>that</em> easy</h1>
@@ -16,6 +17,35 @@
             About
         </nav>
     </header>
+    <main>
+        <!--A flexbox organizing the ingredients and recipe cards-->
+        <div class="ingredients-recipe-layout">
+            <!--Ingredients card (unordered list)-->
+            <div class="ingredients-or-recipe">
+                <h2>Ingredients</h2>
+                <ul class="ingredients-or-recipe-text">
+                    <li>Bread (ideally stale and a week old--why else would you make toast?)</li>
+                    <li>A toaster</li>
+                    <li>Forgetfulness</li>
+                    <li>Butter straight from the fridge that will <em>not</em> spread</li>
+                </ul>
+            </div>
+            <!--Recipe card (ordered list)-->
+            <div class="ingredients-or-recipe">
+                <h2>Recipe</h2>
+                <ol class="ingredients-or-recipe-text">
+                    <li>Remove the bread from bag, if necessary.</li>
+                    <li>Place in toaster and press down on tab, ensuring that the heat setting is too low.</li>
+                    <li>Wait until the toast is done.</li>
+                    <li>Notice that the toast is undertoasted and press down on the tab again to continue toasting.</li>
+                    <li>Find a distraction until the second toasting cycle completes, making sure to entirely ignore any odd smells.</li>
+                    <li>Return to a charred piece of toast, ready for buttering.</li>
+                    <li>Destroy this piece of toast with butter straight from the fridge.</li>
+                    <li>Ignore the mistakes; class starts soon.</li>
+                </ol>
+            </div>
+        </div>
+    </main>
 
     
 </body>
