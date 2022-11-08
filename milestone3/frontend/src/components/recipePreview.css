@@ -1,0 +1,37 @@
+.recipe-box {
+    background-color: darkkhaki;
+    margin: 20px 225px;
+    border-radius: 30px;
+    padding: 10px 10px;
+
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: oldlace;
+    height: 100%;
+    font-family: Garamond, serif;
+}
+
+main {
+    padding: 20px 0px;
+}
+
+.recipe-title {
+    display: flex;
+    color: brown;
+    font-family: Garamond, serif;
+    font-size: 36px;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.image {
+    width: 500px;
+    border: 5px solid;
+    border-color: gray;
+    display: block;
+    margin: auto;
+}
