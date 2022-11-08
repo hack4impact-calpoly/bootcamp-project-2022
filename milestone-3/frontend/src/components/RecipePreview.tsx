@@ -2,7 +2,7 @@ interface Recipe {
   name: string;
   link: string;
   desc: string;
-//   image: string;
+  image: string;
 }
 
 function RecipePreview(props: Recipe) {
@@ -12,6 +12,14 @@ function RecipePreview(props: Recipe) {
         <a href={props.link + ".html"}>{props.name}</a>
       </h4>
       <p>{props.desc}</p>
+
+      <div className="flex-content">
+        <h2>
+          <a href={props.link + ".html"}>{props.name}</a>
+        </h2>
+        <p>{props.desc}</p>
+        <img className="flex-image" src={props.link} />
+      </div>
     </div>
   );
 }

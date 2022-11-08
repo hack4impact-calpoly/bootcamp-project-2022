@@ -1,21 +1,23 @@
 import "./App.css";
 import RecipePreview from "./components/RecipePreview";
-import Navigation from "./components/Navigation";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import RecipePage from "./components/RecipePage";
+import About from "./components/About";
 import recipeData from "./recipeData.json";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <body>
-      <Navigation />
-      <main>
-        <div className="content">
-          <h1>Recipes</h1>
-          {recipeData.map((x) => (
-            <RecipePreview name={x.name} desc={x.desc} link={x.link} />
-          ))}
-        </div>
-      </main>
-    </body>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/recipe/:name" element={<RecipePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
