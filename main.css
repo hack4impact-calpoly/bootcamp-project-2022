@@ -10,7 +10,7 @@ and horizontal centering easily*/
 .page-card-wrapper{
 
     display: flex; 
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     min-height: 98vh;
@@ -28,6 +28,34 @@ and horizontal centering easily*/
     background-color: var(--page-color);
     padding: 20pt;
     border-radius: 4pt;
+    transform: translateX(80pt)
+}
+
+/*Styling for the page's description paragraph*/
+.description-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+    flex-wrap: wrap;
+    max-width: 100pt;
+    margin-left: 35pt;
+    font-size: 24pt;
+    color: var(--text-color);
+}
+
+.description-layout-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 50pt;
+    transform: translateX(80pt)
+} 
+
+.logo-text{
+    font-size: 72pt;
+    padding: 10pt;
+    color: var(--text-color);
 }
 
 /*Top menu bar*/
