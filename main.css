@@ -2,6 +2,34 @@
     --border-color: #F07167;
     --container-color: #FED9B7;
     --text-color: hsl(4, 46%, 49%);
+    --page-color: #FED9B7;
+}
+
+/*Meant to encase the page card (below) in a table cell, which allows vertical
+and horizontal centering easily*/
+.page-card-wrapper{
+
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 98vh;
+}
+
+/*Flexbox that will make the page appear as a single "card"*/
+.page-card{
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    height: fit-content;
+    width: fit-content;
+    align-items: center;
+
+    top-margin: 50%;
+
+    background-color: var(--page-color);
+    padding: 20pt;
+    border-radius: 4pt;
 }
 
 /*Top menu bar*/
