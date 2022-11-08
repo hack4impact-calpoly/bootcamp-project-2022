@@ -1,0 +1,39 @@
+:root{
+    --border-color: #F07167;
+    --container-color: #FED9B7;
+    --text-color: #b64b43;
+    --page-color: #FCF0DC;
+    --container-border-color: #FFD1A7;
+    --mid-color: #f9b699;
+}
+
+.nav-member{
+    margin: 1em;
+    color: var(--text-color);
+}
+
+nav{
+    justify-self: flex-end;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #FED9B7;
+    border-radius: 1em;
+}
+
+h1{
+    color: var(--text-color);
+    margin-left: 0em;
+}
+
+.site-icon{
+    width: 3em;
+    padding: 1em;
+}
+
+.
+
+
