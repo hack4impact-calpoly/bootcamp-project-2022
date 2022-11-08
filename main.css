@@ -70,7 +70,6 @@ and horizontal centering easily*/
     justify-content: space-evenly;
     align-items: center;
 
-    border-color: black;
     border-width: 2pt;
     border-style: solid;
     border-radius: 4pt;
