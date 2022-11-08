@@ -66,9 +66,11 @@ h1{
     transform: translate(0, -3em);
 }
 
-h1{
+/*Intended to modify h1 to fit the title of the card*/
+.card-title{
     font-size: 36;
     color: var(--border-color);
+    margin-bottom: 0em;
 }
 
 /*Defines qualities of any text in the "About the Chef" card*/
