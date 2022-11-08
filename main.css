@@ -133,6 +133,7 @@ and horizontal centering easily*/
     height: 40px;
 }
 
+/*Styling information for the text in each recipe*/
 .recipe-text{
     color: var(--text-color);
     margin: 10pt;
