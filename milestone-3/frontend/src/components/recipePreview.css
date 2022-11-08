@@ -1,0 +1,37 @@
+/* recipes on home page */
+.recipe {
+    display: flex;
+    border: 10px solid white;
+    background-color: var(--light-teal);
+    align-items: bottom;
+    flex-direction: column;
+    margin: 5%;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+.image {
+    width: 300px;
+    border: 5px solid;
+    border-color: white;
+    border-radius: 10px;
+    margin: 2%;
+}
+
+.recipe-body {
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px solid black; */
+    flex-direction: row;
+}
+.recipe-title {
+    color: var(--navy-blue);
+    font-size: 50px;
+    font-weight: bold;
+}
+
+/* recipe pages */
+.content {
+    display: flex;
+    flex-direction: row;
+}
