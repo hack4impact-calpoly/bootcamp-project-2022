@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import RecipePreview from "./components/RecipePreview";
+import Navigation from "./components/Navigation";
+import recipeData from "./recipeData.json";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <body>
+      <Navigation />
+      <main>
+        <div className="content">
+          <h1>Recipes</h1>
+          {recipeData.map((x) => (
+            <RecipePreview name={x.name} desc={x.desc} link={x.link} />
+          ))}
+        </div>
+      </main>
+    </body>
   );
 }
 

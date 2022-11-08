@@ -36,3 +36,123 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Colour Scheme */
+:root{
+  --dark-olive-green: #606c38ff;
+  --kombu-green: #283618ff;
+  --cornsilk: #fefae0ff;
+  --earth-yellow: #dda15eff;
+  --liver-dogs: #bc6c25ff;
+}
+
+html{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  height: 100%;
+}
+/* -----All pages----- */
+/* Full width body with background colour */
+body{
+  background-color:var(--cornsilk);
+  width: 100%;
+  padding: 0 0 1rem 0;
+  margin: 0;
+  color: var(--kombu-green);
+}
+header{
+  display: flex;
+  background-color: var(--kombu-green);
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color:whitesmoke;
+  padding: 0 2em;
+}
+/* Aligns links next to each other*/
+nav{
+  display: flex;
+  align-items: center;
+}
+
+.nav-item{
+  margin: 0 1rem;
+}
+
+h3 a, h3 a:active, h3 a:visited, h3 a:hover{
+  text-decoration: underline;
+  color:var(--cornsilk);
+  font-weight: normal;
+}
+
+/* Main rounded content box with background colour */
+main{
+  margin: 1rem 5rem;
+  padding: 1rem 2rem;
+  background-color:var(--earth-yellow);
+  border-radius: 4rem;
+}
+
+/* Align content in center of main box */
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/* -----Homepage----- */
+h1 a, h1 a:active, h1 a:visited, h1 a:hover{
+  text-decoration: none;
+  color:var(--cornsilk);
+}
+
+.recipe{
+  border: solid 0.3rem var(--kombu-green) ;
+  border-radius: 2rem;
+  margin: 0.2rem;
+  padding: 0.1rem 2rem 0.1rem 2rem;
+  text-decoration: none;
+  background-color: var(--dark-olive-green);
+  text-align: center;
+}
+
+.recipe p{
+  color:var(--cornsilk);
+}
+
+h4 a, h4 a:active, h4 a:visited{
+  text-decoration: none;
+  color:var(--cornsilk);
+}
+
+h4 a:hover{
+  text-decoration: none;
+  color:var(--liver-dogs);
+}
+
+/* -----Recipe pages----- */
+.content h1{
+  background-color: var(--liver-dogs);
+  width: 100%;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+h2{
+  background-color: var(--liver-dogs);
+  width: 100%;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+/* Image scaling */
+img{
+  max-width: 50%;
+  max-height: 100%;
+}
+
+/* -----About page----- */
+h4{
+  text-align: center;
+}
