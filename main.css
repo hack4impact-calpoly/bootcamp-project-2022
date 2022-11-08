@@ -2,18 +2,20 @@
     --border-color: #F07167;
     --container-color: #FED9B7;
     --text-color: hsl(4, 46%, 49%);
-    --page-color: #FED9B7;
+    --page-color: #FCF0DC;
+    --container-border-color: #FFD1A7;
+    --mid-color: #f9b699;
 }
 
 /*Meant to encase the page card (below) in a table cell, which allows vertical
 and horizontal centering easily*/
 .page-card-wrapper{
-
     display: flex; 
     flex-direction: row;
     justify-content: center;
     align-items: center;
     min-height: 98vh;
+    background-color: var(--page-color);
 }
 
 /*Flexbox that will make the page appear as a single "card"*/
@@ -25,7 +27,10 @@ and horizontal centering easily*/
     width: fit-content;
     align-items: center;
 
-    background-color: var(--page-color);
+    background-color: var(--container-color);
+    border-color: var(--container-border-color);
+    border-width: 4pt;
+    border-style: solid;
     padding: 20pt;
     border-radius: 4pt;
     transform: translateX(80pt)
@@ -55,7 +60,7 @@ and horizontal centering easily*/
 .logo-text{
     font-size: 72pt;
     padding: 10pt;
-    color: var(--text-color);
+    color: var(--border-color);
 }
 
 /*Top menu bar*/
@@ -73,7 +78,7 @@ and horizontal centering easily*/
     margin: 0;
     width: fit-content;
     margin: auto;
-    background-color: var(--container-color);
+    background-color: var(--mid-color);
     border-color: var(--border-color);
 }
 
@@ -113,7 +118,7 @@ and horizontal centering easily*/
     display: flex;
     flex-direction: column;
 
-    background-color: var(--container-color);
+    background-color: var(--container-border-color);
     border-radius: 4pt;
     margin: 15pt;
     padding: 10pt;
