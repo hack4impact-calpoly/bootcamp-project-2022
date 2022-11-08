@@ -2,21 +2,23 @@ import React from 'react';
 import { Recipe } from '../recipeData';
 import { Link } from 'react-router-dom';
 import './recipePreview.css'
+import internal from 'stream';
 
-interface recipePreviewProps {
+interface RecipePreviewProps{
   name: string,
   image: string,
-  description: string,
-  idx: number
+  description: string;
+  external: boolean;
+  idx: Number;
 }
 
-export default function RecipePreview({ name, image, description, idx }: recipePreviewProps) {
+export default function RecipePreview({ name, image, description, external, idx }: RecipePreviewProps) {
   return (
     <div className="recipe-container">
-        <Link to={`recipe/${idx}`} className="recipe-name">{name}</Link>
+        <Link to={ external ? `externalRecipe/${name}` : `recipe/${idx}`} className="recipe-name">{name}</Link>
         <div className="recipe-info">
-            <img src={image} alt="img" />
-            <p className="recipe-description">{description}</p>
+          <img src={image} alt="img" />
+          <p className="recipe-description">{description}</p>
         </div>
     </div>
   );

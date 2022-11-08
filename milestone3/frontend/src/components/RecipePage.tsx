@@ -1,15 +1,30 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import recipes from '../recipeData';
 import './RecipePage.css'
 
-export default function RecipePage() {
-    const { id } = useParams();
-    const recipe = recipes[Number(id)];
+interface RecipePageProps {
+    external: boolean;
+}
+
+export default function RecipePage(props: RecipePageProps) {
+    const { name, id } = useParams();
+    const defaultRecipe = recipes[Number(id)];
+    const [recipe, setRecipe] = useState(defaultRecipe)
     const [newIngredient, setNewIngredient] = useState('');
     const [allIngredients, setAllIngredients] = useState(recipe.ingredients)
     const [newInstruction, setNewInstruction] = useState('');
     const [allInstructions, setAllInstructions] = useState(recipe.instructions)
+
+    useEffect(() => {
+        if (props.external) {
+            fetch(`https://bootcamp-milestone-4.onrender.com/recipe/${name}`)
+                .then(res => res.json())
+                .then(data => {setRecipe(data[0])})
+        } else {
+            setRecipe(defaultRecipe)
+        }
+    }, [name, props.external])
     
     return (
         <div className='recipe-page'>
