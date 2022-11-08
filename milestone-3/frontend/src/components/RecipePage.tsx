@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import recipeData, { Recipe } from "../recipeData";
 
+//Recipe Page component
 export default function RecipePage() {
-  const { id } = useParams();
+  const { id } = useParams(); //Get the id from the URL parameter
+  // Get the correct Recipe object based on the given URL parameter
   const recipe: Recipe | undefined = recipeData.find(
-    (recipe) => recipe.id === Number(id)
+    (recipe) => recipe.id === Number(id) //Cast to number type, since parameter is given as string
   );
 
   return (
