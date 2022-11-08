@@ -1,7 +1,7 @@
 :root{
     --border-color: #F07167;
     --container-color: #FED9B7;
-    --text-color: hsl(4, 46%, 49%);
+    --text-color: #b64b43;
     --page-color: #FCF0DC;
     --container-border-color: #FFD1A7;
     --mid-color: #f9b699;
@@ -63,7 +63,7 @@ and horizontal centering easily*/
     color: var(--border-color);
 }
 
-/*Top menu bar*/
+/*Navigation bar containing links to pages*/
 .nav-menu{ 
     display: flex;
     flex-direction: row; 
@@ -105,6 +105,7 @@ and horizontal centering easily*/
     flex-wrap: wrap;
     flex-shrink: 0;
     flex-grow: 0;
+    align-items: center;
 
     width: fit-content;
     height: auto;
@@ -116,10 +117,23 @@ and horizontal centering easily*/
 /*Recipe cards*/
 .recipe{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    width: fit-content;
 
     background-color: var(--container-border-color);
     border-radius: 4pt;
     margin: 15pt;
     padding: 10pt;
+}
+
+/*Sizing information for the icons used in the recipe cards*/
+.recipe-icons{
+    height: 40px;
+}
+
+.recipe-text{
+    color: var(--text-color);
+    margin: 10pt;
 }
