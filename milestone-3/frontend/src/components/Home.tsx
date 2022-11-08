@@ -1,7 +1,6 @@
 import "./Home.css";
-import RecipeCard from "./RecipeCard";
+import RecipeCard from "./RecipePreview";
 import recipeData from "../recipeData.json";
-import Navbar from "./Navbar";
 
 function Home() {
     return (

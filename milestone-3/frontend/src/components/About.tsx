@@ -1,7 +1,4 @@
 import "./About.css";
-import RecipeCard from "./RecipeCard";
-import recipeData from "../recipeData.json";
-import Navbar from "./Navbar";
 
 function About() {
     return (
