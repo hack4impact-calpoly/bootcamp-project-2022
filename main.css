@@ -33,19 +33,19 @@ and horizontal centering easily*/
     border-style: solid;
     padding: 20pt;
     border-radius: 4pt;
-    transform: translateX(80pt)
+    transform: translateX(50pt)
 }
 
 /*Styling for the page's description paragraph*/
 .description-text{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: left;
     text-align: left;
     flex-wrap: wrap;
-    max-width: 100pt;
-    margin-left: 35pt;
+    max-width: 250pt;
     font-size: 24pt;
+    margin-left: 12pt;
     color: var(--text-color);
 }
 
@@ -54,7 +54,7 @@ and horizontal centering easily*/
     flex-direction: column;
     justify-content: flex-start;
     margin: 50pt;
-    transform: translateX(80pt)
+    transform: translateX(50pt)
 } 
 
 .logo-text{
