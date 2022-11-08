@@ -8,6 +8,8 @@ export default function RecipePage() {
     const recipe = recipes[Number(id)];
     const [newIngredient, setNewIngredient] = useState('');
     const [allIngredients, setAllIngredients] = useState(recipe.ingredients)
+    const [newInstruction, setNewInstruction] = useState('');
+    const [allInstructions, setAllInstructions] = useState(recipe.instructions)
     
     return (
         <div className='recipe-page'>
@@ -39,10 +41,18 @@ export default function RecipePage() {
             <div className="preparation">
                 <h2>Preparation</h2>
                 <ol>
-                    {recipe.instructions.map((item, idx) => (
+                    {allInstructions.map((item, idx) => (
                         <li key={idx}>{item}</li>
                     ))}
                 </ol>
+                <input
+                    placeholder='Pour and serve!'
+                    value={newInstruction}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setNewInstruction(e.target.value)}
+                />
+                <button onClick={() => setAllInstructions([...allInstructions, newInstruction])}>
+                    Add Ingredient
+                </button>
             </div>
         </div>
     )
