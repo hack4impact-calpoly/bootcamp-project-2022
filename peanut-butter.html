@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="recipes.css">
     <title>Document</title>
 </head>
-<body>
+<body class="background-color">
+    <!--Banner at the top of the page (icon, site title, then navigation)-->
     <header class="header">
         <img src="site-icon.png" class="site-icon">
         <h1><em>that</em> easy</h1>
@@ -16,6 +17,30 @@
             About
         </nav>
     </header>
+    <main>
+        <!--A flexbox organizing the ingredients and recipe cards-->
+        <div class="ingredients-recipe-layout">
+            <!--Ingredients card (unordered list)-->
+            <div class="ingredients-or-recipe">
+                <h2>Ingredients</h2>
+                <ul class="ingredients-or-recipe-text">
+                    <li>Over-toasted toast (refer to the <a href="toast.html">burnt toast recipe</a>)</li>
+                    <li>Peanut butter</li>
+                    <li>A lack of jelly</li>
+                </ul>
+            </div>
+            <!--Recipe card (ordered list)-->
+            <div class="ingredients-or-recipe">
+                <h2>Recipe</h2>
+                <ol class="ingredients-or-recipe-text">
+                    <li>Remove the bread from bag, if necessary.</li>
+                    <li>Add a mountain of peanut butter to the bread with the intention of balancing with just as much jelly later.</li>
+                    <li>Open the fridge to find no jelly.</li>
+                    <li>Consume the peanut-butter-only sandwich anyway, sealing your mouth shut for all eternity.</li>
+                </ol>
+            </div>
+        </div>
+    </main>
 
     
 </body>
