@@ -1,0 +1,53 @@
+/* color palette */
+:root {
+    --light-teal: #BEE9E8;
+    --teal: #62B6CB;
+    --navy-blue: #1B4965;
+    --sky-blue: #CAE9FF;
+    --rain-blue: #5FA8D3;
+}
+
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--sky-blue);
+}
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+/* header */
+h1 {
+    color: white;
+    font-size: 64px;
+    font-weight: bold;
+}
+
+
+.heading {
+    display: flex;
+    background-color: var(--navy-blue);
+    /* border: 5px solid black; */
+    justify-content: space-between;
+    flex-direction: row;
+    padding-left: 5%;
+    padding-right: 2%;
+}
+
+.header-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: bottom;
+    flex-direction: row;
+
+}
+
+.menu-item {
+    margin: 5px;
+    color: white
+}
