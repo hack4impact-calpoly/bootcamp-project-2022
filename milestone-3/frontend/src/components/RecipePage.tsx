@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import recipeData from "../recipeData.json";
 
 interface Recipe {
+    link_name: string;
     name: string;
     image: string;
     description: string;
@@ -13,18 +14,15 @@ interface Recipe {
 
 const RecipePage = () => {
     const { id } = useParams();
-    // let i = recipeData.findIndex(
-    //     (element: Recipe) => element.name === "id"
-    // );
-    function search(data: Recipe[], name: String) {
+    function search(data: Recipe[], name: String | undefined) {
         for (let j = 0; j < data.length; j++) {
-            if (data[j].name === name) {
+            if (data[j].link_name === name) {
                 return j;
             }
         }
         return -1;
     }
-    let i = search(recipeData, "Peach Cobbler");
+    let i = search(recipeData, id);
     return (
         <main>
             <div className="recipe-container">
