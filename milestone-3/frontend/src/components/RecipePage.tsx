@@ -1,4 +1,3 @@
-import React from "react";
 import "./RecipePage.css";
 import { useParams } from "react-router-dom";
 import recipeData from "../recipeData.json";

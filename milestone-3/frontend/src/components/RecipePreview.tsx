@@ -1,7 +1,5 @@
 import "./RecipePreview.css";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
 
 interface Recipe {
     name: string;
