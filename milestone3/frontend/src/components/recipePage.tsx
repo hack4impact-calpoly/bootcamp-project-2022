@@ -20,6 +20,7 @@ export default function RecipePage() {
           <div className="ingredient-list">
             <h2>Ingredients</h2>
             <ul>
+              {/* creating list items for each item in recipes.ingredients array */}
               {curr?.ingredients.map((ingredient) => (
                 <li>{ingredient}</li>
               ))}
@@ -31,6 +32,7 @@ export default function RecipePage() {
         <div className="steps-box">
           <h3>Preparation</h3>
           <ol>
+            {/* creating list items for each item in recipes.instructions array */}
             {curr?.instructions.map((instruction) => (
               <li>{instruction}</li>
             ))}

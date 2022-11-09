@@ -13,6 +13,7 @@ export default function RecipePreview(props: previewProps) {
     <body>
       <main>
         <div className="recipe-box">
+          {/* linking to a recipePage with the correct URL parameter based on name prop passed to this instance of RecipePreview */}
           <Link className="recipe-title" to={`/recipe/${props.name}`}>
             {props.name}
           </Link>
