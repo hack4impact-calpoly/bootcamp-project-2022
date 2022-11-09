@@ -1,0 +1,55 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: oldlace;
+  height: 100%;
+}
+
+main {
+  padding: 20px 0px;
+}
+
+.recipe-title {
+  display: flex;
+  color: brown;
+  font-family: Garamond, serif;
+  font-size: 36px;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.description {
+  text-align: center;
+  font-size: 24px;
+}
+
+.ingredient-box {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: darkkhaki;
+  margin: 20px 225px;
+  border-radius: 30px;
+  padding: 10px 10px;
+}
+
+.ingredient-list {
+  margin: 0px 50px;
+  font-size: 24px;
+}
+
+.image2 {
+  width: 500px;
+  border: 5px solid;
+  border-color: gray;
+  margin: 0px;
+}
+
+.steps-box {
+  background-color: darkkhaki;
+  margin: 20px 225px;
+  border-radius: 30px;
+  padding: 10px 10px;
+  text-align: left;
+  font-size: 24px;
+}

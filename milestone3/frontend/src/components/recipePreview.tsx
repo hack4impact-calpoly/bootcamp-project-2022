@@ -13,7 +13,7 @@ export default function RecipePreview(props: previewProps) {
     <body>
       <main>
         <div className="recipe-box">
-          <Link className="recipe-title" to="pumpkinpie.html">
+          <Link className="recipe-title" to={`/recipe/${props.name}`}>
             {props.name}
           </Link>
           <img className="image" src={props.image} alt="img" />
