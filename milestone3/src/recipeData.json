@@ -1,0 +1,103 @@
+[
+    {
+        "path": "LemonPoppyseed", 
+        "name": "Lemon PoppySeed with Cream Cheese Frosting",
+        "desc": "This Lemon Poppyseed Cake is a tender, moist cake that’s full of lemon flavor and poppy seeds! It’s covered in a light lemon cream cheese frosting for a cake that’s perfect for lemon lovers!  Katie Kellums favorite cake \n  Prep Time: 1hr 35 mins \n  Yields: 12-14 slices",
+        "image": "https://github.com/lallen15/bootcamp-project-2022/blob/main/src/img/lemon-poppyseed.jpg?raw=true", 
+        "ingredients": [
+            "2 1/2 cups (325g) all purpose flour",
+            "1 3/4 tsp baking powder",
+            "1/4 tsp baking soda",
+            "1/2 tsp salt", 
+            "1/2 cup (112g) unsalted butter, room temperature",
+            "1/2 cup (120ml) vegetable oil",
+            "1 1/2 cups (310g) sugar",
+            "1/2 tsp vanilla extract",
+            "4 large eggs",
+            "3/4 cup (180ml) milk",
+            "1/2 cup (120ml) fresh lemon juice",
+            "2 tbsp fresh lemon zest",
+            "2 tbsp poppy seeds"
+        ],
+        "instructions": [
+            "Prepare three 8 inch cake pans with parchment paper circles in the bottom and grease the sides. Preheat oven to 350°F (176°C).",
+            "Combine the flour, baking powder, baking soda and salt in a medium sized bowl and set aside.",
+            "Add the butter, oil, sugar and vanilla extract to a large mixer bowl and beat together until light in color and fluffy, about 1 1/2 to 2 minutes. Do not skimp on the creaming time.",
+            "Add the eggs one at a time, mixing until mostly combined after each. Scrape down the sides of the bowl as needed to be sure all ingredients are well incorporated.",
+            "Add half of the dry ingredients to the batter and mix until mostly combined.",
+            "Combine the milk and lemon juice, then slowly add the mixture to the batter and mix until well combined.",
+            "Add the remaining dry ingredients and mix until well combined and smooth. Scrape down the sides of the bowl as needed to be sure all ingredients are well incorporated. Do not over mix the batter.",
+            "Add the lemon zest and poppy seeds and gently stir to combine.",
+            "Divide the batter evenly between the cakes pans and bake for 22-25 minutes, or until a toothpick comes out with a few crumbs.",
+            "Remove the cakes from the oven and allow to cool for about 2-3 minutes, then remove to cooling racks to cool completely.",
+            "To make the frosting, add the cream cheese and butter to a large mixer bowl and beat until well combined and smooth.",
+            "Add about half of the powdered sugar and mix until well combined and smooth.",
+            "Add the lemon juice and zest and mix until well combined.",
+            "Add the remaining powdered sugar and mix until well combined and smooth. Add more or less powdered sugar, as desired for consistency purposes.",
+            "To put the cake together, use a large serrated knife to remove the domes from the top of the cakes so that they’re flat, if needed.",
+            "Place the first cake on a serving plate or a cardboard cake round.",
+            "Spread about 1 cup of frosting evenly on top of the cake.",
+            "Add the second layer of cake and another cup of frosting.",
+            "Top the cake with the remaining layer and frost the outside of the cake. Refer to my tutorial for frosting a smooth cake, if needed.",
+            "Finish off the cake as you like. I added rosettes around the top outer edge and sprinkled on some poppy seeds. I also added some lemon slices.",
+            "Refrigerate the cake until ready to serve. Cake is best served cool, but not necessarily cold."
+        ]
+    },
+    {
+        "path": "Cinnamon", 
+        "name": "Cinnamon Cake",
+        "desc": "A Simple Easy Cinnamon Cake, fast, easy and delicious, a soft full of cinnamon cake recipe. The perfect anytime cake, from Breakfast, to Snack or Dessert. \n Kelsea Clays favorite cake\n  Prep Time: 1hr 15 mins\n  Yields: 10 slices",
+        "image": "https://github.com/lallen15/bootcamp-project-2022/blob/main/src/img/Cinnamon-Roll-Cake-Recipe.jpg?raw=true", 
+        "ingredients": [
+            "3 tablespoons brown sugar",
+            "1 tablespoon cinnamon",
+            "3/4 cup butter softened",
+            "1 cup granulated sugar",
+            "2 eggs",
+            "2 cups all purpose flour",
+            "1 teaspoon baking powder",
+            "1/2 teaspoon baking soda",
+            "¼ teaspoon salt",
+            "1 cup sour milk (to make sour milk add 1 tablespoon lemon juice or white vinegar to 1 cup measure and top off with milk, let sit for about 10 - 15 minutes)",
+            "1 teaspoon vanilla"
+        ],
+        "instructions": [
+            "Pre-heat oven to 325°",
+            "In a small bowl mix together brown sugar and cinnamon, set aside.",
+            "In a large bowl cream butter and sugar, then add the eggs, beat until fluffy.",
+            "In a medium bowl sift together flour,baking powder, baking soda and salt.",
+            "Add dry ingredients alternately with sour milk, ending with sour milk to creamed mixture. Add vanilla and mix well.",
+            "Spoon 1/3 of the batter into a greased 8 inch (20.5 centimeter) springform pan. Sprinkle with 1/2 of the cinnamon mixture. Spoon another 1/3 of the batter on top, then remaining cinnamon mixture and then top with the remaining batter.",
+            "Bake for approximately 50-60 minutes or until toothpick comes out clean and dry. Remove from oven and let cool. Enjoy!"
+        ]
+    }, 
+    {
+        "path": "BrownButterCarrot",
+        "name": "Brown Butter Carrot Cake",
+        "desc": "This layered brown butter carrot cake is THE most moist cake. It is spiced heavily with cinnamon and filled with a cream cheese frosting. It is a semi naked cake topped with walnuts. \n Samantha Gonzales favorite cake\n Prep Time: 2hr 30 mins\n Yields: 16 slices",
+        "image": "https://github.com/lallen15/bootcamp-project-2022/blob/main/src/img/Carrot-cake.jpg?raw=true", 
+        "ingredients": [
+            "2 ½ cups All-purpose flour",
+            "2 teaspoon Baking soda",
+            "½ teaspoon Salt",
+            "3 teaspoon Ground cinnamon",
+            "½ teaspoon Ground nutmeg",
+            "½ teaspoon Ground ginger",
+            "10 tablespoon Unsalted butter browned",
+            "2 cups Brown sugar packed light or dark",
+            "1 cup Sour cream room temperature",
+            "1 teaspoon Pure vanilla extract",
+            "3 cups Shredded carrots about 8 medium carrots", 
+            "4 Large eggs room temperature"
+        ],
+        "instructions": [
+            "Preheat oven to 350°F. Spray three 8 inch cake pans with baking non-stick spray. Place an 8 inch parchment circle on the bottom of the pans and spray again.",
+            "Heat a frying pan on medium heat and melt the butter. Keep stirring the butter until it starts to foam and the milk deposits on the bottom separate. Stir until the butter starts to brown and take off heat. Pour in a glass measuring cup. Let it cool for 10 minutes.",
+            "While waiting, shred the carrots. Make sure they are washed and peeled first. This takes quite a few carrots. Then, in a mixing bowl, sift the flour, baking soda, salt, cinnamon, nutmeg, and ginger.", 
+            "In a large mixing bowl, mix the browned butter, brown sugar, vanilla, and sour cream. Mix until smooth. Add in the carrots and mix until combined. Add in eggs and whisk until combined.",
+            "Add in the dry ingredients. Fold it into the wet ingredients. Fold until combined.",
+            "Pour the batter evenly into the cake pans. Use a kitchen scale to get an even amount of batter in each pan. Bake for 18-20 minutes. The cakes are done baking when a toothpick inserted comes out clean.",
+            "Let the cakes sit in the pan for 10 minutes before transferring to a cooling rack. Let the cakes cool completely before decorating."
+        ]
+    }
+]
