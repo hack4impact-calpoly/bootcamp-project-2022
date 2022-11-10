@@ -1,4 +1,4 @@
-import './Home.css';
+import './home.css';
 import React, {useState, useEffect} from 'react';
 import RecipePreview from './RecipePreview';
 import recipes from '../recipeData';

@@ -5,20 +5,33 @@ import RecipePage from './components/RecipePage';
 import RecipePreview from './components/RecipePreview';
 import About from './components/AboutMe';
 
-import React, {useState, useEffect} from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import recipes from './recipeData';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route path ='/' element={<Home />} />
-        <Route path='/AboutMe' element={<About />} />
-        <Route path="/recipe/:name" element={<RecipePreview />} />
-      </Routes>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          {recipes.map(recipe => 
+            <Route path={recipe.link} element={
+              <RecipePage
+                link = {recipe.link}
+                name={recipe.name}
+                desc={recipe.desc}
+                image={recipe.image}
+                ingredients={recipe.ingredients}
+                instructions={recipe.instructions}
+              />
+            } />
+          )};
+        </Routes>
+      </div>
     </BrowserRouter>
   );
-};
+}
 
 export default App;

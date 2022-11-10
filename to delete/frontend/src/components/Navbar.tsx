@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 function Navbar() {
     return (
         <header className ="header">
-        <Link className = "title-container" to="/">
+        <a className = "title-container" href="index.html">
             <h1 className ="title">Connor's Bakery</h1>
-        </Link>
+        </a>
         <nav>
-            <Link className="nav-item" to="/">Home</Link>
-            <Link className="nav-item" to="about">About Me</Link>
+            <a className="nav-item" href="index.html">Home</a>
+            <a className="nav-item" href="about.html">About Me</a>
         </nav>
     </header>
     );
