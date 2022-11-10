@@ -1,4 +1,13 @@
 /* recipes on home page */
+p {
+    color: var()
+}
+h2 {
+    color: white;
+    font-weight: bold;
+    background-color: var(--teal);
+    padding: 1%
+}
 .recipe {
     display: flex;
     border: 10px solid white;
@@ -11,7 +20,7 @@
 }
 
 .image {
-    width: 300px;
+    width: 25%;
     border: 5px solid;
     border-color: white;
     border-radius: 10px;
@@ -20,9 +29,10 @@
 
 .recipe-body {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     /* border: 1px solid black; */
     flex-direction: row;
+    /* justify-content: center; */
 }
 .recipe-title {
     color: var(--navy-blue);

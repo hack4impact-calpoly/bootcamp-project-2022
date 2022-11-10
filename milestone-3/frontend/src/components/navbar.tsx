@@ -7,7 +7,7 @@ export default function Navbar() {
     // replace everything in between the <header> & <header /> tags
     // with your navbar code from your earlier milestones
     <header className="heading"> 
-        <h1><Link to='/'>Kasey's Eats</Link></h1>
+        <Link to='/'><h1>Kasey's Eats</h1></Link>
         <nav className="menu">
             <Link to='/' className="menu-item">Home</Link>
             <Link to='/about' className="menu-item">About Me</Link>

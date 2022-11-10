@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import recipes from '../recipeData';
 import './recipePage.css'
+import './recipePreview.css'
 
 export default function RecipePage() {
     let {name} = useParams();
@@ -17,7 +18,7 @@ export default function RecipePage() {
 		// replace everything between the <div> & </div> tags
 		// with your code from earlier milestones
         <div className="content">
-        <img className="image"src={recipe.image} alt="img"/>
+        <img className="page-image"src={recipe.image} alt="img"/>
         <div>
             <h1 className="recipe-title"> {recipe.name}</h1>
             <p>{recipe.description}</p>

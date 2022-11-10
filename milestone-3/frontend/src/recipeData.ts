@@ -9,7 +9,7 @@ export interface Recipe {
 const recipes: Recipe[] = [
     {
         name: 'Stir-fry Udon',
-        description: 'This quick stir-fry udon dish will put a meal on the table in less than 30 minutes!',
+        description: 'This quick stir-fry udon dish will put a meal on the table in less than 30 minutes! It will quickly become a weeknight staple.',
         image: 'https://choosingchia.com/jessh-jessh/uploads/2021/10/Yaki-Udon-Stir-Fry-9.jpg',
         ingredients: [
             '2 packs of frozen udon', 
