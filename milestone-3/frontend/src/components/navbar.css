@@ -21,7 +21,12 @@ a:link {
 a:visited {
     text-decoration: none;
 }
+
 /* header */
+h1:visited {
+    text-decoration: none;
+    color: white
+}
 h1 {
     color: white;
     font-size: 64px;

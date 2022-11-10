@@ -6,22 +6,25 @@ import About from "./components/About";
 import Home from './components/Home';
 import recipes from './recipeData';
 import RecipePreview from './components/recipePreview';
+import RecipePage from './components/recipePage';
 
-function App() {
+function App(){
   return (
-    <Navbar />
+    // <Navbar />
     // <About />
     // <Home />
-    // <BrowserRouter>
-    //   <Navbar />
-    //   <Routes>
-    //     <Route path="/" element={<Home />} />
-    //     <Route path="about" element={<About />} />
-    //     {recipes.map((recipe) => 
-    //       <RecipePreview {...recipe} />
-    //     )}
-    //   </Routes>
-    // </BrowserRouter>
+    // <RecipePage />
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/recipe/:name" element={<RecipePage />} />
+        {/* {recipes.map((recipe) => 
+          <RecipePreview {...recipe} />
+        )} */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 
