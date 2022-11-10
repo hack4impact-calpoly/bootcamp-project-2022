@@ -1,0 +1,214 @@
+.projects {
+  font-family: "Namun Gothic", sans-serif;
+  padding: 100px 0;
+  background-color: #bde8e7;
+}
+.projects .title {
+  position: relative;
+  font-family: "Namun Gothic", sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+}
+
+.projects .title::before {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 200px;
+  height: 3px;
+  background: #c88630;
+  transform: translateX(-50%);
+}
+
+.projects .projects-content .header-sec {
+  margin-bottom: 20px;
+}
+
+.projects .projects-content a {
+  display: inline-block;
+  background: darkseagreen;
+  color: darkslategray;
+  font-size: 20px;
+  padding: 8px 20px;
+  margin-top: 18px;
+  border-radius: 6px;
+  border: 2px solid darkseagreen;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.projects .projects-content a:hover {
+  color: darkslategray;
+  background: none;
+}
+.huffman-page {
+  font-family: "Namun Gothic", sans-serif;
+  padding: 100px 0;
+  background: #efc1ba;
+}
+.filler {
+  background: #efc1ba;
+}
+.huffman-page .top-sec {
+  margin: auto;
+}
+.huffman-page h2 {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.huffman-page a {
+  text-align: left;
+}
+.huffman-page .huffman-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.huffman-page .huffman-content .left img {
+  border-radius: 10px;
+  max-width: 500px;
+  height: auto;
+}
+.huffman-page .huffman-content .left {
+  width: 45%;
+}
+
+.huffman-page .huffman-content .second {
+  margin-bottom: 150px;
+  margin-top: 150px;
+}
+
+.huffman-page .huffman-content .first-conc {
+  margin-bottom: 150px;
+}
+
+.huffman-page .huffman-content .right {
+  width: 55%;
+}
+.huffman-page .huffman-content .right p {
+  text-align: justify;
+}
+.huffman-page .huffman-content .right .text {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.huffman-page .huffman-content .second-vw {
+  margin-bottom: 300px;
+  margin-top: 300px;
+}
+
+@media (max-width: 1300px) {
+  .huffman-page .huffman-content img {
+    text-align: center;
+  }
+  .huffman-page .huffman-content .right {
+    flex: 100%;
+  }
+  .huffman-page .huffman-content .second {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 1104px) {
+  .about .about-content .left img {
+    height: 350px;
+    width: 250px;
+  }
+}
+@media (max-width: 991px) {
+  .max-width {
+    padding: 0 50px;
+  }
+}
+
+/* @media (max-width: 1094px) {
+  .menu-btn {
+    display: block;
+    z-index: 999;
+  }
+  .menu-btn i.active:before {
+    content: "\f00d";
+  }
+  .navbar .menu {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    left: -100%;
+    top: 0;
+    background: wheat;
+    text-align: center;
+    padding-top: 100px;
+    transition: all 0.3s ease;
+  }
+  .navbar .menu.active {
+    left: 0;
+  }
+  .navbar .menu li {
+    display: block;
+  }
+  .navbar .menu li a {
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 30px;
+    font-weight: 300;
+    color: darkseagreen;
+  }
+  .home .home-content .col {
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto 0px;
+    display: inline-flex;
+    margin-bottom: 20px;
+  }
+  .home .home-content .right {
+    margin-left: 20%;
+  }
+  .home .home-content .text-1 {
+    font-size: 35px;
+  }
+  .home .home-content .text-2 {
+    font-size: 70px;
+  }
+  .home .home-content a {
+    font-size: 23px;
+    padding: 10px 30px;
+  }
+
+  .about .max-width {
+    max-width: 1000px;
+  }
+  .about .about-content .col {
+    width: 100%;
+  }
+  .about .about-content .left {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 60px;
+  }
+  .about .about-content .right {
+    flex: 100%;
+  }
+  .contact .contact-content .column {
+    width: 100%;
+    margin-bottom: 35px;
+  }
+}
+
+@media (max-width: 690px) {
+  .max-width {
+    padding: 0 23px;
+  }
+  .home .home-content a {
+    font-size: 20px;
+    padding: 9px 25px;
+  }
+} */

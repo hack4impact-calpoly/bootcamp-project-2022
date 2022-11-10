@@ -7,43 +7,54 @@ import RecipeData from "./recipeData"
 import Navbar from "./components/navbar"
 import Home from "./components/Home"
 import About from "./components/About"
-import { BrowserRouter, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import RecipePreview from './components/recipePreview';
+import RecipeDetailed from './components/RecipePage';
 function App() {
   return (
-    // <BrowserRouter>
+    
     <main>
       
-      <Navbar/>
+      
     {/*home section*/}
-      <Home/>
+      {/* <Home/> */}
     {/* <!-- about me --> */}
-      <About/>
+    
+      {/* <About/> */}
     {/* <!-- RECIPE section --> */}
     {/* <RecipeData /> */}
 
-    <section className="projects"id="projects"> 
-        <div className="max-width">
-
-            <h2 className="title">My Favorite Foods!</h2>
+    
             
-            <div className="projects-content"id="proj-jump">
-                <RecipePreview name = {RecipeData[0].name} description= {RecipeData[0].description}
-                            image={RecipeData[0].image} ingredients={RecipeData[0].ingredients} instructions={RecipeData[0].instructions}
-                            idx={RecipeData[0].idx}/>
-                <RecipePreview name = {RecipeData[1].name} description={RecipeData[1].description} 
-                            image = {RecipeData[1].image} ingredients={RecipeData[1].ingredients} instructions = {RecipeData[1].instructions}
-                            idx={RecipeData[1].idx}/>
-                <RecipePreview name = {RecipeData[2].name} description={RecipeData[2].description}
-                            image = {RecipeData[2].image} ingredients={RecipeData[2].ingredients} instructions={RecipeData[2].instructions}
-                            idx={RecipeData[2].idx}/>
-                
-            </div>
-        </div>
-    </section>
+            <BrowserRouter>
+              <Navbar/>
+              {/* <section className="projects"id="projects"> 
+                <div className="max-width">
+
+                  <h2 className="title">My Favorite Foods!</h2> */}
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element = {<About/>}/> 
+                   {RecipeData.map(recipe => {
+                      return (<Route path= {`recipe/${recipe.idx}`} element={<RecipeDetailed name = {recipe.name} description = {recipe.description}
+                                  image = {recipe.image} ingredients = {recipe.ingredients} instructions = {recipe.instructions}
+                                idx = {recipe.idx}/>}/>)
+                    })}
+                </Routes>
+                {/* put this in home component */}
+                {/* {RecipeData.map(recipe => 
+                                <RecipePreview name = {recipe.name} description = {recipe.description}
+                                  image = {recipe.image} ingredients = {recipe.ingredients} instructions = {recipe.instructions}
+                                idx = {recipe.idx}/>)} */}
+                  {/* </div>
+              </section> */}
+            </BrowserRouter>
+
+           
+        
     
     </main>
-    // </BrowserRouter>
+    
   );
 }
 
