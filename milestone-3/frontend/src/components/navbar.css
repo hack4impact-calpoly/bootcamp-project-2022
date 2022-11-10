@@ -1,0 +1,23 @@
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 1%;
+    border-bottom: white;
+    border-bottom-width: 1px;
+    border-bottom: 1px solid white;
+    margin-bottom: 10em;
+    background-color: rgba(56, 79, 255, 0.1);
+  }
+  
+  .logo{
+    cursor:pointer;
+    margin-right: 24px;
+  }
+  
+  .navbar-links li{
+    display: inline-block;
+    padding: 0px 100px;
+  }
+  

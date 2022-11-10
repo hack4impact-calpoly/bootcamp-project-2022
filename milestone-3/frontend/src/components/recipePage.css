@@ -1,0 +1,153 @@
+
+html body{
+    margin: 0;
+    /* background-color: rgba(19, 32, 75, 0.729); */
+    background-image: url('../imgs/double-bubble-dark.webp');
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+
+}
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.center{
+    justify-content: center;
+}
+
+h1.flex-container{
+    color:white;
+}
+
+hr{
+    margin: 0em 3em;
+    border-radius: 10%;
+    border: .2px solid rgb(132, 117, 98);
+    opacity: 80%;
+}
+
+.card{
+    display: flex;
+    width: 30%;
+    height: 50%;
+    margin: 2em 2em;
+
+}
+
+.card img{
+    border: 3px solid rgba(255, 189, 97, 0.822);
+    border-radius: 10%;
+    
+}
+
+.white{
+    color:white;
+}
+
+.white70{
+    color:white;
+    opacity: 70%;
+}
+
+li{
+    color: white;
+}
+
+li:not(:first-child){
+    
+    margin: 1.5em 0em 0em 0em;
+}
+
+li p{
+    color: rgba(214, 214, 214, 0.509);
+    font-style: italic;
+    margin-left: 15px;
+}
+
+li, a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 1%;
+    border-bottom: white;
+    border-bottom-width: 1px;
+    border-bottom: 1px solid white;
+    margin-bottom: 10em;
+    background-color: rgba(56, 79, 255, 0.1);
+}
+
+.logo{
+    cursor:pointer;
+    margin-right: 24px;
+}
+
+.navbar-links li{
+    display: inline-block;
+    padding: 0px 100px;
+}
+
+.ingredients{
+    width:40%;
+    padding: 1em;
+}
+
+.ingredient{
+    width: 100%;
+    padding: 1em;
+}
+
+.ingredients h3{
+    padding-top: 2em;
+}
+
+.ingredients:last-child{
+    padding-top: 4em;
+}
+
+.space_between{
+    width:50%
+}
+
+.border{
+    border: 2px solid white;
+    background-color: rgba(236, 175, 34, 0.1);
+}
+
+p{
+    color:white;
+    font-size: 24px;
+    line-height: 2em;
+}
+
+#directions{
+    padding-left:3em;
+}
+
+@media only screen and (max-width:800px) {
+    .space_between{
+        width: 100%;
+    }
+    .larger_image{
+        width: 100%;
+        padding: 0 10%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .space_between{
+        flex-direction: column;
+    }
+    .ingredients{
+        width: 90%;
+    }
+}
