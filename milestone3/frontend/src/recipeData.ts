@@ -2,7 +2,7 @@ const recipes = [{
     "name": "Chocolate Chip Cookies",
     "link": "cccookie",
     "desc": "This chocolate chip cookie recipe is a simple chocolate chip cookie recipe that makes super soft chocolate, super yummy chip cookies - no mixer necessary, no chilling needed.",
-    "image": "/src/components/images/cccookie.jpg",
+    "image": "https://sugarspunrun.com/wp-content/uploads/2020/03/The-best-worst-chocolate-chip-cookie-recipe-1-of-1.jpg",
     "ingredients": [
         "1/2 cup butter",
         "1/2 cup granulated sugar",
@@ -29,7 +29,7 @@ const recipes = [{
     "name": "Brownies",
     "link": "brownies",
     "desc": "This brownie recipe is simple, quick, and delicious",
-    "image": "/src/components/images/brownie.jpg",
+    "image": "https://www.inspiredtaste.net/wp-content/uploads/2016/06/Brownies-Recipe-1-1200.jpg",
     "ingredients": [
         "1 cup butter, melted",
         "2 cups white sugar",
@@ -49,7 +49,7 @@ const recipes = [{
     "name": "Peach Cobbler",
     "link": "peachcobbler",
     "desc": "This old-fashioned peach cobbler recipe is traditional and easy to make. It is best enjoyed warm, right after it is baked",
-    "image": "/src/components/images/peachcobbler2.jpg",
+    "image": "https://www.jocooks.com/wp-content/uploads/2020/08/peach-cobbler-1-16.jpg",
     "ingredients": [
         "5 peaches, peeled, cored, and sliced",
         "3/4 cups granulated sugar",
