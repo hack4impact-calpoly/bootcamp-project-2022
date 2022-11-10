@@ -37,9 +37,10 @@ function checkMatch(recipes: Recipe[], categoriesString: string[]): RecipeKeys{
 
 function imageChange(src: string, image_block: React.RefObject<HTMLImageElement>, image_block2: React.RefObject<HTMLImageElement>){
    if (image_block.current && image_block2.current){
+
       image_block.current.src = src
-      
       image_block2.current.src = src
+
       console.log('ADDED EVENT LISTENER')
       console.log(image_block2.current.parentNode)
    }

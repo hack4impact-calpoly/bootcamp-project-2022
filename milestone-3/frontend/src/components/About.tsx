@@ -1,12 +1,6 @@
-import "./about.css"
-import { useRef , useEffect} from "react"
-import Navbar from "./navbar";
-
 
 
 export default function About(){
-    const button = useRef<HTMLButtonElement>(null);
-    
 
 
     return (

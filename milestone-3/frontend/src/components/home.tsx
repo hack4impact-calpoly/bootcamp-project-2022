@@ -1,4 +1,3 @@
-import Navbar from './navbar';
 import { recipeObj } from '../recipeData';
 import RecipePrevew from './recipePreview';
 
