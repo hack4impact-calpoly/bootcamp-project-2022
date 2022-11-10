@@ -40,6 +40,10 @@ h2 {
     font-weight: bold;
 }
 
+.recipe-description {
+    padding-top: 2%;
+}
+
 /* recipe pages */
 .content {
     display: flex;
