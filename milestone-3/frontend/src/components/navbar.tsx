@@ -6,8 +6,8 @@ export default function Navbar() {
     // replace everything in between the <header> & <header /> tags
     // with your navbar code from your earlier milestones
     <header>
-      <h1> Hu's Chews </h1>
-      <nav className="nav ">
+    
+      <nav className="nav">
             <div className="container">
                 <h1 className="logo"><a href="/index.html" className="current">MyKitchen</a> </h1>
                 <ul>
