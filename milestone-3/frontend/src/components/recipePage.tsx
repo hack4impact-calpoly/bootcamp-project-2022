@@ -9,9 +9,7 @@ import { Link } from 'react-router-dom';
 export default function RecipePage() {
   
     let {name} = useParams();
-    console.log(name);
     let recipe = recipes.find(x => x.name === name);
-    console.log(recipe);
     if(!recipe) {
         return (
             <div></div>
@@ -47,4 +45,3 @@ export default function RecipePage() {
 
         );
 }
-
