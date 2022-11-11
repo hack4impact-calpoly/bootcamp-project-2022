@@ -1,5 +1,5 @@
 img {
-    width: 150px;
+    width: 20%;
     border: 5px solid;
     border-radius: 10px;
 }
@@ -89,11 +89,16 @@ body {
 }
 
 .Recipe1_subpage {
+    width: 95%;
     background-color: #A3B18A;
     color: white;
     border: 7px solid #3A5A40;
     border-radius: 25px;
     padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
 }
 
 .Recipe1_body {
