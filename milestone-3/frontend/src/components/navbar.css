@@ -1,19 +1,19 @@
 
 .nav{
     position: fixed;
-    background-color: var(--primary-color);
+    background-color:  #6b705c;
     top: 0;
     left: 0;
     right: 0;
-    transition: all 0.3s ease-in-out;
-    z-index: 1;
+    /* transition: all 0.3s ease-in-out; */
+    /* z-index: 1; */
 }
 
 .nav .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 0.3s ease-in-out;
+    /* transition: all 0.3s ease-in-out; */
 }
 
 nav ul{
@@ -27,7 +27,7 @@ nav ul{
     color:#fff;
     text-decoration: none;
     padding: 7px 15px;
-    transition: all 0.3s ease-in-out;
+    /* transition: all 0.3s ease-in-out; */
     font-weight: bold;
 }
 
@@ -37,7 +37,7 @@ nav ul{
 }
 
 .nav.active a{
-    color:var(--primary-color);
+    color:#6b705c;
 }
 
 .nav.active .container{
@@ -45,7 +45,7 @@ nav ul{
 }
 
 .nav a.current, .nav a:hover{
-    color: var(--hover-color);
+    color: #cb997e;
     font-weight: bold;
 
 }
