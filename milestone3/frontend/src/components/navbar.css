@@ -1,0 +1,36 @@
+#site-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#title {
+/* nice title style */
+font-size: 2.5em;
+font-weight: bold;
+color: var(--title-color);
+padding: 10px 30px 10px 30px;
+border: var(--title-border-color) 4px solid;
+background-color: var(--title-backround-color);
+}
+
+#header {
+border-bottom: var(--bar-color) 2px solid;
+padding-bottom: 1%;
+}
+
+#title:hover {
+/* nice title hover style */
+color: var(--link-after);
+cursor: pointer;
+}
+
+#nav-bar {
+/* nice nav bar style */
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+width: 10%;
+margin: 0 auto;
+}
