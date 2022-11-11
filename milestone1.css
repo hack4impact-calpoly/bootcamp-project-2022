@@ -33,6 +33,7 @@
     border: 5px solid black;
 
 .recipe-images {
+    margin: 10px
     padding: 50px
     border-radius: 10px
     font-family: "Papyrus";
@@ -47,6 +48,7 @@
 
 .recipe-text {
     font-family: "Papyrus";
+    background-color: rgb(120, 75, 152);
 }
 .title {
     font-family: "Papyrus"
