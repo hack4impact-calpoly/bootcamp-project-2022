@@ -4,16 +4,16 @@ import { useState, ChangeEvent } from "react";
 
 //Recipe Page component
 export default function RecipePage() {
-  const { id } = useParams(); //Get the id from the URL parameter
+  const { name } = useParams(); //Get the id from the URL parameter
   // Get the correct Recipe object based on the given URL parameter
-  const recipeFromID: Recipe | undefined = recipeData.find(
-    (recipe) => recipe.id === Number(id) //Cast to number type, since parameter is given as string
+  const recipeFromName: Recipe | undefined = recipeData.find(
+    (recipe) => recipe.name === name //Cast to number type, since parameter is given as string
   );
 
   let recipe = {} as Recipe; //Empty Recipe if undefined
-  if (recipeFromID !== undefined) {
+  if (recipeFromName !== undefined) {
     //Check if Recipe is undefined
-    recipe = recipeFromID;
+    recipe = recipeFromName;
   }
 
   const [newIngredient, setNewIngredient] = useState(""); //To store user inputted ingredient
