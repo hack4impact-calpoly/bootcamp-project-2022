@@ -1,0 +1,73 @@
+/* style  nav bar */
+nav { 
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* make nav purple */
+  background-color: #C0B0F0;
+  display: flex;
+  /* make nav in center of block */
+  align-items: center;
+
+}
+nav-ul{
+  justify-content: flex-end;
+  
+}
+
+.navlist {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  float: right;
+  flex-direction: row-reverse;
+}
+.recipe_body {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.recipe_text {
+    padding: 0px 20px;
+    flex-basis: 50px;
+    flex-grow: 1;
+}
+
+.recipe {
+  /* make recipe block pink */
+  background-color: #F0C0B0;
+  padding: 10px 20px;
+  margin: 20px 0px;
+  /* give recipe block rounded edges */
+  border-radius: 20px;
+  
+}
+
+
+  
+  /* Change the link color to #998cc0 (black) on hover */
+  .navlist:hover {
+    background-color: #998cc0;
+  }
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+h2-a{
+  font-weight: 1500;
+  color: black;
+}
+.small_image {
+    width: 200px;
+    /* make border curved */
+    border-radius: 10px;
+}
