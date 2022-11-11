@@ -1,31 +1,4 @@
-:root {
-    --background: #f7f9f9;
-    --foreground: #28464b;
-    --card-color: #f5fdff;
-    --card-border-color: #28464b;
-    --title-color: #326771;
-    --title-border-color: #326771;
-    --title-backround-color: #ecfcff;
-    --nav-color: #326771;
-    --link-after: #28464b;
-    --bar-color: #365e65;
-}
-
-* {
-    font-size: 100%;
-    font-family: Arial;
-}
-
-
-a {
-    text-decoration: none;
-    color: var(--nav-color);
-}
-  
-a:hover {
-    color: var(--link-after);
-}
-
+/* Make header 1 title to be in the middle and nav links below */
 #site-title-container {
     display: flex;
     flex-direction: column;
@@ -40,11 +13,6 @@ a:hover {
     padding: 10px 30px 10px 30px;
     border: var(--title-border-color) 4px solid;
     background-color: var(--title-backround-color);
-}
-
-#header {
-    border-bottom: var(--bar-color) 2px solid;
-    padding-bottom: 1%;
 }
 
 #title:hover {

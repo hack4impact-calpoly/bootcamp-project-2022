@@ -8,7 +8,7 @@ export default function Navbar() {
     // with your navbar code from your earlier milestones
     <header>
         <div id="site-title-container">
-            <Link id="title" to="/">Get Cooking!</Link>
+            <h1 id="title"><Link to="/">Get Cooking!</Link></h1>
         </div>
         <nav id="nav-bar">
             <Link className="nav-bar-links" to="/">
