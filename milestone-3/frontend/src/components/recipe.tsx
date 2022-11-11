@@ -1,14 +1,14 @@
-import React from 'react';
+// import React from 'react';
 import { useParams } from 'react-router-dom';
 import recipes from '../recipeData';
 import './recipe.css'
 import './recipePreview.css'
+import React, { useState } from 'react';
 
 export default function Recipe() {
+    const [newIngredient, setNewIngredient] = useState('');//add this
     let {name} = useParams();
-    console.log(name);
     let recipe = recipes.find(x => x.name === name);
-    console.log(recipe);
     if(!recipe) {
         return (
             <div></div>
