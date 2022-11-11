@@ -5,10 +5,12 @@ import RecipePreview from './recipePreview';
 
 export default function Home() {
   return (
-    <div>
-        {recipes.map((recipe) => (
-            <RecipePreview {...recipe} />
-        ))}
-    </div>
+    <body>
+        <div className="cards" id="recipe-list">
+            {recipes.map((recipe) => (
+                <RecipePreview {...recipe} />
+            ))}
+        </div>
+    </body>
   );
 }
