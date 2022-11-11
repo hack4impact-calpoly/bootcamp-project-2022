@@ -1,0 +1,32 @@
+p {
+    color: cornsilk;
+    padding-left: 3%;
+}
+
+.minititle {
+    display: flex;
+    color: cornsilk;
+    align-items: center;
+    padding-left: 3%;
+}
+
+.recipe {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+ul {
+    color: cornsilk;
+    padding-left: 3%;
+}
+
+ol {
+    color: cornsilk;
+    padding-left: 3%;
+}

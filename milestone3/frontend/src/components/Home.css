@@ -1,0 +1,19 @@
+.minititle {
+    display: flex;
+    color: cornsilk;
+    align-items: center;
+    padding-left: 3%;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+}
+
+.item {
+    display: flex;
+    width: 300px;
+    margin: 20px;
+    border: 6px solid darkgoldenrod;
+    border-radius: 10px;
+}

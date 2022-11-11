@@ -1,0 +1,11 @@
+.minititle {
+    display: flex;
+    color: cornsilk;
+    align-items: center;
+    padding-left: 3%;
+}
+
+p {
+    color: cornsilk;
+    padding-left: 3%;
+}
