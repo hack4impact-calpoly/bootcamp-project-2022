@@ -1,0 +1,12 @@
+/* style  nav bar */
+header{ 
+    display: flex;
+    background-color: #C0B0F0;
+    color: white;
+    border: 5px solid #7f5bec;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+    /* border-radius: 25px; */
+    margin-bottom: 10px;
+  }
