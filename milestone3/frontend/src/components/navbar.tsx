@@ -1,5 +1,6 @@
 import React from "react";
 import "./navbar.css";
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   return (
@@ -7,15 +8,15 @@ export default function Navbar() {
     // with your navbar code from your earlier milestones
     <header>
         <div id="site-title-container">
-            <h1 id="title" onclick="location.href='index.html';">Get Cooking!</h1>
+            <Link id="title" to="/">Get Cooking!</Link>
         </div>
         <nav id="nav-bar">
-            <a class="nav-bar-links" href="index.html">
+            <Link className="nav-bar-links" to="/">
                 Home Page
-            </a>
-            <a class="nav-bar-links" href="about.html">
+            </Link>
+            <Link className="nav-bar-links" to="/about">
                 About Me
-            </a>
+            </Link>
         </nav>
     </header>
   );
