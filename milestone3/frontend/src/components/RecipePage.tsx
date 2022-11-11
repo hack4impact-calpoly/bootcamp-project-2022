@@ -9,12 +9,12 @@ interface RecipePageProps {
 
 export default function RecipePage(props: RecipePageProps) {
     const { name, id } = useParams();
-    const defaultRecipe = recipes[Number(id)];
+    const defaultRecipe = recipes[0];
     const [recipe, setRecipe] = useState(defaultRecipe)
     const [newIngredient, setNewIngredient] = useState('');
-    const [allIngredients, setAllIngredients] = useState(recipe.ingredients)
+    const [allIngredients, setAllIngredients] = useState(defaultRecipe.ingredients)
     const [newInstruction, setNewInstruction] = useState('');
-    const [allInstructions, setAllInstructions] = useState(recipe.instructions)
+    const [allInstructions, setAllInstructions] = useState(defaultRecipe.instructions)
 
     useEffect(() => {
         if (props.external) {
@@ -22,7 +22,7 @@ export default function RecipePage(props: RecipePageProps) {
                 .then(res => res.json())
                 .then(data => {setRecipe(data[0])})
         } else {
-            setRecipe(defaultRecipe)
+            setRecipe(recipes[Number(id)])
         }
     }, [name, props.external])
     

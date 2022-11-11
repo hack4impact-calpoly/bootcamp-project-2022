@@ -15,7 +15,7 @@ interface RecipePreviewProps{
 export default function RecipePreview({ name, image, description, external, idx }: RecipePreviewProps) {
   return (
     <div className="recipe-container">
-        <Link to={ external ? `externalRecipe/${name}` : `recipe/${idx}`} className="recipe-name">{name}</Link>
+        <Link to={ external ? `externalRecipe/${name.split('(')[0]}` : `recipe/${idx}`} className="recipe-name">{name}</Link>
         <div className="recipe-info">
           <img src={image} alt="img" />
           <p className="recipe-description">{description}</p>
