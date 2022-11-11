@@ -1,34 +1,74 @@
 import { useParams } from "react-router-dom";
 import recipeData, { Recipe } from "../recipeData";
-import React, { useState } from "react";
+import { useState, ChangeEvent } from "react";
 
 //Recipe Page component
 export default function RecipePage() {
-  const [newIngredient, setNewIngredient] = useState(""); //add this
   const { id } = useParams(); //Get the id from the URL parameter
   // Get the correct Recipe object based on the given URL parameter
-  const recipe: Recipe | undefined = recipeData.find(
+  const recipeFromID: Recipe | undefined = recipeData.find(
     (recipe) => recipe.id === Number(id) //Cast to number type, since parameter is given as string
   );
+
+  let recipe = {} as Recipe; //Empty Recipe if undefined
+  if (recipeFromID !== undefined) {
+    //Check if Recipe is undefined
+    recipe = recipeFromID;
+  }
+
+  const [newIngredient, setNewIngredient] = useState(""); //To store user inputted ingredient
+  const [newInstruction, setNewInstruction] = useState(""); //To store user inputted instruction
+  const [allIngredients, setAllIngredients] = useState(recipe.ingredients); //To store and set full ingredients list
+  const [allInstructions, setAllInstructions] = useState(recipe.instructions); //To store and set full ingredients list
 
   return (
     <main>
       <div className="recipe-container">
         <div className="recipe-content">
-          <h1>{recipe?.name}</h1>
-          <p>{recipe?.description}</p>
+          <h1>{recipe.name}</h1>
+          <p>{recipe.description}</p>
           <h2>Ingredients</h2>
           <ul>
-            {recipe?.ingredients.map((ingredient) => (
+            {allIngredients.map((ingredient) => (
               <li>{ingredient}</li>
             ))}
           </ul>
+          <input
+            placeholder="Ingredient"
+            value={newIngredient} // add newIngredient as the input's value
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              // this event handler updates the value of newIngredient
+              setNewIngredient(e.currentTarget.value);
+            }}
+          />
+          <button
+            onClick={() =>
+              setAllIngredients([...allIngredients, newIngredient])
+            }
+          >
+            Add Ingredient
+          </button>
           <h2>Instructions</h2>
           <ol>
-            {recipe?.instructions.map((instruction) => (
+            {allInstructions.map((instruction) => (
               <li>{instruction}</li>
             ))}
           </ol>
+          <input
+            placeholder="Instruction"
+            value={newInstruction} // add newInstruction as the input's value
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              // this event handler updates the value of newIngredient
+              setNewInstruction(e.currentTarget.value);
+            }}
+          />
+          <button
+            onClick={() =>
+              setAllInstructions([...allInstructions, newInstruction])
+            }
+          >
+            Add Ingredient
+          </button>
         </div>
         <div>
           <img
