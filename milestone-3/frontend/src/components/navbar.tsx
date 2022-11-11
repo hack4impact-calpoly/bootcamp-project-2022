@@ -10,7 +10,7 @@ export default function Navbar() {
     
       <nav className="nav">
             <div className="container">
-                {/* <h1 className="logo"><Link to="/">MyKitchen</Link> </h1> */}
+                <h1 className="logo"><Link to="/">MyKitchen</Link> </h1>
                 <ul>
                
                     <li className="current">
@@ -20,6 +20,8 @@ export default function Navbar() {
                         <Link to="/about">About</Link>
                     </li>  
                 </ul>
+
+
             </div>
         </nav>
     </header>
