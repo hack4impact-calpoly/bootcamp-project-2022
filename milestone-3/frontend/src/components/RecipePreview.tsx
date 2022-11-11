@@ -1,15 +1,15 @@
 
 import React from 'react';
 import './recipePreview.css'
+ 
+ 
 
 export default function RecipePreview(recipe:any) {
+ 
   return (
-		// replace everything between the <div> & </div> tags
-		// with your code from earlier milestones
     <div className='recipe_page' >
-      {/* <h3> {recipe.name}</h3> */}
       <header>
-        <h1> {recipe.name}</h1>
+        <h1>    {recipe.name}  </h1>
       </header>
       <div className="container">
        
