@@ -16,6 +16,7 @@ function App() {
         <Route path="/about" element={<About />} />
         {/* This path will render the relevant RecipePage based on the id parameter given */}
         <Route path="/recipe/:name" element={<RecipePage />} />
+        <Route path="externalRecipe/:name" element={<RecipePage external />} />
       </Routes>
     </BrowserRouter>
   );

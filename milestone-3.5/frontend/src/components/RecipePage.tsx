@@ -1,26 +1,49 @@
 import { useParams } from "react-router-dom";
 import recipeData, { Recipe } from "../recipeData";
-import { useState, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 
+interface RecipePageProps {
+  external?: boolean;
+  // other props
+}
+
+RecipePage.defaultProps = {
+  external: false,
+};
 //Recipe Page component
-export default function RecipePage() {
-  const { name } = useParams(); //Get the id from the URL parameter
-  // Get the correct Recipe object based on the given URL parameter
-  const recipeFromName: Recipe | undefined = recipeData.find(
-    (recipe) => recipe.name === name //Cast to number type, since parameter is given as string
-  );
+export default function RecipePage(props: RecipePageProps) {
+  const { name } = useParams();
+  const [externalRecipe, setExternalRecipe] = useState<Recipe>();
 
   let recipe = {} as Recipe; //Empty Recipe if undefined
-  if (recipeFromName !== undefined) {
-    //Check if Recipe is undefined
-    recipe = recipeFromName;
-  }
+
+  useEffect(() => {
+    if (props.external) {
+      // make an API call with the url param & setRecipe
+      fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + { name })
+        .then((res) => res.json())
+        .then((data) => setExternalRecipe(data));
+      if (externalRecipe !== undefined) {
+        //Check if Recipe is undefined
+        recipe = externalRecipe;
+      }
+    } else {
+      // query all of your recipe data for the recipe you want & setRecipe
+      // Get the correct Recipe object based on the given URL parameter
+      const recipeFromName: Recipe | undefined = recipeData.find(
+        (recipe) => recipe.name === name
+      );
+      if (recipeFromName !== undefined) {
+        //Check if Recipe is undefined
+        recipe = recipeFromName;
+      }
+    }
+  }, [{ name }, props.external]);
 
   const [newIngredient, setNewIngredient] = useState(""); //To store user inputted ingredient
   const [newInstruction, setNewInstruction] = useState(""); //To store user inputted instruction
   const [allIngredients, setAllIngredients] = useState(recipe.ingredients); //To store and set full ingredients list
   const [allInstructions, setAllInstructions] = useState(recipe.instructions); //To store and set full ingredients list
-
   return (
     <main>
       <div className="recipe-container">

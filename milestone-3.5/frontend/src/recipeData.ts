@@ -20,7 +20,7 @@ export interface Recipe extends RecipePreviewData {
 let recipeData: Recipe[] = [
   {
     id: 1,
-    name: "Recipe 1: Chorizo Pasta",
+    name: "Chorizo Pasta",
     description: "An easy pasta dish that is fun for all the family!",
     image:
       "https://thymeandlove.com/wp-content/uploads/2018/10/Ed-Post-3-4-720x720.jpg",
@@ -35,7 +35,7 @@ let recipeData: Recipe[] = [
   },
   {
     id: 2,
-    name: "Recipe 2: Autumnal Soup",
+    name: "Autumnal Soup",
     description: "An easy soup dish that is fun for all the family!",
     image:
       "https://www.thelastfoodblog.com/wp-content/uploads/2018/10/autumn-soup-thumb.jpg",
@@ -63,7 +63,7 @@ let recipeData: Recipe[] = [
   },
   {
     id: 3,
-    name: "Recipe 3: Cereal",
+    name: "Cereal",
     description: "An easy cereal dish that is fun for all the family!",
     image:
       "https://www.traderjoes.com/content/dam/trjo/products/m20907/36592.png/jcr:content/renditions/webp-1280.webp",
