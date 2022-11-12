@@ -19,6 +19,8 @@ export default function RecipePage({
 }: recipePageProps) {
   const [ingredients, setIngredients] = useState(ingred);
   const [customIngred, setCustomIngred] = useState("");
+  const [instructions, setInstructions] = useState(instruc);
+  const [customInstruc, setCustomInstruc] = useState("");
 
   return (
     <div className="container">
@@ -46,20 +48,53 @@ export default function RecipePage({
             <div className="ingredient-adder">
               <label>Add an ingredient</label>
               <div className="inputs">
-              <input type="text" value={customIngred} onChange={(e)=>{setCustomIngred(e.target.value)}}></input>
-              <button className="ingredientbtn" onClick={()=>{setIngredients([...ingredients, customIngred])
-              setCustomIngred("")}}>add</button>
+                <input
+                  type="text"
+                  value={customIngred}
+                  onChange={(e) => {
+                    setCustomIngred(e.target.value);
+                  }}
+                ></input>
+                <button
+                  className="ingredientbtn"
+                  onClick={() => {
+                    setIngredients([...ingredients, customIngred]);
+                    setCustomIngred("");
+                  }}
+                >
+                  add
+                </button>
               </div>
-              
             </div>
           </div>
           <div className="instructions">
             <h3>Instructions</h3>
             <ol className="instruction-list">
-              {instruc.map((step, idx) => {
+              {instructions.map((step, idx) => {
                 return <li key={idx}>{step}</li>;
               })}
             </ol>
+            <div className="instruction-adder">
+              <label>Add an instruction</label>
+              <div className="inputs">
+                <input
+                  type="text"
+                  value={customInstruc}
+                  onChange={(e) => {
+                    setCustomInstruc(e.target.value);
+                  }}
+                ></input>
+                <button
+                  className="instructionbtn"
+                  onClick={() => {
+                    setInstructions([...instructions, customInstruc]);
+                    setCustomInstruc("");
+                  }}
+                >
+                  add
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
