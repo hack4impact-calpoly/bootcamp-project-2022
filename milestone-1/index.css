@@ -1,0 +1,95 @@
+body {
+    background-color: #0070FF; 
+}
+
+p {
+    font-size: 20px;
+}
+
+li {
+    font-size: 20px;
+}
+
+.title-box {
+    display: flex;
+    flex-direction: row;
+    border: 10px solid #fff880;
+    border-radius: 25px;
+    align-items: center;
+    color: #fff880;
+    justify-content: space-between;
+    background-color: #E60026;
+    padding: 3%;
+}
+
+.title-txt {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.title-links {
+    color: #fff880;
+    padding-right: 10px;
+    font-size: 18px;
+}
+
+.title-header {
+    margin-left: 3%;
+    font-weight: bold;
+}
+
+.description-box {
+    background-color: #E60026;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.food-name {
+    color: #fff880;
+    padding-left: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.pic {
+    width: 200px;
+    margin: 10px;
+    border: 10px solid #0070FF;
+    border-radius: 25px;
+}
+
+.pic-2 {
+    width: 200px;
+    margin: 15px;
+    border: 10px solid #0070FF;
+    border-radius: 25px;
+    float: left;
+}
+
+.recipe-box {
+    margin-top: 20px;
+    border: 10px solid #fff880;
+    border-radius: 25px;
+    background-color: #E60026;
+}
+
+.recipe-1 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    justify-content: space-around;
+    padding-right: 10px;
+}
+
+.big-txt {
+    background-color: #0070FF;
+    margin: 0px 10px 0px 0px;
+    padding: 5px 0px 5px 15px;
+    border-radius: 25px;
+}

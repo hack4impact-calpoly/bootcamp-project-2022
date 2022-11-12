@@ -1,0 +1,35 @@
+.title-header {
+    margin-left: 3%;
+    font-weight: bold;
+}
+
+.title-txt {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.description-box {
+    background-color: #E60026;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.food-name {
+    color: #fff880;
+    padding-left: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.pic {
+    width: 200px;
+    margin: 10px;
+    border: 10px solid #0070FF;
+    border-radius: 25px;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}

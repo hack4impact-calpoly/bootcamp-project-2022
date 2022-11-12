@@ -1,0 +1,22 @@
+.title-header {
+    margin-left: 3%;
+    font-weight: bold;
+}
+
+.description-box {
+    background-color: #E60026;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.pic {
+    width: 200px;
+    margin: 10px;
+    border: 10px solid #0070FF;
+    border-radius: 25px;
+}
+
+header {
+    background-color: #0070FF;
+}
