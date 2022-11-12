@@ -1,8 +1,8 @@
 import React from 'react';
 import './Style.css';
-import './AboutMe.css';
+import './About.css';
 
-export default function AboutMe() {
+export default function About() {
   return (
     <main>
       <h1>About Me</h1>
