@@ -1,16 +1,26 @@
 import React from 'react';
-import './recipePreview.css'
+import { isPropertySignature } from 'typescript';
+import { Link } from 'react-router-dom';
+import './recipePreview.css';
 
-export default function RecipePreview() {
+interface RecipePrev {
+  name: string;
+  description: string;
+  image: string;
+}
+
+export default function RecipePreview(props: RecipePrev) {
   return (
-		// replace everything between the <div> & </div> tags
-		// with your code from earlier milestones
-    <div>
-      <h3> Recipe Name </h3>
-      <div>
-        <img src="./imageLinkHere" alt="img" />
-        <p>This recipe is ...</p>
+    <div className="description-box">
+      {/* lowercase name and replace space global search with "-" */}
+        <Link to={`/recipes/${props.name.toLowerCase().replace(/\s/g, "-")}`}>
+          {props.name}
+        </Link>
+        <br/>
+        <span className="content">
+            <img src={props.image} alt={props.image} className="pic"/>
+            <p>{props.description}</p>
+        </span>
       </div>
-	  </div>
   );
 }
