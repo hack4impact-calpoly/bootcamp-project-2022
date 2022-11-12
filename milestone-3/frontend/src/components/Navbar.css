@@ -1,31 +1,29 @@
-/* Add any css classes 
-    that you used in your <header> into navbar.css */
-    .title-box {
-        display: flex;
-        flex-direction: row;
-        border: 10px solid #fff880;
-        border-radius: 25px;
-        align-items: center;
-        color: #fff880;
-        justify-content: space-between;
-        background-color: #E60026;
-        padding: 3%;
-    }
-    
-    .title-txt {
-        font-size: 40px;
-        font-weight: bold;
-    }
-    
-    .title-links {
-        color: #fff880;
-        padding-right: 10px;
-        font-size: 18px;
-    }
-    
-    .pic {
-        width: 200px;
-        margin: 10px;
-        border: 10px solid #0070FF;
-        border-radius: 25px;
-    }
+.title-box {
+    display: flex;
+    flex-direction: row;
+    border: 10px solid #fff880;
+    border-radius: 25px;
+    align-items: center;
+    color: #fff880;
+    justify-content: space-between;
+    background-color: #E60026;
+    padding: 3%;
+}
+
+.title-txt {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.title-links {
+    color: #fff880;
+    padding-right: 10px;
+    font-size: 18px;
+}
+
+.pic {
+    width: 200px;
+    margin: 10px;
+    border: 10px solid #0070FF;
+    border-radius: 25px;
+}

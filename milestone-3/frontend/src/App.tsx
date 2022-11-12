@@ -16,8 +16,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             {recipes.map((recipe) => (
-              /* lowercase name and replace space using global search with "-" */
-              <Route path={`/recipes/${recipe.name.toLowerCase().replace(/\s/g, "-")}`}
+              /* lowercase name and remove spaces */
+              <Route path={`/recipes/${recipe.name.toLowerCase().replace(/\s/g, "")}`}
                 element={<RecipePage {...recipe} />} />
             )
             )}

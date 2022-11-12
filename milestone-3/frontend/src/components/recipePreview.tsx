@@ -12,8 +12,8 @@ interface RecipePrev {
 export default function RecipePreview(props: RecipePrev) {
   return (
     <div className="description-box">
-      {/* lowercase name and replace space global search with "-" */}
-        <Link className="food-name" to={`/recipes/${props.name.toLowerCase().replace(/\s/g, "-")}`}>
+      {/* lowercase name and remove spaces */}
+        <Link className="food-name" to={`/recipes/${props.name.toLowerCase().replace(/\s/g, "")}`}>
           {props.name}
         </Link>
         <br/>

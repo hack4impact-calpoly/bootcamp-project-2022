@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   return (
-    // replace everything in between the <header> & <header /> tags
-    // with your navbar code from your earlier milestones
     <header>
       <div className="title-box">
         <h1 className="title-txt">Nick's Filipino Feasts</h1>
