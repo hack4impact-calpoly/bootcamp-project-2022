@@ -5,6 +5,7 @@ export interface Section {
 
 export interface Recipe {
   name: string;
+  path: string;
   description: string;
   image: string;
   ingredients: Section[];
@@ -87,17 +88,27 @@ const cookieSections: Section[] = [
 const recipes: Recipe[] = [
   {
     name: 'Strawberry Poke Cake',
+    path: 'Strawberry-Poke-Cake',
     description:
       'We make this beloved dessert with not-too-sweet buttermilk cake and very lightly sweetened whipped cream. The cake tastes best just slightly chilled, so let it sit out to warm up a bit while you whip the cream for the topping.',
     image:
       'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/1/29/1/FN_Strawberry-Poke-Cake_s4x3.jpg.rend.hgtvcom.826.620.suffix/1393874276855.jpeg',
     ingredients: cakeSections,
-    instruction: [],
+    instruction: [
+      'For the cake: Position an oven rack in the lower third of the oven and preheat to 350 degrees F. Butter the bottom and sides of a 9-by-13-inch pan.',
+      'Whisk the flour, baking powder, baking soda and salt in a medium bowl; set aside. Whisk the buttermilk and vanilla in a spouted measuring cup; set aside.',
+      'Beat the sugar and butter in a stand mixer (or a large bowl if using a hand mixer) at medium speed until very light in color and fluffy, about 5 minutes, scraping down the side of the bowl as needed. Slowly add the eggs and beat until fully incorporated. Reduce the speed to the lowest setting; with the mixer running, alternate beating in the flour mixture in three additions and the buttermilk mixture in two, starting and ending with the flour mixture. Scrape down the side of the bowl, and beat until the batter is well mixed. Spread into the prepared pan.',
+      'Bake the cake until golden brown and a toothpick inserted in the center comes out clean, about 30 minutes, rotating the pan halfway through. Let cool in the pan for 30 minutes. Using a fork, poke holes in the top and all the way through the cake.',
+      'Bring 1 cup water to a boil, pour over the gelatin in a small bowl and stir until completely dissolved, about 2 minutes. Stir in 1/2 cup cold water. Pour the mixture evenly over the cooled cake. Refrigerate for 2 hours. Put a large bowl (for whipping the cream) in the refrigerator.',
+      'For the sweetened berries: While the cake chills, hull and quarter the strawberries. Toss with the granulated sugar in a medium bowl, and set aside until soft and juicy, about 1 hour.',
+      'For the topping: Remove the cake from the refrigerator. Whip the cream with the sugar and vanilla in the chilled bowl until fluffy. Spread it over the cake, slice the cake and serve with the strawberries.',
+    ],
     recipeSource:
       'https://www.foodnetwork.com/recipes/food-network-kitchen/strawberry-poke-cake-3362177',
   },
   {
     name: 'Fruit Pizza',
+    path: 'Fruit-Pizza',
     description:
       'Use any combination of ripe summer fruit you can find for this fresh fruit "pizza." The crust is one big sugar cookie that can be baked a day ahead and kept well wrapped until you\'re ready to spread it with the cream-cheese topping (which you can also make a day ahead). The dough could double as your go-to sugar cookie recipe too--just form it into balls and bake at 350 degrees F for a soft, chewy treat.',
     image:
@@ -115,7 +126,9 @@ const recipes: Recipe[] = [
   },
   {
     name: 'Peanut Butter-Chocolate No-Bake Cookies',
-    description: 'These simple drop cookies give your oven a break: they start on the stovetop – where all the ingredients are mixed – and then finish and set in the fridge. They are also perfect for making with kids: all of the ingredients are pantry staples, clean-up is easy and there are no raw eggs. If your household has allergy concerns, then swap the peanut butter out with your favorite smooth nut or seed butter like almond, cashew or sunflower butter. Refrigerate the cookies in an airtight container and have chilled treats for after school or as special snacks. This recipe also makes a generous amount of cookies (5 dozen!) so keep it in mind the next time you need a giftable sweet.',
+    path: 'Peanut-Butter-Chocolate-No-Bake-Cookies',
+    description:
+      'These simple drop cookies give your oven a break: they start on the stovetop – where all the ingredients are mixed – and then finish and set in the fridge. They are also perfect for making with kids: all of the ingredients are pantry staples, clean-up is easy and there are no raw eggs. If your household has allergy concerns, then swap the peanut butter out with your favorite smooth nut or seed butter like almond, cashew or sunflower butter. Refrigerate the cookies in an airtight container and have chilled treats for after school or as special snacks. This recipe also makes a generous amount of cookies (5 dozen!) so keep it in mind the next time you need a giftable sweet.',
     image:
       'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/4/7/1/CL9455_no-bake-cookies_s4x3.jpg.rend.hgtvcom.231.174.suffix/1371597379025.jpeg',
     ingredients: cookieSections,
