@@ -47,7 +47,8 @@ export default function RecipePage({
               <label>Add an ingredient</label>
               <div className="inputs">
               <input type="text" value={customIngred} onChange={(e)=>{setCustomIngred(e.target.value)}}></input>
-              <button className="ingredientbtn" onClick={()=>setIngredients([...ingredients, customIngred])}>add</button>
+              <button className="ingredientbtn" onClick={()=>{setIngredients([...ingredients, customIngred])
+              setCustomIngred("")}}>add</button>
               </div>
               
             </div>
