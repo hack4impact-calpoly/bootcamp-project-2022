@@ -1,11 +1,14 @@
+import * as React from "react";
+import { Link } from "react-router-dom";
+
 function Navbar() {
     return(
         <nav>
             <div className="flex-container">
-                <a className="page" href="index.html">Home</a>
-                <a className="page" href="about.html">About</a>
+                <Link to="/" className="page">Home</Link>
+                <Link to="/about" className="page">About</Link>
             </div>
-    </nav>
+        </nav>
     )
 }
 

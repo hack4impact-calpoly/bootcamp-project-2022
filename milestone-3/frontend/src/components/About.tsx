@@ -3,7 +3,6 @@ import Navbar from './Navbar'
 function About() {
     return (
     <body>
-        <Navbar/>
         <header>
             <h2>About the Baker</h2>
         </header>

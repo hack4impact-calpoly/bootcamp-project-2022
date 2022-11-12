@@ -5,7 +5,6 @@ import recipeData from "../recipeData";
 function Home() {
     return(
     <body>
-        <Navbar/>
         <header>
             <h1>Today's Sweets</h1>
             <p><i>Find your favorite baking recipes</i></p>

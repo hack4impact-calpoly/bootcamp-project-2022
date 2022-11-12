@@ -3,7 +3,6 @@ import { Recipe } from './RecipePreview';
 
 function RecipePage(props: Recipe) {
     <body>
-    <Navbar/>
     <header>
         <h2>{props.name}</h2>
         <p>{props.desc}</p>

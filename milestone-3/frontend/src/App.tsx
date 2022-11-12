@@ -1,12 +1,26 @@
 import './App.css';
-import RecipePreview from './components/RecipePreview';
 import recipeData from "./recipeData"
 import Navbar from './components/Navbar';
+import Home from './components/Home';
+import About from './components/About';
+import RecipePage from './components/RecipePage';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { Routes } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
         <Navbar/>
+        <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/about" element={<About/>} />
+            {/*<Route path="/recipe/:name" element={<RecipePage/>} /> */}
+        </Routes>
+    </BrowserRouter>
+  )
     { /*
       <nav>
         <div className="flex-container">
@@ -14,7 +28,6 @@ function App() {
             <a className="page" href="about.html">About</a>
         </div>
     </nav>
-  */ }
     <header>
         <h1>Today's Sweets</h1>
         <p><i>Find your favorite baking recipes</i></p>
@@ -46,10 +59,11 @@ function App() {
                 <p>Somewhat hard to make but very worth it.</p>
             </div>
         </div>
-        */}
+        
     </main>
     </div>
   );
+  */}
 }
 
 export default App;
