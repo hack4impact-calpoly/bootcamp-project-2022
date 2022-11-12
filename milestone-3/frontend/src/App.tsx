@@ -20,9 +20,9 @@ function App() {
         <p><i>Find your favorite baking recipes</i></p>
     </header>
     <main>
-        <RecipePreview name={recipeData[0].name} image={recipeData[0].image} desc={recipeData[0].desc}/>
-        <RecipePreview name={recipeData[1].name} image={recipeData[1].image} desc={recipeData[1].desc}/>
-        <RecipePreview name={recipeData[2].name} image={recipeData[2].image} desc={recipeData[2].desc}/>
+        <RecipePreview name={recipeData[0].name} image={recipeData[0].image} desc={recipeData[0].desc} alt={recipeData[0].alt} ingredients={recipeData[0].ingredients} steps={recipeData[0].steps} source={recipeData[0].source}/>
+        <RecipePreview name={recipeData[1].name} image={recipeData[1].image} desc={recipeData[1].desc} alt={recipeData[1].alt} ingredients={recipeData[0].ingredients} steps={recipeData[0].steps} source={recipeData[0].source}/>
+        <RecipePreview name={recipeData[2].name} image={recipeData[2].image} desc={recipeData[2].desc} alt={recipeData[2].alt} ingredients={recipeData[0].ingredients} steps={recipeData[0].steps} source={recipeData[0].source}/>
         { /* 
         <div className="flex-container-recipes">
             <img src="https://hips.hearstapps.com/delish/assets/15/38/1442507902-mini-pumpkin-chocolate-chip-muffins-delish-2-3.jpg" alt="Pumpkin Chocolate Chip Muffins"/>
