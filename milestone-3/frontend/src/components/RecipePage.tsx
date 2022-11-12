@@ -22,7 +22,12 @@ export default function RecipePage() {
             />
           </div>
           <div className="buton">
-            <a href={currentRecipe?.recipeSource} className="button">
+            <a
+              href={currentRecipe?.recipeSource}
+              className="button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Original Recipe
             </a>
           </div>
