@@ -1,0 +1,100 @@
+/*
+brown color palatte
+#7e4a35 : standard brown
+#cab577 : golden tan
+#dbceb0 : beige
+#838060 : dark grey beige tone
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope');
+
+body {
+  font-family: 'Manrope';
+  background-color:ivory;
+}
+
+#motto {
+  text-align: center;
+  font-size: 22pt;
+}
+
+/* navbar styling */
+.navbutton {
+  background: #dbceb0;
+  padding: 10px 20px;
+  border-radius: 5px;
+
+  text-align: center;
+  font-size: 18pt;
+  color:#7e4a35;
+  font-weight: bold;
+  text-decoration: none;
+  line-height: 25px;
+}
+
+.navbutton:hover {
+  color:lightcoral;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.header-flex h1 {
+  font-size: 44pt;
+  color: white;
+}
+
+.header-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1% 4%;
+  background-color: #7e4a35;
+}
+
+/* navbar styling ends here */
+
+.recipe-section {
+  background:#cab577;
+  padding: 1% 8%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  white-space: pre;
+}
+
+.recipe-section img {
+  float: right;
+  border: 5px solid;
+  border-color: white;
+  width: 450px;
+}
+
+.recipe-section img:hover {
+  opacity: 90%;
+  border: 5px solid;
+  border-color: white;
+}
+
+.recipe-name {
+  text-decoration: none;
+  font-size: 32pt;
+  color:#838060;
+  font-style: italic;
+}
+
+.recipe-name:hover {
+  color:lightcoral;
+}
