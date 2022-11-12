@@ -64,3 +64,34 @@
   margin: 10px 0px;
   list-style-position: inside;
 }
+
+.ingredient-adder {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ingredient-adder label{
+  font-weight: 600;
+}
+
+.ingredient-adder .inputs {
+  display: flex;
+  gap: 5px;
+}
+
+.ingredient-adder .inputs input {
+  border: 1px solid var(--sub-accent);
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+.ingredient-adder .inputs button {
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: var(--sub-accent);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+}
