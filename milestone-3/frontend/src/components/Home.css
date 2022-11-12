@@ -3,6 +3,11 @@
     font-weight: bold;
 }
 
+.title-txt {
+    font-size: 40px;
+    font-weight: bold;
+}
+
 .description-box {
     background-color: #E60026;
     margin: 20px;

@@ -1,0 +1,29 @@
+.pic-2 {
+    width: 200px;
+    margin: 15px;
+    border: 10px solid #0070FF;
+    border-radius: 25px;
+    float: left;
+}
+
+.recipe-box {
+    margin-top: 20px;
+    border: 10px solid #fff880;
+    border-radius: 25px;
+    background-color: #E60026;
+}
+
+.recipe-1 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    justify-content: space-around;
+    padding-right: 10px;
+}
+
+.big-txt {
+    background-color: #0070FF;
+    margin: 0px 10px 0px 0px;
+    padding: 5px 0px 5px 15px;
+    border-radius: 25px;
+}

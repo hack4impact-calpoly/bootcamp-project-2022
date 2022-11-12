@@ -6,6 +6,7 @@ import RecipePreview from './recipePreview';
 export default function Home() {
     return (
         <main>
+            <h1 className="title-txt">Nick's Filipino Feasts</h1>
             {recipes.map((recipe) => 
                 <RecipePreview 
                     name={recipe.name}

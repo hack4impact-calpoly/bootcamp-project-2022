@@ -5,7 +5,7 @@ import About from './components/About';
 import Navbar from './components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import recipes from './recipeData';
-import RecipePreview from './components/recipePreview';
+import RecipePage from './components/RecipePage';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
             {recipes.map((recipe) => (
               /* lowercase name and replace space using global search with "-" */
               <Route path={`/recipes/${recipe.name.toLowerCase().replace(/\s/g, "-")}`}
-                element={<RecipePreview {...recipe} />} />
+                element={<RecipePage {...recipe} />} />
             )
             )}
         </Routes>
