@@ -17,7 +17,7 @@ const recipeData: Recipe[] = [
             "Add chocolate chips",
             "Cook for 28 minutes at 350",
         ],
-        source: "From mom :)"
+        source: "https://www.allrecipes.com/recipe/7958/pumpkin-chocolate-chip-muffins/"
     },
     {
         name: "Homemade Icecream",

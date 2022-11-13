@@ -18,6 +18,7 @@ function RecipePreview(props: Recipe) {
             <img src={props.image} alt={props.alt}/>
             <div className="text">
                 <h3><Link to = {`recipe/${props.url}`}><u>{props.name}</u></Link></h3>
+                {/* `recipe/${props.url}` will link to the correct recipe page */}
                 <p>{props.desc}</p>
             </div>
         </div>
