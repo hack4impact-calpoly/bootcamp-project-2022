@@ -17,7 +17,7 @@ const recipes: Recipe[] = [
         image: "https://modernmealmakeover.com/wp-content/uploads/2021/04/7-Layer-Dip.jpg",
         ingredients: ["1 can: Refried Beans", "Olives", "Sliced tomatoes", "Guac & lemon", "Cheddar cheese", "Green onions", "Sour cream", "Taco seasoning", "Cilantro", "Green onions", "Garlic salt", "Black pepper"],
         instructions: ["Bottom layer: Cooked refried beans", "Layer: Olives", "Layer: Sliced tomatoes", "Layer: Guac & lemon", "Layer: Cheddar cheese", "Layer: Green onions", "Layer: Green onions", "Layer: Mix of sour cream, taco seasoning, cilantro garlic salt, black pepper"]},
-        {name: "Zucchini/Chicken Skillet Tex Mex",
+        {name: "Zucchini Chicken Skillet Tex Mex",
         description: "This grilled chicken salad is tender marinated chicken that’s grilled to perfection then served over lettuce with bacon, avocado, corn, blue cheese and tomatoes. A hearty salad that’s packed with flavor and also happens to be full of nutrition.",
         image: "https://ifoodreal.com/wp-content/uploads/2017/07/chicken-and-zucchini-4.jpg",
         ingredients: ["1 Tsp: Avacado/ coconut oil", "1: Onion", "3: Garlic cloves, mince", "2: Bell Peppers, chop", "2: Bell Peppers, chop", "1 lb: Chicken breast", "1 cup: Corn", "2: Zucchini", "14 oz: Black beans", "14 oz: Diced tomatoes", "1 tsp: Taco Seasoning", "1 Tsp: Cumin", "1/2 tsp: Salt", "1 tsp: Black pepper", "1 cup: Tex Mex cheese", "1/2 cup: Green onions", "1/2 cup: Cilantro"],
