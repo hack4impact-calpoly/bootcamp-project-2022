@@ -1,10 +1,22 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import recipes from "../../recipeData";
 import cookinggirl from "../../images/Cooking-pana.png";
-import RecipePreview  from "../recipepreview/recipepreview";
+import RecipePreview from "../recipepreview/recipepreview";
 import "./home.css";
+import { useEffect, useState } from "react";
+import { Recipe } from "../../recipeData";
 
 export const Home = () => {
+  const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+
+  useEffect(() => {
+    fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setExternalRecipes(data);
+      });
+  });
   return (
     <div>
       <body>
@@ -26,6 +38,17 @@ export const Home = () => {
             </div>
             <div className="recipe-cards">
               {recipes.map((rec) => {
+                return (
+                  <RecipePreview
+                    name={rec.name}
+                    desc={rec.description}
+                    image={rec.image}
+                  />
+                );
+              })}
+            </div>
+            <div className="recipe-cards 2">
+              {externalRecipes.map((rec) => {
                 return (
                   <RecipePreview
                     name={rec.name}
