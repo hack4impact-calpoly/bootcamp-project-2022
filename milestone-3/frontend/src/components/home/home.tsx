@@ -16,7 +16,7 @@ export const Home = () => {
         console.log(data);
         setExternalRecipes(data);
       });
-  });
+  }, []);
   return (
     <div>
       <body>

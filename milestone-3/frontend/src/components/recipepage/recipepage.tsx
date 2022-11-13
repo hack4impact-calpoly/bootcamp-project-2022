@@ -28,7 +28,7 @@ export default function RecipePage({
         <div className="recipe-header">
           <div className="recipe-l">
             <img
-              src="https://veggiekinsblog.com/wp-content/uploads/2019/06/IMG_3641.jpg"
+              src={image}
               alt="quinoa fried rice"
             />
           </div>
