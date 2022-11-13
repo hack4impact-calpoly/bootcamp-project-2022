@@ -1,38 +1,197 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Mono:wght@300;400;500;700&display=swap");
+
+* {
+  font-family: "Lato", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+}
+a{
+    color: black;
+    text-decoration: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.text--purple 
+{
+    color: #6030b1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1{
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* HEADER*/
+
+.title_link
+{
+    font: 4vw;
+    text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+
+.logo_container{
+        width: 30px;
+        display: flex;
+    
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo-img{
+    width: 100%;
+    height: 100%;
+    margin-right: 10px;
 }
+header
+{
+    padding:4% 10%;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: top;
+    background-color:  white;
+}
+
+nav{
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    
+}
+
+.nav_link{
+    padding-left: 10px;
+    margin-right: 10px;
+    text-decoration: underline;
+}
+
+
+/* RECIPE CARDS*/
+.main_header{
+    display: flex;
+    justify-content: center;;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.recipe-home{
+    width: 95%;
+    height: 400px;
+    margin-left: 30px;
+    padding-top: 100px;
+    margin-right: 10%;
+
+}
+.recipe-header{
+        background-color: #6030b1;
+        padding: 1% 1%;
+        margin-bottom: 5px;
+        border-radius: 15px;
+        width:100%;
+        color: white;
+        text-decoration: underline;
+        text-decoration-color: white;
+}
+.recipe-card{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: grey;
+    border-radius: 25px;
+
+}
+
+.small-img{
+    border-radius: 25px;
+    width: 200px;
+    height: 200px;
+
+    border: 5px solid black;
+}
+
+.card-desc-home{
+    width: 80%;
+    margin-left: 20px;
+    color: rgb(240, 238, 238);
+}
+
+
+/* RECIPE PAGES */
+.entire-page{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+.recipe-page-first{
+    display: flex;
+    width: 85%;
+}
+.recipe-desc-ingr{
+    width: 100%;
+    border-radius: 25px;
+    background-color: grey;
+}
+.big-img{
+    border-radius: 25px;
+    width: 400px;
+    height: 600px;
+    border: 5px solid black;
+}
+
+.card-desc-page{
+    padding: 3%;
+    width: 100%;
+    height: 20%;
+    margin-left: 20px;
+    color: white;
+
+}
+
+.ingredients{
+    width: 100%;
+    margin-top: 20px;
+    height: 410px;
+    margin-left: 20px;
+}
+
+.ingredient-body{
+    color: white;
+    margin-top: 2%;
+    line-height: 30px;
+}
+
+/* INSTRUCTIONS on RECIPE PAGE*/
+
+.instructions{
+    margin-top: 5%;
+    line-height: 35px;
+    width: 85%;
+    padding-bottom: 150px;
+}
+
+.recipe-header-page{
+    background-color: #6030b1;
+    padding: 1% 1%;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    width:85%;
+    color: white;
+    text-decoration-color: white;
+}
+
+/* ABOUT-ME */
+
+.about-me{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10%;
+    padding-top: 10%;
+
+}
+
+.about-me-img{
+    width: 30%;
+    height: 30%;
+    border-radius: 25px;
+    border: 5px solid #6030b1;}
