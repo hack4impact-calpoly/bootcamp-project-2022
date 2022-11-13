@@ -6,6 +6,7 @@ const recipeData: Recipe[] = [
         desc: "Just as stated, pumpkin chocolate chip muffins! A great Halloween snack.",
         image: "https://hips.hearstapps.com/delish/assets/15/38/1442507902-mini-pumpkin-chocolate-chip-muffins-delish-2-3.jpg",
         alt: "Pumpkin Chocolate Chip Muffins",
+        url: "pumpkin-muffin",
         ingredients: ["1 cup sugar", "2 eggs", "1/2 cup softened butter", "3/4 cup pumpkin", "1 3/4 cup flour",
         "1 tsp cinnamon", "1 tsp salt", "1/2 tsp nutmeg", "1/2 tsp ground cloves", "3/4 cup chocolate chips",],
         steps: [
@@ -23,6 +24,7 @@ const recipeData: Recipe[] = [
         desc: "A personal favorite, good even when it's cold out.",
         image: "https://hips.hearstapps.com/vidthumb/images/delish-homemade-ice-cream-still001-1527189218.jpg?crop=0.790xw:0.704xh;0.122xw,0.219xh&resize=1200:*",
         alt: "Ice Cream",
+        url: "ice-cream",
         ingredients: [
             "2 cups heavy whipping cream",
             "2 cups half-and-half cream",
@@ -42,6 +44,7 @@ const recipeData: Recipe[] = [
         desc: "Somewhat hard to make but very worth it.",
         image: "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2020/02/27/0/FNK_Cake-Pops_H1.jpg.rend.hgtvcom.616.462.suffix/1582853049838.jpeg",
         alt: "Cakepops",
+        url: "cakepop",
         ingredients: [
             "1 2/3 cups all purpose flour",
             "1/2 tsp baking powder",

@@ -6,9 +6,7 @@ import About from './components/About';
 import RecipePage from './components/RecipePage';
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import { Routes } from "react-router-dom";
-import { Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -17,7 +15,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/about" element={<About/>} />
-            {/*<Route path="/recipe/:name" element={<RecipePage/>} /> */}
+            <Route path="/recipe/:name" element={<RecipePage />}/>
         </Routes>
     </BrowserRouter>
   )
