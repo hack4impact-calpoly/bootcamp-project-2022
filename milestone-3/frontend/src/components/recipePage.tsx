@@ -5,6 +5,7 @@ import RecipePreview from "./recipePreview";
 import React, { ChangeEvent, useState } from 'react';
 
 
+
 export default function RecipePage() {
   
     let {name} = useParams();
@@ -13,6 +14,10 @@ export default function RecipePage() {
     const [newIngredient, setNewIngredient] = useState('');
 
     const [allIngredients, setAllIngredients] = useState(recipe === undefined ? [] : recipe.ingredients);
+
+    const [newInstruction, setNewInstruction] = useState('');
+
+    const [allInstructions, setAllInstructions] = useState(recipe === undefined ? [] : recipe.instructions);
 
 
     if(!recipe) {
@@ -30,9 +35,9 @@ export default function RecipePage() {
     //let recipe = recipes.find(x => x.name === name);
     
 
-    function handleChange(event: ChangeEvent<HTMLInputElement>) {
-        setNewIngredient(event.currentTarget.value);
-      }
+    // function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    //     setNewIngredient(event.currentTarget.value);
+    //   }
 
 
     return (
@@ -47,24 +52,46 @@ export default function RecipePage() {
                 <ul>
                 <h2>Ingredients</h2>
                 
-                {recipe.ingredients.map((name, index) => {
+                {allIngredients.map((name, index) => {
                     return <li key={index}>{name}</li>;
                 })}
+                
                 <input
                     placeholder="2 cups of spinach"
                     value={newIngredient} // add newIngredient as the input's value
-                    onChange={handleChange} />
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                    // this event handler updates the value of newIngredient
+                    setNewIngredient(e.target.value);
+                    }}
+                />
+                    
 
-                <button onChange={() => setAllIngredients([...allIngredients, newIngredient])}>
+                <button onClick={() => setAllIngredients([...allIngredients, newIngredient])}>
                 Add Ingredient
                 </button>
+            
                 </ul>
            
                 <ol>
                     <h2>Directions</h2>
-                    {recipe.instructions.map(function(name, index) {
+                    {allInstructions.map(function(name, index) {
                     return <li key={index}>{name}</li>;
                     })}
+
+                <input
+                    placeholder="Stir pot"
+                    value={newInstruction} // add newIngredient as the input's value
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                    // this event handler updates the value of newIngredient
+                    setNewInstruction(e.target.value);
+                    }}
+                />
+
+                <button onClick={() => setAllInstructions([...allInstructions, newInstruction])}>
+                Add Ingredient
+                </button>
+
+
                 </ol>
             </div>
         </div>
