@@ -3,7 +3,7 @@
       "path": "Cookie", 
       "name": "White Chocolate Matcha Cookies",
       "desc": "Love baked goods that aren't too sweet or love green tea flavors?\nThese white chocolate chip matcha cookies are perfect for you!",
-      "image": "https://github.com/alnhuynh/bootcamp-project-2022/blob/main/images/cookie.jpg?raw=true", 
+      "image": "https://github.com/alnhuynh/bootcamp-project-2022/blob/main/milestone-3/frontend/src/images/cookie.jpg?raw=true", 
       "ingredients": [
           "1⅓ cup (167 g) all purpose flour",
           "2 tablespoon (16 g) cornstarch",
@@ -30,7 +30,7 @@
       "path": "Mochi", 
       "name": "Fruit/Paste Filled Mochi",
       "desc": "This mochi recipe is simple and customizable!\nChoose any fruit or paste to put in the center and have fun with it!",
-      "image": "https://github.com/alnhuynh/bootcamp-project-2022/blob/main/images/mochi.PNG?raw=true", 
+      "image": "https://github.com/alnhuynh/bootcamp-project-2022/blob/main/milestone-3/frontend/src/images/mochi.PNG?raw=true", 
       "ingredients": [
         "1 cup glutinous rice flour",
         "2 tablespoons powdered sugar",
@@ -53,7 +53,7 @@
       "path": "CheThai",
       "name": "Che Thai",
       "desc": "A recipe that has a special plate in my heart.\nSuper easy preparation and lots to share!",
-      "image": "https://github.com/alnhuynh/bootcamp-project-2022/blob/main/images/chethai.jpg?raw=true", 
+      "image": "https://github.com/alnhuynh/bootcamp-project-2022/blob/main/milestone-3/frontend/src/images/chethai.jpg?raw=true", 
       "ingredients": [
         "1/2 can water chestnuts 20 oz (Red Rubies)",
         "3/4 cup tapioca starch (Red Rubies)",
