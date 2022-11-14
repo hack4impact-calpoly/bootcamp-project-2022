@@ -27,6 +27,7 @@ const RecipePage = () => {
     const [allInstructions, setAllInstrutctions] = useState(
         recipeData[i].instructions
     );
+    const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
 
     return (
         <main>

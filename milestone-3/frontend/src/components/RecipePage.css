@@ -13,6 +13,8 @@
     padding: 0px 20px;
 }
 .recipe-instruct {
+    display: flex;
+    flex-direction: column;
     margin-top: 50px;
     font-size: 20px;
     padding: 0px 50px;
@@ -46,7 +48,7 @@
 }
 .addButton {
     font-size: 1.2rem;
-    margin: 20px 0px;
+    margin: 20px auto;
     padding: 8px 17px;
     background-color: #dae28f;
     border: solid 3px black;
@@ -57,6 +59,7 @@
     height: 20px;
     width: 250px;
     text-align: center;
+    margin: auto;
 }
 
 @media screen and (max-width: 1200px) {
