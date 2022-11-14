@@ -10,6 +10,8 @@
 html{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 100%;
+  /* This stops the navigation buttons moving when the scroll bar appears/disappears */
+  overflow-y: scroll;
 }
 /* -----All pages----- */
 /* Full width body with background colour */

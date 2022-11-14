@@ -3,47 +3,39 @@ import recipeData, { Recipe } from "../recipeData";
 import { useState, useEffect, ChangeEvent } from "react";
 
 interface RecipePageProps {
-  external?: boolean;
-  // other props
+  externalR?: boolean;
 }
 
 RecipePage.defaultProps = {
-  external: false,
+  externalR: false,
 };
+
 //Recipe Page component
 export default function RecipePage(props: RecipePageProps) {
-  const { name } = useParams();
-  const [externalRecipe, setExternalRecipe] = useState<Recipe>();
-
-  let recipe = {} as Recipe; //Empty Recipe if undefined
-
-  useEffect(() => {
-    if (props.external) {
-      // make an API call with the url param & setRecipe
-      fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + { name })
-        .then((res) => res.json())
-        .then((data) => setExternalRecipe(data));
-      if (externalRecipe !== undefined) {
-        //Check if Recipe is undefined
-        recipe = externalRecipe;
-      }
-    } else {
-      // query all of your recipe data for the recipe you want & setRecipe
-      // Get the correct Recipe object based on the given URL parameter
-      const recipeFromName: Recipe | undefined = recipeData.find(
-        (recipe) => recipe.name === name
-      );
-      if (recipeFromName !== undefined) {
-        //Check if Recipe is undefined
-        recipe = recipeFromName;
-      }
-    }
-  }, [{ name }, props.external]);
-
+  const params = useParams();
+  const [recipe, setRecipe] = useState<Recipe>(recipeData[0]);
   const [newIngredient, setNewIngredient] = useState(""); //To store user inputted ingredient
   const [newInstruction, setNewInstruction] = useState(""); //To store user inputted instruction
   const [allIngredients, setAllIngredients] = useState(recipe.ingredients); //To store and set full ingredients list
   const [allInstructions, setAllInstructions] = useState(recipe.instructions); //To store and set full ingredients list
+
+  useEffect(() => {
+    if (props.externalR!) {
+      fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + params.name)
+        .then((res) => res.json())
+        .then((data) => setRecipe(data[0]));
+    } else {
+      setRecipe(
+        recipeData.find((x) => x.name === params.name) || recipeData[0]
+      );
+    }
+  }, [params.name, props.externalR]);
+
+  useEffect(() => {
+    setAllIngredients(recipe.ingredients);
+    setAllInstructions(recipe.instructions);
+  }, [recipe]);
+
   return (
     <main>
       <div className="recipe-container">
@@ -52,7 +44,7 @@ export default function RecipePage(props: RecipePageProps) {
           <p>{recipe.description}</p>
           <h2>Ingredients</h2>
           <ul>
-            {allIngredients.map((ingredient) => (
+            {allIngredients?.map((ingredient) => (
               <li>{ingredient}</li>
             ))}
           </ul>
@@ -66,14 +58,14 @@ export default function RecipePage(props: RecipePageProps) {
           />
           <button
             onClick={() =>
-              setAllIngredients([...allIngredients, newIngredient])
+              setAllIngredients([...(allIngredients || []), newIngredient])
             }
           >
             Add Ingredient
           </button>
           <h2>Instructions</h2>
           <ol>
-            {allInstructions.map((instruction) => (
+            {allInstructions?.map((instruction) => (
               <li>{instruction}</li>
             ))}
           </ol>
@@ -87,7 +79,7 @@ export default function RecipePage(props: RecipePageProps) {
           />
           <button
             onClick={() =>
-              setAllInstructions([...allInstructions, newInstruction])
+              setAllInstructions([...(allInstructions || []), newInstruction])
             }
           >
             Add Ingredient
@@ -96,8 +88,8 @@ export default function RecipePage(props: RecipePageProps) {
         <div>
           <img
             className="recipe-image"
-            alt={recipe?.imgAlt}
-            src={recipe?.image}
+            alt={recipe.imgAlt}
+            src={recipe.image}
           />
         </div>
       </div>

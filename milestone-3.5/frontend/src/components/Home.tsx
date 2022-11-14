@@ -15,8 +15,11 @@ export default function Home() {
   return (
     <main>
       <h1>Recipes</h1>
-      {[...recipeData, ...(externalRecipes || []),].map((recipe) => (
+      {[...recipeData].map((recipe) => (
         <RecipePreview {...recipe} />
+      ))}
+      {(externalRecipes || []).map((recipe) => (
+        <RecipePreview {...recipe} externalR/>
       ))}
     </main>
   );
