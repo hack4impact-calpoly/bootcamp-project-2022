@@ -13,7 +13,7 @@ function RecipePage(){
           </h1>
           <div className="recipe-page-first">
             <img
-              src={require(recipe.image)}
+              src={recipe.image}
               alt={recipe.name}
               className="big-img"
             />

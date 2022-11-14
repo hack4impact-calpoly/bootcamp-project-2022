@@ -12,7 +12,7 @@ const recipe_list: Recipe[] =[
     {
         name: "Crispy Garlic Roasted Potatoes",
         description: "Buttery, garlicky, fluffy inside with crisp, golden edges… crispy garlic roasted potatoes are a super simple side dish perfect with anything! No need for bowls or pans when you can prepare AND cook your potatoes on one pan!",
-        image: "./images/Crispy-Garlic-Roasted-Potatoes.jpg",
+        image: "https://sweetcsdesigns.com/wp-content/uploads/2021/03/garlic-butter-roasted-potatoes-recipe-picture-735x735.jpg",
         ingredients: [
             "Potato of choice",
             "Garlic",
@@ -44,7 +44,7 @@ const recipe_list: Recipe[] =[
     {
         name: "Buttery Herb Mashed Potatoes",
         description: "Mashed potatoes are the ultimate comfort food, and these roasted garlic mashed potatoes take treating yourself to a whole other level. Thanks to the flavor powerhouse that is homemade roasted garlic, our creamy mashed potatoes are the quintessential sidekick to the best meals your table will ever see.",
-        image: "./images/easy-garlic-mashed-potatoes.jpg",
+        image: "https://static.onecms.io/wp-content/uploads/sites/19/2003/11/19/mashed-potato-ck-549812-x.jpg",
         ingredients: [
             "2.5 lbs. russet potatoes",
             "1/2 tsp salt",
@@ -72,7 +72,7 @@ const recipe_list: Recipe[] =[
         {
             name: "Crispy Homemade Waffle Fries",
             description: "Each fry is coated in a layer of golden crisp that gives way to a soft, welcoming interior. They hit savory and umami with a hint of sweetness and they taste like potatoes, oil, and just the right amount of salt.",
-            image: "./images/wafflefry.webp",
+            image: "https://www.webstaurantstore.com/images/products/large/549106/1993051.jpg",
             ingredients: [
                 "4 cups ice cubes",
                 "2 pounds russet potatoes (3 to 4 medium potatoes)",
