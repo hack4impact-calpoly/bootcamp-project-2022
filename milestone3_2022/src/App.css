@@ -1,0 +1,172 @@
+/* ---------- color palette ---------- */
+
+:root {
+  --dark-purple: #412234;
+  --medium-purple: #6d466b;
+  --light-purple: #b49fcc;
+  --pink: #ead7d7;
+  --white: #ffffff;
+}
+
+/* ---------- all pages ---------- */
+
+div {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+  background-color: var(--pink);
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+main {
+  padding: 0px 40px 10px;
+}
+
+.header {
+  background-color: var(--dark-purple);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+.title-container {
+  text-decoration: none;
+}
+
+.title {
+  color: var(--white);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-item {
+  margin: 0px 10px;
+  text-overflow: ellipsis;
+  color: var(--white);
+}
+
+h2 {
+  background-color: var(--medium-purple);
+  color: var(--white);
+  text-align: center;
+  padding: 10px;
+}
+
+h2 a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.1s;
+}
+
+h2 a:hover {
+  color: var(--dark-purple);
+  transition: color 0.1s;
+}
+
+/* ---------- homepage ---------- */
+
+.recipes {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.recipe {
+  background-color: var(--white);
+  width: 320px;
+  height: 720px;
+  padding: 10px 20px;
+  margin: 20px 15px;
+  border-radius: 20px;
+}
+
+.recipe-body {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.description {
+  padding: 0px 20px;
+  flex-basis: 50px;
+  flex-grow: 1;
+}
+
+.img-preview {
+  width: 320px;
+  border-radius: 10px;
+}
+
+/* ---------- recipe pages ---------- */
+
+.intro {
+  background-color: var(--medium-purple);
+  width: 800px;
+  height: 425px;
+  margin: 0 auto;
+  margin-top: 40px;
+  border-radius: 20px;
+}
+
+.intro-title {
+  color: var(--white);
+  padding-top: 40px;
+  margin: 0;
+}
+
+.intro-image {
+  width: 300px;
+  height: 350px;
+  margin: 35px;
+  float: left;
+  border-radius: 10px;
+}
+
+.intro-info {
+  color: var(--white);
+  margin: 0px 40px;
+}
+
+.label {
+  background-color: var(--medium-purple);
+  color: var(--white);
+  text-align: left;
+  margin: 0px 35px;
+}
+
+.flex-container {
+  display: flex;
+  background-color: var(--white);
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 40px;
+  border-radius: 20px;
+}
+
+.flex-content {
+  flex-basis: 320px;
+  flex-grow: 1;
+  margin-bottom: 35px;
+}
+
+ul li{
+  margin: 10px 50px;
+}
+
+ol li {
+  margin: 10px 50px
+}
+
+/* ---------- about me page ---------- */
+
+.gif {
+  width: 800px;
+}
