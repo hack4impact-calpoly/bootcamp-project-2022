@@ -44,6 +44,20 @@
 .text-center {
     text-align: center;
 }
+.addButton {
+    font-size: 1.2rem;
+    margin: 20px 0px;
+    padding: 8px 17px;
+    background-color: #dae28f;
+    border: solid 3px black;
+    border-radius: 30px;
+}
+.input-box {
+    margin-top: 50px;
+    height: 20px;
+    width: 250px;
+    text-align: center;
+}
 
 @media screen and (max-width: 1200px) {
     .container-recipes {
