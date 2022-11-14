@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { RecipePreviewData } from "../recipeData";
 
+//Interface adds the externalR prop for determining the recipe location
 export interface RecipePreviewProps extends RecipePreviewData {
   externalR: boolean;
 }
