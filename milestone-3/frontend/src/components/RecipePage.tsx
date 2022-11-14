@@ -121,7 +121,7 @@ export default function RecipePage(props: Props){
                                     setNewMainList(e.target.value)
                                     indexList.current = allIngredients.instructions.findIndex((item) => (item.mainList.toLowerCase() === e.target.value.toLowerCase()));
                                 }}/>
-                                <input placeholder="Sub-list (optional)" value={newSubList} onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                                <input disabled={newMainList === ''} placeholder="Sub-list (optional)" value={newSubList} onChange={(e: ChangeEvent<HTMLInputElement> ) => {
                                     setNewSubList(e.target.value)
                                 }}/>
                                 <button onClick={() =>{

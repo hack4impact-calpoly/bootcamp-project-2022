@@ -174,3 +174,9 @@ button{
     width:100%;
     margin-top: 50px;
 }
+
+input:disabled{
+    background-color: white;
+    opacity: 70%;
+    cursor:not-allowed;
+}
