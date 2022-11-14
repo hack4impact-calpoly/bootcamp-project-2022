@@ -42,12 +42,15 @@ export default function RecipePage(props: RecipePageProps) {
                                 <li key={idx}>{item}</li>
                             ))}
                         </ul>
+                    </div>
+                    <div className="add-item">
+                        <p>Add Ingredient</p>
                         <input
                             placeholder='2 cups of spinach'
                             value={newIngredient}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => setNewIngredient(e.target.value)}
                         />
-                        <button onClick={() => setAllIngredients([...allIngredients, newIngredient])}>
+                        <button className="add-item-btn" onClick={() => setAllIngredients([...allIngredients, newIngredient])}>
                             Add Ingredient
                         </button>
                     </div>
@@ -60,13 +63,16 @@ export default function RecipePage(props: RecipePageProps) {
                         <li key={idx}>{item}</li>
                     ))}
                 </ol>
+            </div>
+            <div className="add-item">
+                <p>Add Instruction</p>
                 <input
                     placeholder='Pour and serve!'
                     value={newInstruction}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => setNewInstruction(e.target.value)}
                 />
-                <button onClick={() => setAllInstructions([...allInstructions, newInstruction])}>
-                    Add Ingredient
+                <button className="add-item-btn" onClick={() => setAllInstructions([...allInstructions, newInstruction])}>
+                    Add Instruction
                 </button>
             </div>
         </div>
