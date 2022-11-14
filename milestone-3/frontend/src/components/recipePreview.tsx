@@ -1,13 +1,12 @@
-import { Recipe } from "../recipeData";
+import { Recipe} from "../recipeData";
 import React, { useRef} from "react";
 import nachos from '../imgs/comida/nachos.webp'
 import './navbar.css'
 
-
 import '../App.css';
 import { Link } from "react-router-dom";
 
-interface Recipes{
+export interface Recipes{
    recipes: Recipe[]
 }
 
@@ -15,6 +14,7 @@ interface RecipeKeys{
    [key: string]: Recipe[]
 }
 
+let slugify = require('slugify');
 
 
 
@@ -49,10 +49,9 @@ function imageChange(src: string, image_block: React.RefObject<HTMLImageElement>
 
 function returnRecipesMap(recipeCategories: RecipeKeys, image_block: React.RefObject<HTMLImageElement>, image_block2: React.RefObject<HTMLImageElement>){
       const keys: string[] = Object.keys(recipeCategories);
-      let slugify = require('slugify');
       return (
          <>
-         <div>
+         <div className="menu-columns width-50">
             {keys.slice(0, 2).map(key => (
                <div className="menu-columns width-50">
                   <h2>{key}</h2>
@@ -68,7 +67,7 @@ function returnRecipesMap(recipeCategories: RecipeKeys, image_block: React.RefOb
                </div> 
             </div>
          </div>
-         <div>
+         <div className="menu-columns width-5 visible">
             {keys.slice(2).map(key => (
                <div className="menu-columns width-50 visible">
                   <h2>{key}</h2>
@@ -87,7 +86,6 @@ function returnRecipesMap(recipeCategories: RecipeKeys, image_block: React.RefOb
 
    function returnRecipesRightHand(recipeCategories: RecipeKeys, image_block: React.RefObject<HTMLImageElement>, image_block2: React.RefObject<HTMLImageElement>){
       const keys: string[] = Object.keys(recipeCategories);
-      let slugify = require('slugify');
 
       return (
          <>
@@ -110,10 +108,8 @@ function returnRecipesMap(recipeCategories: RecipeKeys, image_block: React.RefOb
 
 export default function RecipePrevew(props: Recipes){
 
-
    let recipeCategories: string[] = props.recipes.map((recipe) => recipe.category)
    recipeCategories = recipeCategories.filter((category, index) => recipeCategories.indexOf(category) === index)
-   console.log(recipeCategories)
 
    // making an object to store recipes in same category
 

@@ -1,11 +1,7 @@
 import nachos from './imgs/comida/nachos.webp'
-import al_pastor from './imgs/comida/al_pastor.webp'
 import camarones from './imgs/comida/camarones.webp'
-import chilaquiles from './imgs/comida/chilaquiles.jpg'
 import conchas from './imgs/comida/conchas.jpg'
-import tacitos from './imgs/comida/tacitos.jpg'
-import tacos_chorizo_papas from './imgs/comida/tacos_chorizo_papas.webp'
-import tortas from './imgs/comida/tortas.jpg'
+
 
 
 
@@ -31,6 +27,18 @@ export interface Recipe {
     slug?: string;
 }
 
+export interface defaultRecipe {
+    category: string;
+    name: string;
+    description: string;
+    image: string;
+    ingredients: string[];
+    instructions: string[];
+    slug?: string;
+}
+
+
+
 export const errorObject: Recipe = {
     category: 'ERROR',
     name: 'ERROR',
@@ -38,7 +46,15 @@ export const errorObject: Recipe = {
     image: 'ERROR',
     ingredients: [{title: 'ERROR', ingredients: ['ERROR']}],
     instructions: [{mainList: 'Error', subList:['ERROR']}]
+    
 }
+
+
+
+
+
+
+
 const recipeObject1: Recipe = {
     category: 'Breakfast',
     name: 'Conchas',
