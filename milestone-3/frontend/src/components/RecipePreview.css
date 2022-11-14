@@ -1,0 +1,56 @@
+.links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #faedcd;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Puts box around the first recipe */
+.recipe1-flex {
+    background-color: #31572c;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: 10px solid #a98467;
+    color: #faedcd;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.imageIced {
+    border: 10px solid #a98467; 
+    /* width: 300px; 
+    height: 420px; */
+}
+
+.imageHot {
+    border: 10px solid #a98467; 
+    /* width: 300px; 
+    height: 420px; */
+}
+
+/* Puts box around the second recipe */
+.recipe2-flex {
+    background-color: #606c38;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: 10px solid #a98467;
+    color: #faedcd;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Puts box around the third recipe */
+.recipe3-flex {
+    background-color: #31572c;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: 10px solid #a98467;
+    color: #faedcd;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+ 

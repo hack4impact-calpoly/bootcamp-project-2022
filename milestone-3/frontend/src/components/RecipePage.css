@@ -1,0 +1,12 @@
+/* Spacing the welcome page */
+.flex-container {
+
+    padding: 10px 40px;
+    flex-wrap: wrap;
+    font-size: 30px;
+    color: #6c584c;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+
+} 

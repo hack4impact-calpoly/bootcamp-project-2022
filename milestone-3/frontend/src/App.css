@@ -1,0 +1,80 @@
+
+/* Title box */
+.title {
+    color: #faedcd;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.entireBack {
+    background-color: #faedcd;
+}
+
+/* Navigating the index (home) page and about me page */
+.links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #faedcd;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Top bar on the pages */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #6c584c;
+
+}
+
+/* Spacing the welcome page */
+.flex-container {
+
+    padding: 10px 40px;
+    flex-wrap: wrap;
+    font-size: 20px;
+    color: #6c584c;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+
+} 
+
+/* Puts box around the first recipe */
+.recipe1-flex {
+    background-color: #31572c;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: 10px solid #a98467;
+    color: #faedcd;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Puts box around the second recipe */
+.recipe2-flex {
+    background-color: #606c38;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: 10px solid #a98467;
+    color: #faedcd;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Puts box around the third recipe */
+.recipe3-flex {
+    background-color: #31572c;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: 10px solid #a98467;
+    color: #faedcd;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+ 
