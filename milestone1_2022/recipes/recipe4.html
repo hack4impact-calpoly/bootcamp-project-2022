@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chloe's Favorite Recipes</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <a class="title-container" href="../index.html">
+            <h1 class="title">Chloe's Favorite Recipes</h1>
+        </a>
+        <nav>
+            <!-- Randomly chooses a recipe if Can't Decide is pressed -->
+            <script>
+                var sites = [
+                    "../recipes/recipe1.html",
+                    "../recipes/recipe2.html",
+                    "../recipes/recipe3.html",
+                    "../recipes/recipe4.html"
+                ];
+            
+                function randomRecipe() {
+                    var i = parseInt(Math.random() * sites.length);
+                    location.href = sites[i];
+                }
+            </script>
+            <a class="nav-item" href="#" onclick="randomRecipe();">Can't Decide?</a>
+            <a class="nav-item" href="../about.html">About Me</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Div with a pic, description, and other information -->
+        <div class="intro">
+            <img class="intro-image" src="../images/banana-bread-1.jpg" alt="banana bread">
+            <h1 class="intro-title">Banana Bread</h1>
+            <p class="intro-info">
+                <br>
+                Prep Time: 15 mins
+                <br>
+                Cook Time: 1 hr
+                <br>
+                Total Time: 1 hr 15 mins
+                <br>
+                Servings: 1 loaf
+                <br>
+                <br>
+                To make the very best banana bread that comes out super moist, it is important to start out with those ugly, overripe bananas!
+                Cut the loaf into slices and serve to friends and family.
+            </p>
+        </div>
+        <!-- Div with ingredients (bullet point list) and instructions (numbered list) -->
+        <div class="flex-container">
+            <div class="flex-content">
+                <br>
+                <br>
+                <h2 class="label">Ingredients</h2>
+                <ul>
+                    <li>1 stick (1/2 Cup) butter</li>
+                    <li>3 large ripe bananas</li>
+                    <li>2 large eggs</li>
+                    <li>1 teaspoon vanilla extract</li>
+                    <li>2 cups all purpose flour</li>
+                    <li>1 cup granulated sugar</li>
+                    <li>1 teaspoon baking soda</li>
+                    <li>½ teaspoon salt</li>
+                    <li>½ teaspoon cinnamon</li>
+                </ul>
+                <br>
+                <h2 class="label">Instructions</h2>
+                <ol>
+                    <li>Preheat oven to 350 degrees. Spray a loaf pan with non-stick cooking spray or grease with butter and set aside.</li>
+                    <li>Add the stick of butter to a large bowl and microwave for 1 minute, or until melted.</li>
+                    <li>Add the bananas to the same bowl and mash with a fork.</li>
+                    <li>Add the vanilla extract and egg to the bowl and use the same fork to mash and stir until no yellow streaks of egg remain.</li>
+                    <li>In a second large bowl whisk together the flour, sugar, baking soda, salt, and cinnamon.</li>
+                    <li>Add the dry ingredients to the wet ingredients and mix together with a spatula just until combined.</li>
+                    <li>Pour the batter into prepared loaf pan and bake for 45-55 minutes until a toothpick inserted in the center of the bread comes out clean.</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

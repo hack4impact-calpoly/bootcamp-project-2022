@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chloe's Favorite Recipes</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="header">
+        <a class="title-container" href="../index.html">
+            <h1 class="title">Chloe's Favorite Recipes</h1>
+        </a>
+        <nav>
+            <!-- Randomly chooses a recipe if Can't Decide is pressed -->
+            <script>
+                var sites = [
+                    "../recipes/recipe1.html",
+                    "../recipes/recipe2.html",
+                    "../recipes/recipe3.html",
+                    "../recipes/recipe4.html"
+                ];
+            
+                function randomRecipe() {
+                    var i = parseInt(Math.random() * sites.length);
+                    location.href = sites[i];
+                }
+            </script>
+            <a class="nav-item" href="#" onclick="randomRecipe();">Can't Decide?</a>
+            <a class="nav-item" href="../about.html">About Me</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Intro box with a pic, description, and other information -->
+        <div class="intro">
+            <img class="intro-image" src="../images/taco-soup-1.jpg" alt="taco soup">
+            <h1 class="intro-title">Taco Soup</h1>
+            <p class="intro-info">
+                <br>
+                Prep Time: 10 mins
+                <br>
+                Cook Time: 35 mins
+                <br>
+                Total Time: 45 mins
+                <br>
+                Servings: 7 servings
+                <br>
+                <br>
+                This easy taco soup recipe is so hearty, filling and just the perfect comfort food. 
+                And the deliciously spiced, beefy flavor will have everyone craving more! 
+                Makes about 10 1/2 cups.
+            </p>
+        </div>
+         <!-- Div with ingredients (bullet point list) and instructions (numbered list) -->
+        <div class="flex-container">
+            <div class="flex-content">
+                <br>
+                <br>
+                <h2 class="label">Ingredients</h2>
+                <ul>
+                    <li>2 teaspoons olive oil</li>
+                    <li>1 1/4 pounds lean ground beef</li>
+                    <li>1 medium yellow onion chopped (1 1/2 cups)</li>
+                    <li>2 cloves garlic, minced (2 teaspoons)</li>
+                    <li>1 jalapeno, seeded and finely chopped (optional)</li>
+                    <li>2 (14.5 ounces) cans diced tomatoes with green chiles</li>
+                    <li>1 (14 ounces) can low-sodium beef broth</li>
+                    <li>1 (8 ounces) can tomato sauce</li>
+                    <li>2 Tablespoons taco seasoning</li>
+                    <li>1 1/2 cups frozen corn</li>
+                    <li>1 (14.5 ounces) can black beans, drained and rinsed</li>
+                    <li>1 (14.5 ounces) can can pinto beans, drained and rinsed</li>
+                    <li>Toppings: Shredded Mexican blend cheese, chopped green or red onions, diced avocados and corn tortilla strips/chips</li>
+                </ul>
+                <br>
+                <h2 class="label">Instructions</h2>
+                <ol>
+                    <li>Heat a largr pot over medium-high heat drizzle lightly with oil.</li>
+                    <li>Add ground beef in a large along with chopped onion, crumbling and stirring occasionally until browned. Add jalapeno and garlic and saute 1 minute longer.</li>
+                    <li>Drain excess fat from beef mixture. </li>
+                    <li>Stir in tomatoes with chiles, beef broth, tomato sauce, chili powder, cumin, paprika, oregano, ranch dressing mix and season with salt and pepper to tastes. Cover pot with lid and simmer 30 minutes, stirring occasionally.</li>
+                    <li>Add in corn, black beans and pinto beans and cook until heated through. Add 1/2 cup water to thin soup if desired. Stir in cilantro and lime if using.</li>
+                    <li>Serve warm finished with desired toppings.</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
