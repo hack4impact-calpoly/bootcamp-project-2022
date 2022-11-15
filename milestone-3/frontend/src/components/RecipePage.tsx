@@ -1,18 +1,37 @@
-import {Recipe} from '../recipeData';
-import { Link } from "react-router-dom";
+import recipes, {Recipe} from '../recipeData';
+import { useParams } from "react-router-dom";
 import './RecipePage.css'
 
-export default function RecipePage(props: Recipe)
+export default function RecipePage()
 {
+    const {id} = useParams();
+    const recipe = recipes.find(recipe => recipe.name === id)
+  
+    if (recipe) {
+
     return (
         <div className="flex-container">
-            {/* <Link style={{textDecoration: 'none', color: '#faedcd'}} to="/" className ="links"> */}
-            <h2> {props.name} </h2>
-            {/* </Link> */}
-            <p> {props.description}</p>
-            <img className="imageIced" src={props.image1} alt={props.name}/>
-            <img className="imageHot" src={props.image2}/>
-
+            <h2> {recipe.name} </h2>
+            <p> {recipe.description}</p>
+            <h2>Ingredient List</h2>
+            <ul>
+                {recipe.ingredients.map(ingredient=> 
+                    (<li>{ingredient}</li>
+                ))}
+            </ul>
+            <h2>Instructions</h2>
+            <ol>
+                {recipe.instructions.map(instruction=>
+                    (<li>{instruction}</li>
+                ))}
+            </ol>
         </div>
-    );
+    )}
+
+    else {
+        return (
+            <h1>This recipe does not exist!</h1>
+        )
+    }
+        
 }

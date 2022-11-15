@@ -1,29 +1,13 @@
 
-/* Title box */
-title {
-    color: #faedcd;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #faedcd;
+/* Spacing the welcome page */
+.flex-container {
 
-}
-
-/* Navigating the index (home) page and about me page */
-links {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #faedcd;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #faedcd;
-}
-
-/* Top bar on the pages */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 10px 40px;
-    background-color: #6c584c;
+    flex-wrap: wrap;
+    font-size: 30px;
+    color: #6c584c;
+    align-items: center;
+    justify-content: space-between;
     font-family: Arial, Helvetica, sans-serif;
 
-}
+} 
