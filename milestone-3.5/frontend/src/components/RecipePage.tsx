@@ -14,7 +14,15 @@ RecipePage.defaultProps = {
 //Recipe Page component
 export default function RecipePage(props: RecipePageProps) {
   const params = useParams(); //Contains the name of the desired recipe
-  const [recipe, setRecipe] = useState<Recipe>(recipeData[0]); //State variable for the displayed recipe
+  const [recipe, setRecipe] = useState<Recipe>({
+    id: NaN,
+    name: "",
+    description: "",
+    image: "",
+    imgAlt: "",
+    ingredients: [],
+    instructions: []
+  }); //State variable for the displayed recipe, initialised with blank Recipe object
   const [newIngredient, setNewIngredient] = useState(""); //To store user inputted ingredient
   const [newInstruction, setNewInstruction] = useState(""); //To store user inputted instruction
   const [allIngredients, setAllIngredients] = useState(recipe.ingredients); //To store and set full ingredients list

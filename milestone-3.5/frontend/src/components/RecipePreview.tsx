@@ -14,7 +14,6 @@ export default function RecipePreview(props: RecipePreviewProps) {
   let addr = "";
   if (props.externalR) {
     addr = "externalRecipe/" + props.name;
-    addr = addr.split("(")[0]; //For 3rd API recipe that has invalid URL characters
   } else {
     addr = "recipe/" + props.name; // whatever it was before
   }
