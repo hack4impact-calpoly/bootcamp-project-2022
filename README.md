@@ -6,11 +6,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+<<<<<<< HEAD
 ### `npm start`
+=======
+To submit your work, create a pull request from your own fork (DO NOT MERGE if you are able to). Fill out the pull request template before you pull or your submission will be automatically rejected! For more information visit this page on [Turning in Work](https://h4i.notion.site/Turning-in-Work-652e6bf24fac4103b30847618591a658)
+>>>>>>> 3cb96b30914fbf19f20345871a0f55d1d0708fb8
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+<<<<<<< HEAD
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
@@ -44,3 +49,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+=======
+For a walkthrough of how to turn in your work, check out this [Notion Page about git!](https://h4i.notion.site/Turning-in-Work-652e6bf24fac4103b30847618591a658)
+If you are still stuck, leave a message in the #cp-bootcamp-help channel on Slack, or reach out to one of your Bootcamp Instructors!
+>>>>>>> 3cb96b30914fbf19f20345871a0f55d1d0708fb8
