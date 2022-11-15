@@ -14,6 +14,11 @@ export default function RecipePage() {
     curr?.ingredients ?? ["null"]
   );
 
+  const [newInstruction, setNewInstruction] = useState("");
+  const [allInstructions, setAllInstructions] = useState(
+    curr?.instructions ?? ["null"]
+  );
+
   return (
     <body>
       <main>
@@ -55,10 +60,27 @@ export default function RecipePage() {
           <h3>Preparation</h3>
           <ol>
             {/* creating list items for each item in recipes.instructions array */}
-            {curr?.instructions.map((instruction) => (
+            {allInstructions.map((instruction) => (
               <li>{instruction}</li>
             ))}
           </ol>
+          <input
+            placeholder="mix something, probably"
+            value={newInstruction} // add newInstruction as the input's value
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+              // this event handler updates the value of newInstruction
+              setNewInstruction(e.target.value);
+              // console.log(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              setAllInstructions([...allInstructions, newInstruction]);
+              // console.log(newInstruction);
+            }}
+          >
+            Add Instruction
+          </button>
         </div>
       </main>
     </body>
