@@ -8,8 +8,13 @@
 }
 
 .header {
+    display: flex;
+    border: 5px solid black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space between;
     font-family: "Papyrus";
-    background-color: rgb(120, 75, 152);
+    background-color: rgb(193, 164, 213);
     padding: 50px
     margin: 10px
     border: rgb(120, 75, 152);
@@ -17,7 +22,7 @@
 
 .title-section {
     font-family: "Papyrus";
-    background-color: rgb(120, 75, 152);
+    background-color: rgb(193, 164, 213);
     padding: 60px
     margin: 10px
     border: 10px rgb(120, 75, 152);
@@ -27,7 +32,7 @@
     display: flex;
     justify-content: flex-end;
     font-family: "Papyrus";
-    background-color: rgb(120, 75, 152);
+    background-color: rgb(193, 164, 213);
     padding: 60px
     margin: 10px
     border: 5px solid black;
@@ -40,16 +45,11 @@
 }
 
 .recipe-content {
-    font-family: "Papyrus";
     display: flex;
-    justify-content: flex-end;
-    background-color: rgb(226, 205, 246);
+    justify-content:left;
+    background-color: rgb(193, 164, 213);
 }
 
-.recipe-text {
-    font-family: "Papyrus";
-    background-color: rgb(120, 75, 152);
-}
 .title {
     font-family: "Papyrus"
 }
