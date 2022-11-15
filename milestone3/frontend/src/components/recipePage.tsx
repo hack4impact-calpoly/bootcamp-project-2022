@@ -1,12 +1,17 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import recipeData, { Recipe } from "../recipeData";
 import "./recipePage.css";
+import React, { ChangeEvent, useState } from "react";
 
 export default function RecipePage() {
   const { id } = useParams();
   const curr: Recipe | undefined = recipeData.find(
     (recipe) => recipe.name === id
+  );
+
+  const [newIngredient, setNewIngredient] = useState("");
+  const [allIngredients, setAllIngredients] = useState(
+    curr?.ingredients ?? ["null"]
   );
 
   return (
@@ -21,10 +26,27 @@ export default function RecipePage() {
             <h2>Ingredients</h2>
             <ul>
               {/* creating list items for each item in recipes.ingredients array */}
-              {curr?.ingredients.map((ingredient) => (
+              {allIngredients.map((ingredient) => (
                 <li>{ingredient}</li>
               ))}
             </ul>
+            <input
+              placeholder="2 cups of spinach"
+              value={newIngredient} // add newIngredient as the input's value
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                // this event handler updates the value of newIngredient
+                setNewIngredient(e.target.value);
+                console.log(e.target.value);
+              }}
+            />
+            <button
+              onClick={() => {
+                setAllIngredients([...allIngredients, newIngredient]);
+                console.log(newIngredient);
+              }}
+            >
+              Add Ingredient
+            </button>
           </div>
           <img className="image2" src={curr?.image} alt="image" />
         </div>
