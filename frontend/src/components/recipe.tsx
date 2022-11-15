@@ -34,7 +34,6 @@ export default function Recipe(props: RecipeProps) {
               );
             })}
           </ul>
-          {/* new ingredient input */}
         </div>
 
         <div className="recipe-body">
@@ -49,7 +48,6 @@ export default function Recipe(props: RecipeProps) {
         </div>
 
       </div>
-      {/* instructions section */}
     
     </main>
 
