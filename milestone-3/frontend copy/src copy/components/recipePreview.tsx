@@ -6,30 +6,18 @@ import { Link, useParams } from 'react-router-dom';
 
 
 
-interface RecipePreviewProps extends Recipe {
-  external: boolean;
-}
 
-// function RecipePreview(props: RecipePreviewProps) {
 
-export default function RecipePreview(props: RecipePreviewProps) {
+export default function RecipePreview(props: Recipe) {
 
   return (
     
     
     <div className = "recipe_card">
       <div className = "recipe_main">
-        
-      {/* <Link to={`/externalRecipe/${props.name}`}> Recipe/${props.name}`}> */}
-      <Link to ={props.external ? `/externalRecipe/${props.name}` : `/recipe/${props.name}`}>
+      <Link to={`/recipe/${props.name}`}>
         <h3 className = "recipeTitle"> {props.name} </h3>
       </Link>
-      
-      
-        {/* <Link to={`/recipe/${props.name}`}>
-        <h3 className = "recipeTitle"> {props.name} </h3>
-      </Link> */}
-      
       <div className = "recipe_body"> 
         <img  src={props.image} alt="img" />
         <p className = "text">{props.description}</p>

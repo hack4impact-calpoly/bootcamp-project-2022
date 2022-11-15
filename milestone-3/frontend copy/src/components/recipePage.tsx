@@ -14,16 +14,7 @@ export default function RecipePage(props: RecipePageProps) {
     
   
     let {name} = useParams();
-    //let recipe = recipes.find(x => x.name === name);
-
-    const [recipe, setRecipe] = useState<Recipe>({
-        name: "",
-        description: "",
-        image: "",
-        ingredients: [],
-        instructions: [],
-    }) ;
-
+    let recipe = recipes.find(x => x.name === name);
 
     const [newIngredient, setNewIngredient] = useState('');
 
@@ -34,26 +25,20 @@ export default function RecipePage(props: RecipePageProps) {
     const [allInstructions, setAllInstructions] = useState(recipe === undefined ? [] : recipe.instructions);
 
 
-   
+    if(!recipe) {
+        return (
+            <div></div>
+        )
+    }
 
     // setState and useParams
-	useEffect(() => {
-        if (props.external) {
-          // make an API call with the url param & setRecipe
-            fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + name)
-            .then((res) => res.json())
-            .then((data) => {setAllIngredients(data[0].ingredients); 
-                            setAllInstructions(data[0].instructions);
-                            console.log(data[0]);
-                            setRecipe(data[0])});
-        } else {
-          // query all of your recipe data for the recipe you want & setRecipe
-          let find_recipe = recipes.find(x => x.name === name);
-          setAllIngredients(find_recipe === undefined ? [] : find_recipe.ingredients); 
-        setAllInstructions(find_recipe === undefined ? [] : find_recipe.instructions);
-            if(find_recipe) setRecipe(find_recipe);
-        }
-      }, [recipe.name, props.external]);
+	// useEffect(() => {
+    //     if (props.external) {
+    //       // make an API call with the url param & setRecipe
+    //     } else {
+    //       // query all of your recipe data for the recipe you want & setRecipe
+    //     }
+    //   }, [recipe.name, props.external]);
     
 
     // function handleChange(event: ChangeEvent<HTMLInputElement>) {

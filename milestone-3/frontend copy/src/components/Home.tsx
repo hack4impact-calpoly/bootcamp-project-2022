@@ -22,7 +22,6 @@ export default function Home() {
     /* <RecipePreview name={recipeData[0].name} image={recipeData[0].image} desc={recipeData[0].description}/> */ 
 
     <div className = "body-of-frontpage">
-        
         { recipes.map((recipe) => (
             <RecipePreview
             name={recipe.name}
@@ -30,7 +29,6 @@ export default function Home() {
             image={recipe.image}
             ingredients={recipe.ingredients}
             instructions={recipe.instructions}
-            external={false}
             />
   ))}
 
@@ -41,7 +39,6 @@ export default function Home() {
             image={recipe.image}
             ingredients={recipe.ingredients}
             instructions={recipe.instructions}
-            external={true}
             />
         ))}
   
