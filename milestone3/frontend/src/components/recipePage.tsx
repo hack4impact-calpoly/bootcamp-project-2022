@@ -1,30 +1,53 @@
 import { useParams } from "react-router-dom";
 import recipeData, { Recipe } from "../recipeData";
 import "./recipePage.css";
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 
-export default function RecipePage() {
+interface RecipePageProps {
+  external?: boolean;
+}
+
+export default function RecipePage(props: RecipePageProps) {
   const { id } = useParams();
-  const curr: Recipe | undefined = recipeData.find(
-    (recipe) => recipe.name === id
-  );
+
+  const [recipe, setRecipe] = useState(recipeData[0]);
+
+  useEffect(() => {
+    if (props.external) {
+      fetch(`https://bootcamp-milestone-4.onrender.com/recipe/${id}`)
+        .then((res) => res.json())
+        .then((data) => setRecipe(data));
+    } else {
+      const curr: Recipe | undefined = recipeData.find(
+        (recipe) => recipe.name === id
+      );
+      if (typeof curr === "undefined") {
+        console.log("undefined recipe at specified name");
+        setRecipe({
+          name: "",
+          description: "",
+          image: "",
+          ingredients: [],
+          instructions: [],
+        });
+      } else {
+        setRecipe(curr);
+      }
+    }
+  }, [id, props.external]);
 
   const [newIngredient, setNewIngredient] = useState("");
-  const [allIngredients, setAllIngredients] = useState(
-    curr?.ingredients ?? ["null"]
-  );
+  const [allIngredients, setAllIngredients] = useState(recipe.ingredients);
 
   const [newInstruction, setNewInstruction] = useState("");
-  const [allInstructions, setAllInstructions] = useState(
-    curr?.instructions ?? ["null"]
-  );
+  const [allInstructions, setAllInstructions] = useState(recipe.instructions);
 
   return (
     <body>
       <main>
         {/* <!-- recipe title and description --> */}
-        <h1 className="recipe-title">{curr?.name}</h1>
-        <p className="description">{curr?.description}</p>
+        <h1 className="recipe-title">{recipe.name}</h1>
+        <p className="description">{recipe.description}</p>
         {/* <!-- ingredient list and image --> */}
         <div className="ingredient-box">
           <div className="ingredient-list">
@@ -41,19 +64,17 @@ export default function RecipePage() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => {
                 // this event handler updates the value of newIngredient
                 setNewIngredient(e.target.value);
-                console.log(e.target.value);
               }}
             />
             <button
               onClick={() => {
                 setAllIngredients([...allIngredients, newIngredient]);
-                console.log(newIngredient);
               }}
             >
               Add Ingredient
             </button>
           </div>
-          <img className="image2" src={curr?.image} alt="image" />
+          <img className="image2" src={recipe.image} alt="image" />
         </div>
         {/* <!-- instruction list --> */}
         <div className="steps-box">
@@ -86,3 +107,7 @@ export default function RecipePage() {
     </body>
   );
 }
+
+RecipePage.defaultProps = {
+  external: false,
+};
