@@ -16,6 +16,7 @@ function RecipePage (){
 
     const {id} = useParams();
     const target = recipeData.find(recipe=> recipe.title === id)
+    window.scrollTo(0, 0)
 
     if (target){ return(
         
