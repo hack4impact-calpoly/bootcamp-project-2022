@@ -2,14 +2,16 @@ import './App.css';
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from './components/About';
-import Recipe from "./components/recipe";
+import RecipePage from "./components/RecipePage";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import recipes from './recipeData';
 
 
 
 
 function App() {
-  
+
+
   return (
     
       
@@ -21,7 +23,15 @@ function App() {
         {/* // Routes go here */}
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
-        <Route path="/recipe/:name" element={<Recipe />} />
+        <Route path="/recipe/:name" element={recipes.map((recipe) => (
+    <RecipePage
+      name={recipe.name}
+      description={recipe.description}
+      image={recipe.image}
+      ingredients={recipe.ingredients}
+      instructions={recipe.instructions}
+    />
+  ))}/>
 
       </Routes>
     </BrowserRouter>

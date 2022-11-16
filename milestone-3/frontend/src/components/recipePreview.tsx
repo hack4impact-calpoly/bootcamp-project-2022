@@ -1,8 +1,9 @@
-import React from 'react';
+
 import './recipePreview.css'
 import {Recipe} from "../recipeData"
 import {Link} from 'react-router-dom';
 export default function RecipePreview(props: Recipe) {
+  
   return (
     <div >
     <div className = "recipe">
