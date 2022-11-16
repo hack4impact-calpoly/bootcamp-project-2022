@@ -10,6 +10,7 @@ export default function RecipePage()
     if (recipe) {
 
     return (
+        <main>
         <div className="flex-container">
             <h2> {recipe.name} </h2>
             <p> {recipe.description}</p>
@@ -26,6 +27,7 @@ export default function RecipePage()
                 ))}
             </ol>
         </div>
+        </main>
     )}
 
     else {

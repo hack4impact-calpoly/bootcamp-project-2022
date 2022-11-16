@@ -9,7 +9,7 @@ export default function RecipePreview(props: Recipe)
     const id = props.name
     return (
         <div className="recipe3-flex">
-            <Link style={{textDecoration: 'none', color: '#faedcd'}} to={`/RecipePage/${id}`} className ="links">
+            <Link style={{textDecoration: 'none', color: '#faedcd'}} to={`/Page/${id}`} className ="links">
             <h2> {props.name} </h2>
             </Link>
             <p> {props.description}</p>
