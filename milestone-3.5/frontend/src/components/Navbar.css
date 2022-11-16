@@ -1,0 +1,32 @@
+.nav-header {
+    background-color: #8d5b4c;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+.title {
+    color: #eed7c5;
+}
+  
+.title-container {
+    text-decoration: none;
+}
+
+.nav-page {
+    margin: 0px 10px;
+    color: #eed7c5;
+    text-decoration: none;
+}
+  
+.nav-page:hover {
+    color: #333533;
+    transition: 0.5s;
+    text-decoration: underline;
+}
+  
+.nav-icon {
+    width: 17px;
+    margin: 0px 10px;
+}
