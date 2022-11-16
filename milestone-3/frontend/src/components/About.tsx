@@ -1,6 +1,8 @@
-// import React from "react";
 import './About.css';
+// import strawberrymatcha from '../images/IMG_1932.JPG';
 
+
+// the about page
 export default function About()
 {
     return (
@@ -12,7 +14,8 @@ export default function About()
             hot water. But anyways, these are my one of my favorite recipes I have made within the past year and they take less than
             10 minutes to make. Enjoy! </br> 
             </p>
-            </div>    
+            {/* <img src={strawberrymatcha}/> */}
+            </div> 
         </main>
     )
 }

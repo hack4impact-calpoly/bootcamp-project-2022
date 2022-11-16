@@ -2,11 +2,12 @@ import './Home.css';
 import RecipePreview from './RecipePreview';
 import recipes from '../recipeData'
 
+// the home / index page of website
 export default function Home()
 {
     return (
         <main>
-        <h2 className="flex-container">Welcome to Cafe Hope!</h2>
+        <h2 className="flexcontainer">Welcome to Cafe Hope!</h2>
         {recipes.map((recipe) => (
             <RecipePreview
                 name = {recipe.name}
@@ -14,7 +15,8 @@ export default function Home()
                 image2 = {recipe.image2}
                 description = {recipe.description}
                 ingredients = {recipe.ingredients}
-                instructions = {recipe.instructions}
+                instructions1 = {recipe.instructions1}
+                instructions2 = {recipe.instructions2}
             />
 
         ))}

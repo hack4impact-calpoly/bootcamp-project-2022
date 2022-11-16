@@ -1,7 +1,7 @@
 
 /* Spacing the welcome page */
 .flex-container {
-
+    background-color: #faedcd;
     padding: 10px 40px;
     flex-wrap: wrap;
     font-size: 30px;

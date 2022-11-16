@@ -41,7 +41,7 @@
 }
 
 /* Puts box around the third recipe */
-.recipe3-flex {
+.recipe-flex {
     background-color: #31572c;
     padding: 10px 20px;
     margin-top: 10px;

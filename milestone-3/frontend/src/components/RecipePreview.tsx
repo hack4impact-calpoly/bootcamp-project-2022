@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import './RecipePreview.css'
 import { Recipe } from '../recipeData';
-import React from 'react';
-import { parentPort } from "worker_threads";
 
+// previewing recipes before opening them for the actual receipe (ingredients etc)
 export default function RecipePreview(props: Recipe)
 {
     const id = props.name
