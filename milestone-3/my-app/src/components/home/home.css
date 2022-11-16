@@ -1,0 +1,44 @@
+.recipe-container{
+    display: flex;
+    border: 5px solid whitesmoke;
+    background-color: whitesmoke; 
+    border-radius: 25px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5%;
+    font-family: Didot, serif;
+    padding-left: 10%;
+    padding-right: 10%;
+} 
+
+h2 {
+    padding: 2%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: lavender;
+    border-radius: 25px;
+    padding-right: 40%;
+    padding-left: 40%;
+    
+}
+
+button{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 12px;
+    background-color: lavender; 
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.2s;
+    margin-bottom: 2%;
+}
+
+button:hover {
+    background-color: #4CAF50; 
+    color: white;
+    cursor: pointer
+}

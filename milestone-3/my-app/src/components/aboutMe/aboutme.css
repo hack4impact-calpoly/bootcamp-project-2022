@@ -1,0 +1,13 @@
+.recipe-container{
+    display: flex;
+    border: 5px solid whitesmoke;
+    background-color: whitesmoke; 
+    border-radius: 25px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5%;
+    font-family: Didot, serif;
+    padding-left: 10%;
+    padding-right: 10%;
+}

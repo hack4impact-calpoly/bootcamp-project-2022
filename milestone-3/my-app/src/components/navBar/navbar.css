@@ -1,0 +1,33 @@
+.nav-item{
+    margin: 0px 10px;
+    font-family: Didot, serif;
+    align-items: center;
+    justify-content: space-between;
+} 
+
+/*for color changing text animation in navigation bar*/
+@keyframes animate{
+    0%
+    {
+        background-position: 0 100%;
+    }
+    50%
+    {
+        background-position: 100% 0;
+    }
+    100%
+    {
+        background-position: 0 100%;
+    }
+}
+
+.title-container{
+    background-color: whitesmoke; 
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+    padding-bottom: 1%;
+}

@@ -1,0 +1,110 @@
+.title{    
+  background-color: whitesmoke; 
+  border-radius: 25px;  
+}
+
+.title-container{
+  background-color: whitesmoke; 
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2%;
+  padding-bottom: 1%;
+}
+
+/* added */
+.nav-item{
+  margin: 0px 10px;
+  font-family: Didot, serif;
+  align-items: center;
+  justify-content: space-between;
+}
+/*  */
+
+.recipe-container{
+  display: flex;
+  border: 5px solid whitesmoke;
+  background-color: whitesmoke; 
+  border-radius: 25px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5%;
+  font-family: Didot, serif;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+button{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 12px;
+  background-color: lavender; 
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.2s;
+  margin-bottom: 2%;
+}
+
+button:hover {
+  background-color: #4CAF50; 
+  color: white;
+  cursor: pointer
+}
+
+h3 {
+  text-decoration: underline;
+}
+
+h2 {
+  padding: 2%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: lavender;
+  border-radius: 25px;
+  padding-right: 40%;
+  padding-left: 40%;
+  
+}
+
+h1 {
+  color: transparent;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: xx-large;
+  background-image: linear-gradient(to left, #2ecc71, #3498db, #9b59b6, #f39c12);
+  background-clip: text;
+  -webkit-background-clip: text; 
+  animation: animate 20s linear infinite;
+  background-size: 1000%;
+  -webkit-background-size: 1000%;
+}
+
+
+body{
+  background-color: lightskyblue; 
+}
+
+li{
+  margin: 10px 0;
+}
+
+/*for color changing text animation in navigation bar*/
+@keyframes animate{
+  0%
+  {
+      background-position: 0 100%;
+  }
+  50%
+  {
+      background-position: 100% 0;
+  }
+  100%
+  {
+      background-position: 0 100%;
+  }
+}
