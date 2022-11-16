@@ -10,13 +10,28 @@ interface RecipePageProps {
 export default function RecipePage(props: RecipePageProps) {
   const { id } = useParams();
 
-  const [recipe, setRecipe] = useState(recipeData[0]);
+  const [recipe, setRecipe] = useState<Recipe>({
+    name: "",
+    description: "",
+    image: "",
+    ingredients: [],
+    instructions: [],
+  });
+
+  const [newIngredient, setNewIngredient] = useState("");
+  const [allIngredients, setAllIngredients] = useState(recipe.ingredients);
+
+  const [newInstruction, setNewInstruction] = useState("");
+  const [allInstructions, setAllInstructions] = useState(recipe.instructions);
 
   useEffect(() => {
     if (props.external) {
       fetch(`https://bootcamp-milestone-4.onrender.com/recipe/${id}`)
         .then((res) => res.json())
-        .then((data) => setRecipe(data));
+        .then((data) => {
+          setRecipe(data[0]);
+          console.log(data[0]);
+        });
     } else {
       const curr: Recipe | undefined = recipeData.find(
         (recipe) => recipe.name === id
@@ -36,11 +51,12 @@ export default function RecipePage(props: RecipePageProps) {
     }
   }, [id, props.external]);
 
-  const [newIngredient, setNewIngredient] = useState("");
-  const [allIngredients, setAllIngredients] = useState(recipe.ingredients);
-
-  const [newInstruction, setNewInstruction] = useState("");
-  const [allInstructions, setAllInstructions] = useState(recipe.instructions);
+  // To render the initial state of allIngredients and allInstructions
+  // once pulled from either the API or recipeData.ts
+  useEffect(() => {
+    setAllIngredients(recipe.ingredients);
+    setAllInstructions(recipe.instructions);
+  }, [recipe]); // [recipe] dependency needed to update each time we load a new recipe page & recipe data
 
   return (
     <body>
@@ -69,6 +85,7 @@ export default function RecipePage(props: RecipePageProps) {
             <button
               onClick={() => {
                 setAllIngredients([...allIngredients, newIngredient]);
+                console.log(allIngredients);
               }}
             >
               Add Ingredient

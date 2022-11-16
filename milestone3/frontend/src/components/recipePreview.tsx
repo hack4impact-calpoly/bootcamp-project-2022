@@ -5,6 +5,7 @@ import "./recipePreview.css";
 interface previewProps {
   name: string;
   image: string;
+  external?: boolean;
 }
 export default function RecipePreview(props: previewProps) {
   return (
@@ -14,7 +15,14 @@ export default function RecipePreview(props: previewProps) {
       <main>
         <div className="recipe-box">
           {/* linking to a recipePage with the correct URL parameter based on name prop passed to this instance of RecipePreview */}
-          <Link className="recipe-title" to={`/recipe/${props.name}`}>
+          <Link
+            className="recipe-title"
+            to={
+              props.external
+                ? `/externalRecipe/${props.name}`
+                : `/recipe/${props.name}`
+            }
+          >
             {props.name}
           </Link>
           <img className="image" src={props.image} alt="img" />
@@ -23,3 +31,7 @@ export default function RecipePreview(props: previewProps) {
     </body>
   );
 }
+
+RecipePreview.defaultProps = {
+  external: false,
+};

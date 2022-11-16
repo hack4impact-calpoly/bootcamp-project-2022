@@ -18,7 +18,7 @@ export default function Home() {
         <RecipePreview name={recipe.name} image={recipe.image} />
       ))}
       {externalRecipes.map((recipe) => (
-        <RecipePreview name={recipe.name} image={recipe.image} />
+        <RecipePreview name={recipe.name} image={recipe.image} external />
       ))}
     </main>
   );
