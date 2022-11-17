@@ -1,7 +1,5 @@
 body
 {
-    /* display: flex; */
-    /* flex-direction: column; */
     margin: 0;
     background-color: rgb(218, 100, 100);
 }
@@ -12,8 +10,6 @@ body
     color: white;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: center; */
     margin-left: 50px;
     flex: 1;
   }
@@ -21,7 +17,6 @@ body
   .cards
   {
       display: flex;
-      /* justify-content: center; */
       flex-wrap: wrap;
       margin-left: 100px;
       gap: 200px;
