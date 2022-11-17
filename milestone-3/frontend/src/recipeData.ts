@@ -13,7 +13,7 @@ export interface Recipe {
 
 
 export const recipes=[
-    {
+    {   id:'1',
         name: 'Spicy Crab Roll',
         description: 'Spicy Crab Roll is a popular Japanese sushi roll – creamy, satisfying, and fiery spicy.',
         image: sushiImg,
@@ -24,6 +24,7 @@ export const recipes=[
                         ]
     },
     {
+        id:'2',
         name: 'Seafood Pizza',
         description: 'One of the most popular seafood pizzas invented in Italy is Frutti di Mare. Its toppings commonly serve scampi, mussels, or squid on top of a tomato sauce with no cheese.',
         image:pizzaImg,
@@ -34,6 +35,7 @@ export const recipes=[
                         ]
     },
     {
+        id:'3',
         name: 'Air Fryer Chicken Toast',
         description: 'Tender and Juicy Air Fryer Chicken is golden crispy outside and moist and delicate on the inside. This is bursting with flavor and so good!',
         image: airFryerImg,
