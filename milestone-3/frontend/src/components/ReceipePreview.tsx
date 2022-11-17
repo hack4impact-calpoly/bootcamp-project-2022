@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom"
 import "../App.css"
 
-interface Recipe {
+interface Preview {
     name: string;
     image: string;
     desc: string;
 };
   
-function RecipePreview(props: Recipe) {
+function RecipePreview(props: Preview) {
     return (
         <div className ="recipe-section">
         <div className = "section-text">

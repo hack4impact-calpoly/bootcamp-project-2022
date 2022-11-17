@@ -4,16 +4,8 @@ import About from './components/About'
 import RecipePage from './components/RecipePage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
-import recipes from './recipeData.json';
+import recipes, { Recipe } from "./components/recipeData";
 import { ChangeEvent, useState, useEffect } from "react";
-
-interface Recipe {
-  name: string,
-  image: string,
-  description: string
-  ingredients: string[];
-  instructions: string[];
-}
 
 function App() {
 

@@ -1,16 +1,9 @@
 import '../recipe.css'
-import recipes from '../recipeData.json';
+import recipes, { Recipe } from "./recipeData";
 import { useParams } from "react-router-dom";
 
 // milestone 3.5
 import React, { ChangeEvent, useState } from 'react';
-
-interface Recipe {
-    name: string,
-    image: string,
-    ingredients: string[],
-    instructions: string[]
-}
 
 function RecipePage(props: Recipe) {
     let { name } = useParams();

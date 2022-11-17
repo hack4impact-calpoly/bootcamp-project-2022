@@ -2,19 +2,11 @@
 // {/* how to comment */}
 
 import '../App.css';
-import recipes from '../recipeData.json';
+import recipes, { Recipe } from "./recipeData";
 import RecipePreview from './ReceipePreview';
 
 // milestone 3.5
 import { ChangeEvent, useState, useEffect } from "react";
-
-interface Recipe {
-  name: string,
-  image: string,
-  description: string
-  ingredients: string[];
-  instructions: string[];
-}
 
 function Home() {
 
@@ -41,7 +33,7 @@ function Home() {
 				<RecipePreview
 					name={fr.name}
 					image={fr.image}
-					desc={fr.description}
+					desc={fr.desc}
 				/>
 			  ))}
         </main>
