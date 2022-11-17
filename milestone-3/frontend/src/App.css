@@ -63,3 +63,20 @@ this adds some padding to them. Also increases line spacing */
   text-align: center;
   padding: 10px;
 }
+
+button {
+  
+  padding: 6px;
+}
+
+button, input {
+  border-width: 1px;
+  margin-left: 5px;
+  margin-bottom: 4px;
+  border-radius: 0.5em;
+  background-color: aliceblue;
+}
+
+input {
+  height: 25px;
+}

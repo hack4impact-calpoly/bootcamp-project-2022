@@ -1,9 +1,19 @@
 import { useParams } from 'react-router-dom';
 import recipeData from '../recipeData';
+import React, { useState } from 'react';
 
 function RecipePage() {
     const { name } = useParams();
     const recipe = recipeData.find(i => i.url === name); {/* Finds recipe corresponding to url */}
+    const [newIngredient, setNewIngredient] = useState(''); { /* Will store user-inputted new ingredient */ } 
+    const [allIngredients, setAllIngredients] = useState(recipe !== undefined ? recipe.ingredients : ['']);
+    const [newStep, setNewStep] = useState('');
+    const [allSteps, setAllSteps] = useState(recipe !== undefined ? recipe.steps : ['']);
+
+    {/* Gets current list of ingredients, or just an empty string if the url isn't found. 
+    Must use ternary operator because I can't put this after the return statement below by react hook rules */}
+
+
     if (recipe === undefined) { return (<p>Page not found</p>)} {/* Returns Page Not Found if no recipe corresponds to url */}
     return (
         <body>
@@ -19,10 +29,18 @@ function RecipePage() {
                     <p><i><b>Ingredients:</b></i></p>
                     <ul>
                         {/* Recipe ingredients stored in array, maps each step to item in list */}
-                        {recipe.ingredients.map(ing => (
+                        {allIngredients.map(ing => (
                             <li>{ing}</li>
                         ))}
                     </ul>
+                    {/* Left off here, not sure what it's not adding new ingredient */}
+                    <input value={newIngredient} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                            setNewIngredient(e.target.value);
+                        }}
+                    />
+                    <button onClick={() => setAllIngredients([...allIngredients, newIngredient])}>
+                        Add Ingredient
+                    </button> 
                 </div>
             </div>
             <div className="flex-container-recipes">
@@ -30,10 +48,18 @@ function RecipePage() {
                     <p><i><b>Steps:</b></i></p>
                     <ul>
                         {/* Recipe steps stored in array, maps each step to item in list */}
-                        {recipe.steps.map(step => (
+                        {allSteps.map(step => (
                             <li>{step}</li>
                         ))}
                     </ul>
+                    <input value={newStep} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                            setNewStep(e.target.value);
+                        }}
+                    />
+                    <button onClick={() => setAllSteps([...allSteps, newStep])}>
+                        Add Step
+                    </button>
+                    <br></br>
                     <a href={recipe.source} target="_blank"><u>Recipe Source</u></a>
                 </div>
             </div>
