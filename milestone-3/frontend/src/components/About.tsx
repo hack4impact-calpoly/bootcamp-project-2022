@@ -1,5 +1,4 @@
 import './About.css';
-// import matcha1 from "./images/IMG_1932.JPG"
 
 // the about page
 export default function About()
