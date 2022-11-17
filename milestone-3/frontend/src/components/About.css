@@ -11,3 +11,8 @@
     font-family: Arial, Helvetica, sans-serif;
 
 } 
+
+.entireBack {
+    background-color: #faedcd;
+    height: '100%';
+}

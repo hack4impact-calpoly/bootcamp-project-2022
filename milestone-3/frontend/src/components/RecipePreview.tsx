@@ -6,6 +6,8 @@ import { Recipe } from '../recipeData';
 export default function RecipePreview(props: Recipe)
 {
     const id = props.name
+    // console.log(props.image1);
+    // console.log(props.image2);
     return (
         <div className="recipe3-flex">
             <Link style={{textDecoration: 'none', color: '#faedcd'}} to={`/Page/${id}`} className ="links">

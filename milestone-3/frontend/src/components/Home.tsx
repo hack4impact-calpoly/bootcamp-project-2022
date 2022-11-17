@@ -2,6 +2,7 @@ import './Home.css';
 import RecipePreview from './RecipePreview';
 import recipes from '../recipeData'
 
+
 // the home / index page of website
 export default function Home()
 {
