@@ -1,29 +1,31 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import './RecipePreview.css';
+import {Recipe} from '../recipeData';
+  
+interface recipePreviewProps extends Recipe {
+  external: Boolean;
+}
+  
+function RecipePreview(props: recipePreviewProps) {
+  let address = ""
+  if (props.external) {
+    address = "externalRecipe/" + props.name;
+  } else {
+    address = "recipe/" + props.name;
+  }
 
-interface Recipe {
-    name: string;
-    link: string;
-    desc: string;
-    image: string;
-    instructions: string[];
-    ingredients: string[];
-  };
-  
-  
-  function RecipePreview(props: Recipe) {
-      return (
-          <div className="card">
-            <h2>
-              <Link to={ props.link }>{ props.name }</Link><br />
-            </h2>
-            <div className="card-body">
-              <img className="img-small" src={ props.image } alt="img"/>
-              <p className="card-text">{ props.desc }</p>
-            </div>
-          </div>
-      )
-  };
+  return (
+      <div className="card">
+        <h2>
+          <Link to={ address }>{props.name}</Link><br />
+        </h2>
+        <div className="card-body">
+          <img className="img-small" src={ props.image } alt="img"/>
+          <p className="card-text">{ props.description }</p>
+        </div>
+      </div>
+  )
+};
   
 export default RecipePreview;

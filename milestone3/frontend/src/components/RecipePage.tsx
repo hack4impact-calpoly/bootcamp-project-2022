@@ -1,28 +1,53 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
 import './RecipePage.css';
+import recipeData, {Recipe} from '../recipeData'
 
 
-interface Recipe {
-    name: string;
-    link: string;
-    desc: string;
-    image: string;
-    ingredients: string[];
-    instructions: string[];
-  };
+interface RecipePageProps {
+  external?: boolean;
+}
 
 
-
-function RecipePage (props: Recipe) {
+export default function RecipePage (props: RecipePageProps) {
   
+  const { id } = useParams();
+
+  const [recipe, setRecipe] = useState<Recipe>({
+    name: "",
+    description: "",
+    image: "",
+    ingredients: [],
+    instructions: [],
+  });
+
   // ingredients
-  const [newIngredient, setNewIngredient] = React.useState('');
-  const [allIngredients, setAllIngredients] = React.useState(props.ingredients);
+  const [newIngredient, setNewIngredient] = useState('');
+  const [allIngredients, setAllIngredients] = useState(recipe.ingredients);
 
   // instructions
   const [newInstruction, setNewInstruction] = useState('');
-  const [allInstructions, setAllInstructions] = useState(props.instructions);
+  const [allInstructions, setAllInstructions] = useState(recipe.ingredients);
+
+  useEffect(() => {
+    if (props.external) {
+      fetch(`https://bootcamp-milestone-4.onrender.com/recipe/${id}`)
+        .then((res) => res.json())
+        .then ((data) => {
+          setRecipe(data[0])
+        })
+    } else {
+      const curr: Recipe | undefined = recipeData.find((recipe) => recipe.name === id);
+      setRecipe(curr!);
+    }
+  }, [id, props.external]);
+
+  useEffect(() => {
+    if (recipe) {
+      setAllIngredients(recipe?.ingredients)
+      setAllInstructions(recipe?.instructions)
+    }
+  }, [recipe])
 
   return (
   <body>
@@ -31,12 +56,12 @@ function RecipePage (props: Recipe) {
       <section>
       <div className="flex-container">
         <div>
-            <img className="flex-image" src={props.image} alt="img" />
+            <img className="flex-image" src={recipe?.image} alt="img" />
         </div>
 
         <div className="flex-content">
-          <h1>{props.name}</h1>
-          <p>{props.desc}</p>
+          <h1>{recipe?.name}</h1>
+          <p>{recipe?.description}</p>
 
         <h2>Ingredients</h2>
         <ul id="ingredients">
@@ -94,4 +119,6 @@ function RecipePage (props: Recipe) {
   );
 }
 
-export default RecipePage;
+RecipePage.defaultProps = {
+  external: false,
+};

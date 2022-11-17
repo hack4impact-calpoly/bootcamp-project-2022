@@ -1,7 +1,14 @@
-const recipes = [{
+export interface Recipe {
+    name: string;
+    description: string;
+    image: string;
+    ingredients: string[];
+    instructions: string[];
+}
+
+const recipes: Recipe[] = [{
     "name": "Chocolate Chip Cookies",
-    "link": "cccookie",
-    "desc": "This chocolate chip cookie recipe is a simple chocolate chip cookie recipe that makes super soft chocolate, super yummy chip cookies - no mixer necessary, no chilling needed.",
+    "description": "This chocolate chip cookie recipe is a simple chocolate chip cookie recipe that makes super soft chocolate, super yummy chip cookies - no mixer necessary, no chilling needed.",
     "image": "https://sugarspunrun.com/wp-content/uploads/2020/03/The-best-worst-chocolate-chip-cookie-recipe-1-of-1.jpg",
     "ingredients": [
         "1/2 cup butter",
@@ -27,8 +34,7 @@ const recipes = [{
     ]
     }, { 
     "name": "Brownies",
-    "link": "brownies",
-    "desc": "This brownie recipe is simple, quick, and delicious",
+    "description": "This brownie recipe is simple, quick, and delicious",
     "image": "https://www.inspiredtaste.net/wp-content/uploads/2016/06/Brownies-Recipe-1-1200.jpg",
     "ingredients": [
         "1 cup butter, melted",
@@ -47,8 +53,7 @@ const recipes = [{
     ] 
     }, { 
     "name": "Peach Cobbler",
-    "link": "peachcobbler",
-    "desc": "This old-fashioned peach cobbler recipe is traditional and easy to make. It is best enjoyed warm, right after it is baked",
+    "description": "This old-fashioned peach cobbler recipe is traditional and easy to make. It is best enjoyed warm, right after it is baked",
     "image": "https://www.jocooks.com/wp-content/uploads/2020/08/peach-cobbler-1-16.jpg",
     "ingredients": [
         "5 peaches, peeled, cored, and sliced",
