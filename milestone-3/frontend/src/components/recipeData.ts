@@ -1,7 +1,7 @@
 export interface Recipe {
     name: string;
     image: string;
-    desc: string;
+    description: string;
     ingredients: string[];
     instructions: string[];
 }
@@ -10,7 +10,7 @@ const recipes: Recipe[] = [
 {
     name: "White Chocolate Matcha Cookies",
     image: "https://github.com/alnhuynh/bootcamp-project-2022/blob/main/milestone-3/frontend/src/images/cookie.jpg?raw=true",
-    desc: "Love baked goods that aren't too sweet or love green tea flavors?\nThese white chocolate chip matcha cookies are perfect for you!",
+    description: "Love baked goods that aren't too sweet or love green tea flavors?\nThese white chocolate chip matcha cookies are perfect for you!",
     ingredients: [
         "1⅓ cup (167 g) all purpose flour",
         "2 tablespoon (16 g) cornstarch",
@@ -36,7 +36,7 @@ const recipes: Recipe[] = [
 {
     name: "Fruit or Paste Filled Mochi",
     image: "https://github.com/alnhuynh/bootcamp-project-2022/blob/main/milestone-3/frontend/src/images/mochi.PNG?raw=true",
-    desc: "This mochi recipe is simple and customizable!\nChoose any fruit or paste to put in the center and have fun with it!",
+    description: "This mochi recipe is simple and customizable!\nChoose any fruit or paste to put in the center and have fun with it!",
     ingredients: [
         "1 cup glutinous rice flour",
         "2 tablespoons powdered sugar",
@@ -58,7 +58,7 @@ const recipes: Recipe[] = [
 {
     name: "Che Thai",
     image: "https://github.com/alnhuynh/bootcamp-project-2022/blob/main/milestone-3/frontend/src/images/chethai.jpg?raw=true",
-    desc: "A recipe that has a special plate in my heart.\nSuper easy preparation and lots to share!",
+    description: "A recipe that has a special plate in my heart.\nSuper easy preparation and lots to share!",
     ingredients: [
         "1/2 can water chestnuts 20 oz (Red Rubies)",
         "3/4 cup tapioca starch (Red Rubies)",

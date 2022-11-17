@@ -25,7 +25,7 @@ function Home() {
 				<RecipePreview
 					name={recipe.name}
 					image={recipe.image}
-					desc={recipe.desc}
+					description={recipe.description}
 				/>
 			  ))}
 
@@ -33,7 +33,7 @@ function Home() {
 				<RecipePreview
 					name={fr.name}
 					image={fr.image}
-					desc={fr.desc}
+					description={fr.description}
 				/>
 			  ))}
         </main>

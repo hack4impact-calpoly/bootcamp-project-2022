@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
 import "../App.css"
 
-interface Preview {
+export interface Preview {
     name: string;
     image: string;
-    desc: string;
+    description: string;
 };
   
 function RecipePreview(props: Preview) {
@@ -14,7 +14,7 @@ function RecipePreview(props: Preview) {
             <Link className="recipe-name" to={`/recipe/${props.name}`}>
             {props.name}
             </Link>
-            <p>{props.desc}</p>
+            <p>{props.description}</p>
         </div>
         <img src={props.image} />
         

@@ -13,8 +13,8 @@ function RecipePage(props: Recipe) {
     const [allIngredients, setAllIngredients] = useState(props.ingredients);
     const [newIngredient, setNewIngredient] = useState('');
 
-    // const [instructions, setInstructions] = useState(props.instructions);
-    // const [newInstruction, setNewInstruction] = useState('');
+    const [allInstructions, setAllInstructions] = useState(props.instructions);
+    const [newInstruction, setNewInstruction] = useState('');
 
     if(recipe) {
         return (
@@ -29,18 +29,12 @@ function RecipePage(props: Recipe) {
                 <ul>
                     {allIngredients.map((i) => (<li>{i}</li>))}
                 </ul>
-    
-                <h3>Preparation + Instructions</h3>
-    
-                <ol>
-                    {recipe.instructions.map((instr) => (<li>{instr}</li>))}
-                </ol>
 
                 <div className="newvalues">
                     {/* add new ingredient */}
                     <p>Add a new ingredient: </p>
 
-                    <input placeholder="2 cups of spinach"
+                    <input placeholder="2 cups of cherries"
                         value={newIngredient} // add newIngredient as the input's value
                         onChange={(e: ChangeEvent<HTMLInputElement>) => {
                             // this event handler updates the value of newIngredient
@@ -48,13 +42,36 @@ function RecipePage(props: Recipe) {
                     />
 
                     {/* appends new ingredient */}
-                    <button onChange={() => setAllIngredients([...allIngredients, newIngredient])}>
+                    <button onClick={() => { setAllIngredients([...allIngredients, newIngredient]);
+                    console.log(allIngredients); }
+                    }>
                         Add Ingredient
                     </button>
+                </div>
+    
+                <h3>Preparation + Instructions</h3>
+    
+                <ol>
+                    {allInstructions.map((instr) => (<li>{instr}</li>))}
+                </ol>
 
-                    <br />
+                <div className="newvalues">
+                    {/* add new instruction */}
+                    <p>Add a new instruction: </p>
 
+                    <input placeholder="Mix in the breading"
+                        value={newInstruction} // add newInstruction as the input's value
+                        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                            // this event handler updates the value of newInstruction
+                            setNewInstruction(e.target.value); }}
+                    />
 
+                    {/* appends new instruction */}
+                    <button onClick={() => { setAllInstructions([...allInstructions, newInstruction]);
+                    console.log(allInstructions); }
+                    }>
+                        Add Instruction
+                    </button>
                 </div>
     
             </body>
