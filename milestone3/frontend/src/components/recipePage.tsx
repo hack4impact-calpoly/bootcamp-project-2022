@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { useParams } from "react-router-dom";
 import './recipePage.css';
+import Recipe from '../recipeData';
 import recipes from '../recipeData';
 
-function RecipePage() {
+
+function RecipePage(props: any) {
     const { name } = useParams();
     // make currentRecipe a variable that is the recipe with the id that matches the id in the url
     const currentRecipe = recipes?.find((recipe) => recipe.name === name);
-    
+    const [allIngredients, setAllIngredients] = useState(props.ingredients);
+    const [newIngredient, setNewIngredient] = useState('');
+    const [allInstructions, setAllInstructions] = useState(props.instructions);
+    const [newInstruction, setNewInstruction] = useState('');
+
 
     return (
         <div className="recipe">
@@ -24,12 +30,35 @@ function RecipePage() {
                         return <li>{ingredient}</li>
                     })}
                 </ul>
+                <input
+                    placeholder="2 cups of spinach"
+                    value={newIngredient} // add newIngredient as the input's value
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        // this event handler updates the value of newIngredient
+                        setNewIngredient(e.target.value);
+                    }}
+                />
+                <button onChange={() => setAllIngredients([...allIngredients, newIngredient])}>
+                    Add Ingredient
+                </button>             
+    
                 <h3 className="recipe-instructions-header">Instructions</h3>
                 <ol className="recipe-instructions">
                     {currentRecipe?.instructions.map(instruction =>{
                         return <li>{instruction}</li>
                     })}
                 </ol>
+                <input
+                    placeholder="boil the water"
+                    value={newInstruction} // add newInstruction as the input's value
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        // this event handler updates the value of newInstruction
+                        setNewInstruction(e.target.value);
+                    }}
+                />
+                <button onChange={() => setAllInstructions([...allInstructions, newInstruction])}>
+                    Add Instruction
+                </button>    
             </div>
         </div>
     );
