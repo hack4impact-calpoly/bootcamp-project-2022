@@ -1,7 +1,7 @@
 body
 {
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
     margin: 0;
     background-color: rgb(218, 100, 100);
 }
@@ -12,17 +12,17 @@ body
     color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    /* align-items: center; */
+    /* justify-content: center; */
+    margin-left: 50px;
     flex: 1;
-    padding-left: 20px;
   }
 
-.cards
-{
-  display: flex;
-    justify-content: center;
-    margin: 3em 0 20em 0;
-    gap: 200px;
-}
-
+  .cards
+  {
+      display: flex;
+      /* justify-content: center; */
+      flex-wrap: wrap;
+      margin-left: 100px;
+      gap: 200px;
+  }

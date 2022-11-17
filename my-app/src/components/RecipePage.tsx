@@ -1,32 +1,65 @@
 import './RecipePage.css';
+import React, { ChangeEvent, useState } from 'react';
+import { Recipe } from '../recipeData';
 
-interface recipeP {
-    name: string,
-    desc: string,
-    image: string,
-    instructions: string[],
-    ingredients: string[],
-    alt: string
-}
+export default function RecipePage(props:Recipe) {
+    const [newIngredient, setNewIngredient] = useState('');//add this
+    const [allIngredients, setAllIngredients] = useState(props.ingredients);
+    const [newInstruction, setNewInstruction] = useState('');//add this
+    const [allInstructions, setAllInstructions] = useState(props.instructions);
 
-export default function RecipePage(props:recipeP) {
     return (<div className="food">
     <h1>{props.name}</h1>
-    <p>{props.desc}</p>
+    <p id="description">{props.description}</p>
+   
+
     <h2>Ingredients</h2>
 
-    <ul>
-         {props.ingredients.map((ingred, idx) => {
-                    return <li key={idx}>{ingred}</li>;
-                })}
-    </ul>
-
-    <h2>Procedure</h2>
-    <ol>
-       {props.instructions.map((ingred, idx) => {
+    <ol id="ingred">
+        {allIngredients.map((ingred, idx) => {
                     return <li key={idx}>{ingred}</li>;
                 })}
     </ol>
-    <img src={props.image} alt={props.alt} width="300" height="300" />
+
+    <input
+        placeholder="2 cups of spinach"
+        value={newIngredient} // add newIngredient as the input's value
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            // this event handler updates the value of newIngredient
+            setNewIngredient(e.target.value);
+            console.log(newIngredient);
+        }}/>
+    <button onClick={() => 
+        {
+            setAllIngredients([...allIngredients, newIngredient])
+            console.log(allIngredients);
+        }}>
+        Add Ingredient
+    </button>
+
+    <h2>Procedure</h2>
+    <ol id="instructions">
+       {allInstructions.map((ingred, idx) => {
+                    return <li key={idx}>{ingred}</li>;
+                })}
+    </ol>
+
+    <input
+        placeholder="Voila"
+        value={newInstruction} // add newIngredient as the input's value
+        onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            // this event handler updates the value of newIngredient
+            setNewInstruction(e.target.value);
+            console.log(newInstruction);
+        }}/>
+    <button onClick={() => 
+        {
+            setAllInstructions([...allInstructions, newInstruction])
+            console.log(allInstructions);
+        }}>
+        Add Instruction
+    </button>
+
+    <img src={props.image} width="300" height="300" />
     </div>);
 }

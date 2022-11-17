@@ -1,4 +1,4 @@
-body
+/* body
 {
     display: flex;
     flex-direction: column;
@@ -16,8 +16,8 @@ body
     display: flex;
     flex-direction: column;
     background-color: rgb(218, 100, 100);
-    /* padding: 1em 13em; */
-}
+    padding: 1em 13em; 
+  } */
 
 
 .header
@@ -35,20 +35,13 @@ body
     gap: 16px;
   }
 
-
-ul {
-    display: flex;
-    list-style: none;
-    gap: 16px;
-  }
-
   a
   {
     text-decoration: none;
     color: white;
   }
 
-  .intro
+  /* .intro
   {
     color: white;
     display: flex;
@@ -56,35 +49,35 @@ ul {
     justify-content: space-between;
     flex: 1;
     padding-left: 20px;
-  }
+  } */
 
-  h1{
+  /* h1{
     font-size: 48px;
     font-weight: bolder;
     max-width: 300px;
-  }
+  } */
 
-  p, .main-action
+  /* p, .main-action
   {
     font-size: 18px;
-  }
+  } */
 
 
-.block-two
+/* .block-two
 {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: goldenrod;
-}
+} */
 
-.cards
+/* .cards
 {
   display: flex;
     justify-content: center;
     margin: 3em 0 20em 0;
     gap: 200px;
-}
+} */
 
 h2
 {
@@ -93,25 +86,25 @@ h2
   color: rgb(240, 235, 227);
 }
 
-.box
+/* .box
 {
   background-color: white;
   border: 3px solid green;
   border-radius: 5px;
   width: 300px;
   height: 300px;
-}
+} */
 
-.card {
-  text-align: center;
-  width: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: rgb(240, 235, 227);;
-}
+/* .card { */
+  /* text-align: center; */
+  /* width: 200px; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* color: rgb(240, 235, 227);; */
+/* } */
 
-img
+/* img
 {
   height: 300px;
   width: 300px;
@@ -122,4 +115,4 @@ img
   {
     color: blue;
     font-family: "Lucida Console", "Courier New", monospace;
-  }
+  } */

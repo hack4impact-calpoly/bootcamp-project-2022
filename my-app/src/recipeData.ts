@@ -2,18 +2,17 @@ import biryaniImg from "./images/biryani.jpeg"
 import chickenImg from "./images/orangeChicken.jpeg"
 import padThai from "./images/padThai.jpeg"
 
-export interface Rec {
+export interface Recipe {
     name: string;
-    desc: string;
+    description: string;
     image: string;
     ingredients: string[];
     instructions: string[];
-    alt:string;
   }  
-  const recipes: Rec[] = [
+  let recipes: Recipe[] = [
     {
       name: "Chicken biryani",
-      desc:
+      description:
         "This is a popular Indian dish consisting of spicy, flavored rice and chicken",
       image: biryaniImg,
       ingredients: [
@@ -27,11 +26,10 @@ export interface Rec {
         "In a pot wide enough to hold the chicken in a single layer, add the ghee and onions and saute the onions until they are well caramelized (15-20 minutes). Transfer the caramelized <br>onions to a bowl and set aside.",
         "To assemble the biryani, add the saffron to the rice and toss to distribute evenly. Add half the rice mixture to the bottom of the pot you browned the chicken in.",
       ],
-      alt:"biryani",
     },
     {
       name: "Orange Chicken",
-      desc:
+      description:
         "Delicious chicken dish",
       image: chickenImg,
       ingredients: [
@@ -44,11 +42,10 @@ export interface Rec {
           "Fry the chicken coated in flour and corn starch.", 
           "Wok fry the chicken in the sauce.",
       ],
-      alt:"orange-chickecn",
     },
     {
       name: "Pad Thai",
-      desc:
+      description:
         "Scrumptous noodle dish",
       image: padThai,
       ingredients: [
@@ -63,7 +60,6 @@ export interface Rec {
           "Add veggies.",
           "Add noodles."
       ],
-      alt:"pad-thai",
     },
   ];
   

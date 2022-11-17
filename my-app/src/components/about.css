@@ -1,6 +1,7 @@
-  h1
+  #about-title
   {
-    color: green;
+    color: red;
+    white-space: nowrap;
   }
 
   #description
