@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './recipePreview.css';
 import {Recipe} from '../recipeData';
 import { Link } from 'react-router-dom';
@@ -7,16 +7,35 @@ import { Link } from 'react-router-dom';
 the interface. Gonna try to figure out why the import didnt work */
 
 
+interface RecipePreviewProps extends Recipe {
+    external: boolean;
+  }
 
-export default function RecipePreview(props: Recipe)
+
+export default function RecipePreview(props: RecipePreviewProps)
 {
+
+    let address = ""
+  
+      
+
+        if(props.external){
+        address = "externalRecipe/" + props.name; // whatever it was before
+        }
+
+        else{
+          address = "recipe/" + props.name;
+        }
+     
+    
+
     return (
 
         <div className = "card">
 
                 <div className="item-title"> 
 
-                    <Link to= {'/recipe/' + props.name }className="nav_item"> {props.name} </Link> 
+                    <Link to= {address} className="nav_item"> {props.name} </Link> 
                    {/*}  <h3>{props.name}</h3> {*/}
                 </div>
 

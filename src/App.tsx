@@ -20,6 +20,8 @@ function App() {
           <Route path="/" element={<Home />} /> 
           <Route path="About" element={<AboutMe />} />
           <Route path="recipe/:id" element={<RecipePage/>} />
+          <Route path="externalRecipe/:id" element={<RecipePage external />} />
+          
         </Routes>
          
          
