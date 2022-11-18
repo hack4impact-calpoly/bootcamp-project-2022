@@ -1,8 +1,7 @@
 [
     {
-        "path": "LemonPoppyseed", 
         "name": "Lemon PoppySeed with Cream Cheese Frosting",
-        "desc": "This Lemon Poppyseed Cake is a tender, moist cake that’s full of lemon flavor and poppy seeds! It’s covered in a light lemon cream cheese frosting for a cake that’s perfect for lemon lovers!  Katie Kellums favorite cake \n  Prep Time: 1hr 35 mins \n  Yields: 12-14 slices",
+        "description": "This Lemon Poppyseed Cake is a tender, moist cake that’s full of lemon flavor and poppy seeds! It’s covered in a light lemon cream cheese frosting for a cake that’s perfect for lemon lovers!  Katie Kellums favorite cake \n  Prep Time: 1hr 35 mins \n  Yields: 12-14 slices",
         "image": "https://github.com/lallen15/bootcamp-project-2022/blob/main/src/img/lemon-poppyseed.jpg?raw=true", 
         "ingredients": [
             "2 1/2 cups (325g) all purpose flour",
@@ -44,9 +43,8 @@
         ]
     },
     {
-        "path": "Cinnamon", 
         "name": "Cinnamon Cake",
-        "desc": "A Simple Easy Cinnamon Cake, fast, easy and delicious, a soft full of cinnamon cake recipe. The perfect anytime cake, from Breakfast, to Snack or Dessert. \n Kelsea Clays favorite cake\n  Prep Time: 1hr 15 mins\n  Yields: 10 slices",
+        "description": "A Simple Easy Cinnamon Cake, fast, easy and delicious, a soft full of cinnamon cake recipe. The perfect anytime cake, from Breakfast, to Snack or Dessert. \n Kelsea Clays favorite cake\n  Prep Time: 1hr 15 mins\n  Yields: 10 slices",
         "image": "https://github.com/lallen15/bootcamp-project-2022/blob/main/src/img/Cinnamon-Roll-Cake-Recipe.jpg?raw=true", 
         "ingredients": [
             "3 tablespoons brown sugar",
@@ -72,9 +70,8 @@
         ]
     }, 
     {
-        "path": "BrownButterCarrot",
         "name": "Brown Butter Carrot Cake",
-        "desc": "This layered brown butter carrot cake is THE most moist cake. It is spiced heavily with cinnamon and filled with a cream cheese frosting. It is a semi naked cake topped with walnuts. \n Samantha Gonzales favorite cake\n Prep Time: 2hr 30 mins\n Yields: 16 slices",
+        "description": "This layered brown butter carrot cake is THE most moist cake. It is spiced heavily with cinnamon and filled with a cream cheese frosting. It is a semi naked cake topped with walnuts. \n Samantha Gonzales favorite cake\n Prep Time: 2hr 30 mins\n Yields: 16 slices",
         "image": "https://github.com/lallen15/bootcamp-project-2022/blob/main/src/img/Carrot-cake.jpg?raw=true", 
         "ingredients": [
             "2 ½ cups All-purpose flour",

@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom"
 
 interface Recipe {
-	path: string
 	name: string
 	image: string
-	desc: string
+	description: string
 }
 
 function RecipePreview(props: Recipe) {
@@ -13,10 +12,10 @@ function RecipePreview(props: Recipe) {
 		<div className="recipes">
 			<img className="cakePics" src={props.image} alt="secret cake pic" />
 			<div className="contentBlock">
-				<Link className="recipeButton" to={"/recipe/" + props.path}>
+				<Link className="recipeButton" to={"/recipe/" + props.name}>
 					{props.name}
 				</Link>
-				<p className="summary">{props.desc}</p>
+				<p className="summary">{props.description}</p>
 			</div>
 		</div>
 	)

@@ -1,19 +1,32 @@
 import "../App.css"
 import RecipePreview from "./RecipePreview"
 import recipeData from "../recipeData.json"
+import { ChangeEvent, useState, useEffect } from "react"
+
+interface Recipe {
+	name: string
+	image: string
+	description: string
+}
 
 function Home() {
+	const [externalRecipes, setExternalRecipes] = useState<Recipe[]>(recipeData)
+	useEffect(() => {
+		fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+			.then((res) => res.json())
+			.then((data) => setExternalRecipes([...externalRecipes, ...data]))
+	}, [])
+
 	return (
 		<main>
 			<h1 className="fanpage">
 				This is first and most importantly a Claire Saffitz fan page
 			</h1>
-			{recipeData.map((recipe) => (
+			{externalRecipes.map((recipe) => (
 				<RecipePreview
-					path={recipe.path}
 					name={recipe.name}
 					image={recipe.image}
-					desc={recipe.desc}
+					description={recipe.description}
 				/>
 			))}
 		</main>
