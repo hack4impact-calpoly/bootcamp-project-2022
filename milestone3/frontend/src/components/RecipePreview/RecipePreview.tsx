@@ -12,7 +12,7 @@ export default function RecipePreview({
 }) {
   return (
     <div className="recipeBox"> 
-      <img src={"images/" + recipeImage} alt="Pelmeni" />
+      <img src={recipeImage} alt="Pelmeni" />
       <div>
         <Link to={"/recipe/" + recipeName.toLowerCase()}>
           <h1>

@@ -1,21 +1,26 @@
 import { useParams } from "react-router-dom"
-import { useState } from "react";
-import { recipeData } from "../recipeData";
+import { useState, useEffect } from "react";
+import { Recipe } from "../types";
 import './RecipePage.css';
 export function RecipePage() {
   const { recipeName } = useParams();
-  const [recipe, setRecipe] = useState(
-    recipeData.find((recipe) => recipe.name.toLowerCase() === recipeName)
-  );
-
+  const [recipe, setRecipe] = useState<Recipe | null>(null);
+  useEffect(() => {
+    async function fetchRecipe() {
+      const response = await fetch(`https://bootcamp-milestone-4.onrender.com/recipe/${recipeName}`);
+      const recipe = (await response.json() as Recipe[])[0];
+      setRecipe(recipe);
+    }
+    fetchRecipe();
+  }, [recipeName]);
   return (
     <div className="main">
       <div className="recipePanel">
-      <img className="bigImage" src={"../images/" + recipe?.imagePath} alt={recipe?.name} />
+      <img className="bigImage" src={recipe?.image} alt={recipe?.name} />
       <div>
         <h1>{recipe?.name} Recipe</h1>
         <p>
-          {recipe?.longDescription}
+          {recipe?.description}
         </p>
         <h2>Ingredients</h2>
         <ul>
@@ -35,11 +40,12 @@ export function RecipePage() {
       </h1>
       <ol>
         {
-          recipe?.preparation.map((step) => {
+          recipe?.instructions ? recipe?.instructions.map((step) => {
             return (
               <li key={step}>{step}</li>
             )
-          })
+          }) : 
+          <li>Sorry, we don't have instructions for this recipe yet</li>
         }
       </ol>
     </div>
