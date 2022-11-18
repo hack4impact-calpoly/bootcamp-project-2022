@@ -4,14 +4,15 @@ import Home from "./components/Home";
 import About from './components/About';
 import RecipePage from "./components/RecipePage";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import recipes from './recipeData';
-import {useState, useEffect } from 'react';
+import recipes from "./recipeData"
 import {Recipe} from "./recipeData"
+import { useEffect, useState } from 'react';
 
 
 
 
 function App() {
+
   const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
   useEffect(() => {
     fetch("https://bootcamp-milestone-4.onrender.com/recipe")
@@ -32,14 +33,24 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
         {compRecipes.map ((recipe)=>
-        <Route path="/recipe/:name" element={<RecipePage
+        <Route path={"/recipe/:" + recipe.name} element={<RecipePage
+      name={recipe.name}
+      description={recipe.description}
+      image={recipe.image}
+      ingredients={recipe.ingredients}
+      instructions={recipe.instructions}
+      />
+        }/>)}
+        {/* <Route path="/recipe/:name" element={recipes.map((recipe) => (
+    <RecipePage
       name={recipe.name}
       description={recipe.description}
       image={recipe.image}
       ingredients={recipe.ingredients}
       instructions={recipe.instructions}
     />
-        }/>)}
+  ))} /> */}
+
       </Routes>
     </BrowserRouter>
     
