@@ -4,10 +4,30 @@ import { useParams } from "react-router-dom";
 
 // milestone 3.5
 import React, { ChangeEvent, useState } from 'react';
+import { useEffect } from "react";
+
+// interface RecipePageProps {
+//     external?: boolean;
+//     name: string;
+//     image: string;
+//     description: string;
+//     ingredients: string[];
+//     instructions: string[];
+// }
 
 function RecipePage(props: Recipe) {
+    
+    const [fetRecipes, setFetRecipes] = useState<Recipe[]>([])
+    useEffect(() => {
+    fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+    .then((response) => response.json())
+    .then((data) => setFetRecipes(data))
+    }, [])
+
+    let all = [...recipes, ...fetRecipes];
+
     let { name } = useParams();
-    let recipe = recipes.find((r) => r.name === name)
+    let recipe = all.find((r) => r.name === name)
 
     // new state
     const [allIngredients, setAllIngredients] = useState(props.ingredients);

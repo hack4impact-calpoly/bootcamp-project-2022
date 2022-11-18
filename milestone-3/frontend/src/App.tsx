@@ -11,6 +11,15 @@ import { useState, useEffect } from "react";
 
 function App() {
 
+  const [fetRecipes, setFetRecipes] = useState<Recipe[]>([])
+  useEffect(() => {
+    fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+    .then((response) => response.json())
+    .then((data) => setFetRecipes(data))
+  }, [])
+
+  let all = [...recipes, ...fetRecipes];
+ 
   return (
     <BrowserRouter>
       <Navbar />
@@ -18,13 +27,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         
-				{recipes.map((recipe) => (
+				{all.map((recipe) => (
           <Route
             path={`/recipe/:name`}
             element={<RecipePage {...recipe} />}
           />
         ))}
-
+        
       </Routes>
     </BrowserRouter>
   );
