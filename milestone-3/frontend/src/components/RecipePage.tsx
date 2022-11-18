@@ -1,9 +1,9 @@
 import "./RecipePage.css";
 import { useParams } from "react-router-dom";
 import recipeData from "../recipeData.json";
-import React, { ChangeEvent, useState } from "react";
+import React, { useEffect, ChangeEvent, useState } from "react";
 
-interface Recipe {
+interface CustomRecipe {
     link_name: string;
     name: string;
     image: string;
@@ -11,37 +11,78 @@ interface Recipe {
     ingredients: string[];
     instructions: string[];
 }
+interface RecipePageProps {
+    external?: boolean;
+}
 
-const RecipePage = () => {
+interface Recipe {
+    name: string;
+    description: string;
+    image: string;
+    ingredients: string[];
+    instructions: string[];
+}
+
+const RecipePage = (props: RecipePageProps) => {
     const { id } = useParams();
-    let i = recipeData.findIndex((data: Recipe) => data.link_name === id);
-
-    const [newIngredient, setNewIngredient] = useState("");
-    // State variable stores ingredient data as initial state
-    const [allIngredients, setAllIngredients] = useState(
-        recipeData[i].ingredients
-    );
-
-    const [newInstruction, setNewInstruction] = useState("");
-    // State variable stores instruction data as initial state
-    const [allInstructions, setAllInstrutctions] = useState(
-        recipeData[i].instructions
-    );
     const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+
+    const [recipe, setRecipe] = useState<Recipe>(recipeData[1]);
+
+    // setState and useParams
+    useEffect(() => {
+        if (props.external) {
+            console.log("External url");
+            // make an API call with the url param & setRecipe
+            fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+                .then((res) => res.json())
+                .then((data) => {
+                    setExternalRecipes(data);
+                    return data;
+                })
+                .then((data) => {
+                    let i = data.findIndex(
+                        (r: Recipe) =>
+                            r.name.toLowerCase().replace(/[^a-z0-9]/gi, "") ===
+                            id
+                    );
+                    setRecipe(data[i]);
+                });
+        } else {
+            // query all of your recipe data for the recipe you want & setRecipe
+            let i = recipeData.findIndex(
+                (data: CustomRecipe) => data.link_name === id
+            );
+            setRecipe(recipeData[i]);
+        }
+    }, [id, props.external]);
+
+    console.log(recipe.ingredients);
+    const [newIngredient, setNewIngredient] = useState<string>("");
+    // State variable stores ingredient data as initial state
+    const [allIngredients, setAllIngredients] = useState<string[]>(
+        recipe.ingredients
+    );
+
+    const [newInstruction, setNewInstruction] = useState<string>("");
+    // State variable stores instruction data as initial state
+    const [allInstructions, setAllInstrutctions] = useState<string[]>(
+        recipe.ingredients
+    );
+    useEffect(() => {
+        setAllIngredients(recipe.ingredients);
+        setAllInstrutctions(recipe.instructions);
+    }, [recipe]);
 
     return (
         <main>
             <div className="recipe-container">
-                <h1 className="title-color text-center">
-                    {recipeData[i].name}
-                </h1>
-                <p className="recipe-disc small-font">
-                    {recipeData[i].description}
-                </p>
+                <h1 className="title-color text-center">{recipe.name}</h1>
+                <p className="recipe-disc small-font">{recipe.description}</p>
                 <div className="flex-container">
                     <img
                         className="recipe-img"
-                        src={recipeData[i].image}
+                        src={recipe.image}
                         height="300"
                         width="300"
                     />

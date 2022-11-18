@@ -16,6 +16,10 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="recipes/:id" element={<RecipePage />} />
+                <Route
+                    path="externalRecipe/:id"
+                    element={<RecipePage external />}
+                />
             </Routes>
         </BrowserRouter>
     );
