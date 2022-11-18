@@ -13,9 +13,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
+        <Route path="/about" element={<About />} />
         <Route path="/recipe/:name" element={<RecipePage />} />
-        <Route path="externalRecipe/:name" element={<RecipePage external />} />
+        <Route path="/externalRecipe/:name" element={<RecipePage external />} />
       </Routes>
     </BrowserRouter>
     </div>
