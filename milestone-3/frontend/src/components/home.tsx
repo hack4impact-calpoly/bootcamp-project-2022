@@ -1,8 +1,16 @@
 import {RecipePreview} from './RecipePreview';
-import recipe_list from '../recipeData';
+import recipe_list, { Recipe } from '../recipeData';
 import '../App.css';
-import { Link } from 'react-router-dom';
+import React, { useState }  from 'react';
+import { useEffect } from 'react';
 function Home(){
+  const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+  useEffect(() => {
+    fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+      .then((res) => res.json())
+      .then((data) => setExternalRecipes(data));
+  }, []);
+  const allRecipes = [...recipe_list, ...externalRecipes]
     return(
 
        <main>
@@ -10,7 +18,7 @@ function Home(){
       <div className="main_header">
         <h1>Welcome to <span className="text--purple"> OnlyPotatoes!</span></h1>
       </div>
-      {recipe_list.map((recipe) =>(
+      {allRecipes.map((recipe) =>(
         <RecipePreview
         name={recipe.name}
         description={recipe.description}
