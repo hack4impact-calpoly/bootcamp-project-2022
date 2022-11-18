@@ -3,8 +3,18 @@ import React from 'react';
 import './recipePreview.css'
 import { Link } from 'react-router-dom';
 
+
+export interface Recipe {
+    id:string;
+    name: string;
+    description: string;
+    image: string;
+    ingredients: string[];
+    instructions: string[];
+  }
+
  
-export default function RecipePreview(recipe:any) {
+export default function RecipePreview(recipe:Recipe) {
 //   const { id } = useParams();
 //   console.log(".........", id)
   return (

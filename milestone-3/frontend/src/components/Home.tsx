@@ -4,6 +4,7 @@ import { recipes } from "../recipeData";
 import RecipePreview from "./RecipePreview";
 
 export interface Recipe {
+    id:string;
     name: string;
     description: string;
     image: string;
@@ -20,13 +21,11 @@ export default function Home() {
             <div className="container">
                 <h1>Wecome To My Kitchen</h1>
                 <p>I wish everyone who loves to cook would have this website bookmarked:)</p>
-            
-                
             </div>
 
         </div >
         <div className="main">
-        {recipes.map((recipe?:any) => 
+        {recipes.map((recipe:Recipe) => 
         
             <RecipePreview 
                 {...recipe}

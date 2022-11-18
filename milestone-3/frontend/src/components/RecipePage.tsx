@@ -5,18 +5,20 @@ import { recipes } from '../recipeData';
 
 import { useParams } from "react-router-dom";
 
-// id:'1',
-// name: 'Spicy Crab Roll',
-// description: 'Spicy Crab Roll is a popular Japanese sushi roll – creamy, satisfying, and fiery spicy.',
-// image: sushiImg,
-// ingredients: ["The Rice", "1 Teaspoon of The Spice", "The Sushi Mat" ],
-// instructions:
+export interface Recipe {
+    id:string;
+    name: string;
+    description: string;
+    image: string;
+    ingredients: string[];
+    instructions: string[];
+  }
 
 export default function RecipePage() {
    const [recipe, setRecipe]=useState({id:"", name:"", description:"", image:"", ingredients:[], instructions:[]})
    const { id } = useParams();
    useEffect(() => {
-    const myRecipe:any = recipes.find((recipe)=>recipe.id===id)
+    const myRecipe:any = recipes.find((recipe:Recipe)=>recipe.id===id)
     setRecipe(myRecipe)
    }, [id])
    
@@ -36,13 +38,13 @@ export default function RecipePage() {
             <p>{recipe.description}</p>
             <h3>Ingredients</h3>
             <ul id="description">
-            {recipe.ingredients.map((ingredient:any)=>
+            {recipe.ingredients.map((ingredient:string)=>
                 <li>{ingredient}</li>
             )}
             </ul>
             <h3>Method</h3>
             <ol>
-            {recipe.instructions.map((instruction:any)=>
+            {recipe.instructions.map((instruction:string)=>
                 <li>{instruction}</li>
             )} 
             </ol>
