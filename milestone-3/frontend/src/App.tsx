@@ -7,6 +7,8 @@ import About from './components/about';
 import RecipePage from './components/RecipePage';
 
 function App() {
+
+ 
   return (
     <div className="App">
         
@@ -16,6 +18,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="recipe/:id" element={<RecipePage />} />
+            <Route path="externalRecipe/:id" element={<RecipePage external />} />
+            
           </Routes>
         </BrowserRouter>
  

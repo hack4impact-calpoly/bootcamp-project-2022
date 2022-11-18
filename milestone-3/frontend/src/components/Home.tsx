@@ -2,6 +2,7 @@ import React from "react";
 import "./home.css";
 import { recipes } from "../recipeData";
 import RecipePreview from "./RecipePreview";
+import { useState, useEffect } from "react";
 
 export interface Recipe {
     id:string;
@@ -13,9 +14,19 @@ export interface Recipe {
   }
 
 export default function Home() {
+  const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+
+  useEffect(() => {
+      fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+     .then((res) => res.json())
+     .then((data) => setExternalRecipes(data));
+     
+  }, []);
+  
+ 
   return (
-    // replace everything in between the <header> & <header /> tags
-    // with your navbar code from your earlier milestones
+ 
+
     <div>
         <div className="hero">
             <div className="container">
@@ -28,9 +39,19 @@ export default function Home() {
         {recipes.map((recipe:Recipe) => 
         
             <RecipePreview 
+                 external={false}
                 {...recipe}
             />
             )}
+        {externalRecipes.map((externalRecipe:Recipe) => 
+        
+            <RecipePreview 
+                external
+                {...externalRecipe}
+            />
+            )}
+
+
         </div>
     </div>
   );

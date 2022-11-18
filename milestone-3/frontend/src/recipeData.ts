@@ -3,6 +3,7 @@ import pizzaImg from './image/pizza.jpg'
 import airFryerImg from './image/Air-Fryer-Chicken-Toast.jpg'
 
 export interface Recipe {
+    id:string;
     name: string;
     description: string;
     image: string;

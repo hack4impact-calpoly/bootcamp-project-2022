@@ -4,7 +4,7 @@ import './recipePreview.css'
 import { Link } from 'react-router-dom';
 
 
-export interface Recipe {
+interface Recipe {
     id:string;
     name: string;
     description: string;
@@ -13,23 +13,32 @@ export interface Recipe {
     instructions: string[];
   }
 
+interface RecipePreviewProps extends Recipe {
+    external: boolean;
+    
+  }
+
  
-export default function RecipePreview(recipe:Recipe) {
-//   const { id } = useParams();
-//   console.log(".........", id)
+export default function RecipePreview(props: RecipePreviewProps) {
+    let address = "";
+    if (props.external) {
+      address = "externalRecipe/" + props.name;
+    } else {
+      address = "recipe/" + props.name; // whatever it was before
+    }
   return (
     <div className='recipe' >
-      
-        <Link to={`recipe/${recipe.id}`}>  
-        <img src={recipe.image} alt="img" />
+        <Link to={address}>{props.name}</Link>
+        {/* <Link to={`recipe/${recipe.id}`}>   */}
+        <img src={props.image} alt="img" />
         <div className="recipe-info">
-            <h3>{recipe.name}</h3>
+            <h3>{props.name}</h3>
         </div>
         <div className="overview">
-            <h3>{recipe.name}</h3>
-            {recipe.description}
+            <h3>{props.name}</h3>
+            {props.description}
         </div>
-        </Link>  
+        {/* </Link>   */}
 	</div>
   );
 }
