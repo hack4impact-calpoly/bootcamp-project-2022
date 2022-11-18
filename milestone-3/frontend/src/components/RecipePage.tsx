@@ -2,6 +2,7 @@ import './recipePreview.css'
 import {Recipe} from "../recipeData"
 import { ChangeEvent, useState } from 'react';
 
+
 export default function RecipePage(props : Recipe) {
     let [ingredients, setIngredients] = useState(props.ingredients);
     let [newIngredient, setNewIngredient] = useState("");
@@ -9,7 +10,7 @@ export default function RecipePage(props : Recipe) {
     function addIngredient(event: ChangeEvent<HTMLInputElement>){
         setNewIngredient(event.currentTarget.value);
     };
-
+    
     let [instructions, setInstructions] = useState(props.instructions);
     let [newInstruction, setNewInstruction] = useState("");
     
