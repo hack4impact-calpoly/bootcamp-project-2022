@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Recipe } from "../recipeData";
 import "./recipePreview.css"
 
 interface RecipePreviewProps {
@@ -8,6 +10,18 @@ interface RecipePreviewProps {
 }
 
 export default function RecipePreview(props: RecipePreviewProps) {
+  
+  const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+
+
+  useEffect(() => {
+    fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+      .then((res) => res.json())
+      .then((data) => setExternalRecipes(data));
+  }, []);
+
+
+  
   return (
     <div className="recipe">
       <h2 className ="recipe_header">
