@@ -71,7 +71,7 @@ const recipe2: Recipe = {
 const recipe3: Recipe = {
     name: "Gobi Manchurian",
     description: "Fried cauliflower dish",
-    image: "https://www.thecuriouschickpea.com/wp-content/uploads/2021/01/gobi-Manchurian-10.jpg",
+    image: "https://www.vegrecipesofindia.com/wp-content/uploads/2014/08/gobi-manchurian-dry-recipe-1.jpg",
     ingredients: ["250 grams cauliflower florets",
     "1/2 cup flour",
     "1/4 cup cornstarch",
