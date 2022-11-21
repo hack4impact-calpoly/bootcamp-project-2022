@@ -31,7 +31,7 @@ export default function RecipePreview(props: RecipePreviewProps) {
       </Link> */}
       
       <div className = "recipe_body"> 
-        <img  src={props.image} alt="img" />
+        <img  className = "image_preview" src={props.image} alt="img" />
         <p className = "text">{props.description}</p>
         </div>
       </div>

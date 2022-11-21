@@ -68,7 +68,7 @@ export default function RecipePage(props: RecipePageProps) {
         <h2> <a className = "recipe-name">{recipe.name}</a> </h2>
         <div className = "recipe-body">
             <div className = "recipe-contents">
-                <img src={recipe.image} alt="img"/>
+                <img className = "image" src={recipe.image} alt="img"/>
 
                 <ul>
                 <h2>Ingredients</h2>

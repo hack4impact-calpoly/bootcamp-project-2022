@@ -34,6 +34,13 @@ export default function Home() {
             />
   ))}
 
+  {/* { recipes.map((recipe) => (
+            <RecipePreview
+            {...recipe}
+            external={false}
+            />
+  ))} */}
+
         {externalRecipes.map((recipe) => (
             <RecipePreview
             name={recipe.name}
@@ -44,6 +51,8 @@ export default function Home() {
             external={true}
             />
         ))}
+
+
   
         {/* <div className = "body-of-frontpage">
             <div className = "recipe1">

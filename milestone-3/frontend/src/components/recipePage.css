@@ -34,3 +34,16 @@
     justify-content: space-between;
     
 }
+
+.image {
+    /* width: 20%;
+    border: 5px solid;
+    border-radius: 10px; */
+
+    object-fit: cover;
+    order: 5px solid;
+    border: 5px solid;
+    border-radius: 20px;
+    margin-right: 40px;
+    width: 300px;
+}
