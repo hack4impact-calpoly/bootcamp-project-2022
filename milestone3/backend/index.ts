@@ -1,4 +1,6 @@
 import { Express } from "express";
+import recipeRoutes from "./routes/recipe";
+
 const express = require("express"); // 1. includes Express
 const app: Express = express(); // 2. initializes Express
 const mongoose = require("mongoose");
@@ -10,6 +12,7 @@ mongoose.connect(connection_url)
 
 
 app.use(express.json());
+app.use("/recipe", recipeRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello world!')
