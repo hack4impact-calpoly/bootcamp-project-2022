@@ -39,4 +39,15 @@ router.put("/:recipeName/ingredient", async (req: Request, res: Response) => {
     }
 })
 
+router.put("/:recipeName/instruction", async (req: Request, res: Response) => {
+    try {
+        const recipeName = req.params.recipeName;
+        const instruction = req.body.newInstruction;
+        const recipe = await Recipe.findOneAndUpdate({name: recipeName}, {$push: {instructions: instruction}})
+        res.send(`${recipeName} updated`)
+    } catch (err) {
+        console.error(err);
+    }
+})
+
 export default router;
