@@ -1,7 +1,9 @@
 import { Express } from "express";
 const express = require("express"); // 1. includes Express
 const app: Express = express(); // 2. initializes Express
+const cors = require("cors");
 app.use(express.json());
+app.use(cors());
 
 const mongoose = require("mongoose");
 const connection_url =

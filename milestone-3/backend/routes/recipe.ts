@@ -19,8 +19,8 @@ router.get("/:recipeName", async (req: Request, res: Response) => {
 
 router.post("/", async (req: Request, res: Response) => {
     try {
-        const {name, description, ingredients, instructions } = req.body;
-        const recipe = new Recipe({name, description, ingredients, instructions});
+        const {name, description, image, ingredients, instructions } = req.body;
+        const recipe = new Recipe({name, description, image, ingredients, instructions});
         await recipe.save();
         res.status(200).json(recipe);
     } catch (err) {

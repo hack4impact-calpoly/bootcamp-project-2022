@@ -22,6 +22,28 @@ export default function RecipePage({
   const [instructions, setInstructions] = useState(instruc);
   const [customInstruc, setCustomInstruc] = useState("");
 
+  function addIngredient(ingred: String){
+    const requestOptions = {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({newIngredient: ingred})
+    }
+
+    fetch(`http://localhost:3001/recipe/${name}/ingredient`, requestOptions)
+      .then((response) => console.log("added ingredient"));
+  }
+
+  function addInstruction(instruc: String){
+    const requestOptions = {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({newInstruction: instruc})
+    }
+
+    fetch(`http://localhost:3001/recipe/${name}/instruction`, requestOptions)
+      .then((response) => console.log("added instruction"));
+  }
+
   return (
     <div className="container">
       <div className="recipe-wrapper">
@@ -59,6 +81,7 @@ export default function RecipePage({
                   className="ingredientbtn"
                   onClick={() => {
                     setIngredients([...ingredients, customIngred]);
+                    addIngredient(customIngred);
                     setCustomIngred("");
                   }}
                 >
@@ -88,6 +111,7 @@ export default function RecipePage({
                   className="instructionbtn"
                   onClick={() => {
                     setInstructions([...instructions, customInstruc]);
+                    addInstruction(customInstruc);
                     setCustomInstruc("");
                   }}
                 >
