@@ -28,4 +28,15 @@ router.post("/", async (req: Request, res: Response) => {
     }
 })
 
+router.put("/:recipeName/ingredient", async (req: Request, res: Response) => {
+    try {
+        const recipeName = req.params.recipeName;
+        const ingredient = req.body.newIngredient;
+        const recipe = await Recipe.findOneAndUpdate({name: recipeName}, {$push: {ingredients: ingredient}})
+        res.send(`${recipeName} updated`)
+    } catch (err) {
+        console.error(err);
+    }
+})
+
 export default router;
