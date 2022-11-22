@@ -42,8 +42,9 @@ router.put("/:recipeName/ingredient", async (req: Request, res: Response) => {
     recipe.ingredients = [...recipe.ingredients, newIngredient];
     await recipe.save();
     res.send("Ingredient added");
+  } else {
+    res.send("Failed to add ingredient");
   }
-  res.send("Failed to add ingredient");
 });
 
 router.put("/:recipeName/instruction", async (req: Request, res: Response) => {
@@ -54,8 +55,9 @@ router.put("/:recipeName/instruction", async (req: Request, res: Response) => {
     recipe.instructions = [...recipe.instructions, newInstruction];
     await recipe.save();
     res.send("Instruction added");
+  } else {
+    res.send("Failed to add instruction");
   }
-  res.send("Failed to add instruction");
 });
 
 export default router;

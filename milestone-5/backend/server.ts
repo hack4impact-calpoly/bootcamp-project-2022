@@ -4,7 +4,9 @@ import recipeEndPoints from "./routes/recipe";
 
 const express = require("express"); // 1. includes Express
 const app: Express = express(); // 2. initializes Express
+const cors = require("cors");
 app.use(express.json()); // Enables JSON parsing
+app.use(cors());
 
 console.log("Backend running");
 
