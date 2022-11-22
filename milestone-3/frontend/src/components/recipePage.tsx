@@ -9,13 +9,9 @@ import recipes from '../recipeData';
 
 export default function RecipePage() {
     const { name } = useParams(); 
-    let recipe: Recipe = recipes[0];
     // Find the recipe corresponding to the selected option.
-    for (const i of recipes) {
-        if (i.short === name) {
-            recipe = i;
-        }
-    }
+    const recipe = recipes.find(i => i.short === name);
+    if (recipe === undefined) { return (<div>Page not found</div>)} 
     return (
     <body>
         <div className='recipe-box'>
