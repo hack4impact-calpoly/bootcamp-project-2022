@@ -3,19 +3,12 @@ import { useParams } from "react-router-dom";
 import recipeData from "../recipeData.json";
 import React, { useEffect, ChangeEvent, useState } from "react";
 
-interface CustomRecipe {
-    link_name: string;
-    name: string;
-    image: string;
-    description: string;
-    ingredients: string[];
-    instructions: string[];
-}
 interface RecipePageProps {
     external?: boolean;
 }
 
 interface Recipe {
+    link_name?: string;
     name: string;
     description: string;
     image: string;
@@ -51,7 +44,7 @@ const RecipePage = (props: RecipePageProps) => {
         } else {
             // query all of your recipe data for the recipe you want & setRecipe
             let i = recipeData.findIndex(
-                (data: CustomRecipe) => data.link_name === id
+                (data: Recipe) => data.link_name === id
             );
             setRecipe(recipeData[i]);
         }
@@ -120,6 +113,7 @@ const RecipePage = (props: RecipePageProps) => {
             <div className="recipe-instruct">
                 <h1 className="instruct-title title-color">Instructions</h1>
                 <ol className="small-font">
+                    {/* Renders all instructions */}
                     {allInstructions.map(function (name, index) {
                         return <li key={index}>{name}</li>;
                     })}

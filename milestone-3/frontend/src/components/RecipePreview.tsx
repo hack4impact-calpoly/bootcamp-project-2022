@@ -5,8 +5,22 @@ interface Recipe {
     name: string;
     image: string;
     desc: string;
+    external: boolean;
 }
-export default function RecipePreview(props: Recipe) {
+interface ExternalRecipe extends Recipe {
+    external: boolean;
+}
+export default function RecipePreview(props: Recipe | ExternalRecipe) {
+    let address = "";
+    if (props.external) {
+        address = `/externalRecipe/${props.name
+            .toLowerCase()
+            .replace(/[^a-z0-9]/gi, "")}`;
+    } else {
+        address = `/recipes/${props.name
+            .toLowerCase()
+            .replace(/[^a-z0-9]/gi, "")}`;
+    }
     return (
         <div className="card">
             <h2 className="card-title">{props.name}</h2>
@@ -18,12 +32,7 @@ export default function RecipePreview(props: Recipe) {
                     height="250"
                 />
                 <p className="card-disc">{props.desc}</p>
-                <Link
-                    className="card-btn"
-                    to={`/recipes/${props.name
-                        .toLowerCase()
-                        .replace(/[^a-z0-9]/gi, "")}`}
-                >
+                <Link className="card-btn" to={address}>
                     Go
                 </Link>
             </div>

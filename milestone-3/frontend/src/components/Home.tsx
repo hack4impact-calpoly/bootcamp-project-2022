@@ -1,8 +1,25 @@
 import "./Home.css";
 import RecipeCard from "./RecipePreview";
 import recipeData from "../recipeData.json";
+import React, { useEffect, useState } from "react";
+
+interface Recipe {
+    name: string;
+    description: string;
+    image: string;
+    ingredients: string[];
+    instructions: string[];
+}
 
 function Home() {
+    const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+    useEffect(() => {
+        fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+            .then((res) => res.json())
+            .then((data) => {
+                setExternalRecipes(data);
+            });
+    }, []);
     return (
         <main>
             <h1 className="title">Check out some of our favorites!</h1>
@@ -13,6 +30,15 @@ function Home() {
                         name={recipe.name}
                         image={recipe.image}
                         desc={recipe.description}
+                        external={false}
+                    />
+                ))}
+                {externalRecipes.map((recipe) => (
+                    <RecipeCard
+                        name={recipe.name}
+                        image={recipe.image}
+                        desc={recipe.description}
+                        external
                     />
                 ))}
             </div>
