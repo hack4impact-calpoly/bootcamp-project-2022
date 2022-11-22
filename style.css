@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+.container{
+    background-color: coral;
+    padding: 10px 35px;
+    margin-top: 10px;
+    border: 10px dashed indigo;
+    border-radius: 10px;
+}
+.flex-container{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    background-color: aqua;
+    justify-content: end;
+}
+=======
 body{
     background-color: #fefae0;
   }
@@ -187,3 +203,4 @@ body{
   .instructions{
     font-size: 20px;
   }  
+>>>>>>> cd9ba79454eb2718d3f55b6828c75cc3dd82f189
