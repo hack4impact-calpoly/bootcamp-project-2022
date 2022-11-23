@@ -1,25 +1,34 @@
 /* ---------- color palette ---------- */
 
 :root {
-    --light-pink: #edafb8ff;
-    --champagne-pink: #f7e1d7ff;
-    --timberwolf: #dedbd2ff;
-    --cambridge-blue: #b0c4b1ff;
-    --deep-space-sparkle: #4a5759ff;
+   --light_blue: rgb(145, 218, 244);
+    --darker_blue: rgb(36, 140, 215);
+
+
   }
   
   /* ---------- all pages ---------- */
   
+  .blink_me {
+    animation: blinker 2s linear infinite;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
   html {
     height: 100%;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: fantasy;
   }
   
   body {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    background-color: var(--timberwolf);
+    background-color: var(--light_blue);
   }
   
   main {
@@ -31,7 +40,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 40px;
-    background-color: var(--deep-space-sparkle);
+    background-color: var(--darker_blue);
   }
   
   .title-container {
@@ -39,7 +48,7 @@
   }
   
   .title {
-    color: var(--timberwolf);
+    color: var(--light_blue);
   }
   
   nav {
@@ -51,11 +60,11 @@
   .nav-item {
     margin: 0px 10px;
     text-overflow: ellipsis;
-    color: var(--timberwolf);
+    color: var(--light_blue);
   }
   
   h2 {
-    background-color: var(--cambridge-blue);
+    background-color: var(--darker_blue);
     padding: 10px;
   }
   
@@ -65,14 +74,14 @@
   }
   
   h2 a:hover {
-    color: var(--deep-space-sparkle);
+    color: var(--light_blue);
     transition: color 0.2s;
   }
   
   /* ---------- homepage ---------- */
   
   .card {
-    background-color: var(--champagne-pink);
+    background-color: var(--darker_blue);
     padding: 10px 20px;
     margin: 20px 0px;
     border-radius: 20px;
@@ -93,7 +102,7 @@
   .img-small {
     width: 200px;
     border: 5px solid;
-    border-color: var(--deep-space-sparkle);
+    border-color: var(--light_blue);
     border-radius: 10px;
   }
   
@@ -101,7 +110,7 @@
   
   .flex-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row-reverse;
     margin-top: 40px;
   }
   
@@ -109,7 +118,7 @@
     width: 300px;
     margin-right: 40px;
     border: 5px solid;
-    border-color: var(--deep-space-sparkle);
+    border-color: var(--light_blue);
     border-radius: 20px;
   }
   
@@ -124,14 +133,23 @@
   
   /* ---------- about page ---------- */
   
-  .thumbs-up {
-    display: inline-block;
-    transition: 0.5s ease;
-    font-size: 400px;
+  .description {
+    display: flex;
+    /* background-color: red; */
+    font-size: 20px;
+    left:300px; top:50px;
+    position: relative;
+    animation-name: desc;
+    animation-duration: 4s;
+    animation-direction: reverse;
   }
-  
-  .thumbs-up:hover {
-    font-size: 600px;
-    transform: rotate(540deg);
+
+
+  @keyframes desc {
+    0%   {left:300px; top:50px;}
+    25%  {left:300px; top:50px;}
+    50%  {left:600px; top:200px;}
+    75%  {left:50px; top:200px;}
+    100% {left:300px; top:50px;}
   }
   
