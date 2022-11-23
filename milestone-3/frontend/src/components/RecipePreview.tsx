@@ -2,23 +2,32 @@ import '../App.css'
 import {Recipe} from '../recipeData';
 import { Link } from "react-router-dom";
 
+interface RecipePreviewProps extends Recipe {
+  external: boolean;
+}
 
-function RecipePreview(internal: Recipe, external: Recipe){
-  const id = internal.name
-  // console.log(internal.image)
+function RecipePreview(props: RecipePreviewProps) {
+  let address = "";
+  if (props.external) {
+    address = "externalRecipe/" + props.name;
+  } else {
+    address = "recipe/" + props.name; // whatever it was before
+  }
+
+  const id = props.name
+  // console.log(props.image)
     return(
     
     <div className="recipe-home">
-    <Link to = {`/Page/${id}`}>
-      <h2 className="recipe-header">{internal.name}</h2>
-    </Link>
+    <Link to={address}>  <h2 className="recipe-header">{props.name}</h2></Link>
+
     <div className="recipe-card">
       <img
-        src={internal.image}
+        src={props.image}
         className="small-img"
-        alt={internal.name}
+        alt={props.name}
       />
-      <p className="card-desc-home">{internal.description} </p>
+      <p className="card-desc-home">{props.description} </p>
        
 
     </div>

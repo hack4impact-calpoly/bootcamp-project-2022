@@ -1,22 +1,61 @@
 import { useParams } from "react-router-dom";
 import recipe_list, { Recipe } from "../recipeData";
-import React, { ChangeEvent, useState } from "react";
-function RecipePage(props: Recipe) {
-  const [newIngredient, setNewIngredient] = useState(""); //add this
-  const [allIngredients, setAllIngredients] = useState(props.ingredients);
-  const [newInstruction, setNewInstruction] = useState(""); //add this
-  const [allInstructions, setAllInstructions] = useState(props.instructions);
-  if(props){
-  const recipe = props;
-  console.log(recipe)
-  if (recipe) {
+import React, { ChangeEvent, useEffect, useState } from "react";
+
+
+interface RecipePageProps {
+  external?: boolean;
+}
+
+
+function RecipePage(props: RecipePageProps) {
+  const [ingredients, setIngredients] = useState<any[]>([]);
+  const [newIngredient, setNewIngredient] = useState('');
+  const [instructions, setInstructions] = useState<any[]>([]);
+  const [newInstruction, setNewInstruction] = useState('');
+  const [recipeCurrent, setRecipeCurrent] = useState<Recipe>(recipe_list[0])
+ 
+  const {id} = useParams();
+
+
+  useEffect(() => {
+
+      
+
+    if (props.external) {
+        
+        
+        const getExternal = async () => {
+            //get request for an external recipe
+            let data = await fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id);
+            let recipeData = await data.json();
+            setRecipeCurrent(recipeData[0]);
+            setIngredients([...recipeData[0].ingredients])
+            setInstructions([...recipeData[0].instructions]);
+        }
+        getExternal();
+        console.log(recipeCurrent)
+
+
+    } else {
+      //normal recipe
+      let target = recipe_list.find(element => (element.name == id))!;
+      setRecipeCurrent(target)
+      setIngredients([...target.ingredients])
+      setInstructions([...target.instructions])
+    }
+  }, [id, props.external]);
+
+
+  
     return (
+
       <div className="entire-page">
-        <h1 className="recipe-header-page main_header">{recipe.name}</h1>
+        <h1 className="recipe-header-page main_header">{recipeCurrent.name}</h1>
         <div className="recipe-page-first">
-          <img src={recipe.image} alt={recipe.name} className="big-img" />
+          <img src={recipeCurrent.image} alt={recipeCurrent.name} className="big-img" />
           <div className="recipe-desc-ingr">
-            <p className="card-desc-page">{recipe.description}</p>
+            <p className="card-desc-page">{recipeCurrent.description}</p>
 
             <div className="ingredients">
               <div className="ingredient-body">
@@ -24,7 +63,7 @@ function RecipePage(props: Recipe) {
                   Ingredients
                 </h2>
                 <ul>
-                  {allIngredients.map((ingredient, i) => (
+                  {ingredients.map((ingredient, i) => (
                     <li>{ingredient}</li>
                   ))}
                 </ul>
@@ -38,7 +77,7 @@ function RecipePage(props: Recipe) {
           />
           <button
             onClick={() =>
-              setAllIngredients([...allIngredients, newIngredient])
+              setIngredients([...ingredients, newIngredient])
             }
           >
             Add Ingredient
@@ -52,7 +91,7 @@ function RecipePage(props: Recipe) {
             Instructions
           </h2>
           <ol>
-            {allInstructions.map((instruction, i) => (
+            {instructions.map((instruction, i) => (
               <li>{instruction}</li>
             ))}
           </ol>
@@ -66,21 +105,14 @@ function RecipePage(props: Recipe) {
           />
           <button
             onClick={() =>
-              setAllInstructions([...allInstructions, newInstruction])
+              setInstructions([...instructions, newInstruction])
             }
           >
             Add Ingredient
           </button>
         </div>
       </div>
-    );
-  } else {
-    return <h1>Sorry this recipe doesn't exist!</h1>;
-  }
-}
-else{
-  return <h1>Sorry this recipe doesn't exist!</h1>;
-}
-}
+    )
+  } 
 
 export default RecipePage;
