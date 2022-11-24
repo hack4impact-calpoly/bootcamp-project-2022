@@ -8,6 +8,7 @@ import RecipePage from "./components/recipePage";
 
 
 function App() {
+  
   return (
     <BrowserRouter>
       <Navbar />

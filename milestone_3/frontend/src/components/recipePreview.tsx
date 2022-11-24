@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Recipe } from '../recipeData';
+import recipes, { Recipe } from '../recipeData';
 import './recipePreview.css'
 
 export default function RecipePreview(props: Recipe) {
@@ -12,6 +12,6 @@ export default function RecipePreview(props: Recipe) {
         <Link to={"recipe/" + props.name}> <img src={props.image} alt="img" /></Link>
         <p className = "recipe_text" >{props.description}</p>
       </div>
-	  </div>
-  );
-}
+	  </div>)}
+//   ); */}
+// {/* }
