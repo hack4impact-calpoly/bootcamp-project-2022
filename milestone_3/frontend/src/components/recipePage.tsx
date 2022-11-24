@@ -6,11 +6,6 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import { isButtonElement } from "react-router-dom/dist/dom";
 import RecipePreview from "./recipePreview";
 
-// interface RecipePageProps {
-//   external?: boolean;
-//   // other props
-// }
-
 
 const RecipePage = () => {
   const { id } = useParams();
@@ -47,106 +42,19 @@ const RecipePage = () => {
             instructions: [],
           }
     )
-    console.log(recipe);
     if (recipe) {
         setAllIngredients(recipe.ingredients);
         setAllProcedures(recipe.instructions);
     }
   }, [allRecipes])
 
-// useEffect(() => {
-//   setAllIngredients(recipe.ingredients)
-//   setAllProcedures(recipe.instructions)
-// }, [allRecipes]);
 
-  
-
-// export default function RecipePage(props: RecipePageProps) {
-  
-//   const [allIngredients, setAllIngredients] = useState([]);
-//   const [allProcedures, setAllProcedures] = useState([]);
-// //   // const [externalRecipe, setexternalRecipe] = useState("");
-// //   const { _id } = useParams();
-//   const [newIngredient, setNewIngredient] = useState("");
-//   const [newProcedure, setNewProcedure] = useState("");
-//   // useEffect(() => {
-//   //   if (props.external) {
-//   //     // make an API call with the url param & setRecipe
-//   //     fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + _id)
-//   //       .then((res) => res.json())
-//   //       .then(data => {   setexternalRecipe(data[0]);
-//   //                             setAllIngredients(data[0].ingredients);
-//   //                             setAllProcedures(data[0].instructions);})
-      
-//   //        } else {
-//   //   //       // query all of your recipe data for the recipe you want & setRecipe
-//         let i = recipes.findIndex((x) => x.name === _id)
-//   //       if (i === undefined) {
-  //         return 
-  //       }
-  //       else {
-  //         setexternalRecipe(i);
-  //         // setAllIngredients(recipes[i].ingredients);
-  //         // setAllProcedures(recipes[i].instructions);
-  //       } 
-        
-
-    // }
-  // }; [_id, props.external];});
-
-  // const [newIngredient, setNewIngredient] = useState("");
-  // const [newProcedure, setNewProcedure] = useState("");
-  // const { id } = useParams();
-  // let i = recipes.findIndex((x) => x.name === id);
-  // const [allIngredients, setAllIngredients] = useState(recipes[i].ingredients);
-  // const [allProcedures, setAllProcedures] = useState(recipes[i].instructions);
 
 if (!recipe) {
   return (<div></div>)
 }
 
 return (
-// const RecipePage = () => {
-  
-
-//   const [externalRecipe, setexternalRecipe] = useState("");
-//   const { _id } = useParams();
-//   useEffect(() => {
-//     // if (RecipePage.defaultProps.external) {
-//       // make an API call with the url param & setRecipe
-//       fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + _id)
-//         .then((res) => res.json())
-//         .then((data) => setexternalRecipe(data[0]));
-//     // } else {
-//     //       // query all of your recipe data for the recipe you want & setRecipe
-
-//     // }
-//   }, [_id, RecipePage.defaultProps.external]);
-
-  // const [newIngredient, setNewIngredient] = useState("");
-  // const [newProcedure, setNewProcedure] = useState("");
-  // const { id } = useParams();
-  // let i = recipes.findIndex((x) => x.name === id);
-  // const [allIngredients, setAllIngredients] = useState(recipes[i].ingredients);
-  // const [allProcedures, setAllProcedures] = useState(recipes[i].instructions);
-
-  // <input
-  //   placeholder="1 cup flour"
-  //   value={newIngredient} // add newIngredient as the input's value
-  //   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-  //     // this event handler updates the value of newIngredient
-  //     setNewIngredient(e.target.value);
-  //   }}
-  // />;
-  // <input
-  //   placeholder="Preheat oven to 350 degrees"
-  //   value={newProcedure} // add newProcedure as the input's value
-  //   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-  //     // this event handler updates the value of newProcedure
-  //     setNewProcedure(e.target.value);
-  //   }}
-  // />;
-
   
     <p>
       <img
