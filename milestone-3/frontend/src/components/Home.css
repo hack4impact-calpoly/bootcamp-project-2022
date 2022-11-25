@@ -15,7 +15,9 @@ body {
 .container-recipes {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
+
 @media screen and (max-width: 1200px) {
     .container-recipes {
         flex-direction: column;
