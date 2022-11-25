@@ -42,8 +42,9 @@ export default function RecipePage(props: RecipePageProps) {
          .then((res) => res.json())
          .then((data) => setExternalRecipes(data));
             } else {
+          console.log("innnnnnn", id)
           // query all of your recipe data for the recipe you want & setRecipe
-          const myRecipe:any = recipes.find((recipe:Recipe)=>recipe.id===id)
+          const myRecipe:any = recipes.find((recipe:Recipe)=>recipe.name===id)
           setRecipe(myRecipe)
         }
       }, [id, props.external]);
@@ -54,7 +55,7 @@ export default function RecipePage(props: RecipePageProps) {
 //     setAllIngredients([...allIngredients, newIngredient])
 //   }
   
- console.log(externalRecipes ,  "^^^", recipe)
+ 
   return (
     <div className='recipe_page' >
       <header>
