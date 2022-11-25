@@ -31,8 +31,8 @@ router.post('/', async (req: Request, res: Response) => {
     recipe = await recipe.save();
     res.send(`Added new recipe - ${name}`);
   } catch (error) {
-    res.status(500).send(error.message);
-    console.log(`Failed to add recipe: ${error.message}`);
+    res.status(500).send(error);
+    console.log(`Failed to add recipe: ${error}`);
   }
 });
 
