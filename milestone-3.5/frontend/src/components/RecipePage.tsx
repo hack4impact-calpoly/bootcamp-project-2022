@@ -1,18 +1,34 @@
 import React, { useEffect, useState, ChangeEvent } from 'react';
 import './RecipePage.css';
-// import recipes from '../recipeData';
+import { Recipe } from '../recipeData';
 import { useParams } from 'react-router-dom';
 
-export default function RecipePage(props: any) {
+export default function RecipePage() {
+  const [recipe, setRecipe] = useState<Recipe>({
+    name: '',
+    description: '',
+    image: '',
+    ingredients: [],
+    instructions: [],
+  });
   const { name } = useParams();
-  const { updateRecipes } = props;
-  const currentRecipe = updateRecipes.find((x: any) => x.name === name);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/recipe/' + name)
+      .then((response) => response.json())
+      .then((recipeData) => {
+        setRecipe(recipeData[0]);
+        console.log('recipe = ', recipeData[0]);
+      })
+      .catch((error) => console.log(error));
+  }, [name]);
+
+  // const currentRecipe = recipe.find((x: any) => x.name === name);
 
   // variable for adding ingredients
   const [newIngredient, setNewIngredient] = useState('');
-  const [totalIngredients, setTotalIngredients] = useState(
-    currentRecipe?.ingredients
-  );
+  const [totalIngredients, setTotalIngredients] = useState(recipe?.ingredients);
+  console.log('totalIngredient = ', totalIngredients);
   const sizeOfTotalIngredient = totalIngredients.length + 1;
   const [sizeOfIngredient, setSizeOfIngredient] = useState(
     sizeOfTotalIngredient.toString()
@@ -22,7 +38,7 @@ export default function RecipePage(props: any) {
   // variable for adding instruction
   const [newInstruction, setNewInstruction] = useState('');
   const [totalInstructions, setTotalInstructions] = useState(
-    currentRecipe?.instructions
+    recipe?.instructions
   );
   const sizeOfTotalInstruction = totalInstructions.length + 1;
   const [sizeOfInstruction, setSizeOfInstruction] = useState(
@@ -30,18 +46,27 @@ export default function RecipePage(props: any) {
   );
   const [newInstructionIdx, setNewInstructionIdx] = useState(sizeOfInstruction);
 
+  useEffect(() => {
+    setTotalIngredients(recipe?.ingredients);
+    setTotalInstructions(recipe?.ingredients);
+  }, [recipe]);
+
   function addIngredient() {
-    totalIngredients.splice(newIngredientIdx - 1, 0, newIngredient);
+    totalIngredients.splice(parseInt(newIngredientIdx) - 1, 0, newIngredient);
     setTotalIngredients([...totalIngredients]);
   }
 
   function addInstruction() {
     console.log('totalInstructions = ', totalInstructions);
     console.log('newInstruction = ', newInstruction);
-    totalInstructions.splice(newInstructionIdx - 1, 0, newInstruction);
+    totalInstructions.splice(
+      parseInt(newInstructionIdx) - 1,
+      0,
+      newInstruction
+    );
     setTotalInstructions([...totalInstructions]);
   }
-  
+
   // update the index of totalIngredient and totalInstructions
   useEffect(() => {
     const newIndexOfIngredient = totalIngredients.length + 1;
@@ -61,20 +86,20 @@ export default function RecipePage(props: any) {
   return (
     <main>
       <div className="recipes-container">
-        <h1 className="recipes-title">{currentRecipe?.name}</h1>
+        <h1 className="recipes-title">{recipe?.name}</h1>
 
         <div className="recipes-left">
           <div>
             <img
               className="recipes-img"
-              src={currentRecipe?.image}
-              alt={currentRecipe?.name}
+              src={recipe?.image}
+              alt={recipe?.name}
             />
           </div>
         </div>
 
         <div className="recipes-content">
-          <p>{currentRecipe?.description}</p>
+          <p>{recipe?.description}</p>
           <h2>Ingredients</h2>
           {totalIngredients.map((item: any, index: any) => {
             return <li key={index}>{item}</li>;

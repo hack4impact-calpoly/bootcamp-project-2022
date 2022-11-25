@@ -5,36 +5,28 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import RecipePage from './components/RecipePage';
-import recipes from './recipeData';
+import { Recipe } from './recipeData';
 
 function App() {
-  // const [importedRecipes, setImportedRecipes] = useState<Recipe[]>();
-  const [updateRecipes, setUpdateRecipes] = useState(recipes);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+
   useEffect(() => {
-    fetch('https://bootcamp-milestone-4.onrender.com/recipe')
-      .then((res) => res.json())
-      .then((data) =>
-        setUpdateRecipes((old: any) => {
-          return [...old, ...data];
-        })
-      );
+    fetch('http://localhost:3001/recipe')
+      .then((response) => response.json())
+      .then((recipeData) => setRecipes(recipeData))
+      .catch((error) => console.log(error));
   }, []);
-
-
-  // useEffect(() => {
-  //   console.log('Checking updateRecipes =', updateRecipes);
-  // }, [updateRecipes]);
 
   return (
     <div>
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home updateRecipes={updateRecipes} />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about-me" element={<About />} />
           <Route
             path="/recipes/:name"
-            element={<RecipePage updateRecipes={updateRecipes} />}
+            element={<RecipePage />}
           />
         </Routes>
       </BrowserRouter>

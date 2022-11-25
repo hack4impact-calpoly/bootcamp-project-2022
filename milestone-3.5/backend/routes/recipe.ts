@@ -6,7 +6,7 @@ const router: Router = express.Router();
 // get all recipes
 router.get('/', async (req: Request, res: Response) => {
   const recipes = await Recipe.find({});
-  console.log(recipes);
+  //   console.log(recipes);
   res.send(recipes);
 });
 
