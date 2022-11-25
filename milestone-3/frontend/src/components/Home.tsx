@@ -36,16 +36,18 @@ export default function Home() {
 
         </div >
         <div className="main">
-        {recipes.map((recipe:Recipe) => 
+        {recipes.map((recipe:Recipe, index) => 
         
-            <RecipePreview 
+            <RecipePreview
+                 key={index}
                  external={false}
                 {...recipe}
             />
             )}
-        {externalRecipes.map((externalRecipe:Recipe) => 
+        {externalRecipes.map((externalRecipe:Recipe, index) => 
         
             <RecipePreview 
+                key={index}
                 external
                 {...externalRecipe}
             />

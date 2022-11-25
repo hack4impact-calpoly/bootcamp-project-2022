@@ -74,8 +74,8 @@ console.log(recipe, "^^^^^^^^^^^^^^^^^")
                 <p>{recipe.description}</p>
                 <h3>Ingredients</h3>
                 <ul id="description">
-                {recipe.ingredients.map((ingredient:string)=>
-                    <li>{ingredient}</li>
+                {recipe.ingredients.map((ingredient:string, index)=>
+                    <li key={index}>{ingredient}</li>
                 )}
                 </ul>
                 <input
@@ -91,8 +91,8 @@ console.log(recipe, "^^^^^^^^^^^^^^^^^")
                 </button> */}
                 <h3>Method</h3>
                 <ol>
-                {recipe.instructions.map((instruction:string)=>
-                    <li>{instruction}</li>
+                {recipe.instructions.map((instruction:string, index)=>
+                    <li key={index}>{instruction}</li>
                 )} 
                 </ol>
             </section>
