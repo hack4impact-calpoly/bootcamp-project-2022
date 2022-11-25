@@ -17,4 +17,53 @@ router.get('/:name', async (req: Request, res: Response) => {
   res.send(recipes);
 });
 
+// add a new recipe
+router.post('/', async (req: Request, res: Response) => {
+  const { name, description, image, ingredients, instructions } = req.body;
+  let recipe = new Recipe({
+    name,
+    description,
+    image,
+    ingredients,
+    instructions,
+  });
+  try {
+    recipe = await recipe.save();
+    res.send(`Added new recipe - ${name}`);
+  } catch (error) {
+    res.status(500).send(error.message);
+    console.log(`Failed to add recipe: ${error.message}`);
+  }
+});
+
+// add an ingredient to a given recipe
+router.put('/:name/ingredient', async (req: Request, res: Response) => {
+  try {
+    const recipe = await Recipe.findOne({ name: req.params.name });
+    if (recipe) {
+      recipe.ingredients = [...recipe.ingredients, req.body.ingredient];
+      await recipe.save();
+      res.send('Added ingredient');
+    }
+  } catch (error) {
+    res.status(400).send(error);
+    console.log('Failed to add ingredient');
+  }
+});
+
+// add am instruction to a given recipe
+router.put('/:name/instruction', async (req: Request, res: Response) => {
+  try {
+    const recipe = await Recipe.findOne({ name: req.params.name });
+    if (recipe) {
+      recipe.instructions = [...recipe.instructions, req.body.instruction];
+      await recipe.save();
+      res.send('Added instruction');
+    }
+  } catch (error) {
+    res.status(400).send(error);
+    console.log('Failed to add instruction');
+  }
+});
+
 export default router;
