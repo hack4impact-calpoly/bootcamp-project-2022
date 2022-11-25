@@ -6,7 +6,7 @@ import { recipes } from '../recipeData';
 import { useParams } from "react-router-dom";
 
 interface Recipe {
-    id:string;
+    id:string | undefined;
     name: string;
     description: string;
     image: string;
@@ -24,25 +24,27 @@ export default function RecipePage(props: RecipePageProps) {
    const [recipe, setRecipe]=useState({id:"", name:"", description:"", image:"", ingredients:[], instructions:[]})
    const [newIngredient, setNewIngredient] = useState('')
 //    const [allIngredients, setAllIngredients] = useState(props.ingredients);
-   const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+//    const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
 
    const { id } = useParams();
-   console.log(id, "%%%%%", props.external)
+ 
 //    useEffect(() => {
 //     const myRecipe:any = recipes.find((recipe:Recipe)=>recipe.id===id)
 //     setRecipe(myRecipe)
 //    }, [id])
+    
 
 
    // setState and useParams
 	useEffect(() => {
         if (props.external) {
           // make an API call with the url param & setRecipe
-          fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id)
+          fetch("https://bootcamp-milestone-4.onrender.com/recipe/" +id?.replace(/ /g,"%20"))
          .then((res) => res.json())
-         .then((data) => setExternalRecipes(data));
+         .then((data) => setRecipe(data[0]));
+       
             } else {
-          console.log("innnnnnn", id)
+          
           // query all of your recipe data for the recipe you want & setRecipe
           const myRecipe:any = recipes.find((recipe:Recipe)=>recipe.name===id)
           setRecipe(myRecipe)
@@ -54,15 +56,16 @@ export default function RecipePage(props: RecipePageProps) {
 //    function addIngredient() {
 //     setAllIngredients([...allIngredients, newIngredient])
 //   }
+console.log(recipe, "^^^^^^^^^^^^^^^^^")
   
- 
+//   console.log(externalRecipes,"--------------->>>")
   return (
     <div className='recipe_page' >
       <header>
         <h1>    {recipe.name}  </h1>
       </header>
         <div className="container">
-        
+
             <section id='left_section'>
                 <img src={recipe.image} alt="img" />
             </section>
