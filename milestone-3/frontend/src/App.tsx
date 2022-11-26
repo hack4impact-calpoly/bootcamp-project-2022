@@ -41,16 +41,7 @@ function App() {
       instructions={recipe.instructions}
       />
         }/>)}
-        {/* <Route path="/recipe/:name" element={recipes.map((recipe) => (
-    <RecipePage
-      name={recipe.name}
-      description={recipe.description}
-      image={recipe.image}
-      ingredients={recipe.ingredients}
-      instructions={recipe.instructions}
-    />
-  ))} /> */}
-
+      
       </Routes>
     </BrowserRouter>
     
