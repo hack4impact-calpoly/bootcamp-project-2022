@@ -23,6 +23,7 @@ function RecipePreview(props: RecipePreviewProps) {
             <div className="text">
                 <h3><Link to = {`${props.external ? "/externalRecipe" : "/recipe"}/${props.url}`}><u>{props.name}</u></Link></h3>
                 {/* `recipe/${props.url}` will link to the correct recipe page */}
+                {/* /externalRecipe is for external recipes, /recipe for internal */}
                 <p>{props.desc}</p>
             </div>
         </div>

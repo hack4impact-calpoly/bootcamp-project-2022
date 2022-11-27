@@ -22,34 +22,46 @@ function RecipePage(props: RecipePageProps) {
         source: "source"
     });
 
+    {/* Important these useState's placed here so that that they can be updated with the useEffect below, 
+    otherwise the ingredients and steps won't update */}
+    const [newIngredient, setNewIngredient] = useState(''); { /* Will store user-inputted new ingredient */ } 
+    const [allIngredients, setAllIngredients] = useState(rec.ingredients); 
+    const [newStep, setNewStep] = useState('');
+    const [allSteps, setAllSteps] = useState(rec.steps); 
+
+
     useEffect(() => {
         if (props.external) {
             fetch(`https://bootcamp-milestone-4.onrender.com/recipe/${name}`)
                 .then((res) => (res.json())) 
-                .then((r) => (setRecipe({ //r[0] grabs the actual json object, we then assign its properties to a Recipe object
-                   name: (typeof(r[0].name) === 'string' ? r[0].name : "Error finding recipe"),
-                   image: (typeof(r[0].image) === 'string' ? r[0].image : ""),
-                   desc: (typeof(r[0].description) === 'string' ? r[0].description : ""),
-                   alt: (typeof(r[0].name) === 'string' ? r[0].name : ""),
-                   url: (typeof(r[0].name) === 'string' ? r[0].name : ""),
-                   ingredients: (Array.isArray(r[0].ingredients) ? r[0].ingredients: [""]),
-                   steps: (Array.isArray(r[0].instructions) ? r[0].instructions: [""]),
-                   source: `https://bootcamp-milestone-4.onrender.com/recipe/${name}`
-                })))
+                .then((r) => {
+                    setRecipe({    //r[0] grabs the actual json object, we then assign its properties to a Recipe object
+                        name: (typeof(r[0].name) === 'string' ? r[0].name : "Error finding recipe"),
+                        image: (typeof(r[0].image) === 'string' ? r[0].image : ""),
+                        desc: (typeof(r[0].description) === 'string' ? r[0].description : ""),
+                        alt: (typeof(r[0].name) === 'string' ? r[0].name : ""),
+                        url: (typeof(r[0].name) === 'string' ? r[0].name : ""),
+                        ingredients: (Array.isArray(r[0].ingredients) ? r[0].ingredients: [""]),
+                        steps: (Array.isArray(r[0].instructions) ? r[0].instructions: [""]),
+                        source: `https://bootcamp-milestone-4.onrender.com/recipe/${name}`
+                    })
+                   setAllIngredients(r[0].ingredients);
+                   setAllSteps(r[0].instructions);
+                })   
         }         
             
         else {
             const recipe = recipeData.find(i => i.url === name); {/* Finds recipe corresponding to url */}
             if (recipe !== undefined) {
                 setRecipe(recipe);
+                setAllIngredients(recipe.ingredients); 
+                setAllSteps(recipe.steps);  
             }
         }
       }, [name, props.external]);
 
-    const [newIngredient, setNewIngredient] = useState(''); { /* Will store user-inputted new ingredient */ } 
-    const [allIngredients, setAllIngredients] = useState(rec.ingredients);
-    const [newStep, setNewStep] = useState('');
-    const [allSteps, setAllSteps] = useState(rec.steps);
+
+
 
     {/* Gets current list of ingredients, or just an empty string if the url isn't found. 
     Must use ternary operator because I can't put this after the return statement below by react hook rules */}
@@ -73,7 +85,6 @@ function RecipePage(props: RecipePageProps) {
                             <li>{ing}</li>
                         ))}
                     </ul>
-                    {/* Left off here, not sure what it's not adding new ingredient */}
                     <input value={newIngredient} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                             setNewIngredient(e.target.value);
                         }}
