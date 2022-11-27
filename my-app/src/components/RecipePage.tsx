@@ -1,61 +1,98 @@
 import { useParams } from "react-router-dom";
-import recipeData from "../recipeData.json"
+import recipeData, {Recipe} from "../recipeData"
+import {useState, useEffect, ChangeEvent} from "react";
 
-interface Recipe {
-    name: string;
-    image: string;
-    desc: string
-    ingredients: string[];
-    instructions: string[];
+interface RecipePageProps {
+    external?: boolean;
 }
 
-function RecipePage() {
+function RecipePage(props: RecipePageProps) {
     let {id} = useParams();
+    
+    const[recipe, setRecipe] = useState<Recipe>({
+        name: "",
+        description: "",
+        image: "",
+        ingredients: [],
+        instructions: [],
+    })
 
-    // finds index of entry with the correct recipe name
-    function find_rec(data: Recipe[], name: String | undefined) {
-        for (let i = 0; i < data.length; i++) {
-            if (data[i].name === name) {
-                return i;
-            }
+    const [allIngredients, setAllIngredients] = useState(recipe.ingredients);
+    const [newIngredient, setNewIngredient] = useState('');
+    
+    const [allInstructions, setAllInstructions] = useState(recipe.instructions)
+    const [newInstruction, setNewInstruction] = useState('');
+
+    useEffect(() => {
+        if (props.external) {
+            fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id?.replace(/ /g, "%20"))
+            .then((res) => res.json())
+            .then((data) => setRecipe(data[0]))
         }
-        return -1;
-    }
+        else{
+            setRecipe(recipeData.find((recipe) => recipe.name === id) || recipeData[0])
+        }
+    }, [props.external, id])
 
-    // slices string to get just the id
-    if (id !== undefined){
-        id = id.slice(1)
-    }
-
-    // defines variable with index from array
-    let index = find_rec(recipeData, id);
- 
+    useEffect(() => {
+        setAllIngredients(recipe.ingredients);
+        setAllInstructions(recipe.instructions);
+    }, [recipe]);
+    
     // creates items on webpage depending on recipe
-    return(
-    <main>
-        <div className = "flex-container">
-            <div>
-                <img className="flex-image" src={recipeData[index].image} alt={recipeData[index].name} />
+    if (recipe){
+        return(
+        <main>
+            <div className = "flex-container">
+                <div>
+                    <img className="flex-image" src={recipe.image} alt={recipe.name} />
+                </div>
+                <div className= "flex-content">
+                    <h1>{recipe.name}</h1>
+                    <p>
+                        {recipe.description}
+                    </p>
+                    {/* displays all the ingredients */}
+                    <h2>Ingredients</h2>
+                    {allIngredients.map(ingredient =>
+                        <li key="{ingredient}">{ingredient}</li>)}
+
+                    <p>Add a new ingredient: </p>
+                    <input placeholder = "2 cups of spinach"
+                    value={newIngredient} // add newIngredient as the input's value
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                      // this event handler updates the value of newIngredient
+                      setNewIngredient(e.target.value);
+                    }}
+                  />
+                  <button onClick={() => {setAllIngredients([...allIngredients, newIngredient]);
+                     }}>
+                        Add Ingredient
+                    </button>
+                </div>  
             </div>
-            <div className= "flex-content">
-                <h1>{recipeData[index].name}</h1>
-                <p>
-                    {recipeData[index].desc}
-                </p>
-                {/* displays all the ingredients */}
-                <h2>Ingredients</h2>
-                {recipeData[index].ingredients.map(ingredient =>
-                    <li key="{ingredient}">{ingredient}</li>)}
-            </div>   
-        </div>
-        <h2>Preparation</h2>
-        <ol>
-            {/* displays the instructions in an ordered list */}
-            {recipeData[index].instructions.map(instruction =>
-                <li key="{instruction}">{instruction}</li>)}
-        </ol>
-    </main>
-    )
+            <h2>Preparation</h2>
+            <ol>
+                {/* displays the instructions in an ordered list */}
+                {allInstructions.map(instruction =>
+                    <li key="{instruction}">{instruction}</li>)}
+            </ol>
+            <p>Add a new instructions: </p>
+            <input placeholder = "bake at 375 degrees"
+            value={newInstruction}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                setNewInstruction(e.target.value);
+            }}
+            />
+            <button onClick={() => {setAllInstructions([...allInstructions, newInstruction])}}>
+                Add Instruction
+            </button>
+        </main>
+        )
+    }
+    else{
+        return (<div></div>)
+    }
 }
 
 export default RecipePage;
