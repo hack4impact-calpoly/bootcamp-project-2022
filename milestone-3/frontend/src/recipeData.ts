@@ -7,7 +7,7 @@ export interface Recipe
     instructions: string[];
 }
 
-const recipes: Recipe[] = [
+export const recipes: Recipe[] = [
     {
         name: "Over-toasted buttered toast",
         description: "Toast that's been toasted for way too long.",
