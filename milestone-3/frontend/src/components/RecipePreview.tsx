@@ -1,13 +1,24 @@
 import { Link } from "react-router-dom";
 import './RecipePreview.css'
 import { Recipe } from '../recipeData';
+import React, { useEffect, useState } from 'react';
+
+interface RecipePreviewProps extends Recipe {
+    external: boolean;
+}
 
 // previewing recipes before opening them for the actual receipe (ingredients etc)
-export default function RecipePreview(props: Recipe)
+export default function RecipePreview(props: RecipePreviewProps)
 {
+    let add = "";
+    if (props.external) {
+        add = "externalRecipe/" + props.name;
+    }
+    else {
+        add = "recipe/" + props.name;
+    }
     const id = props.name
-    // console.log(props.image1);
-    // console.log(props.image2);
+
     return (
         <div className="recipe3-flex">
             <Link style={{textDecoration: 'none', color: '#faedcd'}} to={`/Page/${id}`} className ="links">
