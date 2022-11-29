@@ -1,10 +1,10 @@
 {
     "list": [
         {
-            "id": "0",
+            "_id": "0",
             "name": "Superfood Tomato Soup",
-            "desc": "Amazing soup filled with healthy superfoods that is sure to make any food connoisseur jump for joy.",
-            "imagePath": "res/images/recipe1.png",
+            "description": "Amazing soup filled with healthy superfoods that is sure to make any food connoisseur jump for joy.",
+            "image": "res/images/recipe1.png",
             "ingredients": [
                 "1 serving Tomato Basil Soup",
                 "~3 pieces of steak",
@@ -18,7 +18,7 @@
                 "Chipotle Tobasco Sauce",
                 "1 tbsp. Cheddar Monterey Jack shredded cheese mix"
             ],
-            "preparation": [
+            "instructions": [
                 "Cook the steaks and prepare it by cutting them into pieces.",
                 "Cook the Tuna&Veggie patty and prepare it by cutting it into pieces.",
                 "Cook carrots and raisins together with olive oil on the stove.",
@@ -30,10 +30,10 @@
             ]
         },
         {
-            "id": "1",
+            "_id": "1",
             "name": "Hearty Fiesta Sandwich",
-            "desc": "Oriental dish of legends with a varied history. It's like a party in your mouth!",
-            "imagePath": "res/images/recipe2.png",
+            "description": "Oriental dish of legends with a varied history. It's like a party in your mouth!",
+            "image": "res/images/recipe2.png",
             "ingredients": [
                 "1 piece of sandwich bread ", 
                 "1 chicken patty", 
@@ -44,7 +44,7 @@
                 "Cholula Chipotle Sauce", 
                 "Pepper"
             ],
-            "preparation": [
+            "instructions": [
                 "Cut the sandwich bread in half.", 
                 "Microwave the chicken patty for 1.25 minutes.", 
                 "Cut the chicken patty into pieces.", 
@@ -57,10 +57,10 @@
             ]
         },
         {
-            "id": "2",
+            "_id": "2",
             "name": "Crunchy Blueberry Yakisoba",
-            "desc": "A wild card of a dish that defies tradition in order to go for a fresh, new taste.",
-            "imagePath": "res/images/recipe3.png",
+            "description": "A wild card of a dish that defies tradition in order to go for a fresh, new taste.",
+            "image": "res/images/recipe3.png",
             "ingredients": [
                 "1 serving Yakisoba", 
                 "A lot of blueberries", 
@@ -70,7 +70,7 @@
                 "2 eggs", 
                 "1 tbsp olive oil"
             ],
-            "preparation": [
+            "instructions": [
                 "Put olive oil into a pan and cook both eggs in there.", 
                 "After cooking, put them into a bowl to use as a base.", 
                 "Cook Yakisoba according to the packaging instructions. Put it in the bowl on top of the eggs.", 

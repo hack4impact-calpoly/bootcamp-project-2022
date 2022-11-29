@@ -1,8 +1,17 @@
 export default interface Recipe {
-    id: string;
+    _id: string;
     name: string;
-    desc: string;
-    imagePath: string;
+    description: string;
+    image: string;
     ingredients: string[];
-    preparation: string[];
+    instructions: string[];
+};
+
+export const NONE:Recipe = {
+    _id: "NULL",
+    name: "",
+    description: "",
+    image: "",
+    ingredients: [],
+    instructions: []
 };
