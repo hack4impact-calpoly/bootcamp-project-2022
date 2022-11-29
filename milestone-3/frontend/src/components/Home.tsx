@@ -22,29 +22,25 @@ export default function Home()
             <RecipePreview
                 name = {recipe.name}
                 image1 = {recipe.image1}
-                image2 = {recipe.image2}
                 description = {recipe.description}
                 ingredients = {recipe.ingredients}
                 instructions1 = {recipe.instructions1}
-                instructions2 = {recipe.instructions2}
                 external = {false}
             />
 
         ))}
 
-{       externalRecipes.map((recipe) => (
+       {externalRecipes.map((recipe) => (
             <RecipePreview
                 name = {recipe.name}
                 image1 = {recipe.image1}
-                image2 = {recipe.image2}
                 description = {recipe.description}
                 ingredients = {recipe.ingredients}
                 instructions1 = {recipe.instructions1}
-                instructions2 = {recipe.instructions2}
                 external = {true}
             />
 
         ))} 
         </main>
-    );
+    )
 }

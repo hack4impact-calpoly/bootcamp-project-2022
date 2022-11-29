@@ -10,23 +10,25 @@ interface RecipePreviewProps extends Recipe {
 // previewing recipes before opening them for the actual receipe (ingredients etc)
 export default function RecipePreview(props: RecipePreviewProps)
 {
-    let add = "";
+    let address = "";
     if (props.external) {
-        add = "externalRecipe/" + props.name;
+        address = "externalRecipe/" + props.name;
     }
     else {
-        add = "recipe/" + props.name;
+        address = "recipe/" + props.name;
     }
     const id = props.name
 
     return (
         <div className="recipe3-flex">
-            <Link style={{textDecoration: 'none', color: '#faedcd'}} to={`/Page/${id}`} className ="links">
-            <h2> {props.name} </h2>
-            </Link>
+            {/* <Link style={{textDecoration: 'none', color: '#faedcd'}} to={`/Page/${id}`} className ="links"> */}
+            <Link style={{textDecoration: 'none', color: '#faedcd'}} to={address}> <h2 className ="links"> {props.name}</h2></Link>
+
+            {/* <h2> {props.name} </h2> */}
+            
             <p> {props.description}</p>
             <img className="imageIced" src={props.image1} alt={props.name}/>
-            <img className="imageHot" src={props.image2} alt={props.name}/>
+            {/* <img className="imageHot" src={props.image2} alt={props.name}/> */}
 
         </div>
     );

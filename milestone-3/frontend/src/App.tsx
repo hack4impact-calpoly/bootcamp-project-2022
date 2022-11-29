@@ -13,16 +13,13 @@ function App() {
   return (
     <div className="entireBack">
     <Router>
-      <Navbar/>
+      <Navbar />
       <Routes>
         <Route path="/" element = {<Home/>}/>
         <Route path="/About" element = {<About/>}/>
-        {/* {allRecipes.map((recipe) => ( */}
-        <Route path="externalRecipe/:id" element = {<RecipePage external/>}/>   
-        {/* ))} */}
-        {/* {allRecipes.map((recipe) => ( */}
-        <Route path="/Page/:id" element = {<RecipePage/>}/>   
-        {/* ))} */}
+        <Route path="/recipe/:id" element = {<RecipePage />}/>   
+        <Route path="/externalRecipe/:id" element = {<RecipePage external />}/>   
+
 
       </Routes>
     </Router>

@@ -14,43 +14,40 @@ interface RecipeProp {
 export default function RecipePage(props: RecipeProp)
 {
     
-    const {id} = useParams();
-    const recipe = recipes.find(recipe => recipe.name === id)
+    
+    // const recipe = recipes.find(recipe => recipe.name === id)
 
-    const [externalRecipes, setExternalRecipes] = useState<Recipe[]> (recipes);
+    // const [externalRecipes, setExternalRecipes] = useState<Recipe[]> (recipes);
     const [ingredients, setIngredients] = useState<any[]>([]);
     const [newIngredient, setNewIngredient] = useState('');
     const [instructions1, setInstructions1] = useState<any[]>([]);
     const [newInstruction1, setNewInstruction1] = useState('');
-    const [instructions2, setInstructions2] = useState<any[]>([]);
-    const [newInstruction2, setNewInstruction2] = useState('');
+    // const [instructions2, setInstructions2] = useState<any[]>([]);
+    // const [newInstruction2, setNewInstruction2] = useState('');
     const [currRecipe, setCurrRecipe] = useState<Recipe>(recipes[0]);
+    
+    const {id} = useParams();
 
     useEffect(() => {
 
 
     if (props.external) {
         const getExt = async() => {
-            let data = await
-            fetch("https://bootcamp-milestone-4.onrender.com/recipe")
-            let recipeData = await
-            data.json();
+            let data = await fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id);
+            let recipeData = await data.json();
             setCurrRecipe(recipeData[0]);
             setIngredients([...recipeData[0].ingredients]);
             setInstructions1([...recipeData[0].instructions1]);
-            setInstructions2([...recipeData[0].instructions2]);
         }
         getExt();
         console.log(currRecipe);
     }
 
     else {
-        let target = recipes.find(element => 
-            (element.name == id))!;
-            setCurrRecipe(target)
+        let target = recipes.find(element => (element.name == id))!;
+        setCurrRecipe(target)
         setIngredients([...target.ingredients])
         setInstructions1([...target.instructions1])
-        setInstructions2([...target.instructions2])
     }
 }, [id, props.external]);
 
@@ -60,18 +57,17 @@ export default function RecipePage(props: RecipeProp)
         <div className="flex-container">
             <h3> {currRecipe.name} </h3>
             <p> {currRecipe.description}</p>
+            <img className="imageIced" src={currRecipe.image1} alt={currRecipe.name}/>
             <h4>Ingredient List</h4>
             <ul>
- 
-                {ingredients.map((ingred, index) => { 
-                    return <li key={index}>{ingred}</li>
-                })}
-                
+                {ingredients.map((ingred, index) => (
+                    <li>{ingred}</li>
+                ))}
             </ul>
 
             <h3>Add a new ingredient!</h3>
             <input 
-                placeholder="whipped cream"
+                placeholder=""
                 value={newIngredient}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     setNewIngredient(e.target.value);
@@ -83,15 +79,14 @@ export default function RecipePage(props: RecipeProp)
 
             <h4>Instructions</h4>
             <ol>
-                <h4>Iced</h4>
-                {instructions1.map((ingred, index) => { 
-                    return <li key={index}>{ingred}</li>
-                })}
+                {instructions1.map((instruct, index) => (
+                    <li>{instruct}</li>
+                ))}
             </ol>
 
             <h3>Add a new instruction!</h3>
             <input 
-                placeholder="Add more syrup"
+                placeholder=""
                 value={newInstruction1}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     setNewInstruction1(e.target.value);
@@ -101,26 +96,6 @@ export default function RecipePage(props: RecipeProp)
                 Add new Instruction
             </button>
              
-            <ol>
-                <h4>Hot</h4>
-                {instructions2.map((ingred, index) => { 
-                    return <li key={index}>{ingred}</li>
-                })}
-            </ol>
-
-            <h3>Add a new instruction!</h3>
-            <input 
-                placeholder="Reheat mug"
-                value={newInstruction2}
-                onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                    setNewInstruction2(e.target.value);
-                }}    
-            />
-            <button onClick={() => setInstructions2([...instructions2, newInstruction2])}>
-                Add Ingredient
-            </button> 
-
-
         </div>
         </main>
     )
