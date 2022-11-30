@@ -5,7 +5,8 @@ import { Recipe } from '../recipeData';
 
 
 export default function Home(props: {recipes: Recipe[]}){
-
+    console.log("RECIPES:")
+    console.log(props.recipes)
 
     return (
     <>

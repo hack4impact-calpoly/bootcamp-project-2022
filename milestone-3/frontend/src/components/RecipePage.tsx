@@ -54,7 +54,7 @@ export default function RecipePage(props: Props){
                             <h2 className="white">{index === 0 ? 'Ingredients:': ''}</h2>
                             <h3 className="white70">{items.title}</h3>
                             <ul>
-                                {items.ingredients.map((ingredient, index) => (
+                                {items.ingredients.map((ingredient) => (
                                     <li>{ingredient}</li>
                                 ))}
                                 {((items.title.toLowerCase() === newCategory.toLowerCase() )|| (newCategory === '' && (index+ 1 === allIngredients.ingredients.length))) && <li>{newIngredient}</li>}
