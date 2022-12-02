@@ -18,7 +18,7 @@ router.get("/recipe/:name", async (req: Request, res: Response) => {
 router.put("/recipe/:name/ingredient", async (req: Request, res: Response) => {
     const recipe = await Recipe.findOne({name: req.params.name});
     if (recipe) {
-        recipe.ingredients = [...recipe.ingredients,req.body.ingredient];
+        recipe.ingredients = [...recipe.ingredients,req.body.value];
         await recipe.save();
         res.send("Added Ingredient");
     }
@@ -30,7 +30,7 @@ router.put("/recipe/:name/ingredient", async (req: Request, res: Response) => {
 router.put("/recipe/:name/instruction", async (req: Request, res: Response) => {
     const recipe = await Recipe.findOne({name: req.params.name});
     if (recipe) {
-        recipe.instructions = [...recipe.instructions,req.body.instruction];
+        recipe.instructions = [...recipe.instructions,req.body.value];
         await recipe.save();
         res.send("Added Instruction");
     }
@@ -48,7 +48,7 @@ router.post("/recipe", async (req: Request, res: Response) => {
         ingredients,
         instructions
       })
-
+   
       try {
         recipe = await recipe.save();
         res.send(`Recipe named ${name}  added to collection`);

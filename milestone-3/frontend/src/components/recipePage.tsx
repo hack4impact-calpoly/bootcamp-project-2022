@@ -35,7 +35,6 @@ export default function RecipePage(props: RecipePageProps) {
 
  
    
-
     // setState and useParams
 	useEffect(() => {
         if (props.external) {
@@ -54,8 +53,53 @@ export default function RecipePage(props: RecipePageProps) {
             if(find_recipe) setRecipe(find_recipe);
         }
       }, [recipe.name, props.external]);
+
+
+
+      useEffect(() => {
+          // make an API call with the url param & setRecipe
+            fetch("http://localhost:3001/recipe/" + name)
+            .then((res) => res.json())
+            .then((data) => {setAllIngredients(data[0].ingredients); 
+                            setAllInstructions(data[0].instructions);
+                            // console.log(data[0]);
+                            setRecipe(data[0])});
+        
+      }, [recipe.name]);
+
+      
     
 
+
+      function addIngredient() {
+        fetch("http://localhost:3001/recipe/" + name + "/ingredient", 
+        {method: "PUT", 
+        headers: {"Content-Type": "application/json"}, 
+        body: JSON.stringify({
+            value: newIngredient,
+            position: allIngredients.length
+        })})
+        .catch((error:any) => console.log(error))
+        setAllIngredients([...allIngredients, newIngredient])
+        
+        // .then((res) => res.json())
+        // .then((data) => setAllIngredients(data));
+      }
+
+      function addInstruction() {
+        fetch("http://localhost:3001/recipe/" + name + "/instruction", 
+        {method: "PUT", 
+        headers: {"Content-Type": "application/json"}, 
+        body: JSON.stringify({
+            value: newInstruction,
+            position: allInstructions.length
+        })})
+        .catch((error:any) => console.log(error))
+        setAllInstructions([...allInstructions, newInstruction])
+        
+        // .then((res) => res.json())
+        // .then((data) => setAllIngredients(data));
+      }
     // function handleChange(event: ChangeEvent<HTMLInputElement>) {
     //     setNewIngredient(event.currentTarget.value);
     //   }
@@ -87,7 +131,7 @@ export default function RecipePage(props: RecipePageProps) {
                 />
                     
 
-                <button onClick={() => setAllIngredients([...allIngredients, newIngredient])}>
+                <button onClick={addIngredient}>
                 Add Ingredient
                 </button>
             
@@ -108,8 +152,8 @@ export default function RecipePage(props: RecipePageProps) {
                     }}
                 />
 
-                <button onClick={() => setAllInstructions([...allInstructions, newInstruction])}>
-                Add Ingredient
+                <button onClick={addInstruction}>
+                Add Instruction
                 </button>
 
 

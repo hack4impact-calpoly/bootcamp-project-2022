@@ -8,12 +8,21 @@ import { useParams } from "react-router-dom";
 export default function Home() {
   
   const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+  const [alltheRecipes, setAllTheRecipes] = useState<Recipe[]>([]);
 
   useEffect(() => {
     fetch("https://bootcamp-milestone-4.onrender.com/recipe")
       .then((res) => res.json())
       .then((data) => setExternalRecipes(data));
   }, []);
+
+  useEffect(() => {
+    fetch("https://localhost:3001/recipe")
+      .then((res) => res.json())
+      .then((data) => setAllTheRecipes(data));
+  }, []);
+
+
 
   return (
       /* /* // replace everything in between the <header> & <header /> tags
@@ -52,7 +61,16 @@ export default function Home() {
             />
         ))}
 
-
+        {alltheRecipes.map((recipe) => (
+            <RecipePreview
+            name={recipe.name}
+            description={recipe.description}
+            image={recipe.image}
+            ingredients={recipe.ingredients}
+            instructions={recipe.instructions}
+            external={true}
+            />
+        ))}
   
         {/* <div className = "body-of-frontpage">
             <div className = "recipe1">
