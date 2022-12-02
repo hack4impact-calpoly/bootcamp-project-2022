@@ -1,6 +1,6 @@
 import { Document, Schema, model } from "mongoose";
 
-export interface RecipeInterface extends Document {
+export interface IRecipe extends Document {
     name: string;
     description: string;
     image: string;
@@ -8,7 +8,7 @@ export interface RecipeInterface extends Document {
     instructions: string[];
 }
 
-const RecipeSchema = new Schema<RecipeInterface>({
+const RecipeSchema = new Schema<IRecipe>({
     name: { type: String, unique: true, required: true },
     description: { type: String, required: true },
     image: { type: String, required: true },
@@ -18,6 +18,6 @@ const RecipeSchema = new Schema<RecipeInterface>({
   { collection: "Recipes" }
 );
 
-const Recipe = model<RecipeInterface>('Recipes', RecipeSchema);
+const Recipe = model<IRecipe>('Recipes', RecipeSchema);
 
 export default Recipe;
