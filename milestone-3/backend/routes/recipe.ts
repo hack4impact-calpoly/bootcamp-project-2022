@@ -7,8 +7,8 @@ router.get("/recipe", async (req: Request, res: Response) => {
     res.send(recipes)
   })
 
-  router.get("/recipe/:recipeName", async (req: Request, res: Response) => {
-    const recipes = await Recipe.find({name: req.params.name})
+router.get("/recipe/:recipeName", async (req: Request, res: Response) => {
+    const recipes = await Recipe.find({name: req.params.recipeName})
     res.send(recipes)
   })
 router.post("/recipe", async(req: Request, res: Response) => {
@@ -28,5 +28,30 @@ router.post("/recipe", async(req: Request, res: Response) => {
         console.log(`error is ${error.message}`)
     }
 })
+router.put("/recipe/:recipeName/ingredients", async (req: Request, res: Response) => {
+    const recipe = await Recipe.findOne({name: req.params.recipeName});
+    console.log(recipe);
+    if (recipe){
+        
+        recipe.ingredients = [...recipe.ingredients, req.body.ingredient];
+        await recipe.save();
+        res.send("Success");
+    }else{
+        res.send("Failed to add ingredient");
+    }
+});
+
+router.put("/recipe/:recipeName/instructions", async (req: Request, res: Response) => {
+    const recipe = await Recipe.findOne({name: req.params.recipeName});
+    res.send(req.params.recipeName);
+    if (recipe){
+        recipe.instructions = [...recipe.instructions, req.body.instructions];
+        await recipe.save();
+        res.send("Success");
+    }
+    else{
+        res.send("Failed to add instruction");
+    }
+});
 
 export default router;
