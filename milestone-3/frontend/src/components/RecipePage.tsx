@@ -23,17 +23,22 @@ interface RecipePageProps {
 export default function RecipePage(props: RecipePageProps) {
    const [recipe, setRecipe]=useState({id:"", name:"", description:"", image:"", ingredients:[], instructions:[]})
    const [newIngredient, setNewIngredient] = useState('')
-//    const [allIngredients, setAllIngredients] = useState(props.ingredients);
-//    const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
 
-   const { id } = useParams();
+  
+   const [allIngredients, setAllIngredients] = useState<string[]>(recipe.ingredients);
  
+//    const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+  
+   const { id } = useParams();
+
 //    useEffect(() => {
 //     const myRecipe:any = recipes.find((recipe:Recipe)=>recipe.id===id)
 //     setRecipe(myRecipe)
 //    }, [id])
     
-
+    useEffect(()=>{
+        setAllIngredients(recipe.ingredients)
+    },[recipe.ingredients])
 
    // setState and useParams
 	useEffect(() => {
@@ -52,11 +57,14 @@ export default function RecipePage(props: RecipePageProps) {
       }, [id, props.external]);
         // return (...)
     
-   
-//    function addIngredient() {
-//     setAllIngredients([...allIngredients, newIngredient])
-//   }
-console.log(recipe, "^^^^^^^^^^^^^^^^^")
+
+ 
+    const addIngredient=( )=> {
+       
+        console.log(newIngredient,"in....",allIngredients)
+        setAllIngredients([...allIngredients, newIngredient])
+        setNewIngredient('')
+      }
   
 //   console.log(externalRecipes,"--------------->>>")
   return (
@@ -74,7 +82,7 @@ console.log(recipe, "^^^^^^^^^^^^^^^^^")
                 <p>{recipe.description}</p>
                 <h3>Ingredients</h3>
                 <ul id="description">
-                {recipe.ingredients.map((ingredient:string, index)=>
+                {allIngredients.map((ingredient:string, index)=>
                     <li key={index}>{ingredient}</li>
                 )}
                 </ul>
@@ -86,9 +94,11 @@ console.log(recipe, "^^^^^^^^^^^^^^^^^")
                         setNewIngredient(e.target.value);
                     }}
                     />
-                {/* <button onClick={addIngredient}>
-                    Add Ingredient
+               {/* <button onClick={() => setAllIngredients([...allIngredients, newIngredient])}>
+                Add Ingredient
                 </button> */}
+                <button onClick={addIngredient}>Add Ingredient</button>
+
                 <h3>Method</h3>
                 <ol>
                 {recipe.instructions.map((instruction:string, index)=>
