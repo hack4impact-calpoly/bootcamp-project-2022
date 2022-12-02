@@ -1,5 +1,6 @@
 import { Express } from "express";
 import mongoose from "mongoose";
+import recipeRouter from "./routes/recipe";
 
 const express = require("express"); // 1. includes Express
 const app: Express = express(); // 2. initializes Express
@@ -14,5 +15,7 @@ mongoose.connect(url)
 app.get('/', (req, res) => {
   res.send('Hello world!')
 });
+
+app.use("/", recipeRouter);
 
 app.listen(3001);
