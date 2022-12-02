@@ -1,4 +1,5 @@
 import React from 'react';
+import {useState, useEffect} from 'react'
 import { Recipe } from '../recipeData';
 import './recipePreview.css'
 import { Link } from 'react-router-dom';
@@ -10,8 +11,8 @@ interface RecipePreview{
 }
 
 
-
 export default function RecipePreview(props: Recipe) {
+    
     return (
         <div className = "flex-container3 ">
     
@@ -24,6 +25,7 @@ export default function RecipePreview(props: Recipe) {
             <img className = "padding container" src= {props.image} width = '700' height = '300' /> 
             <br>
             </br>
+            
         </div>)
 }
 
