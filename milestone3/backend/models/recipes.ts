@@ -35,7 +35,6 @@ const recipeSchema = new Schema<RecipeInterface>({
 }, {collection: 'Recipes'});
 
 
-const Example = model<RecipeInterface>('Recipes', recipeSchema, 'Recipes');
+export const Recipe = model<RecipeInterface>('Recipes', recipeSchema, 'Recipes');
 
-export default Example;
 
