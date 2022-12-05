@@ -19,6 +19,11 @@ function App() {
       .then((res) => res.json())
       .then((data) => setExternalRecipes(data));
   }, []);
+  useEffect(() => {
+    fetch("http://localhost:3001/recipe")
+      .then((res) => res.json())
+      .then((data) => setExternalRecipes(data));
+  }, []);
   const compRecipes = [...recipes, ...externalRecipes] ;
 
   return (
@@ -32,16 +37,8 @@ function App() {
         {/* // Routes go here */}
         <Route path="/" element={<Home />} />
         <Route path="/About" element={<About />} />
-        {compRecipes.map ((recipe)=>
-        <Route path={"/recipe/:" + recipe.name} element={<RecipePage
-      name={recipe.name}
-      description={recipe.description}
-      image={recipe.image}
-      ingredients={recipe.ingredients}
-      instructions={recipe.instructions}
-      />
-        }/>)}
-      
+        <Route path={"/recipe/:name" } element={<RecipePage/>}/>
+        <Route path={"/externalRecipe/:name" } element={<RecipePage external/>}/>
       </Routes>
     </BrowserRouter>
     
