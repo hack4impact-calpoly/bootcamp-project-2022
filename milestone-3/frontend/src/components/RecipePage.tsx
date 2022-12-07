@@ -1,8 +1,8 @@
-import recipes from '../recipeData';
+// import recipes from '../recipeData';
 import { useParams } from "react-router-dom";
 import './RecipePage.css'
-import React, { ChangeEvent, useState, useEffect } from 'react';
-import { Recipe } from '../recipeData';
+import React, { ChangeEvent, useState, useEffect } from "react";
+import recipes, { Recipe } from '../recipeData';
 
 // checking to see if external exists in other recipes (T or F)
 interface RecipeProp {
@@ -13,43 +13,36 @@ interface RecipeProp {
 // all of the recipe contents
 export default function RecipePage(props: RecipeProp)
 {
-    
-    
-    // const recipe = recipes.find(recipe => recipe.name === id)
-
-    // const [externalRecipes, setExternalRecipes] = useState<Recipe[]> (recipes);
+    // ingredients
     const [ingredients, setIngredients] = useState<any[]>([]);
     const [newIngredient, setNewIngredient] = useState('');
+    // instructions
     const [instructions1, setInstructions1] = useState<any[]>([]);
     const [newInstruction1, setNewInstruction1] = useState('');
-    // const [instructions2, setInstructions2] = useState<any[]>([]);
-    // const [newInstruction2, setNewInstruction2] = useState('');
     const [currRecipe, setCurrRecipe] = useState<Recipe>(recipes[0]);
     
     const {id} = useParams();
 
     useEffect(() => {
-
-
-    if (props.external) {
-        const getExt = async() => {
-            let data = await fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id);
-            let recipeData = await data.json();
-            setCurrRecipe(recipeData[0]);
-            setIngredients([...recipeData[0].ingredients]);
-            setInstructions1([...recipeData[0].instructions1]);
+        if (props.external) {
+            const getExt = async() => {
+                let data = await fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id);
+                let recipeData = await data.json();
+                setCurrRecipe({...recipeData[0], image: recipeData[0].image});
+                setIngredients([...recipeData[0].ingredients]);
+                setInstructions1([...recipeData[0].instructions]);
+            }
+            getExt();
+            console.log(currRecipe);
         }
-        getExt();
-        console.log(currRecipe);
-    }
 
-    else {
-        let target = recipes.find(element => (element.name == id))!;
-        setCurrRecipe(target)
-        setIngredients([...target.ingredients])
-        setInstructions1([...target.instructions1])
-    }
-}, [id, props.external]);
+        else {
+            let target = recipes.find(element => (element.name === id))!;
+            setCurrRecipe(target)
+            setIngredients([...target.ingredients])
+            setInstructions1([...target.instructions1])
+        }
+    }, [id, props.external]);
 
     
     return (
@@ -57,7 +50,7 @@ export default function RecipePage(props: RecipeProp)
         <div className="flex-container">
             <h3> {currRecipe.name} </h3>
             <p> {currRecipe.description}</p>
-            <img className="imageIced" src={currRecipe.image1} alt={currRecipe.name}/>
+            <img className="imageIced" src={currRecipe.image} alt={currRecipe.name}/>
             <h4>Ingredient List</h4>
             <ul>
                 {ingredients.map((ingred, index) => (
