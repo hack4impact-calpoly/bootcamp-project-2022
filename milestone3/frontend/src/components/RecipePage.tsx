@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import './RecipePage.css';
-import recipeData, {Recipe} from '../recipeData'
 
+export interface Recipe {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+  ingredients: string[];
+  instructions: string[];
+}
 
 interface RecipePageProps {
   external?: boolean;
@@ -10,16 +17,17 @@ interface RecipePageProps {
 
 
 export default function RecipePage (props: RecipePageProps) {
-  
-  const { id } = useParams();
 
   const [recipe, setRecipe] = useState<Recipe>({
+    id: "",
     name: "",
     description: "",
     image: "",
     ingredients: [],
     instructions: [],
   });
+
+  const { name } = useParams();
 
   // ingredients
   const [newIngredient, setNewIngredient] = useState('');
@@ -30,23 +38,16 @@ export default function RecipePage (props: RecipePageProps) {
   const [allInstructions, setAllInstructions] = useState(recipe.ingredients);
 
   useEffect(() => {
-    if (props.external) {
-      fetch(`https://bootcamp-milestone-4.onrender.com/recipe/${id}`)
-        .then((res) => res.json())
-        .then ((data) => {
-          setRecipe(data[0])
-        })
-    } else {
-      const curr: Recipe | undefined = recipeData.find((recipe) => recipe.name === id);
-      setRecipe(curr!);
-    }
-  }, [id, props.external]);
+    fetch(`http://localhost:3001/Recipes/${name}}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setRecipe(data[0]);
+      })
+  }, [props.external]);
 
   useEffect(() => {
-    if (recipe) {
-      setAllIngredients(recipe?.ingredients)
-      setAllInstructions(recipe?.instructions)
-    }
+    setAllIngredients(recipe.ingredients)
+    setAllInstructions(recipe.instructions)
   }, [recipe])
 
   return (

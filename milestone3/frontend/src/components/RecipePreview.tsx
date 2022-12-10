@@ -7,7 +7,7 @@ interface recipePreviewProps extends Recipe {
   external: Boolean;
 }
   
-function RecipePreview(props: recipePreviewProps) {
+export default function RecipePreview(props: recipePreviewProps) {
   let address = ""
   if (props.external) {
     address = "externalRecipe/" + props.name;
@@ -28,4 +28,3 @@ function RecipePreview(props: recipePreviewProps) {
   )
 };
   
-export default RecipePreview;
