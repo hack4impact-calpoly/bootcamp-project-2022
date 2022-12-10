@@ -45,6 +45,16 @@ function RecipePage(props: RecipePageProps) {
         setAllInstructions(recipe.instructions);
     }, [recipe]);
 
+    function addIngredient(newIngredient)) {
+        console.log("adding new ingredient: " + newIngredient);
+        setAllIngredients([...allIngredients, newIngredient])
+        console.log(allIngredients);
+    }
+
+    function addInstruction(newInstruction) {
+        setAllInstructions([...allInstructions, newInstruction]);
+    }
+
     return (
         <div className="recipe">
             <h1 className="recipe-title">{recipe?.name}</h1>
@@ -69,9 +79,7 @@ function RecipePage(props: RecipePageProps) {
                     }}
                 />
                 <button onClick={() => {
-                    console.log("adding new ingredient: " + newIngredient);
-                    setAllIngredients([...allIngredients, newIngredient])
-                    console.log(allIngredients);
+                    addIngredient(newIngredient);
                 }}>
                     Add Ingredient
                 </button>             
@@ -91,8 +99,7 @@ function RecipePage(props: RecipePageProps) {
                     }}
                 />
                 <button onClick={() => {
-                    setAllInstructions([...allInstructions, newInstruction])
-                    console.log(allInstructions);
+                    addInstruction(newInstruction);
                 }}>
                     Add Instruction
                 </button>    
