@@ -1,15 +1,18 @@
 import React, { ChangeEvent, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import recipes, { Recipe } from '../recipeData';
 import './recipePage.css'
 import './recipePreview.css'
 import {useState} from 'react';
 
-interface RecipePageProps {
-    external?: boolean;
-}
+interface Recipe {
+    name: string;
+    description: string;
+    image: string;
+    ingredients: string[];
+    instructions: string[];
+  }
 
-export default function RecipePage(props:RecipePageProps) {
+export default function RecipePage() {
     let {name} = useParams();
     let [newIngredient, setNewIngredient] = useState('')    
     let [newInstruction, setNewInstruction] = useState('')
@@ -27,22 +30,21 @@ export default function RecipePage(props:RecipePageProps) {
 
     
     useEffect(() => {
-        if (props.external) {
+        // if (props.external) {
             //make an API call with the url param & setRecipe
-            fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + name)
+            fetch("http://localhost:3001/recipe/" + name)
             .then(response => response.json())
             .then(data => {setAllIngredients(data[0].ingredients);
                             setAllInstructions(data[0].instructions);
                             setRecipe(data[0])});
-        }
-        else {
-            // query all of your recipe data for the recipe you want & setRecipe
-            let newRecipe = recipes.find(x => x.name === name);
-            setAllIngredients(newRecipe === undefined ? [] : newRecipe.ingredients)
-            setAllInstructions(newRecipe === undefined ? [] : newRecipe.instructions);
-            if(newRecipe) setRecipe(newRecipe);
-}
-    },[props.external, name])
+        // else {
+        //     // query all of your recipe data for the recipe you want & setRecipe
+        //     let newRecipe = recipes.find(x => x.name === name);
+        //     setAllIngredients(newRecipe === undefined ? [] : newRecipe.ingredients)
+        //     setAllInstructions(newRecipe === undefined ? [] : newRecipe.instructions);
+        //     if(newRecipe) setRecipe(newRecipe);
+        // }
+    },[name])
     
     // // make sure recipe is not undefined
     // if(!recipe) {
