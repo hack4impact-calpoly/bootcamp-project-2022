@@ -7,8 +7,6 @@ const app: Express = express(); // 2. initializes Express
 const mongoose = require('mongoose')
 const connection_url = "mongodb+srv://bootcampuser:bootcampdata22@cluster0.epfcxku.mongodb.net/RecipesDB?retryWrites=true&w=majority"
 
-mongoose.set('strictQuery', true);
-
 mongoose.connect(connection_url)
 .then(() => console.log('Successfully connected'))
 .catch((error: any) => console.log(`Could not connect due to ${error}`))
