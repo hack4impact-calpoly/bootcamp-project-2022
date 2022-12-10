@@ -46,12 +46,26 @@ function RecipePage(props: RecipePageProps) {
     }, [recipe]);
 
     function addIngredient(newIngredient: any): any {
-        console.log("adding new ingredient: " + newIngredient);
+        const request = {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ newIngredient })
+        }
+        fetch(`http://localhost:3001/recipe/${name}/ingredient`, request)
+        .then((res) => console.log(res));
+
         setAllIngredients([...allIngredients, newIngredient])
-        console.log(allIngredients);
+        
     }
 
     function addInstruction(newInstruction: any): any {
+        const request = {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ newInstruction })
+        }
+        fetch(`http://localhost:3001/recipe/${name}/instruction`, request)
+        .then(res => console.log(res));
         setAllInstructions([...allInstructions, newInstruction]);
     }
 
