@@ -7,7 +7,7 @@ import { ChangeEvent, useState } from 'react';
 export default function Home() {
   const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
     useEffect(() => {
-      fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+      fetch("http://localhost:3001/recipe")
         .then((res) => res.json())
         .then((data) => setExternalRecipes(data));
     }, []);

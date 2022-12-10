@@ -28,7 +28,7 @@ function RecipePage(props: RecipePageProps) {
     useEffect(() => {
         if (props.external) {
             // make an API call with the url param & setRecipe
-            fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + name)
+            fetch("http://localhost:3001/recipe/" + name)
             .then((res) => res.json())
             .then((data) => setRecipe(data[0]));
             console.log("data: " + recipe);
