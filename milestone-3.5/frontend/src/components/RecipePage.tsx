@@ -23,8 +23,6 @@ export default function RecipePage() {
       .catch((error) => console.log(error));
   }, [name]);
 
-  // const currentRecipe = recipe.find((x: any) => x.name === name);
-
   // variable for adding ingredients
   const [newIngredient, setNewIngredient] = useState('');
   const [totalIngredients, setTotalIngredients] = useState(recipe?.ingredients);
@@ -50,27 +48,15 @@ export default function RecipePage() {
     setTotalInstructions(recipe?.instructions);
   }, [recipe]);
 
-  // function addIngredient() {
-  //   totalIngredients.splice(parseInt(newIngredientIdx) - 1, 0, newIngredient);
-  //   setTotalIngredients([...totalIngredients]);
-  // }
-
-  // async function addIngredient(newIngred){
-  //   try {
-  //     const response = await axios.put
-  //   }
-  // }
   const addIngredient = () => {
     const request = {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ingredient: newIngredient }),
     };
-    console.log('request = ', request);
-    console.log('before tota ingredient = ', totalIngredients);
-    fetch(`http://localhost:3001/recipe/${name}/ingredient`, request).then(
-      (res) => console.log(res)
-    );
+    fetch(`http://localhost:3001/recipe/${name}/ingredient`, request)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
     setTotalIngredients([...totalIngredients, newIngredient]);
   };
 
@@ -80,24 +66,12 @@ export default function RecipePage() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ instruction: newInstruction }),
     };
-    console.log('request = ', request);
-    console.log('before totalInstructions = ', totalInstructions);
-    fetch(`http://localhost:3001/recipe/${name}/instruction`, request).then(
-      (res) => console.log(res)
-    );
+
+    fetch(`http://localhost:3001/recipe/${name}/instruction`, request)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
     setTotalInstructions([...totalInstructions, newInstruction]);
   };
-
-  // function addInstruction() {
-  //   console.log('totalInstructions = ', totalInstructions);
-  //   console.log('newInstruction = ', newInstruction);
-  //   totalInstructions.splice(
-  //     parseInt(newInstructionIdx) - 1,
-  //     0,
-  //     newInstruction
-  //   );
-  //   setTotalInstructions([...totalInstructions]);
-  // }
 
   // update the index of totalIngredient and totalInstructions
   useEffect(() => {
@@ -137,7 +111,7 @@ export default function RecipePage() {
             return <li key={index}>{item}</li>;
           })}
           <div className="box">
-            <h4>Add an Ingredients</h4>
+            <h4>Add an Ingredient</h4>
             <label htmlFor="newIngredient">Ingredient: </label>
             <input
               id="newIngredient"
@@ -184,7 +158,6 @@ export default function RecipePage() {
           type="text"
           value={newInstruction}
           onChange={(event: ChangeEvent<HTMLInputElement>) => {
-            console.log('newInstruction = ', newInstruction);
             setNewInstruction(event.currentTarget.value);
           }}
         />

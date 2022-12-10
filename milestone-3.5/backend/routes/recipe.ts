@@ -6,15 +6,13 @@ const router: Router = express.Router();
 // get all recipes
 router.get('/', async (req: Request, res: Response) => {
   const recipes = await Recipe.find({});
-  //   console.log(recipes);
   res.send(recipes);
 });
 
 // get recipe by name
 router.get('/:name', async (req: Request, res: Response) => {
-  const recipes = await Recipe.find({ name: req.params.name });
-  console.log(recipes);
-  res.send(recipes);
+  const recipe = await Recipe.find({ name: req.params.name });
+  res.send(recipe);
 });
 
 // add a new recipe
@@ -42,8 +40,6 @@ router.put('/:name/ingredient', async (req: Request, res: Response) => {
     const recipe = await Recipe.findOne({ name: req.params.name });
     if (recipe) {
       recipe.ingredients = [...recipe.ingredients, req.body.ingredient];
-      console.log('req.body.ingredient = ', req.body.ingredient);
-      console.log('in backend, recipe.ingredients = ', recipe.ingredients);
       await recipe.save();
       res.send('Added ingredient');
     }
