@@ -45,13 +45,13 @@ function RecipePage(props: RecipePageProps) {
         setAllInstructions(recipe.instructions);
     }, [recipe]);
 
-    function addIngredient(newIngredient)) {
+    function addIngredient(newIngredient: any): any {
         console.log("adding new ingredient: " + newIngredient);
         setAllIngredients([...allIngredients, newIngredient])
         console.log(allIngredients);
     }
 
-    function addInstruction(newInstruction) {
+    function addInstruction(newInstruction: any): any {
         setAllInstructions([...allInstructions, newInstruction]);
     }
 
