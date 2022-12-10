@@ -1,0 +1,6 @@
+[submodule "m"]
+	path = m
+	url = https://github.com/sanjanachecker/bootcamp-project-2022
+[submodule "my-ap"]
+	path = my-ap
+	url = https://github.com/sanjanachecker/bootcamp-project-2022
