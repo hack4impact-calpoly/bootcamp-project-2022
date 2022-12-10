@@ -8,7 +8,7 @@ export interface RecipeInterface extends Document {
   instructions: string[];
 }
 
-const RecipeSchema = new Schema<RecipeInterface>({
+const recipeSchema = new Schema<RecipeInterface>({
   name: { type: String, required: true },
   description: { type: String, required: true },
   image: { type: String, required: true },
@@ -17,6 +17,6 @@ const RecipeSchema = new Schema<RecipeInterface>({
 
 }, {collection: 'Recipes'});
 
-const Recipe = model<RecipeInterface>('Recipes', RecipeSchema);
+const Recipe = model<RecipeInterface>('Recipes', recipeSchema);
 
 export default Recipe;
