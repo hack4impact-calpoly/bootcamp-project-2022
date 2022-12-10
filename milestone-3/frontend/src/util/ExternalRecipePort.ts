@@ -16,7 +16,7 @@ const CACHE: ExternalRecipeCache = {
 function updateExternalRecipes(data:Recipe[], setExternalRecipes:(recipes:Recipe[]) => void) {
     for (let i = 0; i < data.length; ++i) {
         let recipe = data[i];
-        recipe._id = EXTERNAL_PREFIX + recipe._id;
+        recipe._id = EXTERNAL_PREFIX + recipe._id; //automatically set as external
     }
 
     CACHE.externalRecipes = data;
