@@ -28,6 +28,27 @@ export default function RecipePage() {
         instructions: [],
     });
 
+    const addIngredient = () => {
+        fetch(`/recipe/${name}/ingredients`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                ingredient: newIngredient,
+            }),
+        });
+        setAllIngredients([...allIngredients, newIngredient]);
+    };
+
+    const addInstruction = () => {
+        fetch(`/recipe/${name}/instructions`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                instruction: newInstruction,
+            }),
+        });
+        setAllInstructions([...allInstructions, newInstruction]);
+    };
     
     useEffect(() => {
         // if (props.external) {
@@ -88,10 +109,13 @@ export default function RecipePage() {
                     }}
                 /> 
                 {/* add button to append newIngredient to ingredients list */}
-                <button onClick={() => setAllIngredients([...allIngredients, newIngredient])}>
+                {/* <button onClick={() => setAllIngredients([...allIngredients, newIngredient])}> */}
+                <button onClick={addIngredient}>
                     Add Ingredient
                 </button>
             </div>
+
+            {/* add new instruction */}
             <div className="add-ingredient">
                 <h3>Add an instruction</h3>
                 {/* textbox input stored newInstruction state variable  */}
@@ -104,7 +128,8 @@ export default function RecipePage() {
                     }}
                 /> 
                 {/* add button to append newInstruction to instructions list */}
-                <button onClick={() => setAllInstructions([...allInstructions, newInstruction])}>
+                {/* <button onClick={() => setAllInstructions([...allInstructions, newInstruction])}> */}
+                <button onClick={addInstruction}>
                     Add Insruction
                 </button>
             </div>
