@@ -28,7 +28,6 @@ export default function RecipePage() {
   // variable for adding ingredients
   const [newIngredient, setNewIngredient] = useState('');
   const [totalIngredients, setTotalIngredients] = useState(recipe?.ingredients);
-  console.log('totalIngredient = ', totalIngredients);
   const sizeOfTotalIngredient = totalIngredients.length + 1;
   const [sizeOfIngredient, setSizeOfIngredient] = useState(
     sizeOfTotalIngredient.toString()
@@ -48,24 +47,57 @@ export default function RecipePage() {
 
   useEffect(() => {
     setTotalIngredients(recipe?.ingredients);
-    setTotalInstructions(recipe?.ingredients);
+    setTotalInstructions(recipe?.instructions);
   }, [recipe]);
 
-  function addIngredient() {
-    totalIngredients.splice(parseInt(newIngredientIdx) - 1, 0, newIngredient);
-    setTotalIngredients([...totalIngredients]);
-  }
+  // function addIngredient() {
+  //   totalIngredients.splice(parseInt(newIngredientIdx) - 1, 0, newIngredient);
+  //   setTotalIngredients([...totalIngredients]);
+  // }
 
-  function addInstruction() {
-    console.log('totalInstructions = ', totalInstructions);
-    console.log('newInstruction = ', newInstruction);
-    totalInstructions.splice(
-      parseInt(newInstructionIdx) - 1,
-      0,
-      newInstruction
+  // async function addIngredient(newIngred){
+  //   try {
+  //     const response = await axios.put
+  //   }
+  // }
+  const addIngredient = () => {
+    const request = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ingredient: newIngredient }),
+    };
+    console.log('request = ', request);
+    console.log('before tota ingredient = ', totalIngredients);
+    fetch(`http://localhost:3001/recipe/${name}/ingredient`, request).then(
+      (res) => console.log(res)
     );
-    setTotalInstructions([...totalInstructions]);
-  }
+    setTotalIngredients([...totalIngredients, newIngredient]);
+  };
+
+  const addInstruction = () => {
+    const request = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ instruction: newInstruction }),
+    };
+    console.log('request = ', request);
+    console.log('before totalInstructions = ', totalInstructions);
+    fetch(`http://localhost:3001/recipe/${name}/instruction`, request).then(
+      (res) => console.log(res)
+    );
+    setTotalInstructions([...totalInstructions, newInstruction]);
+  };
+
+  // function addInstruction() {
+  //   console.log('totalInstructions = ', totalInstructions);
+  //   console.log('newInstruction = ', newInstruction);
+  //   totalInstructions.splice(
+  //     parseInt(newInstructionIdx) - 1,
+  //     0,
+  //     newInstruction
+  //   );
+  //   setTotalInstructions([...totalInstructions]);
+  // }
 
   // update the index of totalIngredient and totalInstructions
   useEffect(() => {

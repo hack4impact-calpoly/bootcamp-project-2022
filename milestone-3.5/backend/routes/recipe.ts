@@ -42,6 +42,8 @@ router.put('/:name/ingredient', async (req: Request, res: Response) => {
     const recipe = await Recipe.findOne({ name: req.params.name });
     if (recipe) {
       recipe.ingredients = [...recipe.ingredients, req.body.ingredient];
+      console.log('req.body.ingredient = ', req.body.ingredient);
+      console.log('in backend, recipe.ingredients = ', recipe.ingredients);
       await recipe.save();
       res.send('Added ingredient');
     }
