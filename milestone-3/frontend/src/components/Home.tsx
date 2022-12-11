@@ -3,6 +3,7 @@ import peanut_butter from './peanut-butter.png'
 import toast from './toast.png'
 import site_icon from './site-icon.png'
 import "./Home.css"
+import { Link } from 'react-router-dom'
 
 export default function Home() {
     return(
@@ -10,7 +11,7 @@ export default function Home() {
             <div className="page-card">
                 <div className="nav-menu"> 
                     <img src={site_icon} className="nav-image" />
-                    <a className="nav-text" href="about.html">About</a>
+                    <Link className="nav-text" to="/about">About</Link>
                 </div>
 
                 <div className="recipe-container">
