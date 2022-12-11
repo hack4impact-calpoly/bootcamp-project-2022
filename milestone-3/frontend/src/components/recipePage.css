@@ -24,7 +24,7 @@
     margin: 10px 20px;
     background-color: cornsilk;
     border-radius: 20px;
-  }
+}
   
 .preparation{
     padding: 10px 20px;
@@ -34,5 +34,19 @@
 }
 
 .description-text{
+    font-size: large;
+}
+
+.form {
+    padding: 20px 40px;
+    margin: 10px 20px;
+    background-color: cornsilk;
+    border-radius: 20px;
+
+}
+
+.button {
+    border-radius: 20px;
+    background-color: blanchedalmond;
     font-size: large;
 }
