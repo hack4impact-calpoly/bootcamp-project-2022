@@ -1,0 +1,82 @@
+:root{
+    --border-color: #F07167;
+    --container-color: #FED9B7;
+    --text-color: #b64b43;
+    --page-color: #FCF0DC;
+    --container-border-color: #FFD1A7;
+    --mid-color: #f9b699;
+}
+
+/*Navigation list at the top of the page*/
+nav{
+    justify-self: flex-end;
+}
+
+.nav-member{
+    margin: 1em;
+    color: var(--text-color);
+}
+
+/*The header banner at the top of each recipe page*/
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--mid-color);
+    border-bottom: solid var(--border-color) 0.3em;
+}
+
+/*The logo text in the header*/
+h1{
+    color: var(--text-color);
+    margin-left: 0em;
+}
+
+/*Scaling and whitespace for the thiking chef icon*/
+.site-icon{
+    width: 3em;
+    padding: 1em;
+}
+
+/*Allows for centering of the "About the Chef" card*/
+.page-layout{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: flex-start;
+    background-color: var(--page-color);
+    min-height: 98vh;
+}
+
+/*Uses a flexbox to lay out the content of the "About the Chef card*/
+.card-layout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+    background-color: var(--container-color);
+    border-radius: 1em;
+    border-color: var(--container-border-color);
+    border-style: solid;
+    border-width: 0.25em;
+    max-width: 15em;
+    padding: 1em;
+
+    transform: translate(0, -3em);
+}
+
+/*Intended to modify h1 to fit the title of the card*/
+.card-title{
+    font-size: 36;
+    color: var(--border-color);
+    margin-bottom: 0em;
+}
+
+/*Defines qualities of any text in the "About the Chef" card*/
+.card-text{
+    font-size: 14;
+    color: var(--text-color);
+    margin: 1em;
+}

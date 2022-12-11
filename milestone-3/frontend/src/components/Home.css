@@ -1,0 +1,139 @@
+:root{
+    --border-color: #F07167;
+    --container-color: #FED9B7;
+    --text-color: #b64b43;
+    --page-color: #FCF0DC;
+    --container-border-color: #FFD1A7;
+    --mid-color: #f9b699;
+}
+
+/*Meant to encase the page card (below) in a table cell, which allows vertical
+and horizontal centering easily*/
+.page-card-wrapper{
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 98vh;
+    background-color: var(--page-color);
+}
+
+/*Flexbox that will make the page appear as a single "card"*/
+.page-card{
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    height: fit-content;
+    width: fit-content;
+    align-items: center;
+
+    background-color: var(--container-color);
+    border-color: var(--container-border-color);
+    border-width: 4pt;
+    border-style: solid;
+    padding: 20pt;
+    border-radius: 4pt;
+    transform: translateX(50pt)
+}
+
+/*Styling for the page's description paragraph*/
+.description-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    text-align: left;
+    flex-wrap: wrap;
+    max-width: 250pt;
+    font-size: 24pt;
+    margin-left: 12pt;
+    color: var(--text-color);
+}
+
+.description-layout-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 50pt;
+    transform: translateX(50pt)
+} 
+
+.logo-text{
+    font-size: 72pt;
+    padding: 10pt;
+    color: var(--border-color);
+}
+
+/*Navigation bar containing links to pages*/
+.nav-menu{ 
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-evenly;
+    align-items: center;
+
+    border-width: 2pt;
+    border-style: solid;
+    border-radius: 4pt;
+    padding: 0;
+    margin: 0;
+    width: fit-content;
+    margin: auto;
+    background-color: var(--mid-color);
+    border-color: var(--border-color);
+}
+
+/*Any text items in the top menu bar*/
+.nav-text{
+    margin: 10pt;
+    flex-shrink: 0;
+    font-size: 14pt;
+    color: var(--text-color);
+}
+
+/*Icon in the top menu bar*/
+.nav-image{
+    margin: 10pt;
+    flex-shrink: 0;
+    width: 40px;
+    height: auto;
+}
+
+/*Container containing recipe cards*/
+.recipe-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    flex-grow: 0;
+    align-items: center;
+
+    width: fit-content;
+    height: auto;
+    margin-top: 30pt;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Recipe cards*/
+.recipe{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    width: fit-content;
+
+    background-color: var(--container-border-color);
+    border-radius: 4pt;
+    margin: 15pt;
+    padding: 10pt;
+}
+
+/*Sizing information for the icons used in the recipe cards*/
+.recipe-icons{
+    height: 40px;
+}
+
+/*Styling information for the text in each recipe*/
+.recipe-text{
+    color: var(--text-color);
+    margin: 10pt;
+}
