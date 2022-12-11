@@ -1,4 +1,6 @@
 import { Express } from "express";
+import recipeEndpoints from "./routes/recipe";
+
 
 const express = require("express"); // 1. includes Express
 const app: Express = express(); // 2. initializes Express
@@ -10,10 +12,11 @@ mongoose.connect(connection_url)
 .catch((error: any) => console.error(`Could not connect due to ${error}`))
 
 
-// app.use(express.json());
+app.use(express.json());
+app.use("/recipe", recipeEndpoints)
 
-app.get('/', (req, res) => {
-  res.send('Hello world!')
-});
+// app.get('/', (req, res) => {
+//   res.send('Hello world!')
+// });
 
 app.listen(3001);
