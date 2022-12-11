@@ -1,0 +1,45 @@
+/* ---------- color palette ---------- */
+
+:root {
+    --light_blue: rgb(145, 218, 244);
+     --darker_blue: rgb(36, 140, 215);
+ 
+ 
+   }
+   
+ 
+   html {
+     height: 100%;
+     font-family: fantasy;
+   }
+   
+   
+   .header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 10px 40px;
+     background-color: var(--darker_blue);
+   }
+   
+   .title-container {
+     text-decoration: none;
+   }
+   
+   .title {
+     color: var(--light_blue);
+   }
+   
+   nav {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+   
+   .nav-item {
+     margin: 0px 10px;
+     text-overflow: ellipsis;
+     color: var(--light_blue);
+   }
+   
+   

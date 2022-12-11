@@ -1,0 +1,155 @@
+/* ---------- color palette ---------- */
+
+:root {
+    --light_blue: rgb(145, 218, 244);
+     --darker_blue: rgb(36, 140, 215);
+ 
+ 
+   }
+   
+   /* ---------- all pages ---------- */
+   
+   .blink_me {
+     animation: blinker 2s linear infinite;
+   }
+   
+   @keyframes blinker {
+     50% {
+       opacity: 0;
+     }
+   }
+ 
+   html {
+     height: 100%;
+     font-family: fantasy;
+   }
+   
+   body {
+     height: 100%;
+     margin: 0px;
+     padding: 0px;
+     background-color: var(--light_blue);
+   }
+   
+   main {
+     padding: 0px 40px 10px;
+   }
+   
+   .header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 10px 40px;
+     background-color: var(--darker_blue);
+   }
+   
+   .title-container {
+     text-decoration: none;
+   }
+   
+   .title {
+     color: var(--light_blue);
+   }
+   
+   nav {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+   
+   .nav-item {
+     margin: 0px 10px;
+     text-overflow: ellipsis;
+     color: var(--light_blue);
+   }
+   
+   h2 {
+     background-color: var(--darker_blue);
+     padding: 10px;
+     color: black;
+     transition: color 0.2s;
+   }
+
+   .card-title {
+    text-decoration: underline;
+   }
+   .card-title:hover {
+     color: var(--light_blue);
+     transition: color 0.2s;
+   }
+   
+   /* ---------- homepage ---------- */
+   
+   .card {
+     background-color: var(--darker_blue);
+     padding: 10px 20px;
+     margin: 20px 0px;
+     border-radius: 20px;
+   }
+   
+   .card-body {
+     display: flex;
+     flex-wrap: wrap;
+     margin-bottom: 20px;
+   }
+   
+   .card-text {
+     padding: 0px 20px;
+     flex-basis: 50px;
+     flex-grow: 1;
+   }
+   
+   .img-small {
+     width: 200px;
+     border: 5px solid;
+     border-color: var(--light_blue);
+     border-radius: 10px;
+   }
+   
+   /* ---------- recipe pages ---------- */
+   
+   .flex-container {
+     display: flex;
+     flex-direction: row-reverse;
+     margin-top: 40px;
+   }
+   
+   .flex-image {
+     width: 300px;
+     margin-right: 40px;
+     border: 5px solid;
+     border-color: var(--light_blue);
+     border-radius: 20px;
+   }
+   
+   .flex-content {
+     flex-basis: 320px;
+     flex-grow: 1;
+   }
+   
+   ol li {
+     margin: 10px 0px;
+   }
+   
+   /* ---------- about page ---------- */
+   
+   .description {
+     display: flex;
+     /* background-color: red; */
+     font-size: 20px;
+     left:300px; top:50px;
+     position: relative;
+     animation-name: desc;
+     animation-duration: 4s;
+     animation-direction: reverse;
+   }
+ 
+ 
+   @keyframes desc {
+     0%   {left:300px; top:50px;}
+     25%  {left:300px; top:50px;}
+     50%  {left:600px; top:200px;}
+     75%  {left:50px; top:200px;}
+     100% {left:300px; top:50px;}
+   }
+   
