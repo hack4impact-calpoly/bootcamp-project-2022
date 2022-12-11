@@ -13,17 +13,15 @@ export default function Home() {
     }, []);
 
     
-
-    let recipeList = [
-        ...recipes,
-        ...externalRecipes
-    ];
-    
     return (
         <main className="main-content body">
             <div>
-                {recipeList.map((recipe) => (
+                {recipes.map((recipe) => (
                     <RecipePreview {...recipe}/>
+                ))}
+
+                {externalRecipes.map((recipe) => (
+                    <RecipePreview {...recipe} external/>
                 ))}
             </div>
             

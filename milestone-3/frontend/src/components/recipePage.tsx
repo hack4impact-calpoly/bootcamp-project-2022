@@ -16,16 +16,23 @@ export default function RecipePage(props: RecipePageProps) {
         if (props.external) {
             fetch(`https://bootcamp-milestone-4.onrender.com/recipe/${id}`)
                 .then((res) => res.json())
-                .then((data) => setRecipe(data));
+                .then((data) => {
+                    setRecipe(data[0]);
+                    setAllInstructions(data[0].instructions);
+                    setAllIngredients(data[0].ingredients);
+                    
+                });
             
         }
         else {
-            setRecipe(recipes.find(recipe => recipe.type === id) as Recipe);
+            recipe = recipes.find(recipe => recipe.type === id) as Recipe
+            setRecipe(recipe);
+            setAllInstructions(recipe.instructions);
+            setAllIngredients(recipe.ingredients);
             
         }
 
     }, [id, props.external]);
-    console.log(id)
     
 
     const [newIngredient, setNewIngredient] = useState('');
