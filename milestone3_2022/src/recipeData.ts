@@ -8,9 +8,8 @@ import beefAndBrocolli2 from "./images/beef-and-broccoli-1.jpg"
 import bananaBread2 from "./images/banana-bread-1.jpg"
 
 export interface Recipe {
-    path: string
     name: string;
-    desc: string;
+    description: string;
     image: string;
     image2: string
     info: string[];
@@ -21,11 +20,10 @@ export interface Recipe {
 
 const recipes: Recipe[] = [
     {
-        path: "Ratatouille",
         name: "Ratatouille",
         image: ratatouille,
         image2: ratatouille2,
-        desc: "It’s ratatouille season! Ratatouille is a classic end-of-summer French stew that’s fun to say (rat-tuh-TOO-ee) and fun to make. It’s packed with fresh produce: tomatoes, eggplant, zucchini and yellow squash, and bell pepper.",
+        description: "It’s ratatouille season! Ratatouille is a classic end-of-summer French stew that’s fun to say (rat-tuh-TOO-ee) and fun to make. It’s packed with fresh produce: tomatoes, eggplant, zucchini and yellow squash, and bell pepper.",
         info: [
             "Prep Time: 20 mins",
             "Cook Time: 40 mins",
@@ -63,11 +61,10 @@ const recipes: Recipe[] = [
         ]
     },
     {
-        path: "TacoSoup",
         name: "Taco Soup",
         image: tacoSoup,
         image2: tacoSoup2,
-        desc: "This Taco Soup recipe is a fall and winter staple! It’s an easy, protein packed soup full of zesty, crave-worthy flavor, plus it’s perfectly hearty and filling. It’s like chili’s soupier cousin and it’s loaded with all the best taco style ingredients!",
+        description: "This Taco Soup recipe is a fall and winter staple! It’s an easy, protein packed soup full of zesty, crave-worthy flavor, plus it’s perfectly hearty and filling. It’s like chili’s soupier cousin and it’s loaded with all the best taco style ingredients!",
         info: [
             "Prep Time: 10 mins",
             "Cook Time: 35 mins",
@@ -100,11 +97,10 @@ const recipes: Recipe[] = [
         ]
     },
     {
-        path: "BeefandBroccoli",
         name: "Beef and Broccoli",
         image: beefAndBrocolli,
         image2: beefAndBrocolli2,
-        desc: "Beef and Broccoli is an easy meal that is loaded with fresh broccoli, tender nutrition-packed beef, and the best stir fry sauce.",
+        description: "Beef and Broccoli is an easy meal that is loaded with fresh broccoli, tender nutrition-packed beef, and the best stir fry sauce.",
         info: [
             "Prep Time: 10 mins",
             "Cook Time: 10 mins",
@@ -132,11 +128,10 @@ const recipes: Recipe[] = [
         ]
     },
     {
-        path: "BananaBread",
         name: "Banana Bread",
         image: bananaBread,
         image2: bananaBread2,
-        desc: "This banana bread recipe is so easy to make and super soft and moist! This is the very best way to use up overripe bananas. It makes the bread tender and packed full of flavor.",
+        description: "This banana bread recipe is so easy to make and super soft and moist! This is the very best way to use up overripe bananas. It makes the bread tender and packed full of flavor.",
         info: [
             "Prep Time: 15 mins",
             "Cook Time: 1 hr",
