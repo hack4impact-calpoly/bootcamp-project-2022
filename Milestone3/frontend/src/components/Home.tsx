@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./home.css";
 import recipes, {Recipe} from '../recipeData';
 import RecipePreview from "./recipePreview";
 
 export default function Home() {
+  const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+  useEffect(() => {
+    fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+      .then((res) => res.json())
+      .then((data) => setExternalRecipes(data));
+  }, []);
   return (
     //loading in recipe previews
     <div>
     {recipes.map((recipe: Recipe ) => (
         <RecipePreview {...recipe} />
+    ))}
+    {externalRecipes.map((recipe: Recipe ) => (
+        <RecipePreview external {...recipe} />
     ))}
     </div>
     
