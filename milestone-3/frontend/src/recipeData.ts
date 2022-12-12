@@ -1,11 +1,11 @@
 // Define and export the Recipe interface
 export interface Recipe {
+    external: boolean;
     name: string;
     description: string;
     image: string;
     ingredients: string[];
     instructions: string[];
-    short: string;
   }
 
 // Create separate Recipe objects for each recipe
@@ -50,7 +50,7 @@ export interface Recipe {
         "Cover with a heavy lid and allow this to steam for about half an hour.",
         "Serve and enjoy!"
     ],
-    short: 'cb'
+    external: false
   }
   const recipe_2: Recipe = {
     name: "Chole Samosa Chaat",
@@ -81,7 +81,7 @@ export interface Recipe {
         "Sprinkle some pomegranate kennels, sev and garnish with coriander leaves",
         "Your chaat is ready!"
     ],
-    short: 'samosa'
+    external: false
   }
   const recipe_3: Recipe = {
     name: "Gajar Ka Halwa",
@@ -105,7 +105,8 @@ export interface Recipe {
         "Stir in sugar and continue cooking until the halwa turns deep reddish color.",
         "Stir in dried fruit and serve."
     ],
-    short: 'gkh'
+    external: false
+
   }
 
 // Create an array containing all Recipe objects

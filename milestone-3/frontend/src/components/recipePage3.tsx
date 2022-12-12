@@ -15,18 +15,21 @@ interface RecipePageProps{
 export default function RecipePage(props: RecipePageProps) {
     const { name } = useParams(); 
     const [recipe, setRecipe] = useState<Recipe>(recipes[0]);
-    const [error, setError] = useState("");
     useEffect(() =>{
+        if (props.external) {
             fetch(`https://bootcamp-milestone-4.onrender.com/recipe/${name}`)
             .then((res) => res.json())
             .then((data) => {
-                if (data.length === 0){
-                    setError("Sorry, this recipe does not exist")
-                } else {
-                    setError("")
-                    setRecipe(data[0])
-                }
+                setRecipe(data)
             });
+        } else {
+            let temp = recipes.find(i => i.name === name)
+            if (temp === undefined) {
+                setRecipe(recipes[0])
+            } else{
+                setRecipe(temp)
+            }
+        }
     }, [name, props.external]
     )
     // Find the recipe corresponding to the selected option.
@@ -34,8 +37,7 @@ export default function RecipePage(props: RecipePageProps) {
     const [allIngredients, setAllIngredients] = useState(recipe.ingredients);
     return (
     <body>
-        <div className='recipe-box'>
-            <p>{error}</p> 
+        <div className='recipe-box'> 
             <div>
                 <h1>{recipe.name}</h1>
                 <h2>Ingredients</h2>
