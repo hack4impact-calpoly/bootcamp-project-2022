@@ -12,17 +12,11 @@ interface RecipePageProps{
     external?: boolean;
 }
 
-interface Recipe_ext extends Recipe{
-    '_id'? : string,
-    '__v'? : number
-}
-
 export default function RecipePage(props: RecipePageProps) {
     const { name } = useParams(); 
-    const [recipe, setRecipe] = useState<Recipe_ext>(recipes[0]);
+    const [recipe, setRecipe] = useState<Recipe>(recipes[0]);
     const [error, setError] = useState("");
     useEffect(() =>{
-        if (props.external) {
             fetch(`https://bootcamp-milestone-4.onrender.com/recipe/${name}`)
             .then((res) => res.json())
             .then((data) => {
@@ -32,14 +26,7 @@ export default function RecipePage(props: RecipePageProps) {
                     setError("")
                     setRecipe(data[0])
                 }
-            })
-        } else {
-            let recipe_temp = recipes.find(i => i.name === name);
-            if (recipe_temp === undefined) { 
-                recipe_temp = recipes[0];
-            }
-            setRecipe(recipe_temp) 
-        }
+            });
     }, [name, props.external]
     )
     // Find the recipe corresponding to the selected option.
