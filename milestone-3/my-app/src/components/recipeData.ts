@@ -5,8 +5,8 @@ export interface Recipe {
     imgAltName: string;
     ingredients: string[];
     instructions: string[];
-    orig_link: string; 
-    orig_link_name: string;
+    orig_link?: string; 
+    orig_link_name?: string;
     buttonHref: string;
 }
 

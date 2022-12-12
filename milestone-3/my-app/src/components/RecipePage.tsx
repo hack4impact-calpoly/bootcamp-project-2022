@@ -27,17 +27,20 @@ export default function RecipePage (props: RecipePageProps){
         orig_link_name: "",
         buttonHref: ""
     });
-    
+
     const [newIngredient, setNewIngredient] = useState('');
     const [allIngredients, setAllIngredients] = useState(recipe.ingredients); 
     const [newStep, setNewStep] = useState('');
     const [allSteps, setAllSteps] = useState(recipe.instructions);
 
-    useEffect(() => {
-        window.scrollTo(0, 0)
-      }, [])
+    if(!target){
+        recipe.orig_link = "https://bootcamp-milestone-3.netlify.app/"
+        recipe.orig_link_name = "Hu's Chews"
+    }
+
     
     useEffect(() => {
+        window.scrollTo(0, 0)
         if (props.external) {
                 fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id)
                 .then((res) => res.json())
@@ -48,8 +51,6 @@ export default function RecipePage (props: RecipePageProps){
                   
         }else{
             setRecipe(recipes.find((recipe) => recipe.name === id) || recipes[0])
-                        setRecipe(recipes.find((recipe) => recipe.name === id) || recipes[0])
-
     }}, [id, props.external]);
 
     useEffect(() => {

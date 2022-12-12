@@ -38,8 +38,6 @@ export default function Home() {
               image = {recipe.image} 
               ingredients = {recipe.ingredients} 
               instructions = {recipe.instructions}
-              orig_link = {"https://bootcamp-milestone-3.netlify.app/"}
-              orig_link_name ={"Hu's Chews"}
               buttonHref = {"externalRecipe/" + recipe.name}/>
             )
             }
