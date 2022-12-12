@@ -15,6 +15,17 @@ mongoose
         console.error(`Could not connect due to") ${error}`)
     );
 
+// to address CORS issue
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    res.header("Access-Control-Allow-Methods", "GET,POST,OPTIONS,DELETE,PUT");
+    next();
+});
+
 app.use("/recipe", recipeRoutes);
 
 app.get("/", (req, res) => {
