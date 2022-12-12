@@ -2,16 +2,25 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import RecipePreview from "./RecipePreview";
 import RecipeData, { Recipe } from "../Recipedata"
-
+import { Link } from "react-router-dom";
 
 
 export default function Home() {
+  
   const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+  const [AllRecipes, setAllRecipes] = useState<Recipe[]>([]);
   useEffect(() => {
     fetch("https://bootcamp-milestone-4.onrender.com/recipe")
       .then((res) => res.json())
       .then((data) => setExternalRecipes(data));
   }, []);
+  useEffect(() => {
+    fetch("https://localhost:3001/recipe")
+      .then((res) => res.json())
+      .then((data) => setAllRecipes(data));
+  }, []);
+
+
     return (
     <main>
     <body>

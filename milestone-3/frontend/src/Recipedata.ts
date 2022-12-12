@@ -1,6 +1,6 @@
-import chicken from './components/images/chicken.jpeg'
-import biryani from './components/images/Biryani.jpeg'
-import dahl from './components/images/dahl.webp'
+import chicken from "./components/images/chicken.jpeg"
+import biryani from "./components/images/Biryani.jpeg"
+import dahl from "./components/images/dahl.webp"
 
 export interface Recipe {
     name: string;

@@ -25,7 +25,6 @@ RecipePage.defaultProps = {
 export default function RecipePage(props: RecipePageProps) {
   const {id} = useParams();
   const [recipe, setrecipe]= useState(recipes.find(r => id === r.name));
-  // const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
   useEffect(() => {
     if (props.external) {
       fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id)
@@ -35,6 +34,15 @@ export default function RecipePage(props: RecipePageProps) {
       setAllInstructions(data[0].instructions)
       });
 }}, [id, props.external]);
+useEffect(() => {
+  fetch(`http://localhost:3001/recipe/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                setrecipe(data)
+                setAllIngredients(data.ingredients)
+                setAllInstructions(data.instructions)
+            })
+    }, [props.name])
   const [newIngredient, setNewIngredient] = useState('');
   const [allIngredients, setAllIngredients] = useState(recipe?.ingredients);
   const [newInstruction, setNewInstruction] = useState('');
@@ -45,6 +53,27 @@ export default function RecipePage(props: RecipePageProps) {
   const instruction_list = allInstructions?.map((instr) =>
     <li>{instr}</li>
   );
+  const AddIngredient = () => {
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ newIngredient })
+    }
+    fetch(`http://localhost:3001/recipe/${id}/ingredient`, requestOptions)
+    .then(res => console.log(res));
+    setAllIngredients([...allIngredients ?? [], newIngredient]);
+}
+
+const AddInstruction = () => {
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ newInstruction })
+    }
+    fetch(`http://localhost:3001/recipe/${id}/instruction`, requestOptions)
+    .then(res => console.log(res));
+    setAllInstructions([...allInstructions ?? [], newInstruction]);
+}
   return(
     <div className="flex-container" >
       <div><img className="flex-image" src={recipe?.image} alt="smth"/></div>
@@ -61,11 +90,9 @@ export default function RecipePage(props: RecipePageProps) {
   placeholder="2 cups of spinach"
   value={newIngredient} // add newIngredient as the input's value
   onChange={(e: ChangeEvent<HTMLInputElement>) => {
-    // this event handler updates the value of newIngredient
-    setNewIngredient(e.target.value);
   }}
 />
-<button onClick={() => setAllIngredients([...allIngredients ?? [], newIngredient])} className = "button">
+<button onClick={AddIngredient} className = "button">
   Add Ingredient
 </button> 
 
@@ -86,7 +113,7 @@ export default function RecipePage(props: RecipePageProps) {
     setNewInstruction(e.target.value);
   }}
 />
-<button onClick={() => setAllInstructions([...allInstructions ?? [], newInstruction])} className = "button">
+<button onClick={AddInstruction} className = "button">
   Add Instruction
 </button> 
 </div>
