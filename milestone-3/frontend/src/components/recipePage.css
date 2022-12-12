@@ -161,7 +161,6 @@ p{
 input{
     width:50%;
     padding: 1%;
-    margin-bottom: 5px;
 }
 
 button{
@@ -179,4 +178,58 @@ input:disabled{
     background-color: white;
     opacity: 70%;
     cursor:not-allowed;
+}
+
+.index-container:nth-child(0){
+    padding: 1px 10px;
+}
+
+.edit-button{
+    width: 100px;
+    margin-right: 50px;
+    align-self: center;
+    cursor:pointer;
+}
+
+.margin-t20{
+    margin-top: 20px;
+}
+
+.long-width{
+    width: 200px;
+}
+
+.short-width{
+    margin-left:20px;
+    width:60px;
+}
+
+.height-100{
+    height: 100%;
+}
+
+.height-80{
+    height: 80%;
+}
+
+.ingredient ul li:hover{
+    color: rgb(226, 112, 112);
+    cursor:pointer;
+    text-decoration: line-through;
+}
+
+div ol li:hover{
+    color: rgb(226, 112, 112);
+    cursor:pointer;
+}
+
+li p:hover{
+    color: rgb(116, 45, 71);
+    text-decoration:line-through;
+}
+
+.white70:hover{
+    color: rgb(222, 137, 137);
+    cursor:pointer;
+    text-decoration: line-through;
 }

@@ -49,7 +49,7 @@ function convertRecipe(data: (defaultRecipe | Recipe)[]){
 
     for (let recipe of huRecipes){
       if (isRecipe(recipe)){
-        new_recipes.push({...recipe, category:'Lunch', ingredients: [{title: '', ingredients: recipe.ingredients}], instructions: recipe.instructions.map((instruction) => ({mainList: instruction, subList: ['']})), slug:slugify(recipe.name, {replacement: '_', lower: true})})
+        new_recipes.push({...recipe, category:'Lunch', ingredients: [{title: 'Main Ingredients', ingredients: recipe.ingredients}], instructions: recipe.instructions.map((instruction) => ({mainList: instruction, subList: ['']})), slug:slugify(recipe.name, {replacement: '_', lower: true})})
       }
       else{
         new_recipes.push({...recipe, slug:slugify(recipe.name, {replacement: '_', lower: true})})

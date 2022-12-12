@@ -57,50 +57,64 @@ app.post('/recipes', async (req: Request, res: Response) => {
 
 app.put('/recipes/:recipeName/ingredients', async (req: Request, res: Response) => {
   const recipe_name = req.params.recipeName;
-  const ingredient: {title: string, ingredients: string[]} = req.body
+  const ingredient: {indexCat: number, indexIng: number, ingredient: string, category?: string} = req.body
 
   const recipe = await Recipe.findOne({name: recipe_name});
   
   if (recipe){
     try{
-    let index = recipe.ingredients.findIndex((ing) => ing.title == ingredient.title)
-    if (index != -1){
-      recipe.ingredients[index].ingredients.push(...ingredient.ingredients);
+    if (ingredient.indexCat == -1 && ingredient.category){
+      recipe.ingredients.push({title: ingredient.category, ingredients: [ingredient.ingredient] })
       recipe.save()
     }
     else{
-      recipe.ingredients.push(ingredient)
+      recipe.ingredients.at(ingredient.indexCat)?.ingredients.splice(ingredient.indexIng, 0, ingredient.ingredient)
+      recipe.save()
     }
-    res.send(`RECIPE UPDATED!`)
+    res.send({"Status": "Recipe Updated!"})
   }
   catch(err: any){
-    res.sendStatus(500).send(`ERROR: ${err.message}`)
+    res.send({"error": `${err.message}`})
   }
   }
   else{
-    res.send('RECIPE NOT FOUND')
+    res.json({"error": `not valid name | ${recipe_name}`})
   }
 })
 
 app.put('/recipes/:recipeName/instructions', async (req: Request, res: Response) => {
   const recipe_name = req.params.recipeName;
-  const instruction: {mainList: string, subList: string[]} = req.body;
+  const instruction: { indexInstr: number, instruction: string, category?: string} = req.body
 
   const recipe = await Recipe.findOne({name: recipe_name});
   
   if (recipe){
-    let index = recipe.instructions.findIndex((ing) => ing.mainList == instruction.mainList)
-    if (index != -1){
-      recipe.instructions[index].subList.push(...instruction.subList);
+    try{
+    if (instruction.category){
+      recipe.instructions.splice(instruction.indexInstr, 0, {mainList: instruction.category, subList: [instruction.instruction] })
       recipe.save()
     }
     else{
-      recipe.instructions.push(instruction)
+      if (instruction.indexInstr == 0){
+        const max_length = recipe.instructions[instruction.indexInstr].subList.length;
+        recipe.instructions[instruction.indexInstr]?.subList.splice(max_length, 0, instruction.instruction)
+        recipe.save()
+      }
+      else{
+        const max_length = recipe.instructions[instruction.indexInstr -1].subList.length;
+        recipe.instructions[instruction.indexInstr-1]?.subList.splice(max_length, 0, instruction.instruction)
+        recipe.save()
+      }
+
     }
-    res.send(`RECIPE UPDATED!`)
+    res.send({"Status": "Recipe Updated!"})
+  }
+  catch(err: any){
+    res.send({"error": `${err.message} | ${recipe.instructions.length}`})
+  }
   }
   else{
-    console.error('RECIPE NOT FOUND')
+    res.json({"error": `not valid name | ${recipe_name}`})
   }
 })
 
@@ -113,18 +127,18 @@ app.delete('/recipes/:recipeName/ingredients', async (req: Request, res: Respons
   if (recipe){
     try{
       if (position.length == 1){
-        recipe.instructions.splice(position[0], 1)
+        recipe.ingredients.splice(position[0], 1)
         recipe.save()
-        res.send('DELETED INGREDIENT.')
+        res.send({"status": "DELETED CATEGORY."})
       }
       else{
         recipe.ingredients[position[0]].ingredients.splice(position[1], 1)
         recipe.save()
-        res.send('DELETED INGREDIENT.')
+        res.send({"status": "DELETED INGREDIENT."})
       }
     }
     catch(err){
-      res.send(`Error: ${err}`)
+      res.send({"error": `Error: ${err}`})
     }
      
   }
@@ -145,17 +159,16 @@ app.delete('/recipes/:recipeName/instructions', async (req: Request, res: Respon
       if (position.length == 1){
         recipe.instructions.splice(position[0], 1)
         recipe.save()
-        res.send('DELETED INGREDIENT.')
+        res.send({"status": "DELETED CATEGORY."})
       }
       else{
         recipe.instructions[position[0]].subList.splice(position[1], 1)
         recipe.save()
-        res.send('DELETED INGREDIENT.')
+        res.send({"status": "DELETED INGREDIENT."})
       }
-
     }
     catch(err){
-      res.sendStatus(500).send(`Error: ${err}`)
+      res.send({"error": `Error: ${err}`})
     }
      
   }
