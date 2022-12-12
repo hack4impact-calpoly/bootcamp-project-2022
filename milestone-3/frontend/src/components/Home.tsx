@@ -28,8 +28,8 @@ export default function Home() {
                 {/*A flexbox containing recipe preview cards, created from the recipeData file and then
                 externally from the Hu's Chews API*/}
                 <div className="recipe-container">
-                    {recipes.map((recipe) => (<RecipePreview {...recipe}/>))}
-                    {externalRecipes.map((externalRecipe) => (<RecipePreview {...externalRecipe} />))}
+                    {recipes.map((recipe) => (<RecipePreview {...recipe} ext = {false}/>))}
+                    {externalRecipes.map((externalRecipe) => (<RecipePreview {...externalRecipe} ext = {true} />))}
                 </div>
             </div>  
 

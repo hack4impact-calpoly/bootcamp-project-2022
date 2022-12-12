@@ -7,6 +7,11 @@ export interface Recipe
     instructions: string[];
 }
 
+export interface RecipePreviewProps extends Recipe
+{
+    ext: boolean
+}
+
 export const recipes: Recipe[] = [
     {
         name: "Over-toasted buttered toast",
