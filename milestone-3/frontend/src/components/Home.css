@@ -106,6 +106,7 @@ and horizontal centering easily*/
     align-items: center;
 
     width: fit-content;
+    max-width: 450px;
     height: auto;
     margin-top: 30pt;
     margin-left: auto;
@@ -119,6 +120,7 @@ and horizontal centering easily*/
     align-items: center;
     justify-content: left;
     width: fit-content;
+    justify-self: center;
 
     background-color: var(--container-border-color);
     border-radius: 4pt;
@@ -131,8 +133,17 @@ and horizontal centering easily*/
     height: 40px;
 }
 
+.recipe-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    align-items: center;
+}
+
 /*Styling information for the text in each recipe*/
 .recipe-text{
     color: var(--text-color);
     margin: 10pt;
+    align-self: center;
+    text-align: center;
 }
