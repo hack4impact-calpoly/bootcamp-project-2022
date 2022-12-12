@@ -41,7 +41,7 @@ useEffect(() => {
     setrecipe(data)
     setAllIngredients(data.ingredients)
     setAllInstructions(data.instructions)
-            })
+  })
     }, [props.name])
   const [newIngredient, setNewIngredient] = useState('');
   const [allIngredients, setAllIngredients] = useState(recipe?.ingredients);
