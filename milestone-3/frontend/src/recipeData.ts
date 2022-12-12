@@ -1,6 +1,9 @@
+import { toNamespacedPath } from "path";
+
 export interface Recipe
 {
     name: string;
+    id: string;
     description: string;
     image: string;
     ingredients: string[];
@@ -10,6 +13,7 @@ export interface Recipe
 export const recipes: Recipe[] = [
     {
         name: "Over-toasted buttered toast",
+        id: "toast",
         description: "Toast that's been toasted for way too long",
         image: "./toast.png",
         ingredients: [
@@ -31,6 +35,7 @@ export const recipes: Recipe[] = [
     },
     {
         name: "Barely-undercooked instant noodles",
+        id: "noodles",
         description: "A cup of cup noodles that's quite a bit short of al dente",
         image: "./noodles.png",
         ingredients: [
@@ -49,6 +54,7 @@ export const recipes: Recipe[] = [
     },
     {
         name: "Peanut-butter-only sandwich",
+        id: "peanut-butter",
         description: "Two pieces of bread and a LOT of peanut butter",
         image: "./peanut-butter.png",
         ingredients: [

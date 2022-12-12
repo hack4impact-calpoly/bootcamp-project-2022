@@ -1,0 +1,75 @@
+:root{
+    --border-color: #F07167;
+    --container-color: #FED9B7;
+    --text-color: #b64b43;
+    --page-color: #FCF0DC;
+    --container-border-color: #FFD1A7;
+    --mid-color: #f9b699;
+}
+
+/*Navigation list at the top of the page*/
+nav{
+    justify-self: flex-end;
+}
+
+.nav-member{
+    margin: 1em;
+    color: var(--text-color);
+}
+
+/*The header banner at the top of each recipe page*/
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--mid-color);
+    border-bottom: solid var(--border-color) 0.3em;
+}
+
+/*The logo text in the header*/
+h1{
+    color: var(--text-color);
+    margin-left: 0em;
+}
+
+/*Scaling and whitespace for the thiking chef icon*/
+.site-icon{
+    width: 3em;
+    padding: 1em;
+}
+
+/*A flexbox allowing for easy horizontal alignment of ingredients and recipe cards*/
+.ingredients-recipe-layout{
+    display: flex;
+    flex-direction: row;
+}
+
+/*Cards for the ingredients and recipe*/
+.ingredients-or-recipe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em;
+    max-width: 25em;
+    background-color: #FED9B7;
+    border-radius: 1em;
+    padding: 1em;
+    height: fit-content;
+}
+
+/*Text inside the ingredients and recipe cards*/
+.ingredients-or-recipe-text{
+    color: var(--text-color);
+}
+
+h2{
+    color: var(--border-color);
+    font-size: 24pt;
+    margin-bottom: 0;
+    margin-top: 0.5em;
+}
+
+/*To set the color of the whole page's background*/
+.background-color{
+    background-color: var(--page-color);
+}
