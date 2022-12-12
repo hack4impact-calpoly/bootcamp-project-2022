@@ -99,11 +99,12 @@ p {
 }
 
 .flex-image {
-    width: 300px;
+    width: 500px;
     margin: 40px;
     border: 5px solid;
     border-color:black;
     border-radius: 20px;
+    height: 600px;
 }
 
 .flex-content {
