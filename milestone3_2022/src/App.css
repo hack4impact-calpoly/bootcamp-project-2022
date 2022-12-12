@@ -16,7 +16,6 @@ div {
 
 body {
   background-color: var(--pink);
-  display: flex;
   margin: 0px;
   padding: 0px;
 }
@@ -28,7 +27,6 @@ main {
 .header {
   background-color: var(--dark-purple);
   display: flex;
-  width: 1840px;
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
@@ -112,7 +110,6 @@ h2 a:hover {
 /* ---------- recipe pages ---------- */
 
 .recipe-page {
-  display: flex;
   justify-content:center;
 }
 

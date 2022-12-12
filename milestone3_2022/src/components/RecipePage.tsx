@@ -79,7 +79,7 @@ export default function RecipePage(props: Recipe) {
                         {allInstructions1?.map((instr) => (<li>{instr}</li>)) || allInstructions2?.map((instr) => (<li>{instr}</li>))}
                     </ol>
                     <div className="add-values">
-                        <p>Add an instruction: </p>
+                        <p>Add instruction: </p>
                         <input placeholder="Beat the eggs"
                             value={newInstruction}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => {
