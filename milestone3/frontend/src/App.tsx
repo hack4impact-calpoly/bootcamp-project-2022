@@ -8,7 +8,7 @@ import About from './components/AboutMe';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
-const App = () => {
+function App() {
   return (
     <BrowserRouter>
       <Navbar />
@@ -16,8 +16,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="recipe/:id" element={<RecipePage />} />
-          <Route path="externalRecipe/:id" element={<RecipePage external />} />
+          <Route path="Recipes/:id" element={<RecipePage />} />
+          <Route path="externalRecipes/:id" element={<RecipePage external />} />
         </Routes>
       </div>
     </BrowserRouter>

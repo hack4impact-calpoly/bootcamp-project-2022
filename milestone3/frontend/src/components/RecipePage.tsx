@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import { useParams } from "react-router-dom";
 import './RecipePage.css';
 
 export interface Recipe {
-  id: string;
   name: string;
   description: string;
   image: string;
@@ -15,11 +14,10 @@ interface RecipePageProps {
   external?: boolean;
 }
 
-
 export default function RecipePage (props: RecipePageProps) {
+  const { id } = useParams();
 
   const [recipe, setRecipe] = useState<Recipe>({
-    id: "",
     name: "",
     description: "",
     image: "",
@@ -27,28 +25,59 @@ export default function RecipePage (props: RecipePageProps) {
     instructions: [],
   });
 
-  const { name } = useParams();
-
   // ingredients
   const [newIngredient, setNewIngredient] = useState('');
-  const [allIngredients, setAllIngredients] = useState(recipe.ingredients);
+  const [allIngredients, setAllIngredients] = useState<any[]>([]);
 
   // instructions
   const [newInstruction, setNewInstruction] = useState('');
-  const [allInstructions, setAllInstructions] = useState(recipe.ingredients);
+  const [allInstructions, setAllInstructions] = useState<any[]>([]);
+
 
   useEffect(() => {
-    fetch(`http://localhost:3001/Recipes/${name}}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setRecipe(data[0]);
+    const getRecipes = async () => {
+      let data = await fetch(`http://localhost:3001/Recipes/${id}`)
+      let recipeData = await data.json();
+      setRecipe(recipeData[0])
+      setAllIngredients([...recipeData[0].ingredients])
+      setAllInstructions([...recipeData[0].instructions]);
+    }
+    getRecipes();
+  }, [id, props.external]);
+
+
+  function addIngredient() {
+    {setAllIngredients([...allIngredients, newIngredient])}
+    
+    const addIngredient = async() => {
+      fetch(`http://localhost:3001/Recipes/${id}/ingredients`, {
+
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+        body: JSON.stringify({"ingredient" : newIngredient}),
       })
-  }, [props.external]);
+  }
+  addIngredient();
+};
 
-  useEffect(() => {
-    setAllIngredients(recipe.ingredients)
-    setAllInstructions(recipe.instructions)
-  }, [recipe])
+
+  function addInstruction() {
+    {setAllInstructions([...allInstructions, newInstruction])}
+
+    const addInstruction = async() => {
+      fetch(`http://localhost:3001/Recipes/${id}/instructions`, {
+
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+        body: JSON.stringify({"instruction" : newInstruction}),
+      })
+  }
+  addInstruction();
+};
 
   return (
   <body>
@@ -57,16 +86,16 @@ export default function RecipePage (props: RecipePageProps) {
       <section>
       <div className="flex-container">
         <div>
-            <img className="flex-image" src={recipe?.image} alt="img" />
+            <img className="flex-image" src={recipe.image} alt="img" />
         </div>
 
         <div className="flex-content">
-          <h1>{recipe?.name}</h1>
-          <p>{recipe?.description}</p>
+          <h1>{recipe.name}</h1>
+          <p>{recipe.description}</p>
 
         <h2>Ingredients</h2>
         <ul id="ingredients">
-          {allIngredients.map(function(name, index){
+          {allIngredients?.map(function(name, index){
           return <li key={index}>{name} </li>;
           })}
         </ul>
@@ -81,7 +110,7 @@ export default function RecipePage (props: RecipePageProps) {
               setNewIngredient(e.target.value);
             }}
             />
-            <button className="form-button" onClick={() => setAllIngredients([...allIngredients, newIngredient])}>
+            <button className="form-button" onClick={() => addIngredient()}>
               Enter
             </button>
 
@@ -93,7 +122,7 @@ export default function RecipePage (props: RecipePageProps) {
       <div className="flex-content">
         <h2>Preparation</h2>
         <ol id="instructions">
-          {allInstructions.map(function(name, index){
+          {allInstructions?.map(function(name, index){
               return <li key={index}>{name}</li>
           })}
         </ol>
@@ -109,7 +138,7 @@ export default function RecipePage (props: RecipePageProps) {
               setNewInstruction(e.target.value);
             }}
             />
-            <button className="form-button" onClick={() => setAllInstructions([...allInstructions, newInstruction])}>
+            <button className="form-button" onClick={() => addInstruction()}>
               Enter
             </button>
         </div>

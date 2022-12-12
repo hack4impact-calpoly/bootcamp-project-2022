@@ -23,19 +23,22 @@ mongoose.connect(connection_url)
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello world!')
+  console.log('Hello WORLD!')
 });
 
-app.get('/recipes', async (req: Request, res: Response) => {
+app.get('/Recipes', async (req: Request, res: Response) => {
   const recipes = await Recipe.find({})
   res.send(recipes)
+  console.log(recipes)
 })
 
-app.get('/recipes/:recipeName', async (req: Request, res: Response) => {
-  const recipe_name = await Recipe.find({})
-  const recipe = await Recipe.findOne({name: recipe_name})
+app.get('/Recipes/:recipeName', async (req: Request, res: Response) => {
+  const recipes = await Recipe.find({name: req.params.recipeName})
+  res.send(recipes)
+  console.log(recipes)
 })
 
-app.post('/recipes', async (req: Request, res: Response) => {
+app.post('/Recipes', async (req: Request, res: Response) => {
   const {category, name, description, image, ingredients, instructions} = req.body;
   let new_recipe = new Recipe({
     category,
@@ -47,7 +50,7 @@ app.post('/recipes', async (req: Request, res: Response) => {
   })
 
   try {
-    new_recipe.save();
+    new_recipe = await new_recipe.save()
     res.send(`${name} successfully loaded.`);
   }
   catch(error: any){
@@ -56,16 +59,17 @@ app.post('/recipes', async (req: Request, res: Response) => {
   }
 })
 
-app.put('/recipes/:recipeName/ingredients', async (req: Request, res: Response) => {
+app.put('/Recipes/:recipeName/ingredients', async (req: Request, res: Response) => {
   const recipe_name = req.params.recipeName;
-  const ingredient = req.body.newIngredient;
 
   const recipe = await Recipe.findOne({name: recipe_name});
 
   if (recipe){
     try {
-      recipe.ingredients.push(ingredient)
+      recipe.ingredients = [...recipe.ingredients, req.body.ingredient]
+      await recipe.save()
       res.send('Recipe ingredients updated.')
+      console.log("Instruction added")
     }
     catch(err: any){
       res.sendStatus(500).send(`ERROR: ${err.message}`)
@@ -76,15 +80,15 @@ app.put('/recipes/:recipeName/ingredients', async (req: Request, res: Response) 
   }
 })
 
-app.put('/recipes/:recipeName/instructions', async (req: Request, res: Response) => {
+app.put('/Recipes/:recipeName/instructions', async (req: Request, res: Response) => {
   const recipe_name = req.params.recipeName;
-  const instruction = req.body.newInstruction;
 
   const recipe = await Recipe.findOne({name: recipe_name})
 
   if (recipe) {
     try {
-      recipe.instructions.push(instruction)
+      recipe.instructions = [...recipe.instructions, req.body.instruction]
+      await recipe.save()
       res.send('Recipe instruction updated.')
     }
     catch(err: any){

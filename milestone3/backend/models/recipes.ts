@@ -32,7 +32,9 @@ const recipeSchema = new Schema<RecipeInterface>({
         required: true
     }
 
-}, {collection: 'Recipes'});
+}, 
+{ collection: 'Recipes'}
+);
 
 
 export const Recipe = model<RecipeInterface>('Recipes', recipeSchema, 'Recipes');
