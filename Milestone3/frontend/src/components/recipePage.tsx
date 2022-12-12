@@ -5,7 +5,7 @@ import RecipePreview from "./recipePreview";
 import { useParams } from "react-router-dom";
 
 
-
+//function to get the index of the correct recipe from recipedata based off of the id provided from the link from recipe preview
 function getCorrectRecipe(data: Recipe[], name: String | undefined) {
   for (let i = 0; i < data.length; i++) {
       if (data[i].name === name) {
@@ -27,6 +27,7 @@ export default function RecipePage() {
             <div className= "flex-content">
                 <h1>{recipes[index].name}</h1>
                 <p>{recipes[index].description}</p>
+                {/* Ingredients */}
                 <h2>Ingredients</h2>
                 {recipes[index].ingredients.map(ingredient =>
                     <li>{ingredient}</li>)}
@@ -34,6 +35,7 @@ export default function RecipePage() {
         </div>
         <h2>Preparation</h2>
         <ol>
+            {/* Instructions */}
             {recipes[index].instructions.map(instruction =>
                 <li>{instruction}</li>)}
         </ol>

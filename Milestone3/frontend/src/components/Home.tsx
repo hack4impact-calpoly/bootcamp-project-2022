@@ -5,7 +5,7 @@ import RecipePreview from "./recipePreview";
 
 export default function Home() {
   return (
-    
+    //loading in recipe previews
     <div>
     {recipes.map((recipe: Recipe ) => (
         <RecipePreview {...recipe} />
