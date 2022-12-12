@@ -2,23 +2,33 @@ import { Link } from "react-router-dom";
 
 interface Recipe {
     name: string;
-    desc: string;
+    description: string;
     image: string;
     ingredients: string[];
-    steps: string[];
-    path: string,
-    id: string
+    instructions: string[];
 }
 
-function RecipePreview(props: Recipe) {
+interface RecipePreviewProps extends Recipe{
+    external?: boolean;
+}
+
+function RecipePreview(props: RecipePreviewProps) {
+    let path = "";
+    if (props.external) {
+        path = "/externalRecipe/" + props.name;
+    }
+    else {
+        path = "/recipe/" + props.name;
+    }
+    
     return (
         <div className="gridBox">
             <h2>
-                <Link to={props.path} className="gridTitle">{props.name}</Link>
+                <Link to={path} className="gridTitle">{props.name}</Link>
             </h2>
             <div className="gridContent">
                 <img src={props.image} alt="food" className="gridImg" />
-                <p className="gridText">{props.desc}</p>
+                <p className="gridText">{props.description}</p>
             </div>
         </div>
     );
