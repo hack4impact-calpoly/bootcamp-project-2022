@@ -1,0 +1,26 @@
+* { margin: 0; padding: 0; border: none; }
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(141, 59, 200);
+  padding-bottom: 30px;
+}
+
+.title {
+    text-decoration: None;
+}
+.title-text{
+    display: flex;
+    color: black;
+    padding-left: 40px;
+    padding-top: 30px;
+}
+.ab {
+  color: black;
+  display: flex;
+  text-decoration: None;
+  padding-top: 30px;
+  padding-right: 40px;
+}
