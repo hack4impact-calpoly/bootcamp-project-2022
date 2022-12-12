@@ -1,9 +1,8 @@
-import noodles from './noodles.png'
-import peanut_butter from './peanut-butter.png'
-import toast from './toast.png'
 import site_icon from './site-icon.png'
 import "./Home.css"
 import { Link } from 'react-router-dom'
+import { recipes } from '../recipeData'
+import RecipePreview from './RecipePreview'
 
 export default function Home() {
     return(
@@ -15,18 +14,7 @@ export default function Home() {
                 </div>
 
                 <div className="recipe-container">
-                    <div className="recipe">
-                        <img className="recipe-icons" src={toast} />
-                        <a href="toast.html"><p className="recipe-text"> Over-toasted buttered toast</p></a>
-                    </div>
-                    <div className="recipe">
-                        <img className="recipe-icons" src={noodles} />
-                        <a href="noodles.html"><p className="recipe-text">Barely-undercooked instant noodles</p></a>
-                    </div>
-                    <div className="recipe">
-                        <img className="recipe-icons" src={peanut_butter} />
-                        <a href="peanut-butter.html"><p className="recipe-text">Peanut-butter-only sandwich</p></a>
-                    </div>
+                    {recipes.map((recipe) => (<RecipePreview {...recipe}/>))}
                 </div>
             </div>  
 

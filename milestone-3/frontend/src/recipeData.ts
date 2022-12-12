@@ -10,8 +10,8 @@ export interface Recipe
 export const recipes: Recipe[] = [
     {
         name: "Over-toasted buttered toast",
-        description: "Toast that's been toasted for way too long.",
-        image: "toast.png",
+        description: "Toast that's been toasted for way too long",
+        image: "./toast.png",
         ingredients: [
             "Bread (ideally stale and a week old--why else would you make toast?",
             "A toaster", 
@@ -32,7 +32,7 @@ export const recipes: Recipe[] = [
     {
         name: "Barely-undercooked instant noodles",
         description: "A cup of cup noodles that's quite a bit short of al dente",
-        image: "noodles.png",
+        image: "./noodles.png",
         ingredients: [
             "Cup of instant noodles",
             "Water (boiled in a teakettle)",
@@ -49,8 +49,8 @@ export const recipes: Recipe[] = [
     },
     {
         name: "Peanut-butter-only sandwich",
-        description: "Exactly as the name states: two pieces of bread and a LOT of peanut butter",
-        image: "peanut-butter.png",
+        description: "Two pieces of bread and a LOT of peanut butter",
+        image: "./peanut-butter.png",
         ingredients: [
             "Over-toasted toast (refer to the burnt toast recipe)",
             "Peanut butter",
