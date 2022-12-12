@@ -1,5 +1,3 @@
-import { toNamespacedPath } from "path";
-
 export interface Recipe
 {
     name: string;
