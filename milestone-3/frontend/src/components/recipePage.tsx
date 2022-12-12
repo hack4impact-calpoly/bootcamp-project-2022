@@ -18,10 +18,19 @@ interface Recipe_ext extends Recipe{
 }
 
 export default function RecipePage(props: RecipePageProps) {
+    // Use the `useParams` hook to access the URL parameters.
     const { name } = useParams(); 
+
+    // Create state variables for the recipe, new ingredient and new instruction.
     const [recipe, setRecipe] = useState<Recipe_ext>(recipes[0]);
+    const [newIngredient, setNewIngredient] = useState('');
+    const [allIngredients, setAllIngredients] = useState<string[]>([]);
+    const [newInstruction, setNewInstruction] = useState('');
+    const [allInstructions, setAllInstructions] = useState<string[]>([]);
+
     // Create error variable for testing
     const [error, setError] = useState("");
+
     useEffect(() =>{
         // Checks whether external API needs to be used
         if (props.external) {
@@ -33,6 +42,11 @@ export default function RecipePage(props: RecipePageProps) {
                 } else {
                     setError("")
                     setRecipe(data[0])
+
+                    // Update the allIngredients and allInstructions state variables
+                    // with the ingredients and instructions from the selected recipe.
+                    setAllIngredients(data[0].ingredients);
+                    setAllInstructions(data[0].instructions);
                 }
             })
         } // If recipe is not external, then look for recipe in the imported recipe list
@@ -41,20 +55,24 @@ export default function RecipePage(props: RecipePageProps) {
             if (recipe_temp === undefined) { 
                 recipe_temp = recipes[0];
             }
-            setRecipe(recipe_temp) 
+            setRecipe(recipe_temp);
+
+            // Update the allIngredients and allInstructions state variables
+            // with the ingredients and instructions from the selected recipe.
+            setAllIngredients(recipe_temp.ingredients);
+            setAllInstructions(recipe_temp.instructions);
         }
     }, [name, props.external]
     )
-    // Find the recipe corresponding to the selected option.
-    const [newIngredient, setNewIngredient] = useState('');
-    const [allIngredients, setAllIngredients] = useState(recipe.ingredients);
-    const [newInstruction, setNewInstruction] = useState('');
-    const [allInstructions, setAllInstructions] = useState(recipe.instructions);
+
     return (
     <body>
         <div className='recipe-box'>
+
             <div>
                 <h1>{recipe.name}</h1>
+
+                {/* Ingredients */}
                 <h2>Ingredients</h2>
                 <ul className='ingredients'>
                     {/* Maps each items in the ingredients array to a list item */}
@@ -86,7 +104,9 @@ export default function RecipePage(props: RecipePageProps) {
                     <img className="thumbnail-large" alt={recipe.name} src={recipe.image} />
                 </div>             
         </div>
+        
         <div>
+            {/* Instructions */}
             <h2>Instructions</h2>
             <ol className='instructions'>
                 {/* Maps each item in the instructions array to a list item. */}
