@@ -24,10 +24,6 @@ export default function Home() {
         <div className="page-card-wrapper">
             {/*A box at the top of the card with a link to the About page in it*/}
             <div className="page-card">
-                <div className="nav-menu"> 
-                    <img src={site_icon} className="nav-image" />
-                    <Link className="nav-text" to="/about">About</Link>
-                </div>
 
                 {/*A flexbox containing recipe preview cards, created from the recipeData file and then
                 externally from the Hu's Chews API*/}

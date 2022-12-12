@@ -30,7 +30,11 @@ and horizontal centering easily*/
     border-color: var(--container-border-color);
     border-width: 4pt;
     border-style: solid;
-    padding: 20pt;
+    padding-top: 0pt;
+    padding-left: 20pt;
+    padding-right: 20pt;
+    padding-bottom: 20pt;
+
     border-radius: 4pt;
     transform: translateX(50pt)
 }
