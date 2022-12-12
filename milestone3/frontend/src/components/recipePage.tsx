@@ -1,20 +1,42 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './style.css';
-import recipes from './recipeData';
+import recipes, {Recipe} from './recipeData';
 import {useParams} from "react-router-dom";
 
-export default function RecipePage() {
-    const {id} = useParams();
-    const recipe = recipes.find(recipe => recipe.name === id);
-    if (recipe === undefined) {
-        throw new TypeError('Recipe does not exist');
-    }
+interface RecipePageProps {
+    external?: boolean;
+}
 
+export default function RecipePage(props: RecipePageProps) {
+    const {id} = useParams();
+    const [recipe, setRecipe] = useState<Recipe>({
+        name: "",
+        description: "",
+        image: "",
+        ingredients: [],
+        instructions: []
+    });
     const [newIngredient, setNewIngredient] = useState('');
     const [allIngredients, setAllIngredients] = useState(recipe.ingredients);
-
     const [newInstruction, setNewInstruction] = useState('');
     const [allInstructions, setAllInstructions] = useState(recipe.instructions);
+
+    useEffect(() => {
+        if (props.external) {
+          // make an API call with the url param & setRecipe
+          fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id?.replace(/ /g, "%20"))
+          .then((res) => res.json())
+          .then((data) => setRecipe(data[0]));
+        } else {
+          // query all of your recipe data for the recipe you want & setRecipe
+            setRecipe(recipes.find(recipe => recipe.name === id) || recipes[0]);
+        }
+    }, [id, props.external]);
+    
+    useEffect(() => {
+        setAllIngredients(recipe.ingredients);
+        setAllInstructions(recipe.instructions);
+    }, [recipe]);
 
     return(
         <div className="flex-container">
@@ -62,3 +84,7 @@ export default function RecipePage() {
         </div>
     );
 }
+
+RecipePage.defaultProps = {
+    external: false
+};

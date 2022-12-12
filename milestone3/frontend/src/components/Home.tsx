@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import "./style.css";
-import recipes from './recipeData';
-import {Recipe} from './recipeData';
+import recipes, {Recipe} from './recipeData';
 import RecipePreview from './recipePreview';
 
 export default function Home() {
@@ -19,7 +18,7 @@ export default function Home() {
             <RecipePreview {...recipe}/>
         ))}
         {externalRecipes.map((recipe: Recipe) => (
-            <RecipePreview {...recipe}/>
+            <RecipePreview {...recipe} external={true}/>
         ))}
       </div>
     );

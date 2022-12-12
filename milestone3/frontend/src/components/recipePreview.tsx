@@ -3,11 +3,22 @@ import './style.css';
 import {Recipe} from './recipeData';
 import {Link} from 'react-router-dom';
 
-export default function RecipePreview(props: Recipe) {
+interface RecipePreviewProps extends Recipe {
+    external: boolean;
+}
+
+export default function RecipePreview(props: RecipePreviewProps) {
+    let address = "";
+    if (props.external) {
+      address = "externalRecipe/" + props.name;
+    } else {
+      address = "recipe/" + props.name;
+    }
+
     return (
         <div className="recipe">
             <h2>
-                <Link to={"/recipe/" + props.name}>{props.name}</Link>
+                <Link to={address}>{props.name}</Link>
             </h2>
             <div className="recipe-body">
                 <img className="img-small" src={props.image} alt="food"/>
@@ -16,3 +27,7 @@ export default function RecipePreview(props: Recipe) {
         </div>
     );
 }
+
+RecipePreview.defaultProps = {
+    external: false
+};
