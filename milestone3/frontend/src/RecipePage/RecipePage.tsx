@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
 import { Recipe } from "../types";
+import { recipeData } from "../recipeData";
 import './RecipePage.css';
 export function RecipePage() {
   const { recipeName } = useParams();
@@ -10,8 +11,18 @@ export function RecipePage() {
       const response = await fetch(`https://bootcamp-milestone-4.onrender.com/recipe/${recipeName}`);
       const recipe = (await response.json() as Recipe[])[0];
       setRecipe(recipe);
+      if (!recipe) { // recipe is not in the API
+        const recipe = recipeData.find((recipe) => {
+          return recipe.name.toLowerCase() === recipeName;
+        })
+        if (recipe) setRecipe(recipe);
+      }
     }
-    fetchRecipe();
+    try {
+      fetchRecipe();
+    } catch (error) {
+      console.log(error);
+    }
   }, [recipeName]);
   return (
     <div className="main">

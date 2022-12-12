@@ -1,16 +1,23 @@
 import { Recipe } from "../../types"
 import { useEffect, useState } from "react"
 import RecipePreview from "../RecipePreview/RecipePreview"
-
+import { recipeData } from "../../recipeData"
 export default function Homepage() {
   const [recipes, setRecipes] = useState<Recipe[]>([])
   useEffect(() => {
     async function fetchRecipes() {
       const response = await fetch("https://bootcamp-milestone-4.onrender.com/recipe")
       const recipes = await response.json()
-      setRecipes(recipes)
+      setRecipes([
+        ...recipes,
+        ...recipeData
+      ])
     }
-    fetchRecipes()
+    try {
+      fetchRecipes()
+    } catch (error) {
+      console.log(error)
+    }
   }, [])
   return (
     <div className="main">
@@ -23,6 +30,7 @@ export default function Homepage() {
                 recipeName={recipe.name} 
                 recipeDescription={recipe.description}
                 recipeImage={recipe.image}
+                key={recipe.name}
               />
             )
           })
