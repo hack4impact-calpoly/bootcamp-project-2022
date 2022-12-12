@@ -37,7 +37,7 @@
   padding-right: 10%;
 }
 
-button{
+.button-1{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border-radius: 12px;
   background-color: lavender; 
@@ -52,10 +52,14 @@ button{
   margin-bottom: 2%;
 }
 
-button:hover {
-  background-color: #4CAF50; 
+.button-1:hover {
+  background-color: #7cca7e; 
   color: white;
   cursor: pointer
+}
+
+.button-2{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h3 {
@@ -92,6 +96,11 @@ body{
 li{
   margin: 10px 0;
 }
+
+/* li:hover{
+  text-decoration: line-through;
+  cursor: pointer;
+} */
 
 /*for color changing text animation in navigation bar*/
 @keyframes animate{

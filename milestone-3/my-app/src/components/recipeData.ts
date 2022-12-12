@@ -1,19 +1,23 @@
 export interface Recipe {
-    title: string;
+    name: string;
     image: string;
+    description: string;
     imgAltName: string;
     ingredients: string[];
     instructions: string[];
     orig_link: string; 
     orig_link_name: string;
-  }
+    buttonHref: string;
+}
+
 
  
   const recipes: Recipe[] = [
 	{
-        title: "banana bread", 
+        name: "banana bread", 
         image: "https://www.allrecipes.com/thmb/GBkEPttyEbnx2x8tcRzkabMGYi0=/2000x2000/filters:no_upscale()/20144-banana-banana-bread-mfs-60-bddcb8e0caac452386de52f6fecf33db.jpg",
         imgAltName: "Banana Bread Image Here",
+        description: "decadant sweet cake made with bananas. pairs great with a scoop of vanilla ice cream!",
         ingredients: [
             "2 cups all-purpose flour",
             "1 teaspoon baking soda",
@@ -29,13 +33,15 @@ export interface Recipe {
             "Bake in the preheated oven until a toothpick inserted into the center comes out clean, about 60 minutes. Let bread cool in pan for 10 minutes, then turn out onto a wire rack to cool completely."
         ], 
         orig_link: "https://www.allrecipes.com/recipe/20144/banana-banana-bread/",
-        orig_link_name: "allrecipes.com"
+        orig_link_name: "allrecipes.com",
+        buttonHref: "/banana bread" 
     
     },
 	{
-        title: "apple pie", 
+        name: "apple pie", 
         image: "https://www.southernliving.com/thmb/8ZPRxIpiGVngabs8pWizT9qIT3U=/1507x2000/filters:fill(auto,1)/2589601_mailb_mailbox_apple_pie_003_0_0-2000-de5c23bb4c4e433fb6d5547d19cb3bcd.jpg",
         imgAltName: "Lemon Bar Image Here",
+        description: "delicious apple and cinamon filling wrapped in flaky pie crust. perfect for fall time!",
         ingredients: [
             "1 recipe for double pie crust",
             "2 1/4 lbs Granny Smith Apples (7 cups thinly sliced)",
@@ -55,13 +61,15 @@ export interface Recipe {
             "Bake at 425˚F in the center of the oven for 15 minutes. Reduce the heat to 350˚F and continue baking another 45 minutes or until apples are soft and filling is bubbling through the vents.* Rest at room temp 1 hour before serving."
         ], 
         orig_link: "https://natashaskitchen.com/apple-pie-recipe/",
-        orig_link_name: "natashaskitchen.com"
+        orig_link_name: "natashaskitchen.com",
+        buttonHref: "/apple pie"  
 
     },
 	{   
-        title: "lemon bars", 
+        name: "lemon bars", 
         image: "https://preppykitchen.com/wp-content/uploads/2020/02/Lemon-Bars-feature-new.jpg",
         imgAltName: "Lemon Bar Image Here",
+        description: "the perfect mix of tart and sweet. hard to go wrong with a classic lemon bar!",
         ingredients: [
             "1/2 pound unsalted butter, at room temperature [crust]",
             "1/2 cup granulated sugar [crust]",
@@ -82,11 +90,13 @@ export interface Recipe {
             "Cut into squares and dust with confectioners' sugar."
         ], 
         orig_link: "https://www.foodnetwork.com/recipes/ina-garten/lemon-bars-recipe-1941483",
-        orig_link_name: "foodnetwork.com"
+        orig_link_name: "foodnetwork.com",
+        buttonHref: "/lemon bars"
     } 
 ];
 
 export default recipes;
+
 
 
 

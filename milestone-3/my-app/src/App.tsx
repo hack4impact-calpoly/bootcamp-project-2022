@@ -8,27 +8,19 @@ import Home from "./components/home/home";
 
 
 function App() {
+
   return (
     <body>
-      <BrowserRouter>
-        
-        <Navbar/>
-
+      <BrowserRouter>  
+       <Navbar/>
         <Routes>
               <Route path = "/aboutme" element ={<About/>}/>
-        </Routes>
-
-        <Routes>
-            <Route path = "/" element = {<Home/>} />
-        </Routes>
-
-        <Routes>
+              <Route path = "/" element = {<Home/>} />
               <Route path = "/:id" element ={<RecipePage/>}/>
+              <Route path= "externalRecipe/:id" element={<RecipePage external />} />
         </Routes>
-
       </BrowserRouter>
     </body>
   );
 } 
-
 export default App;

@@ -1,47 +1,109 @@
-import React from 'react';
+import React, { useState, useEffect, ChangeEvent } from "react";
 import { useParams } from "react-router-dom";
-import recipeData from "../recipeData";
+import  recipes, { Recipe } from './recipeData';
+import '../App.css';
 
-interface RecipePage{
-    title: string;
-    image: string;
-    imgAltName: string;
-    ingredients: string[];
-    preparation: string[]; 
-    orig_link: string; 
-    orig_link_name: string;
+
+interface RecipePageProps{  
+    external?: boolean; 
+};
+RecipePage.defaultProps = {
+    external: false
 };
 
-function RecipePage (){
+
+export default function RecipePage (props: RecipePageProps){
 
     const {id} = useParams();
-    const target = recipeData.find(recipe=> recipe.title === id)
-    window.scrollTo(0, 0)
+    const target = recipes.find(recipe => recipe.name === id);
+    const [recipe, setRecipe] = useState<Recipe>({
+        name: "",
+        image: "",
+        imgAltName: "",
+        description: "", 
+        ingredients: [],
+        instructions: [],
+        orig_link: "", 
+        orig_link_name: "",
+        buttonHref: ""
+    });
+    
+    const [newIngredient, setNewIngredient] = useState('');
+    const [allIngredients, setAllIngredients] = useState(recipe.ingredients); 
+    const [newStep, setNewStep] = useState('');
+    const [allSteps, setAllSteps] = useState(recipe.instructions);
 
-    if (target){ return(
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+    
+    useEffect(() => {
+        if (props.external) {
+                fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id)
+                .then((res) => res.json())
+                .then((data) => {setRecipe(data[0])
+                setAllIngredients(data[0].ingredients)
+                setAllSteps(data[0].instructions)
+                });  
+                  
+        }else{
+            setRecipe(recipes.find((recipe) => recipe.name === id) || recipes[0])
+                        setRecipe(recipes.find((recipe) => recipe.name === id) || recipes[0])
+
+    }}, [id, props.external]);
+
+    useEffect(() => {
+        setAllIngredients(recipe.ingredients);
+        setAllSteps(recipe.instructions);
+    }, [recipe]);
+    
+    return(   
         
         <div className = "recipe-container">
-                  <h2>{target.title}</h2>
-                  <img src= {target.image}
-                      alt= {target.imgAltName}
+                  <h2>{recipe.name}</h2>
+                  <img src= {recipe.image}
+                      alt= {recipe.imgAltName}
                       width="350"/>
+
                   <h3>ingredients</h3>
                         <ul>
-                            {target.ingredients.map(function(name, index) {
+                            {allIngredients.map(function(name, index) {
                                 return <li key={index}>{name}</li>; 
                             })}
                         </ul>
+                        <div>
+                            <input placeholder= "2 cups of spinach"
+                                value={newIngredient} // add newIngredient as the input's value
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                                    // this event handler updates the value of newIngredient
+                                    setNewIngredient(e.target.value);}}
+                            />
+                            <button onClick ={() => setAllIngredients([...allIngredients, newIngredient])}>
+                                Add Ingredient
+                            </button>
+                        </div>
+        
                   <h3>preparation</h3>
-                         <ol>
-                            {target.instructions.map(function(name, index) {
-                                return <li key={index}> {name} </li> ;
+                        <ol>
+                            {allSteps.map(function(name, index) {
+                                return <li key={index}>{name}</li>; 
                             })}
                         </ol>
-                  <p>recipe from: <a href={target.orig_link} target = "_blank">{target.orig_link_name}</a></p>     
-              </div> 
-        )} else {
-            return( <p></p> );
-        }
+                        <div>
+                            <input
+                                placeholder= "Sauté for 30 seconds"
+                                value={newStep} // add newIngredient as the input's value
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                                    // this event handler updates the value of newIngredient
+                                    setNewStep(e.target.value);
+                                }}
+                            />
+                            <button onClick={() => setAllSteps([...allSteps, newStep])}>
+                                Add Step
+                            </button>
+                        </div>
+                  <p>recipe from: <a href={recipe.orig_link} target = "_blank">{recipe.orig_link_name}</a></p>    
+                </div> 
+       ) 
 };
 
-export default RecipePage;
