@@ -29,6 +29,20 @@ export default function RecipePage(props: Recipe) {
     let [newIngredient, setNewIngredient] = useState('');
     let [newInstruction, setNewInstruction] = useState('');
 
+    useEffect(() => {
+        let ignore = false;
+        async function fetchData() {
+          let data = await fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + param);
+          let recipe = await data.json();
+          if (!ignore) {
+            setAllIngredients2(recipe[0].ingredients);
+            setAllInstructions2(recipe[0].instructions);
+          }
+        }
+        fetchData();
+        return () => { ignore = true; }
+    }, [param])
+
     return (
         <main className="recipe-page">
             <div className="intro">
