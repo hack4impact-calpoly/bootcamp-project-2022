@@ -13,6 +13,7 @@ function App() {
       <Routes>
         <Route path = "/" element = {<Home />} />
         <Route path = "about" element = {<About />} />
+        {/*An array of routes created based on each recipe in recipeData:*/}
         {
           recipes.map((rec) => (<Route path = {rec.name} element = {<RecipePage {...rec} />} />))
         }

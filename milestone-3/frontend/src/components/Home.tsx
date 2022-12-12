@@ -7,17 +7,20 @@ import RecipePreview from './RecipePreview'
 export default function Home() {
     return(
         <div className="page-card-wrapper">
+            {/*A box at the top of the card with a link to the About page in it*/}
             <div className="page-card">
                 <div className="nav-menu"> 
                     <img src={site_icon} className="nav-image" />
                     <Link className="nav-text" to="/about">About</Link>
                 </div>
 
+                {/*A flexbox containing recipe preview cards, created from the recipeData file*/}
                 <div className="recipe-container">
                     {recipes.map((recipe) => (<RecipePreview {...recipe}/>))}
                 </div>
             </div>  
 
+            {/*A site title and brief description*/}
             <div className="description-layout-wrapper">
                 <div className="logo-text">
                     <span>
