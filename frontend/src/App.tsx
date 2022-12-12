@@ -4,14 +4,15 @@ import Navbar from './components/navbar';
 import Home from './components/home';
 import About from './components/about';
 import recipes from './recipeData';
-import Recipe from './components/recipe';
+// import Recipe from './components/recipe';
+import RecipePage from './components/recipe';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
 
   const [allRecipes, setUpdateRecipes] = useState(recipes);
   useEffect(() => {
-    fetch('https://bootcamp-milestone-4.onrender.com/recipe')
+    fetch('http://localhost:3001/recipe')
       .then((res) => res.json())
       .then((data) =>
         setUpdateRecipes((curr: any) => {
@@ -32,10 +33,9 @@ function App() {
         <Route path="/about" element={<About />} />
         {/* recipe pages */}
         {allRecipes.map((recipe) => (
-          // convert the recipe name to a url-friendly string
           <Route
-            path={`/recipes/${recipe.name.toLowerCase().replace(/\s/g, "-")}`}
-            element={<Recipe {...recipe}/>}
+            path="/recipes/:name"
+            element={<RecipePage {...recipe}/>}
           />
         ))}
       </Routes>

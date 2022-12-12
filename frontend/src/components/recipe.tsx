@@ -1,4 +1,6 @@
 import React, { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, useState, ChangeEvent, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Recipe } from '../recipeData';
 
 import './about.css';
 
@@ -15,14 +17,54 @@ interface RecipeProps {
  
   
 
-export default function Recipe(props: RecipeProps) {
+export default function RecipePage(props: RecipeProps) {
 
 
+  const [recipe, setRecipe] = useState<Recipe>({
+    name: '',
+    description: '',
+    image: '',
+    ingredients: [],
+    instructions: [],
+  });
+  const { name } = useParams();
+
+  useEffect(() => {
+    console.log("NAME", name)
+        fetch("http://localhost:3001/recipe/" + props.name)
+        .then(response => response.json())
+        
+                        .then((data) => {
+                          setRecipe(data[0]);
+                          setIngredients(data[0].ingredients);
+                          setInstructions(data[0].instructions);
+                          setIngredientIndex(data[0].ingredients.length);
+                          setInstructionIndex(data[0].instructions.length);
+                        })
+},[props.name])
+
+
+useEffect(() => {
+  setIngredients(recipe.ingredients);
+}, [props.ingredients]); 
+
+
+useEffect(() => {
+  setInstructions(recipe.instructions);
+}, [props.instructions]); 
+
+
+useEffect(() => {
+  setIngredients(recipe?.ingredients);
+  setInstructions(recipe?.instructions);
+}, [recipe]);
  
 
 
   const [ingredients, setIngredients] = useState(props.ingredients);
   const [newIngredient, setNewIngredient] = useState('');
+
+
 
 
 
@@ -34,27 +76,6 @@ export default function Recipe(props: RecipeProps) {
 
 
 
-  const addIngredients = (
-  ) =>{
-    if(newIngredient != "")
-    {
-      setIngredients([...ingredients.slice(0, ingredientIndex), newIngredient, ...ingredients.slice(ingredientIndex)]);
-      setNewIngredient("");
-      setIngredientIndex(ingredientIndex+1)
-    }
-  }
-
-
-
-  const addInstructions = (
-    ) =>{
-      if(newInstruction != "")
-      {
-        setInstructions([...instructions.slice(0, instructionIndex), newInstruction, ...instructions.slice(instructionIndex)]);
-        setNewInstruction("");
-        setInstructionIndex(instructionIndex+1)
-      }
-    }
 
 
 
@@ -72,6 +93,52 @@ export default function Recipe(props: RecipeProps) {
           setInstructions([...instructions.slice(0, index), ...instructions.slice(index + 1)]);
         }
       };
+
+
+
+
+
+
+
+      useEffect(() => {
+        setIngredients(recipe?.ingredients);
+        setInstructions(recipe?.instructions);
+      }, [recipe]);
+
+
+
+    
+      const addIngredient = () => {
+        const request = {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ingredient: newIngredient }),
+        };
+        fetch(`http://localhost:3001/recipe/${name}/ingredient`, request)
+          .then((response) => console.log(response))
+          .catch((error) => console.log(error));
+        setIngredients([...ingredients, newIngredient]);
+        setIngredientIndex(ingredientIndex +1)
+      };
+
+
+
+
+    
+      const addInstruction = () => {
+        const request = {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ instruction: newInstruction }),
+        };
+    
+        fetch(`http://localhost:3001/recipe/${name}/instruction`, request)
+          .then((response) => console.log(response))
+          .catch((error) => console.log(error));
+        setInstructions([...instructions, newInstruction]);
+        setInstructionIndex(instructionIndex+1)
+      };
+
 
 
     return (
@@ -124,18 +191,13 @@ export default function Recipe(props: RecipeProps) {
               placeholder="1"
               min="1"
               max={ingredients.length + 1}
-              value={ingredientIndex + 1}
+              value={ingredientIndex+1}
               onChange={(e) => {
                 setIngredientIndex(parseInt(e.target.value) - 1);
               }}
             />
 
-          <button
-          
-          onClick={() =>
-            addIngredients()
-          }
-        >
+      <button className="add-item" onClick={addIngredient}>
           Add Ingredient
         </button>
         </div>
@@ -181,17 +243,15 @@ export default function Recipe(props: RecipeProps) {
               placeholder="1"
               min="1"
               max={instructions.length + 1}
-              value={instructionIndex + 1}
+              value={instructionIndex+1}
               onChange={(e) => {
                 setInstructionIndex(parseInt(e.target.value) - 1);
               }}
             />
 
-          <button
-          onClick={() =>
-            addInstructions()
-          }
-        >
+       
+
+        <button className="add-item" onClick={addInstruction}>
           Add Instruction
         </button>
         </div>
@@ -207,3 +267,17 @@ export default function Recipe(props: RecipeProps) {
 
 
     )};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
