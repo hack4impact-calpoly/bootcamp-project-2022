@@ -12,8 +12,7 @@ const recipes: Recipe[] = [
   {name: "Pancakes",description:"Can't go wrong withe pancakes",image:"https://www.allrecipes.com/thmb/O84MQ6KTV8LpOOUp2FfFHD-yJL8=/2000x2000/filters:no_upscale()/45396-easy-pancakes-mfs-36-b720f5b89f854d01b9d0e92661fa4c2d.jpg",ingredients: ["Flour","Baking Powder","Sugar","Salt","Milk","Butter","Egg"],instructions:["Sift the dry ingredients together.","Make a well, then add the wet ingredients. Stir to combine.","Scoop the batter onto a hot griddle or pan.","Cook for two to three minutes, then flip.","Continue cooking until brown on both sides"]}
 ];
 
-
-
+// {"name": "Pancakes","description":"Can't go wrong withe pancakes","image":"https://www.allrecipes.com/thmb/O84MQ6KTV8LpOOUp2FfFHD-yJL8=/2000x2000/filters:no_upscale()/45396-easy-pancakes-mfs-36-b720f5b89f854d01b9d0e92661fa4c2d.jpg","ingredients": ["Flour","Baking Powder","Sugar","Salt","Milk","Butter","Egg"],"instructions":["Sift the dry ingredients together.","Make a well, then add the wet ingredients. Stir to combine.","Scoop the batter onto a hot griddle or pan.","Cook for two to three minutes, then flip.","Continue cooking until brown on both sides"]}
 export default recipes; // This will allow us to access this data anywhere!
 
 
