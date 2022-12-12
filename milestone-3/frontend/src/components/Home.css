@@ -15,7 +15,6 @@ and horizontal centering easily*/
     justify-content: center;
     align-items: center;
     min-height: 98vh;
-    background-color: var(--page-color);
 }
 
 /*Flexbox that will make the page appear as a single "card"*/

@@ -68,8 +68,3 @@ h2{
     margin-bottom: 0;
     margin-top: 0.5em;
 }
-
-/*To set the color of the whole page's background*/
-.background-color{
-    background-color: var(--page-color);
-}
