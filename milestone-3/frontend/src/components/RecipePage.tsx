@@ -36,11 +36,11 @@ export default function RecipePage(props: RecipePageProps) {
 }}, [id, props.external]);
 useEffect(() => {
   fetch(`http://localhost:3001/recipe/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setrecipe(data)
-                setAllIngredients(data.ingredients)
-                setAllInstructions(data.instructions)
+    .then(res => res.json())
+    .then(data => {
+    setrecipe(data)
+    setAllIngredients(data.ingredients)
+    setAllInstructions(data.instructions)
             })
     }, [props.name])
   const [newIngredient, setNewIngredient] = useState('');

@@ -26,7 +26,9 @@
     }
 .text {
     color: black;
-    margin-top: 60px;
-    margin-left: 250px;
+    text-align: center;
+    padding-top: 60px;
+    flex-basis: 50px;
     flex-grow: 1;
+
 }
