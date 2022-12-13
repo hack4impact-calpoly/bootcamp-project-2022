@@ -13,7 +13,7 @@ export default function Home() {
 
     return (
       <div>
-        <h1>Welcome to Dom's Italian Cuisine!</h1>
+        <h1>Welcome to Dom's Italian Cuisine!!</h1>
         {recipes.map((recipe: Recipe) => (
             <RecipePreview {...recipe}/>
         ))}
