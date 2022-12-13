@@ -75,17 +75,29 @@ export default function RecipePage(props: RecipePageProps) {
         
         const url=`http://localhost:3001/recipe/${encodeURIComponent(String(name))}/ingredient`
        
-        await fetch(url, {
+        // await fetch(url, {
+        //   method: "PUT",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify(newIngredient),
+        // })
+        // .catch(error => {
+        //   window.alert(error);
+        //   return;
+        // });
+        fetch(url, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(newIngredient),
+          body: JSON.stringify({ingredient: newIngredient}),
         })
         .catch(error => {
           window.alert(error);
           return;
         });
+
        
         setAllIngredients([...allIngredients, newIngredient])
         setNewIngredient('')
