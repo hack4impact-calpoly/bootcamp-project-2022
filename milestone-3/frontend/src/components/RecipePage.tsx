@@ -49,10 +49,16 @@ export default function RecipePage(props: RecipePageProps) {
          .then((data) => setRecipe(data[0]));
        
             } else {
-          
+          fetch("http://localhost:3001/recipe")
+          .then((res)=>res.json())
+          .then((data)=>{
+            const myRecipe:any = data.find((recipe:Recipe)=>recipe.name===id) 
+            setRecipe(myRecipe)
+          })
+        
           // query all of your recipe data for the recipe you want & setRecipe
-          const myRecipe:any = recipes.find((recipe:Recipe)=>recipe.name===id)
-          setRecipe(myRecipe)
+          // const myRecipe:any = recipes.find((recipe:Recipe)=>recipe.name===id)
+          // setRecipe(myRecipe)
         }
       }, [id, props.external]);
         // return (...)
@@ -61,7 +67,7 @@ export default function RecipePage(props: RecipePageProps) {
  
     const addIngredient=( )=> {
        
-        console.log(newIngredient,"in....",allIngredients)
+       
         setAllIngredients([...allIngredients, newIngredient])
         setNewIngredient('')
       }
