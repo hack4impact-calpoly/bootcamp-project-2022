@@ -1,29 +1,55 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
 import { Recipe } from "../types";
-import { recipeData } from "../recipeData";
 import './RecipePage.css';
 export function RecipePage() {
   const { recipeName } = useParams();
   const [recipe, setRecipe] = useState<Recipe | null>(null);
+  const [newIngredient, setNewIngredient] = useState<string>("");
+  const [newInstruction, setNewInstruction] = useState<string>("");
+  const [refetch, setRefetch] = useState<boolean>(false);
+
   useEffect(() => {
     async function fetchRecipe() {
-      const response = await fetch(`https://bootcamp-milestone-4.onrender.com/recipe/${recipeName}`);
-      const recipe = (await response.json() as Recipe[])[0];
+      const response = await fetch(`/recipe/${recipeName}`);
+      const recipe = (await response.json() as Recipe);
       setRecipe(recipe);
-      if (!recipe) { // recipe is not in the API
-        const recipe = recipeData.find((recipe) => {
-          return recipe.name.toLowerCase() === recipeName;
-        })
-        if (recipe) setRecipe(recipe);
-      }
     }
     try {
       fetchRecipe();
     } catch (error) {
       console.log(error);
     }
-  }, [recipeName]);
+  }, [recipeName, refetch]);
+
+  async function addIngredient() {
+    await fetch(`/recipe/${recipeName}/ingredients`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ingredient: newIngredient,
+      }),
+    });
+    setNewIngredient("");
+    setRefetch(e => !e);
+  }
+
+  async function addInstruction() {
+    await fetch(`/recipe/${recipeName}/instructions`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        instruction: newInstruction,
+      }),
+    });
+    setNewInstruction("");
+    setRefetch(e => !e);
+  }
+
   return (
     <div className="main">
       <div className="recipePanel">
@@ -43,6 +69,10 @@ export function RecipePage() {
             })
           }
         </ul>
+        <div className="addForm">
+          <input type="text" value={newIngredient} onChange={(event) => setNewIngredient(event.target.value)} />
+          <button onClick={addIngredient}>Add Ingredient</button>
+        </div>
       </div>
     </div>
     <div className="preparationPanel">
@@ -59,6 +89,10 @@ export function RecipePage() {
           <li>Sorry, we don't have instructions for this recipe yet</li>
         }
       </ol>
+      <div className="addForm">
+        <input type="text" value={newInstruction} onChange={(event) => setNewInstruction(event.target.value)} />
+        <button onClick={addInstruction}>Add Instruction</button>
+      </div>
     </div>
     </div>
   )

@@ -54,3 +54,9 @@
   align-items: flex-start;
   color: black
 }
+
+.addForm {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}

@@ -1,17 +1,13 @@
 import { Recipe } from "../../types"
 import { useEffect, useState } from "react"
 import RecipePreview from "../RecipePreview/RecipePreview"
-import { recipeData } from "../../recipeData"
 export default function Homepage() {
   const [recipes, setRecipes] = useState<Recipe[]>([])
   useEffect(() => {
     async function fetchRecipes() {
-      const response = await fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+      const response = await fetch("/recipe")
       const recipes = await response.json()
-      setRecipes([
-        ...recipes,
-        ...recipeData
-      ])
+      setRecipes(recipes)
     }
     try {
       fetchRecipes()
