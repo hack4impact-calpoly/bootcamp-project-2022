@@ -1,22 +1,20 @@
 import React from 'react';
-import {ChangeEvent, useState} from 'react';
+import {ChangeEvent, useState, useEffect} from 'react';
 import './recipePage.css';
 import recipes from '../recipeData';
+import { Recipe } from '../recipeData';
 import { useParams } from 'react-router-dom';
 
 
-interface RecipePage{
-    name: string,
-    description: string,
-    image: string
-    ingredients: string[],
-    instructions: string[]
+interface RecipePage {
+    external?: boolean;
 }
 
-export default function RecipePage() {
+export default function RecipePage(props: RecipePage) {
+    
     //prop
     const { id } = useParams();
-    const recipe = recipes.find(x => x.name == id)
+    const [recipe, setRecipe] = useState({name: "", description: "", image: "", ingredients: [""], instructions: [""]})
     //states - ingredient
     const [ingredients, setIngredients] = useState(recipe ? recipe.ingredients : [""])
     const [newIngredient, setNewIngredient] = useState("");
@@ -31,10 +29,31 @@ export default function RecipePage() {
         setNewInstruction(event.currentTarget.value);
     }
 
-    if (recipe == undefined){
-        return <div></div>;
-    }
+    
 
+    useEffect(() => {
+        if (props.external) {
+            fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id)
+            .then((res) => res.json())
+            .then((data) => {
+                setRecipe(data[0]);
+                setIngredients(data[0].ingredients);
+                setInstructions(data[0].instructions);})
+        }
+
+        else {
+            let data = recipes.find(x =>  x.name == id)
+            setRecipe(data ? data : {name: "", description: "", image: "", ingredients: [""], instructions: [""]})
+            if (data){
+                setRecipe(data)
+                setIngredients(data.ingredients)
+                setInstructions(data.instructions)
+            }
+          // query all of your recipe data for the recipe you want & setRecipe
+        }
+      }, [id, props.external]);
+
+      
     return (
 
         <div className = " backgroundcolor">
@@ -101,8 +120,9 @@ export default function RecipePage() {
         </div> 
     
     )
-
-
 }
+RecipePage.defaultProps = {
+  external: false,
+};
 
 

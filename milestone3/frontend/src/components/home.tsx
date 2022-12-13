@@ -6,7 +6,9 @@ import {useState, useEffect} from 'react'
 
 
 function Home() {
+    //connecting to hus chews api
     const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+    // [get] recipe 
     useEffect(() => {
         fetch("https://bootcamp-milestone-4.onrender.com/recipe")
           .then((res) => res.json())
@@ -26,18 +28,17 @@ function Home() {
         name={recipe.name}
         description={recipe.description}
         image={recipe.image}
-        ingredients={recipe.ingredients}
-        instructions={recipe.instructions} 
+        
     />
     )   
-)}
+)} 
+        {/* <!--map for external recipes (hus chews)--> */}
         {externalRecipes.map((recipe) => (
             <RecipePreview
         name={recipe.name}
         description={recipe.description}
         image={recipe.image}
-        ingredients={recipe.ingredients}
-        instructions={recipe.instructions} 
+        external = {true}
     />
     )   
 )}
