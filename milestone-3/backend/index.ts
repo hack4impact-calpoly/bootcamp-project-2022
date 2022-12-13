@@ -6,6 +6,13 @@ const mongoose = require('mongoose');
 const connection_url = "mongodb+srv://newUser:newUser@cluster0.iqyoofp.mongodb.net/RecipesDB?retryWrites=true&w=majority";
 const router: Router = express.Router();
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT');
+  next();
+});
+
 app.listen(3001);
 
 mongoose.connect(connection_url)
@@ -60,7 +67,7 @@ router.put("/recipe/:recipeName/ingredient", async (req: Request, res: Response)
   if(recipe)
   {
     // Appends the new ingredient to the recipe's ingredients property
-    recipe.ingredients += ingredient
+    recipe.ingredients.push(ingredient)
     // Runs Mongoose's .save() on the new recipe, updating it in the database
     await recipe.save()
     // Sends a confirmation message to the user
@@ -79,7 +86,7 @@ router.put("/recipe/:recipeName/instruction", async (req: Request, res: Response
   const recipeName = req.params.recipeName;
   // Saves the newInstruction property as passed in the body of the request. The request
   // body is automatically interpreted as a JSON input as a result of app.use(express.json()). 
-  const instruction= req.body.newInstruction;
+  const instruction = req.body.newInstruction;
   // Uses Mongoose's built-in findOne() method to find the first recipe matching
   // "name": {the name inputted into a URL} 
   const recipe = await RecipeModel.findOne({"name": recipeName})
@@ -88,7 +95,7 @@ router.put("/recipe/:recipeName/instruction", async (req: Request, res: Response
   if(recipe)
   {
     // Appends the new ingredient to the recipe's ingredients property
-    recipe.instructions += instruction
+    recipe.instructions.push(instruction)
     // Runs Mongoose's .save() on the new recipe, updating it in the database
     await recipe.save()
     // Sends a confirmation message to the user

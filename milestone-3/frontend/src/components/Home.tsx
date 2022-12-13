@@ -1,16 +1,29 @@
 import site_icon from './site-icon.png'
 import "./Home.css"
 import { Link } from 'react-router-dom'
-import { recipes } from '../recipeData'
+// import { recipes } from '../recipeData'
 import RecipePreview from './RecipePreview'
 import { useState, useEffect } from 'react' 
-import { Recipe } from '../recipeData'
+import { Recipe, RecipePreviewProps } from '../recipeData'
 
 export default function Home() {
+    // Creates an array (state variable) to store recipes drawn from MongoDB using the API defined
+    // in index.ts in the backend folder. Initializes that array with an empty array that stores
+    // objects with the Recipe interface.
+    const [recipes, setRecipes] = useState<RecipePreviewProps[]>([]);;
+
+    // Calls on the Milestone 4 API to deliver recipe data, formats that data as an array of JSON 
+    // objects, then sets the state variable for the external recipes to that array of JSON objects.
+    useEffect(() => {
+        fetch("http://localhost:3001/recipe")
+            .then((res) => res.json())
+            .then((data) => setRecipes(data));
+    }, []);
+
     // Creates an array (state variable) to store any external recipes drawn from the Hu's Chews API.
     // Initializes that array with an empty array that stores objects with the Recipe interface, 
     // to be populated soon.
-    const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+    const [externalRecipes, setExternalRecipes] = useState<RecipePreviewProps[]>([]);
     
     // Calls on the API to deliver recipe data, formats that data as an array of JSON objects, 
     // then sets the state variable for the external recipes to that array of JSON objects.
@@ -28,7 +41,7 @@ export default function Home() {
                 {/*A flexbox containing recipe preview cards, created from the recipeData file and then
                 externally from the Hu's Chews API*/}
                 <div className="recipe-container">
-                    {recipes.map((recipe) => (<RecipePreview {...recipe} ext = {false}/>))}
+                    {recipes.map((recipe) => (<RecipePreview {...recipe} ext = {false} />))}
                     {externalRecipes.map((externalRecipe) => (<RecipePreview {...externalRecipe} ext = {true} />))}
                 </div>
             </div>  
