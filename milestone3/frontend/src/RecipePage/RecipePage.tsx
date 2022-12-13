@@ -23,29 +23,37 @@ export function RecipePage() {
   }, [recipeName, refetch]);
 
   async function addIngredient() {
-    await fetch(`/recipe/${recipeName}/ingredients`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ingredient: newIngredient,
-      }),
-    });
+    try {
+      await fetch(`/recipe/${recipeName}/ingredients`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ingredient: newIngredient,
+        }),
+      });
+    } catch (error) {
+      console.log(error);
+    }
     setNewIngredient("");
     setRefetch(e => !e);
   }
 
   async function addInstruction() {
-    await fetch(`/recipe/${recipeName}/instructions`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        instruction: newInstruction,
-      }),
-    });
+    try {
+      await fetch(`/recipe/${recipeName}/instructions`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          instruction: newInstruction,
+        }),
+      });
+    } catch (error) {
+      console.log(error);
+    }
     setNewInstruction("");
     setRefetch(e => !e);
   }
