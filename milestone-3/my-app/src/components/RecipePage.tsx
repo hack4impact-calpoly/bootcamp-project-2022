@@ -42,10 +42,10 @@ export default function RecipePage (props: RecipePageProps){
         window.scrollTo(0, 0)
         if (props.external) {
                 fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id)
-                .then((data) => data.json())
-                .then((r) => {setRecipe(r[0])
-                setAllSteps(r[0].instructions)
-                setAllIngredients(r[0].ingredients)
+                .then((response) => response.json())
+                .then((data) => {setRecipe(data[0])
+                setAllSteps(data[0].instructions)
+                setAllIngredients(data[0].ingredients)
                 });                  
         }else{
             setRecipe(recipeData.find((recipe) => recipe.name === id) || recipe)
