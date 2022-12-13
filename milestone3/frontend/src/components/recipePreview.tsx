@@ -3,17 +3,9 @@ import './recipePreview.css'
 import { Recipe } from '../recipeData';
 import { Link } from 'react-router-dom';
 
-interface RecipePreviewProps extends Recipe {
-    external?: boolean;
-}
 
-export default function RecipePreview(props: RecipePreviewProps) {
-    let address = "";
-    if (props.external) {
-        address = "externalRecipe/" + props.name;
-    } else {
-        address = "recipe/" + props.name; // whatever it was before
-    }
+export default function RecipePreview(props: Recipe) {
+    let address = "recipe/" + props.name;
     
     return (
         <div className="card">

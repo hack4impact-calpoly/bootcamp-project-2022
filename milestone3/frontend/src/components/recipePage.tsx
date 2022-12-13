@@ -24,7 +24,7 @@ function RecipePage(props: RecipePageProps) {
     const [newIngredient, setNewIngredient] = useState("");
     const [allInstructions, setAllInstructions] = useState(recipe.instructions);
     const [newInstruction, setNewInstruction] = useState("");
-
+    
     useEffect(() => {
         if (props.external) {
             // make an API call with the url param & setRecipe

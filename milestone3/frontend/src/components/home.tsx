@@ -1,25 +1,23 @@
 import React, { useEffect } from "react";
 import "./home.css";
-import recipes, { Recipe } from "../recipeData";
 import RecipePreview from './recipePreview';
 import { ChangeEvent, useState } from 'react';
+import { Recipe } from "../recipeData";
 
 export default function Home() {
-  const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+  const [recipes, setRecipes] = useState([]);
     useEffect(() => {
       fetch("http://localhost:3001/recipe")
         .then((res) => res.json())
-        .then((data) => setExternalRecipes(data));
+        .then((data) => setRecipes(data))
+        .catch((error) => console.log(error));
     }, []);
 
   return (
     <body>
         <div className="cards" id="recipe-list">
-            {recipes.map((recipe) => (
-              <RecipePreview {...recipe}/>
-            ))}
-            {externalRecipes.map((recipe) => (
-              <RecipePreview {...recipe} external/>
+            {recipes.map((recipe: any) => (
+              <RecipePreview {...recipe} />
           ))}
         </div>
     </body>
