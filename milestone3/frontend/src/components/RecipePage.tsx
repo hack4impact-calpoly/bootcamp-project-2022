@@ -71,7 +71,7 @@ function RecipePage(props: RecipePageProps) {
                         onChange={(e: ChangeEvent<HTMLInputElement>) => {
                             setNewIngredient(e.target.value);
                         }}/>
-                    	<button onClick={addIngredient}>Add Ingredient</button>
+                    <button onClick={addIngredient}>Add Ingredient</button>
 
 
                 </div>
@@ -87,7 +87,7 @@ function RecipePage(props: RecipePageProps) {
                         onChange={(e: ChangeEvent<HTMLInputElement>) => {
                             setNewInstruction(e.target.value);
                         }}/>
-                    	<button onClick={addInstruction}>Add Instruction</button>
+                    <button onClick={addInstruction}>Add Instruction</button>
             </div>
         </div>
     )
