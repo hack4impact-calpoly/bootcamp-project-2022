@@ -2,21 +2,29 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import profile from "./images/profile.jpeg"
 import RecipePreview from './recipePreview';
-import recipes, { Recipe } from "../recipeData";
+// import recipes, { Recipe } from "../recipeData";
+
+interface Recipe {
+    name: string;
+    description: string;
+    image: string;
+    ingredients: string[];
+    instructions: string[];
+    external?: boolean; 
+  }
 
 export default function Home() {
-    
-    const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+
+    const [recipes, setAllRecipes] = useState<Recipe[]>([]);
+
     useEffect(() => {
-        fetch("https://bootcamp-milestone-4.onrender.com/recipe")
-          .then((res) => res.json())
-          .then((data) => setExternalRecipes(data));
-      }, []);
-      let allRecipes = recipes.concat(externalRecipes);
+        fetch("http://localhost:3001/recipe")
+        .then((res) => res.json())
+        .then((data) => setAllRecipes(data));
+        
+    }, []);
 
   return (
-    // replace everything in between the <header> & <header /> tags
-    // with your navbar code from your earlier milestones
     <main>
         <section className="home" id="home">
             <div className="max-width">
@@ -37,14 +45,12 @@ export default function Home() {
                     </div>
                 
             </div>
-            
-            
         </section>
         <section className="projects"id="projects"> 
                     <div className="max-width">
 
                     <h2 className="title">My Favorite Foods!</h2>
-                    {allRecipes.map(recipe => 
+                    {recipes.map(recipe => 
                                     <RecipePreview name = {recipe.name} description = {recipe.description}
                                     image = {recipe.image} ingredients = {recipe.ingredients} instructions = {recipe.instructions}
                                     external/>)}
