@@ -1,31 +1,34 @@
-import { Express, Request, Response } from "express";
-import RecipeModel, { IRecipeSchema } from "./models/RecipeSchema";
-import { Recipe } from "../frontend/src/recipeData"
+import { Express, Request, Response, Router } from "express";
+import RecipeModel from "./models/RecipeSchema";
 const express = require("express"); // 1. includes Express
 const app: Express = express(); // 2. initializes Express
 const mongoose = require('mongoose');
-const connection_url = "mongodb+srv://newUser:newPassword@cluster0.iqyoofp.mongodb.net/RecipesDB?retryWrites=true&w=majority";
+const connection_url = "mongodb+srv://newUser:newUser@cluster0.iqyoofp.mongodb.net/RecipesDB?retryWrites=true&w=majority";
+const router: Router = express.Router();
+
+app.listen(3001);
 
 mongoose.connect(connection_url)
 .then(() => console.log("Successfully connected "))
-.catch((error) => console.error(`Could not connect: ${error}`));
+.catch((error: Error) => console.error(`Could not connect: ${error}`));
 
 app.use(express.json());
+app.use("/", router);
 
-// app.get('/', (req, res) => {
-//   res.send('Hello world!')
-// });
+router.get('/', (req, res) => {
+  res.send('Hello world!')
+});
 
 // For returning an array of all recipes
-app.get("/recipe", async (req: Request, res: Response) => {
+router.get("/recipe", async (req: Request, res: Response) => {
   // Queries the database for all recipes and compiles them into a list
-  const recipes = await RecipeModel.find()
+  const recipes = await RecipeModel.find({});
   //Returns that list of all recipes to the requester 
-  res.send(recipes)
+  res.send(recipes);
 })
 
 // For returning the first recipe matching a particular name
-app.get("/recipe/:recipeName", async (req: Request, res: Response) => {
+router.get("/recipe/:recipeName", async (req: Request, res: Response) => {
   // Queries the database for any recipes with a property matching "name": {the name inputted in the URL}
   // and compiles them into a list
   const recipe_with_name = await RecipeModel.findOne({"name": req.params.recipeName})
@@ -34,7 +37,7 @@ app.get("/recipe/:recipeName", async (req: Request, res: Response) => {
 })
 
 // For adding a new recipe to the database
-app.post("/recipe", async (req: Request, res: Response) => {
+router.post("/recipe", async (req: Request, res: Response) => {
   // Uses the .create() function built into Mongoose's Document class to
   // create a new document based on the requester input. This input is interpreted as 
   // a JSON input as a result of app.use(express.json())
@@ -43,7 +46,7 @@ app.post("/recipe", async (req: Request, res: Response) => {
 })
 
 // For adding a new ingredient to the first recipe matching a particular name
-app.put("/recipe/:recipeName/ingredient", async (req: Request, res: Response) => {
+router.put("/recipe/:recipeName/ingredient", async (req: Request, res: Response) => {
   // Saves the recipe name as passed in the URL
   const recipeName = req.params.recipeName;
   // Saves the newIngredient property as passed in the body of the request. The request
@@ -71,7 +74,7 @@ app.put("/recipe/:recipeName/ingredient", async (req: Request, res: Response) =>
 })
 
 // For adding a new instruction step to the first recipe matching a particular name
-app.put("/recipe/:recipeName/instruction", async (req: Request, res: Response) => {
+router.put("/recipe/:recipeName/instruction", async (req: Request, res: Response) => {
   // Saves the recipe name as passed in the URL
   const recipeName = req.params.recipeName;
   // Saves the newInstruction property as passed in the body of the request. The request
@@ -98,4 +101,4 @@ app.put("/recipe/:recipeName/instruction", async (req: Request, res: Response) =
   }
 })
 
-// app.listen(3001);
+export default router;
