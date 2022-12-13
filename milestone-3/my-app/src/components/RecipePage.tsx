@@ -78,7 +78,7 @@ export default function RecipePage (props: RecipePageProps){
                                     setNewIngredient(e.target.value);}}
                             />
                             <button onClick ={() => setAllIngredients([...allIngredients, newIngredient])}>
-                                Add Ingredient
+                                add ingredient
                             </button>
                         </div>
         
@@ -90,7 +90,7 @@ export default function RecipePage (props: RecipePageProps){
                         </ol>
                         <div>
                             <input
-                                placeholder= "Sauté for 30 seconds"
+                                placeholder= "sauté for 30 seconds"
                                 value={newStep} // add newIngredient as the input's value
                                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                                     // this event handler updates the value of newIngredient
@@ -98,7 +98,7 @@ export default function RecipePage (props: RecipePageProps){
                                 }}
                             />
                             <button onClick={() => setAllSteps([...allSteps, newStep])}>
-                                Add Step
+                                add step
                             </button>
                         </div>
                   <p>recipe from: <a href= {recipe.orig_link} target = "_blank"> {recipe.orig_link_name}</a></p>    
