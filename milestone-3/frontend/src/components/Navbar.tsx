@@ -1,28 +1,27 @@
 import React from "react";
 import "./Navbar.css";
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   return (
-    // replace everything in between the <header> & <header /> tags
-    // with your navbar code from your earlier milestones
     <header>
         <div className = "banner">
-            <a href = "index.html">
+            <Link to ='/' style = {{ textDecoration: 'none'}}>
                 <div className = "banner-head">
                     <h1>Ryan's Recipes</h1>
                 </div>
-            </a>
+            </Link>
             <nav className = "navbar">
-                <a href = "index.html"> 
+                <Link to ='/' style = {{ textDecoration: 'none'}}> 
                     <div className = "navbar_item">
                         <p> Home </p>
                     </div>
-                </a>
-                <a href= "about.html"> 
+                </Link>
+                <Link to ='/about' style = {{ textDecoration: 'none'}}>
                     <div className = "navbar_item">
                         <p> About </p>
                     </div>
-                </a>
+                </Link>
             </nav>
         </div>
     </header>

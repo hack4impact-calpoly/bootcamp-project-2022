@@ -1,7 +1,13 @@
 import React from "react";
+import recipes from "../recipeData";
+import RecipePreview from "./recipePreview";
 
 export default function Home() {
     return (
-        <div></div>
+        <div>
+            {recipes.map(recipe =>
+                <RecipePreview {...recipe}/>    
+            )}
+        </div>
     );
 }

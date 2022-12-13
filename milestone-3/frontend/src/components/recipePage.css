@@ -1,0 +1,52 @@
+/* I want all pages to have this color and font style */
+body{
+    background-color: #C0B7B1;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* general flex for the recipe page of each recipe. Puts the (picture of the food) and the (ingredient list, name, and description) in a row  */
+.recipe_page_flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1%;
+}
+
+/* similar to the food preview of the recipe card, but larger  */
+.food_full_size{
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    border-radius: 10px;
+    height: 600px;
+    width: 600px;
+}
+
+/* the word "prepartation" gets its own background and styling on the recipe page */
+.preparation_accent{
+    padding: 10px;
+    background-color: #7C238C;
+    color: #C0B7B1;
+    font-size: x-large;
+}
+
+/* the word "prepartation" gets its own background and styling on the recipe page*/
+.ingredient_accent{
+    padding: 10px;
+    background-color: #7C238C;
+    color: #C0B7B1;
+    font-size: x-large;
+    margin: 1%;
+}
+
+/* any non-special items within recipe page are given a bit more room and are made larger to make the website overall more "full" */
+.recipe_page_text{
+    margin: 1%;
+    font-size: large;
+}
+
+/* increase margin for the preparation and its list to a constant 10px  */
+.prep_and_list_margin{
+    justify-content: left;
+    margin-left: 10px;
+}

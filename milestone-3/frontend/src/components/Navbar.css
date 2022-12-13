@@ -1,3 +1,9 @@
+/* I want all pages to have this color and font style */
+body{
+    background-color: #C0B7B1;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 /* The banner at the top of each page does not change, will always be this color, always take to home and about, etc. */
 .banner{
     background-color: #42033D;
