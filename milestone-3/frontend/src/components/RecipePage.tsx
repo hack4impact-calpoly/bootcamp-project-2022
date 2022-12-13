@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import './RecipePage.css'
-import { recipes } from '../recipeData'; 
+// import { recipes } from '../recipeData'; 
 
 import { useParams } from "react-router-dom";
 
@@ -19,6 +19,12 @@ interface RecipePageProps {
       // other props
   }
 
+  type nameParams ={
+    name: string;
+      // other props
+  }
+
+
 
 export default function RecipePage(props: RecipePageProps) {
    const [recipe, setRecipe]=useState({id:"", name:"", description:"", image:"", ingredients:[], instructions:[]})
@@ -29,7 +35,7 @@ export default function RecipePage(props: RecipePageProps) {
  
 //    const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
   
-   const { id } = useParams();
+   const { name } = useParams<nameParams>();
 
 //    useEffect(() => {
 //     const myRecipe:any = recipes.find((recipe:Recipe)=>recipe.id===id)
@@ -44,7 +50,7 @@ export default function RecipePage(props: RecipePageProps) {
 	useEffect(() => {
         if (props.external) {
           // make an API call with the url param & setRecipe
-          fetch("https://bootcamp-milestone-4.onrender.com/recipe/" +id?.replace(/ /g,"%20"))
+          fetch("https://bootcamp-milestone-4.onrender.com/recipe/" +name?.replace(/ /g,"%20"))
          .then((res) => res.json())
          .then((data) => setRecipe(data[0]));
        
@@ -52,7 +58,7 @@ export default function RecipePage(props: RecipePageProps) {
           fetch("http://localhost:3001/recipe")
           .then((res)=>res.json())
           .then((data)=>{
-            const myRecipe:any = data.find((recipe:Recipe)=>recipe.name===id) 
+            const myRecipe:any = data.find((recipe:Recipe)=>recipe.name===name) 
             setRecipe(myRecipe)
           })
         
@@ -60,13 +66,26 @@ export default function RecipePage(props: RecipePageProps) {
           // const myRecipe:any = recipes.find((recipe:Recipe)=>recipe.name===id)
           // setRecipe(myRecipe)
         }
-      }, [id, props.external]);
+      }, [name, props.external]);
         // return (...)
     
 
  
-    const addIngredient=( )=> {
+    const addIngredient=async( )=> {
+        
+        const url=`http://localhost:3001/recipe/${encodeURIComponent(String(name))}/ingredient`
        
+        await fetch(url, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newIngredient),
+        })
+        .catch(error => {
+          window.alert(error);
+          return;
+        });
        
         setAllIngredients([...allIngredients, newIngredient])
         setNewIngredient('')
