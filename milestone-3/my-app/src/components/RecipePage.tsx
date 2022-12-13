@@ -1,6 +1,6 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { useParams } from "react-router-dom";
-import  recipes, { Recipe } from './recipeData';
+import  recipeData, { Recipe } from './recipeData';
 import '../App.css';
 
 
@@ -15,7 +15,7 @@ RecipePage.defaultProps = {
 export default function RecipePage (props: RecipePageProps){
 
     const {id} = useParams();
-    const target = recipes.find(recipe => recipe.name === id);
+    const target = recipeData.find(recipe => recipe.name === id);
     const [recipe, setRecipe] = useState<Recipe>({
         name: "",
         image: "",
@@ -37,20 +37,18 @@ export default function RecipePage (props: RecipePageProps){
         recipe.orig_link = "https://bootcamp-milestone-3.netlify.app/"
         recipe.orig_link_name = "Hu's Chews"
     }
-
-    
+   
     useEffect(() => {
         window.scrollTo(0, 0)
         if (props.external) {
                 fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id)
-                .then((res) => res.json())
-                .then((data) => {setRecipe(data[0])
-                setAllIngredients(data[0].ingredients)
-                setAllSteps(data[0].instructions)
-                });  
-                  
+                .then((data) => data.json())
+                .then((r) => {setRecipe(r[0])
+                setAllSteps(r[0].instructions)
+                setAllIngredients(r[0].ingredients)
+                });                  
         }else{
-            setRecipe(recipes.find((recipe) => recipe.name === id) || recipes[0])
+            setRecipe(recipeData.find((recipe) => recipe.name === id) || recipe)
     }}, [id, props.external]);
 
     useEffect(() => {
@@ -103,8 +101,8 @@ export default function RecipePage (props: RecipePageProps){
                                 Add Step
                             </button>
                         </div>
-                  <p>recipe from: <a href={recipe.orig_link} target = "_blank">{recipe.orig_link_name}</a></p>    
-                </div> 
+                  <p>recipe from: <a href= {recipe.orig_link} target = "_blank"> {recipe.orig_link_name}</a></p>    
+            </div> 
        ) 
 };
 

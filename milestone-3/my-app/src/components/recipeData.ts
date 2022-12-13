@@ -12,7 +12,7 @@ export interface Recipe {
 
 
  
-  const recipes: Recipe[] = [
+  const recipeData: Recipe[] = [
 	{
         name: "banana bread", 
         image: "https://www.allrecipes.com/thmb/GBkEPttyEbnx2x8tcRzkabMGYi0=/2000x2000/filters:no_upscale()/20144-banana-banana-bread-mfs-60-bddcb8e0caac452386de52f6fecf33db.jpg",
@@ -95,7 +95,7 @@ export interface Recipe {
     } 
 ];
 
-export default recipes;
+export default recipeData;
 
 
 
