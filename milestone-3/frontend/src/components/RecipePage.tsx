@@ -45,23 +45,61 @@ function RecipePage(props: RecipePageProps) {
                         steps: (Array.isArray(r[0].instructions) ? r[0].instructions: [""]),
                         source: `https://bootcamp-milestone-4.onrender.com/recipe/${name}`
                     })
-                   setAllIngredients(r[0].ingredients);
+                   //setAllIngredients(r[0].ingredients);
                    setAllSteps(r[0].instructions);
                 })   
         }         
             
         else {
-            const recipe = recipeData.find(i => i.url === name); {/* Finds recipe corresponding to url */}
-            if (recipe !== undefined) {
-                setRecipe(recipe);
-                setAllIngredients(recipe.ingredients); 
-                setAllSteps(recipe.steps);  
-            }
+            fetch(`http://localhost:3001/recipe/${name}`)
+            .then((res) => (res.json()))
+            .then((r) => {
+                setRecipe({
+                    name: (typeof(r[0].name) === 'string' ? r[0].name : "Error finding recipe"),
+                    image: (typeof(r[0].image) === 'string' ? r[0].image : ""),
+                    desc: (typeof(r[0].description) === 'string' ? r[0].description : ""),
+                    alt: (typeof(r[0].name) === 'string' ? r[0].name : ""),
+                    url: (typeof(r[0].name) === 'string' ? r[0].name : ""),
+                    ingredients: (Array.isArray(r[0].ingredients) ? r[0].ingredients: [""]),
+                    steps: (Array.isArray(r[0].instructions) ? r[0].instructions: [""]),
+                    source: (typeof(r[0].source) === 'string' ? r[0].source : "")
+                })
+                setAllIngredients(r[0].ingredients);
+                setAllSteps(r[0].steps);
+            })
         }
       }, [name, props.external]);
 
 
+    async function addIngredient(newIng: string) {
+        const req = await fetch(`http://localhost:3001/recipe/${name}/ingredient`, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                "newIngredient": newIng}),
+        });
+        fetch(`http://localhost:3001/recipe/${name}`)
+        .then((res) => (res.json()))
+        .then((r) => {
+            setAllIngredients(r[0].ingredients)})
+      };
 
+      async function addStep(newStep: string) {
+        const req = await fetch(`http://localhost:3001/recipe/${name}/instruction`, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                "newInstruction": newStep}),
+        });
+        fetch(`http://localhost:3001/recipe/${name}`)
+        .then((res) => (res.json()))
+        .then((r) => {
+            setAllSteps(r[0].steps)})
+      };
 
     {/* Gets current list of ingredients, or just an empty string if the url isn't found. 
     Must use ternary operator because I can't put this after the return statement below by react hook rules */}
@@ -81,7 +119,7 @@ function RecipePage(props: RecipePageProps) {
                     <p><i><b>Ingredients:</b></i></p>
                     <ul>
                         {/* Recipe ingredients stored in array, maps each step to item in list */}
-                        {allIngredients.map(ing => (
+                        {allIngredients?.map(ing => ( // the '?' after allIngredients gets rid of a TypeError
                             <li>{ing}</li>
                         ))}
                     </ul>
@@ -89,7 +127,8 @@ function RecipePage(props: RecipePageProps) {
                             setNewIngredient(e.target.value);
                         }}
                     />
-                    <button onClick={() => setAllIngredients([...allIngredients, newIngredient])}>
+                    <button onClick={() => {
+                        addIngredient(newIngredient)}}>
                         Add Ingredient
                     </button> 
                 </div>
@@ -99,7 +138,7 @@ function RecipePage(props: RecipePageProps) {
                     <p><i><b>Steps:</b></i></p>
                     <ul>
                         {/* Recipe steps stored in array, maps each step to item in list */}
-                        {allSteps.map(step => (
+                        {allSteps?.map(step => (
                             <li>{step}</li>
                         ))}
                     </ul>
@@ -107,7 +146,7 @@ function RecipePage(props: RecipePageProps) {
                             setNewStep(e.target.value);
                         }}
                     />
-                    <button onClick={() => setAllSteps([...allSteps, newStep])}>
+                    <button onClick={() => addStep(newStep)}>
                         Add Step
                     </button>
                     <br></br>
