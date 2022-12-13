@@ -1,6 +1,6 @@
 import './RecipePreview.css';
 import { Link } from 'react-router-dom'
-import { Recipe, RecipePreviewProps } from '../recipeData';
+import { Recipe, RecipePreviewProps } from '../recipeInterfaces';
 
 export default function RecipePreview(recipe: RecipePreviewProps) {
     function CreateRecipeLink(recipe: RecipePreviewProps)

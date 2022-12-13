@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 // import { recipes } from '../recipeData'
 import RecipePreview from './RecipePreview'
 import { useState, useEffect } from 'react' 
-import { Recipe, RecipePreviewProps } from '../recipeData'
+import { Recipe, RecipePreviewProps } from '../recipeInterfaces'
 
 export default function Home() {
     // Creates an array (state variable) to store recipes drawn from MongoDB using the API defined

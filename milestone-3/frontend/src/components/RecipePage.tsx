@@ -1,4 +1,4 @@
-import { Recipe } from "../recipeData";
+import { Recipe } from "../recipeInterfaces";
 import './RecipePage.css'
 import React, { useState, useEffect } from "react";
 
