@@ -1,16 +1,17 @@
 import { useParams } from "react-router-dom";
-import recipes from "../recipeData";
+import Recipe from "../recipeInterface";
 import { ChangeEvent, useState, useEffect } from "react";
-interface RecipePageProps {
-  external?: boolean;
-}
 
-export default function RecipePage(props: RecipePageProps) {
+export default function RecipePage() {
   const params = useParams();
 
-  const [recipe, setRecipe] = useState(
-    recipes.find((x) => x.name === params.id) //default is non-external Recipe | undefined
-  );
+  const [recipe, setRecipe] = useState<Recipe>({
+    name: "",
+    description: "",
+    image: "",
+    ingredients: [],
+    instructions: [],
+  });
 
   const [newIngredient, setNewIngredient] = useState(""); //add this
   const [allIngredients, setAllIngredients] = useState(recipe?.ingredients);
@@ -19,19 +20,34 @@ export default function RecipePage(props: RecipePageProps) {
   const [allInstructions, setAllInstructions] = useState(recipe?.instructions);
 
   useEffect(() => {
-    if (props.external) {
-      fetch(`https://bootcamp-milestone-4.onrender.com/recipe/${params.id}`)
-        .then((res) => res.json())
-        .then((data) => setRecipe(data[0]));
-    }
+    fetch(`http://localhost:3001/recipe/${params.id}`)
+      .then((res) => res.json())
+      .then((data) => setRecipe(data));
     //no else - initialized to internal | undefined as default
-  }, [params.id, props.external]);
+  }, [params.id]);
 
   //need this because page doesnt render recipe.ingredients/instructions, uses predifined array above
   useEffect(() => {
     setAllIngredients(recipe?.ingredients);
     setAllInstructions(recipe?.instructions);
   }, [recipe]);
+
+  function addIngredient() {
+    fetch(`http://localhost:3001/recipe/${params.id}/ingredient`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ newIngredient: newIngredient }),
+    });
+    setAllIngredients([...allIngredients, newIngredient]);
+  }
+  function addInstruction() {
+    fetch(`http://localhost:3001/recipe/${params.id}/instruction`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ newInstruction: newInstruction }),
+    });
+    setAllInstructions([...allInstructions, newInstruction]);
+  }
 
   return (
     <main>
@@ -60,13 +76,7 @@ export default function RecipePage(props: RecipePageProps) {
               setNewIngredient(e.target.value);
             }}
           />
-          <button
-            onClick={() =>
-              setAllIngredients([...(allIngredients ?? []), newIngredient])
-            }
-          >
-            Add Ingredient
-          </button>
+          <button onClick={addIngredient}>Add Ingredient</button>
         </div>
       </div>
       {/* <!-- instructions list --> */}
@@ -84,13 +94,7 @@ export default function RecipePage(props: RecipePageProps) {
           setNewInstruction(e.target.value);
         }}
       />
-      <button
-        onClick={() =>
-          setAllInstructions([...(allInstructions ?? []), newInstruction])
-        }
-      >
-        Add Instruction
-      </button>
+      <button onClick={addInstruction}>Add Instruction</button>
     </main>
   );
 }
