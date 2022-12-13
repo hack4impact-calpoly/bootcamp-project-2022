@@ -9,11 +9,7 @@ interface RecipePreviewProps extends Recipe {
 
 export default function RecipePreview(props: RecipePreviewProps) {
     let address = "";
-    if (props.external) {
-      address = "externalRecipe/" + props.name;
-    } else {
-      address = "recipe/" + props.name;
-    }
+    address = "recipe/" + props.name;
 
     return (
         <div className="recipe">

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './style.css';
-import recipes, {Recipe} from './recipeData';
+import {Recipe} from './recipeData';
 import {useParams} from "react-router-dom";
 
 interface RecipePageProps {
@@ -22,16 +22,12 @@ export default function RecipePage(props: RecipePageProps) {
     const [allInstructions, setAllInstructions] = useState(recipe.instructions);
 
     useEffect(() => {
-        if (props.external) {
-          // make an API call with the url param & setRecipe
-          fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id?.replace(/ /g, "%20"))
-          .then((res) => res.json())
-          .then((data) => setRecipe(data[0]));
-        } else {
-          // query all of your recipe data for the recipe you want & setRecipe
-            setRecipe(recipes.find(recipe => recipe.name === id) || recipes[0]);
-        }
-    }, [id, props.external]);
+        // make an API call with the url param & setRecipe
+        fetch("http://localhost:3001/recipe/" + id?.replace(/ /g, "%20"))
+        .then((res) => res.json())
+        .then((data) => setRecipe(data));
+
+    }, [id]);
     
     useEffect(() => {
         setAllIngredients(recipe.ingredients);
