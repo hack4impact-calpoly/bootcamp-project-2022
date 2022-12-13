@@ -4,8 +4,8 @@ export interface IRecipeSchema extends Document {
     name: string;
     description: string;
     image: string;
-    ingredients: [string[]];
-    instructions: [string[]];
+    ingredients: [string];
+    instructions: [string];
 }
 
 const recipeSchema = new Schema<IRecipeSchema>({

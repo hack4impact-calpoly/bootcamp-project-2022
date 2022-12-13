@@ -55,10 +55,10 @@ router.post("/recipe", async (req: Request, res: Response) => {
 // For adding a new ingredient to the first recipe matching a particular name
 router.put("/recipe/:recipeName/ingredient", async (req: Request, res: Response) => {
   // Saves the recipe name as passed in the URL
-  const recipeName = req.params.recipeName;
+  const recipeName: string = req.params.recipeName;
   // Saves the newIngredient property as passed in the body of the request. The request
   // body is automatically interpreted as a JSON input as a result of app.use(express.json()). 
-  const ingredient = req.body.newIngredient;
+  const ingredient: string = req.body.newIngredient;
   // Uses Mongoose's built-in findOne() method to find the first recipe matching
   // "name": {the name inputted into a URL} 
   const recipe = await RecipeModel.findOne({"name": recipeName})
