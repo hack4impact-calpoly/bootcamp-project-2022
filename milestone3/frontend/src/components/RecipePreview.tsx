@@ -1,16 +1,22 @@
 import {Link} from "react-router-dom";
+import React, {useEffect, useState } from 'react';
+import recipeData, {Recipe} from '../recipeData';
 
 require('../css/RecipePreview.css')
-interface Recipe {
-    name: string;
-    image: string;
-    description: string;
-    ingredients: string [];
-    instructions: string [];
+
+
+interface RecipePreviewProps extends Recipe {
+    external?: boolean
 }
 
-function RecipePreview(props: Recipe){
-    let path = "/recipe/" + props.name;
+function RecipePreview(props: RecipePreviewProps){
+    let path = ""
+    if(props.external){
+        path = "/external/" + props.name
+    }
+    else {
+        path = "/recipe/" + props.name;
+    }
 
     return(
         <div className="grid-item">

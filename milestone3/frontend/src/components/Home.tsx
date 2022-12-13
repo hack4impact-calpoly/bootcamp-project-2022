@@ -1,7 +1,8 @@
 import React from 'react'
 import RecipePreview from './RecipePreview';
-import recipeData from "../recipeData.json"
-import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
+import recipeDataJson from "../recipeData.json"
+import {useEffect, useState } from 'react';
+import recipeData, {Recipe} from '../recipeData';
 const ramen = require('../images/ramen.jpg');
 const burger = require('../images/burgerPic.jpeg');
 const salmon = require('../images/salmon.jpeg');
@@ -9,11 +10,18 @@ require('../css/RecipePreview.css');
 
 
 function Home () {
-    console.log(recipeData)
+    const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
 
+    useEffect(() => {
+        fetch("https://bootcamp-milestone-4.onrender.com/recipe/")
+          .then((res) => res.json())
+          .then((data) => setExternalRecipes(data));
+      }, []);
+
+    console.log(recipeData)
   return (
-    <div>
-          <h1 className = "header">All the recipes you need right at your fingertips.</h1>
+    <>
+        <h1 className = "header">All the recipes you need right at your fingertips.</h1>
 
         <h2 className = "recipeTitle"> <a href = "#recipes">Recipes -{'>'}</a> </h2>
         <h1 id = "recipes">All Recipes</h1>
@@ -22,7 +30,13 @@ function Home () {
                 <RecipePreview{...recipe}/>
             ))
         }
-    </div>
+        {
+            externalRecipes.map((recipe) => (
+                <RecipePreview{...recipe} external/>
+
+            ))
+        }
+    </>
   )
 }
 
