@@ -1,20 +1,29 @@
 import React, { useEffect, useState } from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
-import recipes, { Recipe } from "../recipeData";
+// import recipes, { Recipe } from "../recipeData";
 import RecipePreview from "./recipePreview";
 
+interface Recipe {
+  name: string;
+  description: string;
+  image: string;
+  ingredients: string[];
+  instructions: string[];
+}
 export default function Home() {
   const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
-  const [allRecipes, setAllRecipes] = useState<Recipe[]>(recipes);
+  // const [allRecipes, setAllRecipes] = useState<Recipe[]>(recipes);
   useEffect(() => {
-    fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+    fetch("http://localhost:3001/recipe")
       .then((res) => res.json())
-      .then((data) => { setExternalRecipes(data);
-          return data
-      }) 
-      .then((data) => {setAllRecipes([...allRecipes, ...data])
-      });
+      .then((data) => {
+        setExternalRecipes(data);
+        return data;
+      })
+      // .then((data) => {
+      //   setAllRecipes([...allRecipes, ...data]);
+      // });
   }, []);
   
 
@@ -26,7 +35,7 @@ export default function Home() {
       <div>
         <h1 className="important_titles">Welcome to Tung's Cookie Recipes!</h1>
       </div>
-      {allRecipes.map((recipe) => (
+      {externalRecipes.map((recipe) => (
         <RecipePreview
           name={recipe.name}
           image={recipe.image}
