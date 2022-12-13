@@ -21,6 +21,7 @@ router.get("/recipe/:name", async(req: Request, res: Response)=>{
 // update ingredient in recipe
 router.put("/recipe/:name/ingredient", async(req:Request, res: Response)=>{
     const recipe = await Recipe.findOne({name:req.params.name})
+    
     if(recipe){
         recipe.ingredients=[...recipe.ingredients, req.body.ingredient]
         await recipe.save()
