@@ -1,0 +1,39 @@
+/* The banner at the top of each page does not change, will always be this color, always take to home and about, etc. */
+.banner{
+    background-color: #42033D;
+    padding: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* class inside the banner to change font color of website name */
+.banner-head{
+    color: #C0B7B1;
+    text-decoration: none;
+}
+
+/* effects properties of the navbar within the banner, which contains links to home and about page */
+.navbar{
+    display: flex;
+    flex-direction: row; 
+    padding: 1%;
+}
+
+/* properties within the navbar, effected on to individual items */
+.navbar_item{ 
+    background-color: #42033D;
+    color: #C0B7B1;
+    padding: 5px;
+    margin-left: 1px;
+    border-style: outset;
+    border-radius: 1px;
+    border-color: #590552;
+    text-decoration: none;
+}
+
+/* navbar items brighten when hovered */
+.navbar_item:hover{
+    background-color: #590552;
+}
