@@ -19,11 +19,12 @@ interface RecipePageProps {
       // other props
   }
 
-  type nameParams ={
+type nameParams ={
     name: string;
-      // other props
-  }
+   
+}
 
+ 
 
 
 export default function RecipePage(props: RecipePageProps) {
@@ -71,21 +72,9 @@ export default function RecipePage(props: RecipePageProps) {
     
 
  
-    const addIngredient=async( )=> {
-        
-        const url=`http://localhost:3001/recipe/${encodeURIComponent(String(name))}/ingredient`
-       
-        // await fetch(url, {
-        //   method: "PUT",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify(newIngredient),
-        // })
-        // .catch(error => {
-        //   window.alert(error);
-        //   return;
-        // });
+    const addIngredient=( )=> {
+        const url=`http://localhost:3001/recipe/${name}/ingredient`
+      
         fetch(url, {
           method: "PUT",
           headers: {
@@ -102,7 +91,16 @@ export default function RecipePage(props: RecipePageProps) {
         setAllIngredients([...allIngredients, newIngredient])
         setNewIngredient('')
       }
-  
+
+
+
+
+    const deleteIngredient=()=>{
+      const text="Are you sure you want to remove it?"
+      const userConfirm= window.confirm(text);
+      console.log(userConfirm)
+
+    }
 //   console.log(externalRecipes,"--------------->>>")
   return (
     <div className='recipe_page' >
@@ -120,7 +118,7 @@ export default function RecipePage(props: RecipePageProps) {
                 <h3>Ingredients</h3>
                 <ul id="description">
                 {allIngredients.map((ingredient:string, index)=>
-                    <li key={index}><span>{ingredient}</span></li>
+                    <li onClick={deleteIngredient} key={index}>{ingredient}</li>
                 )}
                 </ul>
                 <input
