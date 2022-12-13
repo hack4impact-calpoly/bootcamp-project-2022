@@ -71,7 +71,29 @@
     text-align: center;
 }
 
+ 
+span {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+  }
+span:before, span:after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    top: 50%;
+  }
 
+ 
+span:hover:before {
+    background: #cb997e;
+    width: 100%;
+    transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  
+}
+  
+ 
 
 @media only screen and (max-width: 768px){
     .recipe{

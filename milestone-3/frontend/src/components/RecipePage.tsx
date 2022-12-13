@@ -120,7 +120,7 @@ export default function RecipePage(props: RecipePageProps) {
                 <h3>Ingredients</h3>
                 <ul id="description">
                 {allIngredients.map((ingredient:string, index)=>
-                    <li key={index}>{ingredient}</li>
+                    <li key={index}><span>{ingredient}</span></li>
                 )}
                 </ul>
                 <input
