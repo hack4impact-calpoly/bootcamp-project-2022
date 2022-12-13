@@ -45,8 +45,8 @@ function RecipePage(props: RecipePageProps) {
                         steps: (Array.isArray(r[0].instructions) ? r[0].instructions: [""]),
                         source: `https://bootcamp-milestone-4.onrender.com/recipe/${name}`
                     })
-                   //setAllIngredients(r[0].ingredients);
-                   setAllSteps(r[0].instructions);
+                    setAllIngredients(r[0].ingredients);
+                    setAllSteps(r[0].instructions);
                 })   
         }         
             
@@ -71,6 +71,7 @@ function RecipePage(props: RecipePageProps) {
       }, [name, props.external]);
 
 
+    // function used to add new ingredient to recipe
     async function addIngredient(newIng: string) {
         const req = await fetch(`http://localhost:3001/recipe/${name}/ingredient`, {
             method: 'PUT',
@@ -86,6 +87,7 @@ function RecipePage(props: RecipePageProps) {
             setAllIngredients(r[0].ingredients)})
       };
 
+      // function used to add new step to recipe
       async function addStep(newStep: string) {
         const req = await fetch(`http://localhost:3001/recipe/${name}/instruction`, {
             method: 'PUT',

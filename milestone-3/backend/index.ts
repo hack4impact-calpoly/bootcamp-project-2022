@@ -43,7 +43,7 @@ const Recipe = model<IRecipe>("Recipes", RecipeSchema);
 mongoose.connect(connection_url)
 .then(() => console.log('Successfully connected'))
 .catch((error: any) => console.error(`Could not connect due to ${error}`)) 
-// need that error: any to get rid of some type issue
+// need that 'error: any' to get rid of some type issue
 
 app.get('/', (req, res) => {
   res.send('Hello world!')

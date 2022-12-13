@@ -54,11 +54,6 @@ function Home() {
             {internalRecipes.map((recipe) => (
                 <RecipePreview name={recipe.name} image={recipe.image} desc={recipe.desc} alt={recipe.alt} url={recipe.name} ingredients={recipe.ingredients} steps={recipe.steps} source={recipe.source} external={false}/>
             ))}
-            {/* 
-            <RecipePreview name={recipeData[0].name} image={recipeData[0].image} desc={recipeData[0].desc} alt={recipeData[0].alt} url={recipeData[0].url} ingredients={recipeData[0].ingredients} steps={recipeData[0].steps} source={recipeData[0].source} external={false} />
-            <RecipePreview name={recipeData[1].name} image={recipeData[1].image} desc={recipeData[1].desc} alt={recipeData[1].alt} url={recipeData[1].url} ingredients={recipeData[0].ingredients} steps={recipeData[0].steps} source={recipeData[0].source} external={false} />
-            <RecipePreview name={recipeData[2].name} image={recipeData[2].image} desc={recipeData[2].desc} alt={recipeData[2].alt} url={recipeData[2].url} ingredients={recipeData[0].ingredients} steps={recipeData[0].steps} source={recipeData[0].source} external={false} /
-            */}
             {/* External Recipes */}
             {extRecipeNew.map((recipe) => (
                 <RecipePreview name={recipe.name} image={recipe.image} desc={recipe.desc} alt={recipe.alt} url={recipe.url} ingredients={recipe.ingredients} steps={recipe.steps} source={recipe.source} external/>
