@@ -19,7 +19,7 @@ function RecipePreview(props: RecipePreviewProps) {
     return(
     
     <div className="recipe-home">
-    <Link to={address}>  <h2 className="recipe-header">{props.name}</h2></Link>
+    <Link to={`/recipe/${props.name}`}>  <h2 className="recipe-header">{props.name}</h2></Link>
 
     <div className="recipe-card">
       <img

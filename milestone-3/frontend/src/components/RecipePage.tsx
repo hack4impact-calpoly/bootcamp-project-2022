@@ -17,6 +17,18 @@ function RecipePage(props: RecipePageProps) {
  
   const {id} = useParams();
 
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+
+
+  //grabbing recipe from mongodb
+  useEffect(() => {
+    fetch("http://localhost:3001/recipe")
+      .then((response) => response.json()).then((recipeData) => {
+        setRecipes(recipeData);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
 
   useEffect(() => {
 
