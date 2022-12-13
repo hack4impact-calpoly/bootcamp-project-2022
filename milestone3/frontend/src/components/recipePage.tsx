@@ -26,13 +26,37 @@ export default function RecipePage(props: RecipePageProps) {
         fetch("http://localhost:3001/recipe/" + id?.replace(/ /g, "%20"))
         .then((res) => res.json())
         .then((data) => setRecipe(data));
-
     }, [id]);
+
     
     useEffect(() => {
         setAllIngredients(recipe.ingredients);
         setAllInstructions(recipe.instructions);
     }, [recipe]);
+
+    function addIngredient() {
+        setAllIngredients([...allIngredients, newIngredient]);
+        let address = "http://localhost:3001/recipe/" + id?.replace(/ /g, '%20') + "/ingredient";
+        fetch(address, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({"newIngredient": newIngredient}),
+          });
+    }
+
+    function addInstruction() {
+        setAllInstructions([...allInstructions, newInstruction]);
+        let address = "http://localhost:3001/recipe/" + id?.replace(/ /g, '%20') + "/instruction";
+        fetch(address, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({"newInstruction": newInstruction}),
+          });
+    }
 
     return(
         <div className="flex-container">
@@ -53,7 +77,7 @@ export default function RecipePage(props: RecipePageProps) {
                         setNewIngredient(e.target.value);
                     }}
                 />
-                <button onClick={() => setAllIngredients([...allIngredients, newIngredient])}>
+                <button onClick={addIngredient}>
                     Add Ingredient
                 </button>
             </div>
@@ -67,13 +91,13 @@ export default function RecipePage(props: RecipePageProps) {
                 </ol>
                 <input
                     placeholder="Add milk"
-                    value={newInstruction} // add newIngredient as the input's value
+                    value={newInstruction} // add newInstruction as the input's value
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                        // this event handler updates the value of newIngredient
+                        // this event handler updates the value of newInstruction
                         setNewInstruction(e.target.value);
                     }}
                 />
-                <button onClick={() => setAllInstructions([...allInstructions, newInstruction])}>
+                <button onClick={addInstruction}>
                     Add Instruction
                 </button>
             </div>
