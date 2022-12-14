@@ -11,7 +11,7 @@ export interface MyRecipe extends Document {
 
 const RecipeSchema = new Schema<MyRecipe>(
     {
-        link_name: { type: String, required: false },
+        link_name: { type: String, required: true },
         name: { type: String, required: true },
         image: { type: String, required: true },
         description: { type: String, required: true },
