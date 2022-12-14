@@ -1,20 +1,21 @@
 import {RecipePreview} from './RecipePreview';
 import recipe_list, { Recipe } from '../recipeData';
 import '../App.css';
-import React, { useState }  from 'react';
+import { useState }  from 'react';
 import { useEffect } from 'react';
 function Home(){
-  const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
 
   useEffect(() => {
-    fetch("https://bootcamp-milestone-4.onrender.com/recipe")
-      .then((res) => res.json())
-      .then((data) => setExternalRecipes(data))
-      
+    fetch("http://localhost:3001/recipe")
+      .then((response) => response.json()).then((recipeData) => {
+        setRecipes(recipeData);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
     return(
-
+      
        <main>
       <>
       <div className="main_header">
@@ -28,17 +29,6 @@ function Home(){
         ingredients={recipe.ingredients}
         instructions={recipe.instructions}
         external = {false}
-            />
-          
-      ))}
-            {externalRecipes.map((recipe) =>(
-        <RecipePreview
-        name={recipe.name}
-        description={recipe.description}
-        image={recipe.image}
-        ingredients={recipe.ingredients}
-        instructions={recipe.instructions}
-        external = {true}
             />
           
       ))}

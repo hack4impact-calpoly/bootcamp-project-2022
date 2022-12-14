@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import "../App.css";
 import logo from "../images/potatoLogo.png"
+// import SearchBar from "./SearchBar";
 function NavBar() {
     
   return (
+    <>
     <header>
       <Link to = "/"className="logo_container">
         <img
@@ -21,8 +23,12 @@ function NavBar() {
         <Link to="/About" className="nav_link">
           About Me
         </Link>
+        <Link to="/create" className="nav_link">
+          Create
+        </Link>
       </nav>
     </header>
+    </>
   );
 }
 

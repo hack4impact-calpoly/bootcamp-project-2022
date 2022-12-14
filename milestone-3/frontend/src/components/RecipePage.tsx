@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import recipe_list, { Recipe } from "../recipeData";
 import React, { ChangeEvent, useEffect, useState } from "react";
 
-
 interface RecipePageProps {
   external?: boolean;
 }
@@ -13,118 +12,131 @@ function RecipePage(props: RecipePageProps) {
   const [newIngredient, setNewIngredient] = useState('');
   const [instructions, setInstructions] = useState<any[]>([]);
   const [newInstruction, setNewInstruction] = useState('');
-  const [recipeCurrent, setRecipeCurrent] = useState<Recipe>(recipe_list[0])
- 
-  const {id} = useParams();
+  const [recipe, setRecipe] = useState<Recipe>();
+  const {name} = useParams();
 
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
 
 
   //grabbing recipe from mongodb
   useEffect(() => {
-    fetch("http://localhost:3001/recipe")
-      .then((response) => response.json()).then((recipeData) => {
-        setRecipes(recipeData);
+    console.log(name)
+    fetch("http://localhost:3001/recipe/" + name)
+      .then((response) => response.json())
+      .then((recipeData) => {
+        const data = recipeData[0];
+        setIngredients(data.ingredients)
+        setInstructions(data.instructions)
+        setRecipe(data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [name]);
 
 
-  useEffect(() => {
+  function addInstruction() {
+    fetch("http://localhost:3001/recipe/" + name + "/instruction", 
+    {method: "PUT", 
+    headers: {"Content-Type": "application/json"}, 
+    body: JSON.stringify({
+        value: newInstruction,
+        position: instructions.length
+    })})
+    .catch((error:any) => console.log(error))
+    setInstructions([...instructions, newInstruction])
+  }
 
-      
+  function addIngredient() {
+    console.log("hello in add ingredient function")
+    fetch("http://localhost:3001/recipe/" + name + "/ingredient", 
+    {method: "PUT", 
+    headers: {"Content-Type": "application/json"}, 
+    body: JSON.stringify({
+        value: newIngredient,
+        position: ingredients.length
+    })})
+    .catch((error:any) => console.log(error))
+    setIngredients([...ingredients, newIngredient])
+    
+    // .then((res) => res.json())
+    // .then((data) => setAllIngredients(data));
+  }
 
-    if (props.external) {
-        
-        
-        const getExternal = async () => {
-            //get request for an external recipe
-            let data = await fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id);
-            let recipeData = await data.json();
-            setRecipeCurrent(recipeData[0]);
-            setIngredients([...recipeData[0].ingredients])
-            setInstructions([...recipeData[0].instructions]);
-        }
-        getExternal();
-        console.log(recipeCurrent)
+    if(recipe)
+    {
 
-
-    } else {
-      //normal recipe
-      let target = recipe_list.find(element => (element.name == id))!;
-      setRecipeCurrent(target)
-      setIngredients([...target.ingredients])
-      setInstructions([...target.instructions])
-    }
-  }, [id, props.external]);
-
-
+      return (
   
-    return (
-
-      <div className="entire-page">
-        <h1 className="recipe-header-page main_header">{recipeCurrent.name}</h1>
-        <div className="recipe-page-first">
-          <img src={recipeCurrent.image} alt={recipeCurrent.name} className="big-img" />
-          <div className="recipe-desc-ingr">
-            <p className="card-desc-page">{recipeCurrent.description}</p>
-
-            <div className="ingredients">
-              <div className="ingredient-body">
-                <h2 className="text--purple recipe-header-page main_header">
-                  Ingredients
-                </h2>
-                <ul>
-                  {ingredients.map((ingredient, i) => (
-                    <li>{ingredient}</li>
-                  ))}
-                </ul>
-          <input
-            placeholder="2 cups of spinach"
-            value={newIngredient} // add newIngredient as the input's value
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              // this event handler updates the value of newIngredient
-              setNewIngredient(e.target.value);
-            }}
-          />
-          <button
-            onClick={() =>
-              setIngredients([...ingredients, newIngredient])
-            }
-          >
-            Add Ingredient
-          </button>
+        <div className="entire-page">
+          <h1 className="recipe-header-page main_header">{recipe.name}</h1>
+          <div className="recipe-page-first">
+            <img src={recipe.image} alt={recipe.name} className="big-img" />
+            <div className="recipe-desc-ingr">
+              <p className="card-desc-page">{recipe.description}</p>
+  
+              <div className="ingredients">
+                <div className="ingredient-body">
+                  <h2 className="text--purple recipe-header-page main_header">
+                    Ingredients
+                  </h2>
+                  <ul>
+                    {ingredients.map((ingredient, i) => (
+                      <li>{ingredient}</li>
+                    ))}
+                  </ul>
+            <input className="input-button"
+              placeholder="2 cups of spinach"
+              value={newIngredient} // add newIngredient as the input's value
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                // this event handler updates the value of newIngredient
+                setNewIngredient(e.target.value);
+              }}
+            />
+            <button
+              onClick={
+                addIngredient
+              }
+            >
+              Add Ingredient
+            </button>
+                </div>
               </div>
             </div>
           </div>
+          <div className="instructions">
+            <div className="instructions-body">
+            <h2 className="text--purple main_header recipe-header-page">
+              Instructions
+            </h2>
+            <ol>
+              {instructions.map((instruction, i) => (
+                <li>{instruction}</li>
+              ))}
+            </ol>
+            <input className="input-button2"
+              placeholder="serve and enjoy"
+              value={newInstruction} // add newIngredient as the input's value
+              onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                // this event handler updates the value of newIngredient
+                setNewInstruction(e.target.value);
+              }}
+            />
+            <button
+              onClick={
+                addInstruction
+
+              }
+            >
+              Add Ingredient
+            </button>
+            </div>
+          </div>
         </div>
-        <div className="instructions">
-          <h2 className="text--purple main_header recipe-header-page">
-            Instructions
-          </h2>
-          <ol>
-            {instructions.map((instruction, i) => (
-              <li>{instruction}</li>
-            ))}
-          </ol>
-          <input
-            placeholder="serve and enjoy"
-            value={newInstruction} // add newIngredient as the input's value
-            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-              // this event handler updates the value of newIngredient
-              setNewInstruction(e.target.value);
-            }}
-          />
-          <button
-            onClick={() =>
-              setInstructions([...instructions, newInstruction])
-            }
-          >
-            Add Ingredient
-          </button>
-        </div>
-      </div>
-    )
+      )
+    }
+    else{
+      return (
+        <h1>Page loading...</h1>
+      )
+    }
   } 
 
 export default RecipePage;

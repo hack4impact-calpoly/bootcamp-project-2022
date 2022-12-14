@@ -7,12 +7,6 @@ interface RecipePreviewProps extends Recipe {
 }
 
 function RecipePreview(props: RecipePreviewProps) {
-  let address = "";
-  if (props.external) {
-    address = "externalRecipe/" + props.name;
-  } else {
-    address = "recipe/" + props.name; // whatever it was before
-  }
 
   const id = props.name
   // console.log(props.image)
