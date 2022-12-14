@@ -180,14 +180,15 @@ export default function RecipePage(props: RecipePageProps) {
             </section>
             <section id='right_section'>
                 <h3>Description</h3>
-                <p>{recipe.description}</p>
+                <p id="description">{recipe.description}</p>
                 <h3>Ingredients</h3>
-                <ul id="description">
+                <ul >
                 {allIngredients.map((ingredient:string, index)=>
                     <li className="list_item" id={ingredient} onClick={e=>deleteIngredient(e)} key={index}>{ingredient}</li>
                 )}
                 </ul>
                 <input
+                    className="input_field"
                     placeholder="2 cups of spinach"
                     value={newIngredient}  
                     onChange={(e: any) => {  
@@ -195,7 +196,7 @@ export default function RecipePage(props: RecipePageProps) {
                     }}
                     />
               
-                <button onClick={addIngredient}>Add Ingredient</button>
+                <button className='input_button' onClick={addIngredient}>Add Ingredient</button>
 
                 <h3>Instructions</h3>
                 <ol>
@@ -204,6 +205,7 @@ export default function RecipePage(props: RecipePageProps) {
                 )} 
                 </ol>
                 <input
+                    className="input_field"
                     placeholder="Instruction in detail..."
                     value={newInstruction}  
                     onChange={(e: any) => {   
@@ -211,7 +213,7 @@ export default function RecipePage(props: RecipePageProps) {
                     }}
                     />
               
-                <button onClick={addInstruction}>Add Instruction</button>
+                <button className='input_button' onClick={addInstruction}>Add Instruction</button>
 
             </section>
         </div>
