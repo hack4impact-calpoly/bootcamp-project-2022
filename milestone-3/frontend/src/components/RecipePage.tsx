@@ -1,22 +1,23 @@
-import { Recipe } from "../recipeInterfaces";
+import { Recipe, RecipePreviewProps } from "../recipeInterfaces";
 import './RecipePage.css'
 import React, { useState, useEffect } from "react";
 
-export default function RecipePage(recipe: Recipe ) {
+export default function RecipePage(recipe: RecipePreviewProps ) {
     // Creates a state variable to store the page's recipe drawn from MongoDB using the API 
     // defined in index.ts in the backend folder. Initializes that recipe object with an empty recipe.
-    let [rec, setRec] = useState<Recipe>({
+    let [rec, setRec] = useState<RecipePreviewProps>({
         name: "",
         description: "",
         image: "",
         ingredients: [],
-        instructions: []
+        instructions: [],
+        ext: false
     });
 
-    const [newIngredient, setNewIngredient] = useState('');
-    const [allIngredients, setAllIngredients] = useState(rec.ingredients);
-    const [newInstruction, setNewInstruction] = useState('');
-    const [allInstructions, setAllInstructions] = useState(rec.instructions);
+    let [newIngredient, setNewIngredient] = useState('');
+    let [allIngredients, setAllIngredients] = useState(rec.ingredients);
+    let [newInstruction, setNewInstruction] = useState('');
+    let [allInstructions, setAllInstructions] = useState(rec.instructions);
 
     useEffect(() => {
         setAllIngredients(rec.ingredients);
@@ -26,9 +27,16 @@ export default function RecipePage(recipe: Recipe ) {
     // Calls on the Milestone 4 API to deliver recipe data, formats that data as a JSON 
     // object, then sets the state variable for the page's recipe to that JSON object.
     useEffect(() => {
-        fetch(`http://localhost:3001/recipe/${recipe.name}`)
-        .then((res) => res.json())
-        .then((data) => setRec(data))
+        if(!recipe.ext) {
+            fetch(`http://localhost:3001/recipe/${recipe.name}`)
+            .then((res) => res.json())
+            .then((data) => setRec(data))
+        }
+        else {
+            fetch(`https://bootcamp-milestone-4.onrender.com/recipe/${recipe.name}`)
+            .then((res) => res.json())
+            .then((data) => setRec(data[0]))
+        }
     }, []);
     
     // A function for adding ingredients that passes a request with a JSON object as a string to the 
@@ -36,15 +44,18 @@ export default function RecipePage(recipe: Recipe ) {
     // database. The function then updates the state variable for ingredients to include the new
     // ingredient.
     function addIngredient(){
-        const optionsObject = {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({newIngredient})
+        if(!recipe.ext) {
+            const optionsObject = {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({newIngredient})
+            }
+            fetch(`http://localhost:3001/recipe/${recipe.name}/ingredient`, optionsObject
+            ).then(res => res.json()).then(json => console.log(json))
         }
-        fetch(`http://localhost:3001/recipe/${recipe.name}/ingredient`, optionsObject
-        ).then(res => res.json()).then(json => console.log(json))
+
         setAllIngredients([...allIngredients, newIngredient])
     }
 
@@ -53,15 +64,18 @@ export default function RecipePage(recipe: Recipe ) {
     // database. The function then updates the state variable for instructions to include the new
     // instruction.
     function addInstruction(){
-        const optionsObject = {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({newInstruction})
-        }
-        fetch(`http://localhost:3001/recipe/${recipe.name}/instruction`, optionsObject
-        ).then(res => res.json()).then(json => console.log(json))
+        if(!recipe.ext) {
+            const optionsObject = {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({newInstruction})
+            }
+            fetch(`http://localhost:3001/recipe/${recipe.name}/instruction`, optionsObject
+            ).then(res => res.json()).then(json => console.log(json))
+        }   
+
         setAllInstructions([...allInstructions, newInstruction])
     }
 

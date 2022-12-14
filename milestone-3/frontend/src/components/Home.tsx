@@ -20,18 +20,18 @@ export default function Home() {
             .then((data) => setRecipes(data));
     }, []);
 
-    // // Creates an array (state variable) to store any external recipes drawn from the Hu's Chews API.
-    // // Initializes that array with an empty array that stores objects with the Recipe interface, 
-    // // to be populated soon.
-    // const [externalRecipes, setExternalRecipes] = useState<RecipePreviewProps[]>([]);
+    // Creates an array (state variable) to store any external recipes drawn from the Hu's Chews API.
+    // Initializes that array with an empty array that stores objects with the Recipe interface, 
+    // to be populated soon.
+    const [externalRecipes, setExternalRecipes] = useState<RecipePreviewProps[]>([]);
     
-    // // Calls on the API to deliver recipe data, formats that data as an array of JSON objects, 
-    // // then sets the state variable for the external recipes to that array of JSON objects.
-    // useEffect(() => {
-    //     fetch("https://bootcamp-milestone-4.onrender.com/recipe")
-    //         .then((res) => res.json())
-    //         .then((data) => setExternalRecipes(data));
-    // }, []);
+    // Calls on the API to deliver recipe data, formats that data as an array of JSON objects, 
+    // then sets the state variable for the external recipes to that array of JSON objects.
+    useEffect(() => {
+        fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+            .then((res) => res.json())
+            .then((data) => setExternalRecipes(data));
+    }, []);
 
     return(
         <div className="page-card-wrapper">
@@ -42,7 +42,7 @@ export default function Home() {
                 externally from the Hu's Chews API*/}
                 <div className="recipe-container">
                     {recipes.map((recipe) => (<RecipePreview {...recipe} ext = {false} />))}
-                    {/*externalRecipes.map((externalRecipe) => (<RecipePreview {...externalRecipe} ext = {true} />))*/}
+                    {externalRecipes.map((externalRecipe) => (<RecipePreview {...externalRecipe} ext = {true} />))}
                 </div>
             </div>  
 
