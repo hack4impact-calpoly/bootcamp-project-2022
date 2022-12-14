@@ -1,9 +1,7 @@
-// import recipes from '../recipeData';
 import { useParams } from "react-router-dom";
 import './RecipePage.css'
-import React, { ChangeEvent, useState, useEffect } from "react";
-import recipes, { Recipe } from '../recipeData';
-// import RecipePreview from "./RecipePreview";
+import { ChangeEvent, useState, useEffect } from "react";
+import { Recipe } from '../recipeData';
 
 // checking to see if external exists in other recipes (T or F)
 interface RecipeProp {
@@ -26,70 +24,76 @@ export default function RecipePage(props: RecipeProp)
     const {id} = useParams();
 
     // ingredients
+    const [ingredients, setIngredients] = useState(recipe.ingredients);
     const [newIngredient, setNewIngredient] = useState('');
-    const [addIngredients, addNewIngredients] = useState(recipe.ingredients);
-    
     // instructions
+    const [instructions1, setInstructions1] = useState(recipe.instructions1);
     const [newInstruction1, setNewInstruction1] = useState('');
-    const [addInstructions1, addNewInstructions1] = useState(recipe.instructions1);
 
     useEffect(() => {
-        fetch(`http://localhost:3001/Recipe/${id}}`)        
+        fetch("http://localhost:3001/Recipe/" + id)       
         .then((res) => res.json())
         .then((data) => {
-            setNewRecipe(data[0]);
+            setIngredients(data.ingredients);
+            setInstructions1(data.instructions);
+            setNewRecipe(data);
+            console.log(data);
+            console.log(data.ingredients);
+            console.log(data.instructions);
+        
         })
-    }, [props.external]);
-
-    useEffect(() => {
-        addNewIngredients(recipe.ingredients);
-        addNewInstructions1(recipe.instructions1)
-    }, [recipe]);   
+    }, [id]);  
 
     function AddIngredient() {
-        addNewIngredients([...addIngredients, newIngredient]);
-        let address = `http://localhost:3001/Recipe/${id}/ingredient`
+        let address = "http://localhost:3001/Recipe/" + id + "/ingredient"
         fetch(address, {
-            method: 'PUT',
+            method: "PUT",
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                "newIngredient":newIngredient
+                value: newIngredient,
+                position: ingredients.length
             })
-        });
+        })
+        .catch((error: any) => console.log(error))
+        setIngredients([...ingredients, newIngredient]);
+        console.log(ingredients);
+    }
+    function AddInstruction() {
+        let address = "http://localhost:3001/Recipe/" + id + "/instruction"
+        fetch(address, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                value: newInstruction1,
+                position: instructions1.length
+            })
+        })
+        .catch((error: any) => console.log(error))
+        setInstructions1([...instructions1, newInstruction1]);
+        console.log(instructions1);
     }
 
-    function AddInstruction() {
-        addNewInstructions1([...addInstructions1, newInstruction1]);
-        let address = `http://localhost:3001/Recipe/${id}/instruction`
-        fetch(address, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                "newInstruction1":newInstruction1
-            })
-        });
-    }
-    
     return (
         <main>
         <div className="flex-container">
-            <h3> {recipe?.name} </h3>
-            <p> {recipe?.description}</p>
-            <img className="imageIced" src={recipe?.image} alt={recipe?.name}/>
+            <h3> {recipe.name} </h3>
+            <p> {recipe.description}</p>
+            <img className="imageIced" src={recipe.image} alt={recipe.name}/>
             <h4>Ingredient List</h4>
             <ul>
-                {addIngredients.map(function(ingred, index) {
-                    return <li key={index}>{ingred}</li>
+                {ingredients.map((ingred) => {
+                    return <li>{ingred}</li>
                 })}
+               
             </ul>
 
             <h3>Add a new ingredient!</h3>
             <input 
-                placeholder=""
+                placeholder="Cinnamon"
                 value={newIngredient}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     setNewIngredient(e.target.value);
@@ -98,21 +102,17 @@ export default function RecipePage(props: RecipeProp)
             <button onClick={AddIngredient}>
                 Add Ingredient
             </button>
-            {/* <button onClick={() => addNewIngredients([...addIngredients, newIngredient])}>
-                Add Ingredient
-            </button> */}
 
             <h4>Instructions</h4>
             <ol>
-                {addInstructions1.map(function(instruct, index) {
-                    return <li key={index}>{instruct}</li>
+                {instructions1.map((instruct) => {
+                    return <li>{instruct}</li>
                 })}
-        
             </ol>
 
             <h3>Add a new instruction!</h3>
             <input 
-                placeholder=""
+                placeholder="Reheat water"
                 value={newInstruction1}
                 onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     setNewInstruction1(e.target.value);
@@ -121,15 +121,13 @@ export default function RecipePage(props: RecipeProp)
             <button onClick={AddInstruction}>
                 Add new Instruction
             </button>
-            {/* <button onClick={() => addNewInstructions1([...addInstructions1, newInstruction1])}>
-                Add new Instruction
-            </button> */}
              
         </div>
         </main>
-    );
-
+    )
+        
 }
+
 
 RecipePage.defaultProps = {
     external: false

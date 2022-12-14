@@ -11,15 +11,15 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 
 function App() {
-  // const [recipes, setNewRecipe] = useState<Recipe[]>([]);
-  // useEffect(() => {
-  //   fetch("http://localhost:3001/recipe/")        
-  //   .then((res) => res.json())
-  //   .then((recipes) => {
-  //       setNewRecipe(recipes);
-  //       })
-  //   .catch((error) => console.log(error));
-  // }, []);
+  const [recipes, setNewRecipe] = useState<Recipe[]>([]);
+  useEffect(() => {
+    fetch("http://localhost:3001/Recipe/")        
+    .then((res) => res.json())
+    .then((recipes) => {
+        setNewRecipe(recipes);
+        })
+    .catch((error) => console.log(error));
+  }, []);
 
   return (
     <div className="entireBack">
@@ -28,9 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element = {<Home />}/>
         <Route path="/About" element = {<About />}/>
-        <Route path="/recipe/:id" element = {<RecipePage />}/>   
-        {/* <Route path="/externalRecipe/:id" element = {<RecipePage external />}/>    */}
-
+        <Route path="/Recipe/:id" element = {<RecipePage />}/>   
       </Routes>
     </Router>
     </div>
