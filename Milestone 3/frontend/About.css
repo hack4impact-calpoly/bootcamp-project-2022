@@ -1,0 +1,20 @@
+#Welcome {
+    font-size: 40px;
+    margin: 30px 0px 30px 30px;
+   
+    
+}
+.paratext {
+    padding: 150px 50px 150px 50px;
+    font-size: 25px;
+    font-weight: bold;
+}
+.Box {
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    background-color:darkkhaki;
+    height: fit-content;
+    margin: 30px 40px 30px 40px;
+    border-radius: 25px;
+}

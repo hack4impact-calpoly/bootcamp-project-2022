@@ -1,0 +1,38 @@
+.Box {
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    background-color:darkkhaki;
+    height: fit-content;
+    margin: 30px 40px 30px 40px;
+    border-radius: 25px;
+  }
+  
+  .Subheader {
+    font-size: 30px;
+    font-weight: bold;
+    color:darkred;
+    padding-left: 30px;
+    padding-top: 30px;
+  }
+  
+  .para {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    padding: 20px 30px 20px 30px;
+  }
+  
+  .paratext {
+    padding: 150px 50px 150px 50px;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .RecipeImage {
+    max-height: 200px;
+    border-radius: 25px;
+    border-color:darkred;
+    border-style: solid;
+    border-width: thick;
+  }

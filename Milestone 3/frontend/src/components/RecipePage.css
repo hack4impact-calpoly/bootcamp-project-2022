@@ -1,0 +1,75 @@
+  .Box {
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    background-color:darkkhaki;
+    height: fit-content;
+    margin: 30px 40px 30px 40px;
+    border-radius: 25px;
+  }
+  .RecipeImage {
+    max-height: 200px;
+    border-radius: 25px;
+    border-color:darkred;
+    border-style: solid;
+    border-width: thick;
+  }
+  .Subprocess{
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0px 30px 0px 30px;
+    color:darkred;
+  }
+  .RecipePage {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    padding: 20px 30px 20px 30px;
+  } 
+  
+  .RecipeImage {
+    max-height: 400px;
+    border-radius: 16px;
+    border-color:darkred;
+    border-style: solid;
+    border-width: thick;
+    margin-top: 40px;
+  }
+  
+  .RecipeDetails {
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    background-color:darkkhaki;
+    height: fit-content;
+    margin: 40px 40px 40px 40px;
+    border-radius: 30px;
+  }
+  
+  .RecipeName {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0px 30px 0px 30px;
+  }
+  
+  .RecipeDesc {
+    padding: 0px 30px 0px 30px;
+    font-size: 18px;
+  }
+  
+  .Ingredients {
+    background-color:goldenrod;
+    margin-left: 20px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+  }
+  
+  .Instructions {
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    background-color:darkkhaki;
+    height: fit-content;
+    margin: 20px 40px 20px 40px;
+    border-radius: 40px;
+  }
