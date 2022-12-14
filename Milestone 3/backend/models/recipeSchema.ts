@@ -8,17 +8,15 @@ export interface IRecipe extends Document {
     instructions: string[];
 }
 
-const RecipeSchema = new Schema<IRecipe>(
-  {
-    name: { type: String, unique: true, required: true },
-    description: { type: String, required: true },
-    image: { type: String, required: true },
-    ingredients: { type: [String], required: true },
-    instructions: { type: [String], required: true },
-  },
-  { collection: "Recipes" }
+
+const RecipeSchema = new Schema<IRecipe>({
+  name: {type: String, required: true}, 
+  image: {type: String, required: true}, 
+  description: {type: String, required: true}, 
+  ingredients: {type: [String] , required: true}, 
+  instructions: {type: [String] , required: true} 
+},
+{collection: "Recipes"}
 );
 
-const Recipe = model<IRecipe>("Recipe", RecipeSchema);
-
-export default Recipe;
+export const Recipe = model<IRecipe>('Recipe', RecipeSchema);

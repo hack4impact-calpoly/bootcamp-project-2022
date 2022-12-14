@@ -1,52 +1,78 @@
+import { Recipe } from "../models/recipeSchema";
 import express, { Request, Response, Router } from "express";
-import Recipe from "../models/recipeSchema";
 
-const router: Router = express.Router();
+const router: Router = express.Router()
 
-// get all recipes
-router.get("/recipe", async (req: Request, res: Response) => {
+router.get("/", async (req: Request, res: Response) => {
+    // get all recipes 
     const recipes = await Recipe.find({});
-    // console.log(recipes);
     res.send(recipes);
 });
 
-// get recipe by name
-router.get("/recipe/:name", async (req: Request, res: Response) => {
-    const { name } = req.params;
-    const recipe = await Recipe.findOne({
-      name: name,
-    });
-    res.send(recipe);
+// get recipe
+router.get("/:name", async (req: Request, res: Response) => {   
+    const {name} = req.params;
+    const recipes = await Recipe.find({name: name});
+    res.send(recipes);
 });
 
-// create a new recipe
-router.post("/recipe", async (req: Request, res: Response) => {
-  await Recipe.create(req.body);
-  res.send("Recipe created");
+// add new
+router.post("/person", async (req: Request, res: Response) => {
+    const { 
+        name,
+        image, 
+        description,  
+        ingredients, 
+        instructions 
+    } = req.body
+
+    let addedRecipe = new Recipe({
+        name, 
+        image,
+        description,  
+        ingredients, 
+        instructions
+    })
+
+    try {
+      addedRecipe = await addedRecipe.save()
+      res.send(`recipe for ${addedRecipe.name} added to collection`)
+    } 
+    catch(error: any) {
+      res.status(500).send(error.message)
+      console.log(`error is ${error.message}`)
+    }
 });
 
-// update a new ingredient
-router.put("/recipe/:name/ingredient", async (req: Request, res: Response) => {
-  const recipe = await Recipe.findOne({ name: req.params.name });
-  if (recipe) {
-    recipe.ingredients = [...recipe.ingredients, req.body.ingredient];
-    await recipe.save();
-    res.send("Ingredient added");
-  } else {
-    res.send("Failed to add ingredient");
-  }
+// add ingredient
+router.put("/:recipeName/ingredient", async (req: Request, res: Response) => {
+    const recipeName = req.params.recipeName;
+    const newIngredient = req.body.newIngredient;
+    const recipe = await Recipe.findOne({name: recipeName});
+
+    if (recipe){
+        recipe.ingredients = [...recipe.ingredients, newIngredient];
+        await recipe.save();
+        res.send(`Ingredient added`);
+    }else {
+        res.send(`Failed to add ingredient`);
+    }
 });
 
-// add an instruction
-router.put("/recipe/:name/instruction", async (req: Request, res: Response) => {
-  const recipe = await Recipe.findOne({ name: req.params.name });
-  if (recipe) {
-    recipe.instructions = [...recipe.instructions, req.body.instruction];
-    await recipe.save();
-    res.send("Instruction added");
-  } else {
-    res.send("Failed to add instruction");
-  }
+router.put("/:recipeName/instruction", async (req: Request, res: Response) => {
+    // add step to a recipe
+    const recipeName = req.params.recipeName;
+    const newStep = req.body.newStep;
+    const recipe = await Recipe.findOne({name: recipeName});
+
+    if (recipe){
+        recipe.instructions = [...recipe.instructions, newStep];
+        await recipe.save();
+        res.send(`Instruction added`);
+    }else {
+        res.send(`Failed to add instruction`);
+    }
 });
+
 
 export default router;

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import recipeData, {Recipe} from "../recipeData"
+import {Recipe} from "../recipeData"
 import {useState, useEffect, ChangeEvent} from "react";
 
 interface RecipePageProps {
@@ -29,7 +29,9 @@ function RecipePage(props: RecipePageProps) {
             .then((data) => setRecipe(data[0]))
         }
         else{
-            setRecipe(recipeData.find((recipe) => recipe.name === id) || recipeData[0])
+            fetch('http://localhost:3001/recipe/' + id?.replace(/ /g, "%20"))
+            .then((res) => (res.json())
+            .then((r) => setRecipe(r)))
         }
     }, [props.external, id])
 
@@ -37,6 +39,28 @@ function RecipePage(props: RecipePageProps) {
         setAllIngredients(recipe.ingredients);
         setAllInstructions(recipe.instructions);
     }, [recipe]);
+
+    const AddIngredient = () => {
+        const req = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ newIngredient })
+        }
+        fetch(`http://localhost:3001/recipe/${id}/ingredient`, req)
+        .then(res => console.log(res));
+        setAllIngredients([...allIngredients ?? [], newIngredient]);
+    }
+    
+    const AddInstruction = () => {
+        const req = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify({ newInstruction })
+        }
+        fetch(`http://localhost:3001/recipe/${id}/instruction`, req)
+        .then(res => console.log(res));
+        setAllInstructions([...allInstructions ?? [], newInstruction]);
+    }
 
     // creates items on webpage depending on recipe
     if (recipe){

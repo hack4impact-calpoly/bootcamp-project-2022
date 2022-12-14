@@ -5,15 +5,21 @@ import{useState, useEffect} from "react";
 
 
 function Home(){
-
-
-    // change to API
+    
     const[externalRecipes, setExternalRecipes] = useState<Recipe[]>([])
     useEffect(() => {
         fetch("https://bootcamp-milestone-4.onrender.com/recipe")
         .then((res) => res.json())
         .then((data) => setExternalRecipes(data))
     }, [])
+
+    const [recipes, setRecipes] = useState<Recipe[]>([]);
+    useEffect(() => {
+        fetch('http://localhost:3001/recipe')
+        .then((response) => response.json())
+        .then((recipeData) => setRecipes(recipeData))
+        .catch((error) => console.log(error));
+    }, []);
 
     return(
         <main>
