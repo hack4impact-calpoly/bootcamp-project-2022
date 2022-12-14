@@ -1,6 +1,8 @@
 import "./RecipePage.css";
 import { useParams } from "react-router-dom";
-import recipeData from "../recipeData.json";
+
+//only for utilizing the first object of recipeData which displays error if recipe does not exist
+import errorRecipe from "../recipeData.json";
 import React, { useEffect, ChangeEvent, useState } from "react";
 
 interface RecipePageProps {
@@ -19,9 +21,9 @@ interface Recipe {
 const RecipePage = (props: RecipePageProps) => {
     const { id } = useParams();
     const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
-    const [recipe, setRecipe] = useState<Recipe>(recipeData[1]);
+    const [recipe, setRecipe] = useState<Recipe>(errorRecipe[0]);
 
-    // setState and useParams
+    // for rendering specfic recipe
     useEffect(() => {
         if (props.external) {
             console.log("External url");
@@ -62,10 +64,39 @@ const RecipePage = (props: RecipePageProps) => {
     const [allInstructions, setAllInstrutctions] = useState<string[]>(
         recipe.ingredients
     );
+
     useEffect(() => {
         setAllIngredients(recipe.ingredients);
         setAllInstrutctions(recipe.instructions);
     }, [recipe]);
+
+    function addIngredient(newItem: string) {
+        // update local ingredient
+        setAllIngredients([...allIngredients, newIngredient]);
+
+        //update database
+        fetch(`http://localhost:3001/recipe/${recipe.link_name}/ingredient`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                ingredient: newItem,
+            }),
+        }).catch((err) => console.log("Error:", err));
+    }
+
+    function addInstruction(newItem: string) {
+        // update local instruction
+        setAllInstrutctions([...allInstructions, newInstruction]);
+
+        //update database
+        fetch(`http://localhost:3001/recipe/${recipe.link_name}/instruction`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                instruction: "hello",
+            }),
+        }).catch((err) => console.log("Error:", err));
+    }
 
     return (
         <main>
@@ -98,12 +129,7 @@ const RecipePage = (props: RecipePageProps) => {
                         />
                         <button
                             className="addButton"
-                            onClick={() =>
-                                setAllIngredients([
-                                    ...allIngredients,
-                                    newIngredient,
-                                ])
-                            }
+                            onClick={() => addIngredient(newIngredient)}
                         >
                             Add Ingredient
                         </button>
@@ -129,12 +155,7 @@ const RecipePage = (props: RecipePageProps) => {
                 />
                 <button
                     className="addButton"
-                    onClick={() =>
-                        setAllInstrutctions([
-                            ...allInstructions,
-                            newInstruction,
-                        ])
-                    }
+                    onClick={() => addInstruction(newInstruction)}
                 >
                     Add Instruction
                 </button>
