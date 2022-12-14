@@ -10,6 +10,9 @@ interface RecipePageProps {
 }
 
 export default function RecipePage(props: RecipePageProps) {
+  let { id } = useParams();
+  
+
   const[recipe, setRecipe] = useState<Recipe>({
     name: "",
     description: "",
@@ -17,32 +20,62 @@ export default function RecipePage(props: RecipePageProps) {
     ingredients: [],
     instructions: []
   })
-
-  
-  let { id } = useParams();
   const [newIngredient, setNewIngredient] = useState('');//add this
   const [newStep, setNewStep] = useState('');//add this
   
   const [allIngredients, setAllIngredients] = useState(recipe.ingredients);
   const [allSteps, setAllSteps] = useState(recipe.instructions);
+  
+  
+  console.log(recipe.ingredients)
 
-  useEffect(() => {
-    if (props.external) {
-      // make an API call with the url param & setRecipe
-      fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id)
-            .then((res) => res.json())
-            .then((data) => setRecipe(data[0]))
-    } else {
-      // query all of your recipe data for the recipe you want & setRecipe
-      setRecipe(recipes.find((recipe) => recipe.name === id) || recipes[0])
-    }
-  }, [id,props.external]);
-	
   useEffect(() => {
     setAllIngredients(recipe.ingredients);
     setAllSteps(recipe.instructions);
 }, [recipe]);
 
+  
+  useEffect(() => {
+    // make an API call with the url param & setRecipe
+    // http://localhost:3001/recipe/
+    // https://bootcamp-milestone-4.onrender.com/recipe/
+    console.log(id)
+    fetch("http://localhost:3001/recipe/" + id)
+          .then((res) => res.json())
+          .then((data) => {
+            setRecipe(data)
+          })
+    
+  }, [id,props.external]);
+
+ 
+
+  async function addIngredient(ingredient: string) {
+    await fetch(`http://localhost:3001/recipe/${id}/ingredient`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({"newIngredient": ingredient})});
+    fetch(`http://localhost:3001/recipe/${id}`)
+    .then((res) => (res.json()))
+    .then((data) => {
+        setAllIngredients(data.ingredients)})
+  };
+
+  async function addInstruction(instruction: string) {
+    await fetch(`http://localhost:3001/recipe/${id}/instruction`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({"newInstruction": instruction})});
+    fetch(`http://localhost:3001/recipe/${id}`)
+    .then((res) => (res.json()))
+    .then((data) => {
+      setAllSteps(data.instructions)})
+  };
+  
   return(
     <div>
         <div className = "flex-container">
@@ -72,7 +105,7 @@ export default function RecipePage(props: RecipePageProps) {
             setNewIngredient(e.target.value);
           }}
         />
-        <button onClick={() => setAllIngredients([...allIngredients, newIngredient])}>
+        <button onClick={() => addIngredient(newIngredient)}>
         Add Ingredient
       </button>
         <br></br>
@@ -85,7 +118,7 @@ export default function RecipePage(props: RecipePageProps) {
           }}
         />
       
-      <button onClick={() => setAllSteps([...allSteps, newStep])}>
+      <button onClick={()=>addInstruction(newStep)}>
         Add Step
       </button>
     </div>
