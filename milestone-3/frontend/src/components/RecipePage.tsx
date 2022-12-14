@@ -92,14 +92,36 @@ export default function RecipePage(props: RecipePageProps) {
         setNewIngredient('')
       }
 
-
-
-
-    const deleteIngredient=()=>{
+    const deleteIngredient=async (e:any)=>{
       const text="Are you sure you want to remove it?"
       const userConfirm= window.confirm(text);
       console.log(userConfirm)
+      if (userConfirm){
+        const url=`http://localhost:3001/recipe/${name}/ingredient/delete`
+        const targeIngredient = await e?.target?.id
+        console.log("target", targeIngredient)
+        await fetch(url, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ingredient:targeIngredient}),
+        })
+        .catch(error => {
+          window.alert(error);
+          return;
+        }); 
+      }else{
+        return 
+      }
+      // var index = array.indexOf(item);
+      // if (index !== -1) {
+      //   array.splice(index, 1);
+      // }
 
+      // myArray = myArray.filter(function( obj ) {
+      //   return obj.id !== id;
+      // });
     }
 //   console.log(externalRecipes,"--------------->>>")
   return (
@@ -118,7 +140,7 @@ export default function RecipePage(props: RecipePageProps) {
                 <h3>Ingredients</h3>
                 <ul id="description">
                 {allIngredients.map((ingredient:string, index)=>
-                    <li onClick={deleteIngredient} key={index}>{ingredient}</li>
+                    <li id={ingredient} onClick={e=>deleteIngredient(e)} key={index}>{ingredient}</li>
                 )}
                 </ul>
                 <input
