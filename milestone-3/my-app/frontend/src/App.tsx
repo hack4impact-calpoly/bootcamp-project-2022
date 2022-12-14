@@ -33,7 +33,6 @@ function App() {
   //   .catch(err => console.log(err))
   // },[]);
 
-
   return (
     <body>
       <BrowserRouter>  
@@ -42,7 +41,6 @@ function App() {
               <Route path = "/aboutme" element ={<About/>}/>
               <Route path = "/" element = {<Home/>} />
               <Route path = "/:name" element ={<RecipePage/>}/>
-              {/* <Route path= "externalRecipe/:name" element={<RecipePage external />} /> */}
         </Routes>
       </BrowserRouter>
     </body>

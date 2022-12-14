@@ -5,11 +5,7 @@ import { Recipe } from "../recipeData"
 
 function RecipePreview (props: Recipe){
     let hRef = props.buttonHref
-    // if (props.external){
-    //     hRef = "externalRecipe/" + props.name
-    // }
-    return(
-        
+    return(     
         <div className = "recipe-container">
             <h2>{props.name}</h2>
             <img src = {props.image}

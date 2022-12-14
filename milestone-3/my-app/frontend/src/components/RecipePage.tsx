@@ -4,14 +4,6 @@ import  { Recipe } from './recipeData';
 import '../App.css';
 
 
-// interface RecipePageProps{  
-//     external?: boolean; 
-// };
-// RecipePage.defaultProps = {
-//     external: false
-// };
-
-
 export default function RecipePage (){
 
     const[recipe, setRecipe] = useState<Recipe>({
@@ -26,7 +18,6 @@ export default function RecipePage (){
         buttonHref: ""
     }); 
     const {name} = useParams();
-    
 
     useEffect (() => {
         window.scrollTo(0, 0)
@@ -40,21 +31,6 @@ export default function RecipePage (){
         .catch(err => console.log(err))
     },[name]);
   
-  
-
-    // const target = recipes.find(recipe => recipe.name === name);
-    // const [recipe, setRecipe] = useState<Recipe>({
-    //     name: "",
-    //     image: "",
-    //     imgAltName: "",
-    //     description: "", 
-    //     ingredients: [],
-    //     instructions: [],
-    //     orig_link: "", 
-    //     orig_link_name: "",
-    //     buttonHref: ""
-    // });
-
     const [newIngredient, setNewIngredient] = useState('');
     const [allIngredients, setAllIngredients] = useState(recipe.ingredients); 
     const [newStep, setNewStep] = useState('');
@@ -82,33 +58,7 @@ export default function RecipePage (){
         setAllSteps([...allSteps, newStep]);
     }
 
-    // if(!target){
-    //     recipe.orig_link = "https://bootcamp-milestone-3.netlify.app/"
-    //     recipe.orig_link_name = "Hu's Chews"
-    // }
-   
-    // useEffect(() => {
-    //     window.scrollTo(0, 0)
-    //     // if (external) {
-    //     //         fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + name)
-    //     //         .then((response) => response.json())
-    //     //         .then((data) => {setRecipe(data[0])
-    //     //         setAllSteps(data[0].instructions)
-    //     //         setAllIngredients(data[0].ingredients)
-    //     //         });                  
-    //     // }else{
-    //         setRecipe(recipe)
-    //         setAllIngredients(recipe.ingredients);
-    //         setAllSteps(recipe.instructions);
-    // }, [recipe]);
-
-    // useEffect(() => {
-    //     setAllIngredients(recipe.ingredients);
-    //     setAllSteps(recipe.instructions);
-    // }, [recipe]);
-    
-    return(   
-        
+    return(         
         <div className = "recipe-container">
                   <h2>{recipe.name}</h2>
                   <img src= {recipe.image}
