@@ -29,25 +29,25 @@ type nameParams ={
 
 export default function RecipePage(props: RecipePageProps) {
    const [recipe, setRecipe]=useState({id:"", name:"", description:"", image:"", ingredients:[], instructions:[]})
-   const [newIngredient, setNewIngredient] = useState('')
-
-  
+   // ingredient session
+   const [newIngredient, setNewIngredient] = useState('') 
    const [allIngredients, setAllIngredients] = useState<string[]>(recipe.ingredients);
+   // instruction session
+   const [newInstruction, setNewInstruction] = useState('')
+   const [allInstructions, setAllInstructions] = useState<string[]>(recipe.instructions); 
  
-//    const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
   
    const { name } = useParams<nameParams>();
+ 
+    useEffect(()=>{
+      setAllInstructions(recipe.instructions)
+    },[recipe.instructions]) 
 
-//    useEffect(() => {
-//     const myRecipe:any = recipes.find((recipe:Recipe)=>recipe.id===id)
-//     setRecipe(myRecipe)
-//    }, [id])
-    
     useEffect(()=>{
         setAllIngredients(recipe.ingredients)
     },[recipe.ingredients])
 
-   // setState and useParams
+  
 	useEffect(() => {
         if (props.external) {
           // make an API call with the url param & setRecipe
@@ -91,6 +91,27 @@ export default function RecipePage(props: RecipePageProps) {
         setAllIngredients([...allIngredients, newIngredient])
         setNewIngredient('')
       }
+
+    const addInstruction=( )=> {
+        const url=`http://localhost:3001/recipe/${name}/instruction`
+      
+        fetch(url, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({instruction: newInstruction}),
+        })
+        .catch(error => {
+          window.alert(error);
+          return;
+        });
+
+       
+        setAllInstructions([...allInstructions, newInstruction])
+        setNewInstruction('')
+      }
+    
 
     const deleteIngredient=async (e:any)=>{
       const text="Are you sure you want to remove it?"
@@ -153,17 +174,26 @@ export default function RecipePage(props: RecipePageProps) {
                         setNewIngredient(e.target.value);
                     }}
                     />
-               {/* <button onClick={() => setAllIngredients([...allIngredients, newIngredient])}>
-                Add Ingredient
-                </button> */}
+              
                 <button onClick={addIngredient}>Add Ingredient</button>
 
-                <h3>Method</h3>
+                <h3>Instructions</h3>
                 <ol>
-                {recipe.instructions.map((instruction:string, index)=>
-                    <li key={index}>{instruction}</li>
+                {allInstructions.map((instruction:string, index)=>
+                    <li className='list_item' key={index}>{instruction}</li>
                 )} 
                 </ol>
+                <input
+                    placeholder="Instruction in detail..."
+                    value={newInstruction} // add newIngredient as the input's value
+                    onChange={(e: any) => {  //ChangeEvent<HTMLInputElement>
+                        // this event handler updates the value of newIngredient
+                        setNewInstruction(e.target.value);
+                    }}
+                    />
+              
+                <button onClick={addInstruction}>Add Instruction</button>
+
             </section>
         </div>
 	  </div>
