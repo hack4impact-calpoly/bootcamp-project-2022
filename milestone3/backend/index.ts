@@ -12,6 +12,12 @@ mongoose.connect(url)
     .then(() => console.log("Connected to MongoDB"))
     .catch((err: any) => console.log(`Error connecting to DB: ${err}`));
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT');
+    next();
+});
 
 app.get('/', (req, res) => {
     res.send('Hello world!')
@@ -63,6 +69,8 @@ app.put("/recipe/:recipeName/instruction", async (req: Request, res: Response) =
         res.send("Update failed")
     }
 })
+
+
 
 
 app.listen(3001);
