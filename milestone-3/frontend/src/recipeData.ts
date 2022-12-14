@@ -85,8 +85,8 @@ export interface Recipe {
   }
   const recipe_3: Recipe = {
     name: "Gajar Ka Halwa",
-    description: "Hariyali Chicken Biryani is marinated in the combination of green ingredients like coriander leaves, mint leaves and green chillies.",
-    image: "https://myfoodstory.com/wp-content/uploads/2018/09/The-Best-Chicken-Biryani-Recipe-2.jpg",
+    description: "One of the most popular Indian desserts, 'Gajar ka Halwa' is known to have originated in Punjab. It is a delicious delight during the winter months.",
+    image: "https://www.cookwithmanali.com/wp-content/uploads/2015/01/Gajar-Halwa-Indian.jpg",
     ingredients: [
         "1 Kg Carrot",
         "1 1/2 litre Milk",

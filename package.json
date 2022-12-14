@@ -19,6 +19,7 @@
   "homepage": "https://github.com/BorealPanda/bootcamp-project-2022#readme",
   "dependencies": {
     "cowsay": "^1.5.0",
+    "node-fetch": "^3.3.0",
     "react-router-dom": "^6.4.3"
   }
 }
