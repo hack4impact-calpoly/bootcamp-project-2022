@@ -18,7 +18,7 @@ function RecipePage() {
 	const [newInstruction, setNewInstruction] = useState("")
 
 	useEffect(() => {
-		fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+		fetch("https://localhost:3001/recipe")
 			.then((res) => res.json())
 			.then((data) => setExternalRecipes([...externalRecipes, ...data]))
 	}, [])

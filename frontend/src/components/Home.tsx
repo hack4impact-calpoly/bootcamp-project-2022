@@ -1,7 +1,7 @@
 import "../App.css"
 import RecipePreview from "./RecipePreview"
 import recipeData from "../recipeData.json"
-import { ChangeEvent, useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 
 interface Recipe {
 	name: string
@@ -12,7 +12,7 @@ interface Recipe {
 function Home() {
 	const [externalRecipes, setExternalRecipes] = useState<Recipe[]>(recipeData)
 	useEffect(() => {
-		fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+		fetch("https://localhost:3001/recipe")
 			.then((res) => res.json())
 			.then((data) => setExternalRecipes([...externalRecipes, ...data]))
 	}, [])
