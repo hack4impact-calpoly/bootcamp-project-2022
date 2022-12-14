@@ -1,25 +1,21 @@
 import React, { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal, useState, ChangeEvent, useEffect } from 'react';
+import recipes, {Recipe} from '../recipeData';
 import { useParams } from 'react-router-dom';
-import { Recipe } from '../recipeData';
+
 
 import './about.css';
 
-
-interface RecipeProps {
-    name: string;
-    description: string;
-    image: string;
-    ingredients: string[];
-    instructions: string[];
-  }
+interface RecipePageProps{
+  external?:boolean
+}
 
 
  
   
 
-export default function RecipePage(props: RecipeProps) {
+export default function RecipePage(props: RecipePageProps) {
 
-
+  let { name } = useParams();
   const [recipe, setRecipe] = useState<Recipe>({
     name: '',
     description: '',
@@ -27,72 +23,86 @@ export default function RecipePage(props: RecipeProps) {
     ingredients: [],
     instructions: [],
   });
-  const { name } = useParams();
+
+
+  const [ingredients, setIngredients] = useState(recipe.ingredients);
+  const [newIngredient, setNewIngredient] = useState('');
+
+  const [instructions, setInstructions] = useState(recipe.instructions);
+  const [newInstruction, setNewInstruction] = useState('');
+
+
+  const [ingredientIndex, setIngredientIndex] = useState(recipe.ingredients.length);
+  const [instructionIndex, setInstructionIndex] = useState(recipe.instructions.length);
+ 
 
   useEffect(() => {
-    console.log("NAME", name)
-        fetch("http://localhost:3001/recipe/" + props.name)
-        .then(response => response.json())
-        
-                        .then((data) => {
-                          setRecipe(data[0]);
-                          setIngredients(data[0].ingredients);
-                          setInstructions(data[0].instructions);
-                          setIngredientIndex(data[0].ingredients.length);
-                          setInstructionIndex(data[0].instructions.length);
-                        })
-},[props.name])
+    // make an API call with the url param & setRecipe
+      fetch("http://localhost:3001/recipe/" + name)
+      .then((res) => res.json())
+      .then((data) => {setIngredients(data[0].ingredients); 
+                      setInstructions(data[0].instructions);
+                      // console.log(data[0]);
+                      setRecipe(data[0])});
+  
+}, [recipe.name]);
 
 
-useEffect(() => {
-  setIngredients(recipe.ingredients);
-}, [props.ingredients]); 
+// useEffect(() => {
+//   setIngredients(recipe.ingredients);
+// }, [props.ingredients]); 
 
 
-useEffect(() => {
-  setInstructions(recipe.instructions);
-}, [props.instructions]); 
+// useEffect(() => {
+//   setInstructions(recipe.instructions);
+// }, [props.instructions]); 
 
 
-useEffect(() => {
-  setIngredients(recipe?.ingredients);
-  setInstructions(recipe?.instructions);
-}, [recipe]);
+// useEffect(() => {
+//   setIngredients(recipe?.ingredients);
+//   setInstructions(recipe?.instructions);
+// }, [recipe]);
  
 
 
-  const [ingredients, setIngredients] = useState(props.ingredients);
-  const [newIngredient, setNewIngredient] = useState('');
+ 
 
 
 
-
-
-  const [instructions, setInstructions] = useState(props.instructions);
-  const [newInstruction, setNewInstruction] = useState('');
-  const [ingredientIndex, setIngredientIndex] = useState(ingredients.length);
-  const [instructionIndex, setInstructionIndex] = useState(instructions.length);
-
-
-
-
+  useEffect(() => {
+    setIngredients(recipe.ingredients);
+    setInstructions(recipe.instructions);
+}, [recipe]);
 
 
 
     const removeIngredients = (index: number
     ) => {
       if (window.confirm("Do you want to remove this item?")) {
+        fetch(
+          "http://localhost:3001/recipe/" + name + "/ingredient",
+          {
+            method: "DELETE",
+          }
+        ).catch((err) => console.log(err));
         setIngredients([...ingredients.slice(0, index), ...ingredients.slice(index + 1)]);
       }
     };
 
 
-    const removeInstructions = (index: number
-      ) => {
-        if (window.confirm("do you want to remove this item?")) {
-          setInstructions([...instructions.slice(0, index), ...instructions.slice(index + 1)]);
-        }
-      };
+
+      const removeInstructions = (index: number
+        ) => {
+          if (window.confirm("do you want to remove this item?")) {
+            fetch(
+              "http://localhost:3001/recipe/" + name + "/instruction",
+              {
+                method: "DELETE",
+              }
+            ).catch((err) => console.log(err));
+            setInstructions([...instructions.slice(0, index), ...instructions.slice(index + 1)]);
+          }
+        };
 
 
 
@@ -108,36 +118,38 @@ useEffect(() => {
 
 
     
-      const addIngredient = () => {
-        const request = {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ingredient: newIngredient }),
-        };
-        fetch(`http://localhost:3001/recipe/${name}/ingredient`, request)
-          .then((response) => console.log(response))
-          .catch((error) => console.log(error));
-        setIngredients([...ingredients, newIngredient]);
-        setIngredientIndex(ingredientIndex +1)
-      };
+      function addIngredient() {
+        fetch("http://localhost:3001/recipe/" + name + "/ingredient", 
+        {method: "PUT", 
+        headers: {"Content-Type": "application/json"}, 
+        body: JSON.stringify({
+            value: newIngredient,
+            position: ingredients.length
+        })})
+        .catch((error:any) => console.log(error))
+        setIngredients([...ingredients, newIngredient])
+        setIngredientIndex(ingredients.length)
+        
+        // .then((res) => res.json())
+        // .then((data) => setAllIngredients(data));
+      }
 
 
 
 
     
-      const addInstruction = () => {
-        const request = {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ instruction: newInstruction }),
-        };
-    
-        fetch(`http://localhost:3001/recipe/${name}/instruction`, request)
-          .then((response) => console.log(response))
-          .catch((error) => console.log(error));
-        setInstructions([...instructions, newInstruction]);
-        setInstructionIndex(instructionIndex+1)
-      };
+      function addInstruction() {
+        fetch("http://localhost:3001/recipe/" + name + "/instruction", 
+        {method: "PUT", 
+        headers: {"Content-Type": "application/json"}, 
+        body: JSON.stringify({
+            value: newInstruction,
+            position: instructions.length
+        })})
+        .catch((error:any) => console.log(error))
+        setInstructions([...instructions, newInstruction])
+        setInstructionIndex(instructions.length)
+      }
 
 
 
@@ -145,11 +157,11 @@ useEffect(() => {
 
 <main>
       <div className="recipe container">
-        <h1>{props.name}</h1>
+        <h1>{recipe?.name}</h1>
         <div>
           <img
             className="img-big"
-            src={props.image}
+            src={recipe?.image}
           />
         </div>
 
@@ -267,8 +279,6 @@ useEffect(() => {
 
 
     )};
-
-
 
 
 

@@ -10,22 +10,13 @@ interface RecipePreviewProps {
 }
 
 export default function RecipePreview(props: RecipePreviewProps) {
-  
-  const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
-
-
-  useEffect(() => {
-    fetch("https://bootcamp-milestone-4.onrender.com/recipe")
-      .then((res) => res.json())
-      .then((data) => setExternalRecipes(data));
-  }, []);
 
 
   
   return (
     <div className="recipe">
       <h2 className ="recipe_header">
-        <Link to={`/recipes/${props.name.toLowerCase().replace(/\s/g, "-")}`}>
+      <Link to={`/recipe/${props.name}`}>
           {props.name}
         </Link>
       </h2>

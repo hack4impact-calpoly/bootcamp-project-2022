@@ -1,10 +1,11 @@
 import "./home.css";
 import RecipePreview from "./recipePreview";
-import recipes, { Recipe } from "../recipeData";
 import "./home.css"
 import { useEffect, useState } from "react";
+import recipes, {Recipe} from "../recipeData";
 
-// home component
+
+
 export default function Home() {
 
 
@@ -31,3 +32,4 @@ export default function Home() {
     </main>
   );
 }
+
