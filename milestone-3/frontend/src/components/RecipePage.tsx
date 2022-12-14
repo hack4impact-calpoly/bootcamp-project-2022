@@ -95,7 +95,7 @@ export default function RecipePage(props: RecipePageProps) {
     const deleteIngredient=async (e:any)=>{
       const text="Are you sure you want to remove it?"
       const userConfirm= window.confirm(text);
-      console.log(userConfirm)
+      
       if (userConfirm){
         const url=`http://localhost:3001/recipe/${name}/ingredient/delete`
         const targeIngredient = await e?.target?.id
@@ -111,17 +111,19 @@ export default function RecipePage(props: RecipePageProps) {
           window.alert(error);
           return;
         }); 
+
+        const newIngredients:any= allIngredients.filter(( ingredient )=> {
+          return ingredient!== targeIngredient;
+        });
+        setAllIngredients(newIngredients)
+       
       }else{
         return 
       }
-      // var index = array.indexOf(item);
-      // if (index !== -1) {
-      //   array.splice(index, 1);
-      // }
 
-      // myArray = myArray.filter(function( obj ) {
-      //   return obj.id !== id;
-      // });
+
+
+     
     }
 //   console.log(externalRecipes,"--------------->>>")
   return (
