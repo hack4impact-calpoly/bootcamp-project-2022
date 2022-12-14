@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import './RecipePreview.css';
 
 interface Recipe {
     name: string;
@@ -8,18 +9,18 @@ interface Recipe {
     instructions: string[];
 }
 
-interface RecipePreviewProps extends Recipe{
-    external?: boolean;
-}
+// interface RecipePreviewProps extends Recipe{
+//     external?: boolean;
+// }
 
-function RecipePreview(props: RecipePreviewProps) {
-    let path = "";
-    if (props.external) {
-        path = "/externalRecipe/" + props.name;
-    }
-    else {
-        path = "/recipe/" + props.name;
-    }
+function RecipePreview(props: Recipe) {
+    let path = "/recipe/" + props.name;
+    // if (props.external) {
+    //     path = "/externalRecipe/" + props.name;
+    // }
+    // else {
+    //     path = "/recipe/" + props.name;
+    // }
     
     return (
         <div className="gridBox">

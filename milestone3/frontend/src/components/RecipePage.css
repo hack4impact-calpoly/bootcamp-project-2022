@@ -12,9 +12,9 @@
 .recipeImg {
     max-height: 300px;
     border-radius: 25px;
-    border-color:aqua;
+    border-color:darkturquoise;
     border-style: solid;
-    border-width: thick;
+    border-width: 20px;
     margin-top: 30px;
 }
   

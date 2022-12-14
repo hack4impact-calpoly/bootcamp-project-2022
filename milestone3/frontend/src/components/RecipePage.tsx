@@ -1,11 +1,7 @@
 import './RecipePage.css';
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import recipes from "../recipeData";
 import { useParams } from "react-router-dom";
 
-interface RecipePageProps {
-    external?: boolean;
-}
 
 interface Recipe {
     name: string;
@@ -15,7 +11,7 @@ interface Recipe {
     instructions: string[]
 }
 
-function RecipePage (props: RecipePageProps) {
+function RecipePage () {
     const { name } = useParams();
 
     const[recipe, setRecipe] = useState<Recipe>({
@@ -23,8 +19,16 @@ function RecipePage (props: RecipePageProps) {
         description: "",
         image: "",
         ingredients: [],
-        instructions: [],
-    })
+        instructions: []
+    });
+
+    // getting receipe data
+    useEffect(() => {
+        fetch(`http://localhost:3001/recipe/${name}`)
+        .then((response) => response.json())
+        .then((recipeData) => setRecipe(recipeData))
+        .catch((err) => console.log(`Error: ${err}`))
+    }, [name])
 
     const [newIngredient, setNewIngredient] = useState('');
     const [allIngredients, setAllIngredients] = useState(recipe?.ingredients);
@@ -33,21 +37,37 @@ function RecipePage (props: RecipePageProps) {
     const [allInstructions, setAllInstructions] = useState(recipe?.instructions);
 
     useEffect(() => {
-        if (props.external) {
-            fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + name?.replace(/ /g, "%20"))
-            .then((res) => res.json())
-            .then((data) => setRecipe(data[0]))
-        }
-        else{
-            setRecipe(recipes.find((recipe) => recipe.name === name) || recipes[0])
-        }
-    }, [props.external, name])
-
-    useEffect(() => {
         setAllIngredients(recipe.ingredients);
         setAllInstructions(recipe.instructions);
     }, [recipe]);
 
+    // adding ingredient function using our endpoint
+    function addIngredient() {
+        fetch(`http://localhost:3001/recipe/${name}/ingredient`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                "ingredient": newIngredient
+            }),
+            headers: { 'Content-Type': 'application/json' },
+        })
+        .then(response => response.json())
+        .then(data => console.log(data));
+        setAllIngredients([...allIngredients, newIngredient])
+    }
+
+    // adding instruction function using our endpoint
+    function addInstruction() {
+        fetch(`http://localhost:3001/recipe/${name}/instruction`, {
+            method: 'PUT',
+            body: JSON.stringify({
+                "instruction": newInstruction
+            }),
+            headers: { 'Content-Type': 'application/json' },
+        })
+        .then(response => response.json())
+        .then(data => console.log(data));
+        setAllInstructions([...allInstructions, newInstruction])
+    }
 
     if (recipe) {
         return (
@@ -67,11 +87,11 @@ function RecipePage (props: RecipePageProps) {
                             placeholder="ingredient"
                             value={newIngredient} // add newIngredient as the input's value
                             onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                                // this event handler updates the value of newIngredient
+                                // update the value of newIngredient
                                 setNewIngredient(e.target.value);
                             }}
                         />
-                        <button onClick={() => setAllIngredients([...allIngredients ?? [], newIngredient])}>
+                        <button onClick={addIngredient}>
                             Add Ingredient
                         </button>
                     </div>
@@ -86,13 +106,13 @@ function RecipePage (props: RecipePageProps) {
                     </ol>
                     <input
                         placeholder="instruction"
-                        value={newInstruction} // add newIngredient as the input's value
+                        value={newInstruction} // add newInstruction as the input's value
                         onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                            // this event handler updates the value of newIngredient
+                            // update the value of newInstruction
                             setNewInstruction(e.target.value);
                         }}
                     />
-                    <button onClick={() => setAllInstructions([...allInstructions ?? [], newInstruction])}>
+                    <button onClick={addInstruction}>
                         Add Instruction
                     </button>
                 </div>

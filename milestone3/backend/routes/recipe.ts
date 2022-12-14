@@ -25,7 +25,7 @@ router.post("/recipe", async (req: Request, res: Response) => {
   res.send("Recipe created");
 });
 
-// update a new ingredient
+// add a new ingredient
 router.put("/recipe/:name/ingredient", async (req: Request, res: Response) => {
   const recipe = await Recipe.findOne({ name: req.params.name });
   if (recipe) {
@@ -37,7 +37,7 @@ router.put("/recipe/:name/ingredient", async (req: Request, res: Response) => {
   }
 });
 
-// add an instruction
+// add a new instruction
 router.put("/recipe/:name/instruction", async (req: Request, res: Response) => {
   const recipe = await Recipe.findOne({ name: req.params.name });
   if (recipe) {

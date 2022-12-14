@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Home.css';
-import { Link } from 'react-router-dom';
-import recipes from "../recipeData";
+//import recipes from "../recipeData";
 import RecipePreview from './RecipePreview';
 
 interface Recipe {
@@ -13,12 +12,21 @@ interface Recipe {
 }
 
 function Home() {
-    let [extRecipes, setExtRecipes] = useState<Recipe[]>([]);
+    // let [extRecipes, setExtRecipes] = useState<Recipe[]>([]);
+    const [recipes, setRecipes] = useState<Recipe[]>([]);
+
     useEffect(() => {
-        fetch("https://bootcamp-milestone-4.onrender.com/recipe")
-          .then((res) => res.json())
-          .then((data) => setExtRecipes(data));
-    }, []);
+        fetch("http://localhost:3001/recipe")
+        .then((response) => response.json())
+        .then((recipeData) => setRecipes(recipeData))
+        .catch((err) => console.log(`Error: ${err}`))
+    }, [])
+
+    // useEffect(() => {
+    //     fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+    //       .then((res) => res.json())
+    //       .then((data) => setExtRecipes(data));
+    // }, []);
     
     return (
         <main>
@@ -26,9 +34,9 @@ function Home() {
         {recipes.map((recipe) => (
             <RecipePreview {...recipe} />))
         };
-        {extRecipes.map((recipe) => (
+        {/* {extRecipes.map((recipe) => (
             <RecipePreview {...recipe} external />))
-        };
+        }; */}
         </main>
     );
 }
