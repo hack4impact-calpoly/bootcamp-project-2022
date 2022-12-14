@@ -4,11 +4,19 @@ const express = require("express"); // 1. includes Express
 const app: Express = express(); // 2. initializes Express
 const mongoose = require('mongoose')
 const connection_url = "mongodb+srv://new_user:newPassword@cluster0.q7jauti.mongodb.net/?retryWrites=true&w=majority"
+mongoose.set('strictQuery', true);
 
 mongoose.connect(connection_url)
 .then(() => console.log('Successfully Connected'))
 .catch((error: any) => console.error(`Could not connect due to ${error}`))
 app.use(express.json());
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT');
+    next();
+  });
 
 app.get("/recipe", async (req: Request, res: Response) => {
     const recipes = await Recipe.find({})

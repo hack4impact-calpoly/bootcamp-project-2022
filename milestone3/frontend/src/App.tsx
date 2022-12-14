@@ -24,9 +24,6 @@ function App() {
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
-      {/* {allRecipes.map((recipe) => (
-        <Route path="recipe/:id" element={<RecipePage name={recipe.name} image={recipe.image} description={recipe.description} ingredients={recipe.ingredients} instructions={recipe.instructions}/>} />
-      ))} */}
       <Route path="recipe/:id" element={<RecipePage />} />
       <Route path="externalRecipe/:id" element={<RecipePage external />} />
       </Routes>
