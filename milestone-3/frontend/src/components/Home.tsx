@@ -13,11 +13,18 @@ interface Recipe {
 
 function Home() {
     const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+    const [myRecipes, setMyRecipes] = useState<Recipe[]>([]);
     useEffect(() => {
         fetch("https://bootcamp-milestone-4.onrender.com/recipe")
             .then((res) => res.json())
             .then((data) => {
                 setExternalRecipes(data);
+            });
+        fetch("http://localhost:3001/recipe")
+            .then((res) => res.json())
+            .then((data) => {
+                setMyRecipes(data);
+                console.log(data);
             });
     }, []);
     return (
@@ -25,7 +32,7 @@ function Home() {
             <h1 className="title">Check out some of our favorites!</h1>
             {/* <!-- list of recipes --> */}
             <div className="container-recipes">
-                {recipeData.map((recipe) => (
+                {myRecipes.map((recipe) => (
                     <RecipeCard
                         name={recipe.name}
                         image={recipe.image}

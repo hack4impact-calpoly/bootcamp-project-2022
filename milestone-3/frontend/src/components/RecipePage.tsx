@@ -19,7 +19,6 @@ interface Recipe {
 const RecipePage = (props: RecipePageProps) => {
     const { id } = useParams();
     const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
-
     const [recipe, setRecipe] = useState<Recipe>(recipeData[1]);
 
     // setState and useParams
@@ -42,15 +41,16 @@ const RecipePage = (props: RecipePageProps) => {
                     setRecipe(data[i]);
                 });
         } else {
-            // query all of your recipe data for the recipe you want & setRecipe
-            let i = recipeData.findIndex(
-                (data: Recipe) => data.link_name === id
-            );
-            setRecipe(recipeData[i]);
+            // fetch from my API
+            fetch(`http://localhost:3001/recipe/${id}`)
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                    setRecipe(data);
+                });
         }
     }, [id, props.external]);
 
-    console.log(recipe.ingredients);
     const [newIngredient, setNewIngredient] = useState<string>("");
     // State variable stores ingredient data as initial state
     const [allIngredients, setAllIngredients] = useState<string[]>(
