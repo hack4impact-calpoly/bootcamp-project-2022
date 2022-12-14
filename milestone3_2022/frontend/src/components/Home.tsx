@@ -1,27 +1,39 @@
 import RecipePreview from "./RecipePreview";
-import recipes, { Recipe } from "../recipeData";
 import "../App.css"
 
 // milestone 3.5
 import { useState, useEffect } from "react";
 
+export interface Recipe {
+  name: string;
+  description: string;
+  image: string;
+  image2: string
+  info: string[];
+  intro: string;
+  ingredients: string[];
+  instructions: string[];
+}
+
 export default function Home() {
-  const [fetRecipes, setFetRecipes] = useState<Recipe[]>([])
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+
   useEffect(() => {
-    fetch("https://bootcamp-milestone-4.onrender.com/recipe")
-    .then((response) => response.json())
-    .then((data) => setFetRecipes(data))
+    let ignore = false;
+    async function fetchData() {
+      let data = await fetch("http://localhost:3001/recipe");
+      let recipes = await data.json();
+      if (!ignore) {
+        setRecipes(recipes);
+      }
+    }
+    fetchData();
+    return () => { ignore = true; }
   }, [])
-  
-  let myRecipes = [...recipes];
-  let externalRecipes = [...fetRecipes];
   
   return (
     <main className="recipes">
-      {myRecipes.map((recipe) => (
-        <RecipePreview {...recipe}/>
-      ))}
-      {externalRecipes.map((recipe) => (
+      {recipes.map((recipe) => (
         <RecipePreview {...recipe}/>
       ))}
     </main>

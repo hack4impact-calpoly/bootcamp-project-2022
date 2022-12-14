@@ -116,7 +116,7 @@ h2 a:hover {
 .intro {
   background-color: var(--medium-purple);
   width: 800px;
-  height: 425px;
+  height: 450px;
   margin: 0 auto;
   margin-top: 40px;
   border-radius: 20px;
@@ -129,8 +129,8 @@ h2 a:hover {
 }
 
 .intro-image {
-  width: 300px;
-  height: 350px;
+  width: 275px;
+  height: 375px;
   margin: 35px;
   float: left;
   border-radius: 10px;

@@ -5,17 +5,33 @@ import About from "./components/About";
 import RecipePage from "./components/RecipePage";
 
 import { useState, useEffect } from "react";
-import recipes, { Recipe } from "./recipeData";
+
+export interface Recipe {
+  name: string;
+  description: string;
+  image: string;
+  image2: string
+  info: string[];
+  intro: string;
+  ingredients: string[];
+  instructions: string[];
+}
 
 export default function App(){
-  const [fetRecipes, setFetRecipes] = useState<Recipe[]>([])
-  useEffect(() => {
-    fetch("https://bootcamp-milestone-4.onrender.com/recipe")
-    .then((response) => response.json())
-    .then((data) => setFetRecipes(data))
-  }, [])
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
 
-  let all = [...recipes, ...fetRecipes];
+  useEffect(() => {
+    let ignore = false;
+    async function fetchData() {
+      let data = await fetch("http://localhost:3001/recipe");
+      let recipes = await data.json();
+      if (!ignore) {
+        setRecipes(recipes);
+      }
+    }
+    fetchData();
+    return () => { ignore = true; }
+  }, [])
 
   return (
     <BrowserRouter>
@@ -23,7 +39,7 @@ export default function App(){
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        {all.map((recipe) => (
+        {recipes.map((recipe) => (
           <Route path="/recipes/:param" element={<RecipePage {...recipe} />} />
         ))}
       </Routes>

@@ -7,10 +7,17 @@ const app: Express = express(); // 2. initializes Express
 console.log("Backend running");
 app.use(express.json());
 
-const url = "mongodb+srv://admin:password123.@cluster0.3m5bgfq.mongodb.net/RecipesDB?retryWrites=true&w=majority";
+const url = "mongodb+srv://newUser:12345@cluster0.dnzfr2l.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(url)
 .then(() => console.log("Connected to MongoDB"))
 .catch((err) => console.log(`Error connecting to DB: ${err}`));
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT');
+  next();
+});
 
 app.get('/', (req, res) => {
   res.send('Hello world!')

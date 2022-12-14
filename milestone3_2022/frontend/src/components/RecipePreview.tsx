@@ -1,6 +1,16 @@
 import "../App.css"
-import { Recipe } from "../recipeData";
 import { Link } from "react-router-dom";
+
+export interface Recipe {
+    name: string;
+    description: string;
+    image: string;
+    image2: string
+    info: string[];
+    intro: string;
+    ingredients: string[];
+    instructions: string[];
+}
 
 export default function RecipePreview(props: Recipe) {
     return (
