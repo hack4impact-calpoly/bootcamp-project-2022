@@ -3,7 +3,7 @@ import './RecipePage.css'
 import React, { useState, useEffect } from "react";
 
 export default function RecipePage(recipe: Recipe ) {
-    // Creates an array (state variable) to store the recipe by-name drawn from MongoDB using the API 
+    // Creates a state variable to store the page's recipe drawn from MongoDB using the API 
     // defined in index.ts in the backend folder. Initializes that recipe object with an empty recipe.
     let [rec, setRec] = useState<Recipe>({
         name: "",
@@ -23,8 +23,8 @@ export default function RecipePage(recipe: Recipe ) {
         setAllInstructions(rec.instructions);
     }, [rec]);
 
-    // Calls on the Milestone 4 API to deliver recipe data, formats that data as an array of JSON 
-    // objects, then sets the state variable for the external recipes to that array of JSON objects.
+    // Calls on the Milestone 4 API to deliver recipe data, formats that data as a JSON 
+    // object, then sets the state variable for the page's recipe to that JSON object.
     useEffect(() => {
         fetch(`http://localhost:3001/recipe/${recipe.name}`)
         .then((res) => res.json())
@@ -48,6 +48,10 @@ export default function RecipePage(recipe: Recipe ) {
         setAllIngredients([...allIngredients, newIngredient])
     }
 
+    // A function for adding instructions that passes a request with a JSON object as a string to the 
+    // API for adding instructions. This object includes the instruction to be added to the instructions 
+    // database. The function then updates the state variable for instructions to include the new
+    // instruction.
     function addInstruction(){
         const optionsObject = {
             method: 'PUT',
@@ -63,7 +67,7 @@ export default function RecipePage(recipe: Recipe ) {
 
     return(
         <div className="ingredients-recipe-layout">
-            {/*Flexbox with a list of ingredients, drawn from recipeData.ts*/}
+            {/*Flexbox with a list of ingredients from the page's recipe*/}
             <div className="ingredients-or-recipe">
                 <h2>Ingredients</h2>
                 <ul className="ingredients-or-recipe-text">
@@ -82,7 +86,7 @@ export default function RecipePage(recipe: Recipe ) {
                     Add Ingredient
                 </button>
             </div>
-            {/*Flexbox with a list of steps, drawn from recipeData.ts*/}
+            {/*Flexbox with a list of instructions from the page's recipe*/}
             <div className="ingredients-or-recipe">
                 <h2>Recipe</h2>
                 <ol className="ingredients-or-recipe-text">
