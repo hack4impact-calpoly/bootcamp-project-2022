@@ -1,10 +1,18 @@
 import { useParams } from "react-router-dom";
-import recipeData, { Recipe } from "../recipeData";
+// import recipeData, { Recipe } from "../recipeData";
 import "./recipePage.css";
 import React, { ChangeEvent, useEffect, useState } from "react";
 
 interface RecipePageProps {
   external?: boolean;
+}
+
+interface Recipe {
+  name: string;
+  description: string;
+  image: string;
+  ingredients: string[];
+  instructions: string[];
 }
 
 export default function RecipePage(props: RecipePageProps) {
@@ -33,21 +41,27 @@ export default function RecipePage(props: RecipePageProps) {
           console.log(data[0]);
         });
     } else {
-      const curr: Recipe | undefined = recipeData.find(
-        (recipe) => recipe.name === id
-      );
-      if (typeof curr === "undefined") {
-        console.log("undefined recipe at specified name");
-        setRecipe({
-          name: "",
-          description: "",
-          image: "",
-          ingredients: [],
-          instructions: [],
+      // const curr: Recipe | undefined = recipeData.find(
+      //   (recipe) => recipe.name === id
+      // );
+      // if (typeof curr === "undefined") {
+      //   console.log("undefined recipe at specified name");
+      //   setRecipe({
+      //     name: "",
+      //     description: "",
+      //     image: "",
+      //     ingredients: [],
+      //     instructions: [],
+      //   });
+      // } else {
+      //   setRecipe(curr);
+      // }
+      fetch(`http://localhost:3001/recipe/${id}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setRecipe(data);
+          console.log(data);
         });
-      } else {
-        setRecipe(curr);
-      }
     }
   }, [id, props.external]);
 
@@ -57,6 +71,27 @@ export default function RecipePage(props: RecipePageProps) {
     setAllIngredients(recipe.ingredients);
     setAllInstructions(recipe.instructions);
   }, [recipe]); // [recipe] dependency needed to update each time we load a new recipe page & recipe data
+
+  function addInstruction() {
+    fetch(`http://localhost:3001/recipe/${id}/instruction`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ instruction: newInstruction }),
+    })
+      .then((response) => response.json)
+      .then((data) => console.log(data));
+    console.log(JSON.stringify({ instruction: newInstruction }));
+    setAllInstructions([...allInstructions, newInstruction]);
+  }
+
+  function addIngredient() {
+    fetch(`http://localhost:3001/recipe/${id}/ingredient`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ newIngredient: newIngredient }),
+    }).then((response) => response.json);
+    setAllIngredients([...allIngredients, newIngredient]);
+  }
 
   return (
     <body>
@@ -82,14 +117,7 @@ export default function RecipePage(props: RecipePageProps) {
                 setNewIngredient(e.target.value);
               }}
             />
-            <button
-              onClick={() => {
-                setAllIngredients([...allIngredients, newIngredient]);
-                console.log(allIngredients);
-              }}
-            >
-              Add Ingredient
-            </button>
+            <button onClick={addIngredient}>Add Ingredient</button>
           </div>
           <img className="image2" src={recipe.image} alt="image" />
         </div>
@@ -111,14 +139,7 @@ export default function RecipePage(props: RecipePageProps) {
               // console.log(e.target.value);
             }}
           />
-          <button
-            onClick={() => {
-              setAllInstructions([...allInstructions, newInstruction]);
-              // console.log(newInstruction);
-            }}
-          >
-            Add Instruction
-          </button>
+          <button onClick={addInstruction}>Add Instruction</button>
         </div>
       </main>
     </body>

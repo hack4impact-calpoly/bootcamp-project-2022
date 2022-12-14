@@ -40,7 +40,7 @@ router.put("/:name/ingredient", async (req: Request, res: Response) => {
   const ingredient = req.body.newIngredient;
 
   try {
-    const recipe = await Recipe.findOne({ recipeName });
+    const recipe = await Recipe.findOne({ name: recipeName });
     if (recipe) {
       recipe.ingredients = [...recipe.ingredients, ingredient];
       await recipe.save();
@@ -55,11 +55,11 @@ router.put("/:name/ingredient", async (req: Request, res: Response) => {
 //adds instruction to instruction list
 router.put("/:name/instruction", async (req: Request, res: Response) => {
   const recipeName = req.params.name;
-  const instruction = req.body.newInstruction;
+  const instruction = req.body.instruction;
 
   try {
     //first find the recipe
-    const recipe = await Recipe.findOne({ recipeName });
+    const recipe = await Recipe.findOne({ name: recipeName });
     if (recipe) {
       //if found, add instruction
       recipe.instructions = [...recipe.instructions, instruction];

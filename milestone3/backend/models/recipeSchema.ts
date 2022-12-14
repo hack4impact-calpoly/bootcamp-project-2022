@@ -26,9 +26,9 @@ const recipeSchema = new Schema<IRecipe>(
       type: [String], // type capitalized here
     },
   },
-  { collection: "RecipesDB" }
+  { collection: "Recipes" }
 );
 
-const Recipe = model<IRecipe>("RecipesDB", recipeSchema);
+const Recipe = model<IRecipe>("Recipes", recipeSchema);
 
 export default Recipe;
