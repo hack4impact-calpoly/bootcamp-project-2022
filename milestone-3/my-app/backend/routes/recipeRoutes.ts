@@ -1,24 +1,22 @@
 import Recipe from "../models/recipeSchema";
 import express, { Request, Response, Router } from "express";
 
-const app: Router = express.Router()
+const router: Router = express.Router()
 
-app.get("/", async (req: Request, res: Response) => {
+router.get("/", async (req: Request, res: Response) => {
     // get all recipes 
     const recipes = await Recipe.find({});
     res.send(recipes);
 });
 
-app.get("/:name", async (req: Request, res: Response) => {  
+router.get("/:name", async (req: Request, res: Response) => {  
     // get specific recipe   
     const {name} = req.params;
-    const recipes = await Recipe.findOne({
-      name: name
-      });
+    const recipes = await Recipe.find({name: name});
     res.send(recipes);
 });
 
-app.post("/person", async (req: Request, res: Response) => {
+router.post("/person", async (req: Request, res: Response) => {
     // add new recipe 
     const { 
         name,
@@ -54,7 +52,7 @@ app.post("/person", async (req: Request, res: Response) => {
     }
 });
 
-app.put("/:recipeName/ingredient", async (req: Request, res: Response) => {
+router.put("/:recipeName/ingredient", async (req: Request, res: Response) => {
     // add ingredient to a recipe
     const recipeName = req.params.recipeName;
     const newIngredient = req.body.newIngredient;
@@ -69,7 +67,7 @@ app.put("/:recipeName/ingredient", async (req: Request, res: Response) => {
     }
 });
 
-app.put("/:recipeName/instruction", async (req: Request, res: Response) => {
+router.put("/:recipeName/instruction", async (req: Request, res: Response) => {
     // add step to a recipe
     const recipeName = req.params.recipeName;
     const newStep = req.body.newStep;
@@ -85,4 +83,4 @@ app.put("/:recipeName/instruction", async (req: Request, res: Response) => {
 });
 
 
-export default app;
+export default router;

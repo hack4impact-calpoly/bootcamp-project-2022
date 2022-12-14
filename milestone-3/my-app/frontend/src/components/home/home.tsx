@@ -5,19 +5,19 @@ import recipes, { Recipe } from "../recipeData";
 
 export default function Home() {
   
-  const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+  // const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
 
-  useEffect(() => {
-    fetch("https://bootcamp-milestone-4.onrender.com/recipe")
-      .then((res) => res.json())
-      .then((data) => setExternalRecipes(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+  //     .then((res) => res.json())
+  //     .then((data) => setExternalRecipes(data));
+  // }, []);
 
     return (
       <div> 
           { recipes.map(recipe =>
               <RecipePreview 
-                external = {false} 
+                // external = {false} 
                 name = {recipe.name} 
                 image = {recipe.image} 
                 description = {recipe.description} 
@@ -28,10 +28,11 @@ export default function Home() {
                 orig_link_name = {recipe.orig_link_name}
                 orig_link = {recipe.orig_link}
               />
-            )}{
+            )}
+            {/* {
             externalRecipes.map(recipe =>
               <RecipePreview 
-              external = {true} 
+              // external = {true} 
               name = {recipe.name} 
               imgAltName = {recipe.name + "image"}
               description = {recipe.description} 
@@ -40,7 +41,7 @@ export default function Home() {
               instructions = {recipe.instructions}
               buttonHref = {"externalRecipe/" + recipe.name}/>
             )
-            }
+            } */}
         </div>
     );
 }

@@ -1,22 +1,20 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { useParams } from "react-router-dom";
-import  recipeData, { Recipe } from './recipeData';
+import  { Recipe } from './recipeData';
 import '../App.css';
 
 
-interface RecipePageProps{  
-    external?: boolean; 
-};
-RecipePage.defaultProps = {
-    external: false
-};
+// interface RecipePageProps{  
+//     external?: boolean; 
+// };
+// RecipePage.defaultProps = {
+//     external: false
+// };
 
 
-export default function RecipePage (props: RecipePageProps){
+export default function RecipePage (){
 
-    const {id} = useParams();
-    const target = recipeData.find(recipe => recipe.name === id);
-    const [recipe, setRecipe] = useState<Recipe>({
+    const[recipe, setRecipe] = useState<Recipe>({
         name: "",
         image: "",
         imgAltName: "",
@@ -26,35 +24,88 @@ export default function RecipePage (props: RecipePageProps){
         orig_link: "", 
         orig_link_name: "",
         buttonHref: ""
-    });
+    }); 
+    const {name} = useParams();
+    
+
+    useEffect (() => {
+        window.scrollTo(0, 0)
+        fetch(`http://localhost:3001/recipes/${name}`)
+        .then(response => response.json()) 
+        .then(recipeData => {
+            setRecipe(recipeData[0])
+            setAllIngredients(recipeData[0].ingredients)
+            setAllSteps(recipeData[0].instructions)
+            console.log(recipeData[0])})
+        .catch(err => console.log(err))
+    },[name]);
+  
+  
+
+    // const target = recipes.find(recipe => recipe.name === name);
+    // const [recipe, setRecipe] = useState<Recipe>({
+    //     name: "",
+    //     image: "",
+    //     imgAltName: "",
+    //     description: "", 
+    //     ingredients: [],
+    //     instructions: [],
+    //     orig_link: "", 
+    //     orig_link_name: "",
+    //     buttonHref: ""
+    // });
 
     const [newIngredient, setNewIngredient] = useState('');
     const [allIngredients, setAllIngredients] = useState(recipe.ingredients); 
     const [newStep, setNewStep] = useState('');
     const [allSteps, setAllSteps] = useState(recipe.instructions);
 
-    if(!target){
-        recipe.orig_link = "https://bootcamp-milestone-3.netlify.app/"
-        recipe.orig_link_name = "Hu's Chews"
+    const AddIngredient = () => {
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ newIngredient })
+        }
+        fetch(`http://localhost:3001/recipes/${name}/ingredient`, requestOptions)
+        .then(res => console.log(res));
+        setAllIngredients([...allIngredients, newIngredient]);
     }
-   
-    useEffect(() => {
-        window.scrollTo(0, 0)
-        if (props.external) {
-                fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id)
-                .then((response) => response.json())
-                .then((data) => {setRecipe(data[0])
-                setAllSteps(data[0].instructions)
-                setAllIngredients(data[0].ingredients)
-                });                  
-        }else{
-            setRecipe(recipeData.find((recipe) => recipe.name === id) || recipe)
-    }}, [id, props.external]);
+    
+    const AddInstruction = () => {
+        const requestOptions = {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ newStep })
+        }
+        fetch(`http://localhost:3001/recipes/${name}/instruction`, requestOptions)
+        .then(res => console.log(res));
+        setAllSteps([...allSteps, newStep]);
+    }
 
-    useEffect(() => {
-        setAllIngredients(recipe.ingredients);
-        setAllSteps(recipe.instructions);
-    }, [recipe]);
+    // if(!target){
+    //     recipe.orig_link = "https://bootcamp-milestone-3.netlify.app/"
+    //     recipe.orig_link_name = "Hu's Chews"
+    // }
+   
+    // useEffect(() => {
+    //     window.scrollTo(0, 0)
+    //     // if (external) {
+    //     //         fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + name)
+    //     //         .then((response) => response.json())
+    //     //         .then((data) => {setRecipe(data[0])
+    //     //         setAllSteps(data[0].instructions)
+    //     //         setAllIngredients(data[0].ingredients)
+    //     //         });                  
+    //     // }else{
+    //         setRecipe(recipe)
+    //         setAllIngredients(recipe.ingredients);
+    //         setAllSteps(recipe.instructions);
+    // }, [recipe]);
+
+    // useEffect(() => {
+    //     setAllIngredients(recipe.ingredients);
+    //     setAllSteps(recipe.instructions);
+    // }, [recipe]);
     
     return(   
         
@@ -77,7 +128,7 @@ export default function RecipePage (props: RecipePageProps){
                                     // this event handler updates the value of newIngredient
                                     setNewIngredient(e.target.value);}}
                             />
-                            <button onClick ={() => setAllIngredients([...allIngredients, newIngredient])}>
+                            <button onClick ={AddIngredient}>
                                 add ingredient
                             </button>
                         </div>
@@ -97,7 +148,7 @@ export default function RecipePage (props: RecipePageProps){
                                     setNewStep(e.target.value);
                                 }}
                             />
-                            <button onClick={() => setAllSteps([...allSteps, newStep])}>
+                            <button onClick={AddInstruction}>
                                 add step
                             </button>
                         </div>

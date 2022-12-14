@@ -7,21 +7,21 @@ export interface Recipe extends Document {
     imgAltName: string;
     ingredients: string[];
     instructions: string[];
-    orig_link?: string; 
-    orig_link_name?: string;
+    orig_link: string; 
+    orig_link_name: string;
     buttonHref: string;
 }
 
 const recipeSchema = new Schema<Recipe>({
-    name: { type: String }, 
-    image: { type: String }, 
-    description: { type: String }, 
-    imgAltName: { type: String }, 
-    ingredients: { type: [String] }, 
-    instructions: { type: [String] }, 
-    orig_link: { type: String, required: false },  
-    orig_link_name:{ type: String, required: false },  
-    buttonHref: { type: String}
+    name: { type: String, required: true }, 
+    image: { type: String, required: true }, 
+    description: { type: String, required: true }, 
+    imgAltName: { type: String, required: true }, 
+    ingredients: { type: [String], required: true }, 
+    instructions: { type: [String], required: true }, 
+    orig_link: { type: String, required: true },  
+    orig_link_name:{ type: String, required: true },  
+    buttonHref: { type: String, required: true }
 }, {collection: 'Recipes'});
 
 const Recipe = model<Recipe>('Recipes', recipeSchema);

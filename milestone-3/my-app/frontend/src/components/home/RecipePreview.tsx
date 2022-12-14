@@ -2,16 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Recipe } from "../recipeData"
 
-interface RecipePreviewProps extends Recipe{
-    external?: boolean;
-}
 
-
-function RecipePreview (props: RecipePreviewProps){
+function RecipePreview (props: Recipe){
     let hRef = props.buttonHref
-    if (props.external){
-        hRef = "externalRecipe/" + props.name
-    }
+    // if (props.external){
+    //     hRef = "externalRecipe/" + props.name
+    // }
     return(
         
         <div className = "recipe-container">
