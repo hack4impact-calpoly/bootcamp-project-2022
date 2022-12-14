@@ -7,15 +7,6 @@ import { useParams } from "react-router-dom";
 import React, { ChangeEvent, useState } from 'react';
 import { useEffect } from "react";
 
-// interface RecipePageProps {
-//     external?: boolean;
-//     name: string;
-//     image: string;
-//     description: string;
-//     ingredients: string[];
-//     instructions: string[];
-// }
-
 function RecipePage(props: Recipe) {
     
     const [fetRecipes, setFetRecipes] = useState<Recipe[]>([])
@@ -49,7 +40,8 @@ function RecipePage(props: Recipe) {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ newIngredient: newIngredient }),
-        });
+        })
+        .catch((error) => console.log(error));
         setAllIngredients([...allIngredients, newIngredient]);
         console.log(allIngredients);
     }
@@ -59,7 +51,8 @@ function RecipePage(props: Recipe) {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ newInstruction: newInstruction }),
-        });
+        })
+        .catch((error) => console.log(error));
         setAllInstructions([...allInstructions, newInstruction]);
         console.log(allInstructions);
     }
