@@ -1,5 +1,6 @@
 import '../recipe.css'
-import recipes, { Recipe } from "./recipeData";
+// import recipes, { Recipe } from "./recipeData";
+import { Recipe } from "./recipeData";
 import { useParams } from "react-router-dom";
 
 // milestone 3.5
@@ -24,6 +25,13 @@ function RecipePage(props: Recipe) {
     .then((data) => setFetRecipes(data))
     }, [])
 
+    const [recipes, setRecipes] = useState<Recipe[]>([])
+    useEffect(() => {
+      fetch("http://localhost:3001/recipe")
+        .then((res) => res.json())
+        .then((data) => setRecipes(data));
+    }, []);
+
     let all = [...recipes, ...fetRecipes];
 
     let { name } = useParams();
@@ -35,6 +43,26 @@ function RecipePage(props: Recipe) {
 
     const [allInstructions, setAllInstructions] = useState(props.instructions);
     const [newInstruction, setNewInstruction] = useState('');
+
+    function addIngredient() {
+        fetch("http://localhost:3001/recipe/" + props.name + "/ingredient", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ newIngredient: newIngredient }),
+        });
+        setAllIngredients([...allIngredients, newIngredient]);
+        console.log(allIngredients);
+    }
+    
+    function addInstruction() {
+        fetch("http://localhost:3001/recipe/" + props.name + "/instruction", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ newInstruction: newInstruction }),
+        });
+        setAllInstructions([...allInstructions, newInstruction]);
+        console.log(allInstructions);
+    }
 
     if(recipe) {
         return (
@@ -62,11 +90,7 @@ function RecipePage(props: Recipe) {
                     />
 
                     {/* appends new ingredient */}
-                    <button onClick={() => { setAllIngredients([...allIngredients, newIngredient]);
-                    console.log(allIngredients); }
-                    }>
-                        Add Ingredient
-                    </button>
+                    <button onClick={addIngredient}>Add Ingredient</button>
                 </div>
     
                 <h3>Preparation + Instructions</h3>
@@ -87,11 +111,7 @@ function RecipePage(props: Recipe) {
                     />
 
                     {/* appends new instruction */}
-                    <button onClick={() => { setAllInstructions([...allInstructions, newInstruction]);
-                    console.log(allInstructions); }
-                    }>
-                        Add Instruction
-                    </button>
+                    <button onClick={addInstruction}>Add Instruction</button>
                 </div>
     
             </body>

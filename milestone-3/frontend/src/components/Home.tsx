@@ -2,7 +2,8 @@
 // {/* how to comment */}
 
 import '../App.css';
-import recipes, { Recipe } from "./recipeData";
+// import recipes, { Recipe } from "./recipeData";
+import { Recipe } from "./recipeData";
 import RecipePreview from './ReceipePreview';
 
 // milestone 3.5
@@ -16,6 +17,13 @@ function Home() {
     .then((response) => response.json())
     .then((data) => setFetRecipes(data))
   }, [])
+
+  const [recipes, setRecipes] = useState<Recipe[]>([])
+  useEffect(() => {
+    fetch("http://localhost:3001/recipe")
+      .then((res) => res.json())
+      .then((data) => setRecipes(data));
+  }, []);
   
   let all = [...recipes, ...fetRecipes];
 
