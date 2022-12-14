@@ -9,7 +9,7 @@ interface RecipePreviewProps extends Recipe {
 
 
 export default function RecipePreview(props: RecipePreviewProps) {
-    let address = props.external ? "externalRecipe/" + props.name : "recipe/" + props.type;
+    let address = props.external ? "externalRecipe/" + props.name : "recipe/" + props.name;
     return (
             // replace everything between the <div> & </div> tags
             // with your code from earlier milestones

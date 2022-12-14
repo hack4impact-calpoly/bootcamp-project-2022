@@ -5,14 +5,20 @@ import { useState, useEffect } from "react";
 import RecipePreview from "./recipePreview";
 
 export default function Home() {
-    const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+    const [recipes, setRecipes] = useState<Recipe[]>([]);
+    // const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
     useEffect(() => {
-        fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+        // external recipes
+        // fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+        //     .then((res) => res.json())
+        //     .then((data) => setExternalRecipes(data));
+
+        fetch("http://localhost:3001/recipe")
             .then((res) => res.json())
-            .then((data) => setExternalRecipes(data));
+            .then((data) => setRecipes(data));
     }, []);
 
-    
+
     return (
         <main className="main-content body">
             <div>
@@ -20,9 +26,10 @@ export default function Home() {
                     <RecipePreview {...recipe}/>
                 ))}
 
-                {externalRecipes.map((recipe) => (
+                {/* {externalRecipes.map((recipe) => (
                     <RecipePreview {...recipe} external/>
-                ))}
+                ))} */}
+
             </div>
             
         </main>
