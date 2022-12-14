@@ -35,7 +35,7 @@ router.put("/recipe/:name/ingredient", async(req:Request, res: Response)=>{
 // add an instruction 
 router.put("/recipe/:name/instruction", async(req:Request, res: Response)=>{
     const recipe = await Recipe.findOne({name:req.params.name})
- 
+
     if(recipe){
         recipe.instructions=[...recipe.instructions, req.body.instruction]
         await recipe.save()
@@ -47,7 +47,20 @@ router.put("/recipe/:name/instruction", async(req:Request, res: Response)=>{
 })
 
 // delete an ingredient from recipe
- 
+router.put("/recipe/:name/ingredient/delete", async(req:Request, res: Response)=>{
+    const recipe = await Recipe.findOne({name:req.params.name})
+
+    if(recipe){
+        recipe.ingredients = recipe.ingredients.filter(function(ele) {
+        return ele !== req.body.ingredient;
+      });
+        await recipe.save()
+        res.send("Removed ingredient")
+        return // aovid : Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    }
+    res.send("Failed to remove ingredient")
+    return  
+})
 
  
 
