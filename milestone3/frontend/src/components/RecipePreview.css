@@ -1,0 +1,37 @@
+.gridBox {
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    background-color:darkturquoise;
+    height: fit-content;
+    margin: 30px 40px 30px 40px;
+    border-radius: 25px;
+}
+
+.gridTitle {
+    font-size: 30px;
+    font-weight: bold;
+    color:bisque;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+  
+.gridContent {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    padding: 20px 30px 30px 30px;
+}
+  
+.gridText {
+    padding: 0px 30px 0px 30px;
+    font-size: 18px;
+}
+  
+.gridImg {
+    max-height: 200px;
+    border-radius: 25px;
+    border-color:aqua;
+    border-style: solid;
+    border-width: thick;
+}

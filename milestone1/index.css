@@ -1,0 +1,138 @@
+.page {
+    background-color: darkcyan;
+}
+
+.topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:cadetblue;
+    height: 100px;
+    padding: 20px 40px 20px 40px;
+}
+
+.navPages {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 250px;
+}
+
+#title {
+    font-size: 50px;
+    font: 400;
+    color:bisque;
+}
+
+#navtitle {
+    font-size: 20px;
+    font-weight: bold;
+    color:bisque;
+}
+
+#welcome {
+    font-size: 40px;
+    margin: 30px 0px 30px 30px;
+}
+
+.gridBox {
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    background-color:darkturquoise;
+    height: fit-content;
+    margin: 30px 40px 30px 40px;
+    border-radius: 25px;
+}
+
+.gridTop {
+    color: turquoise;
+    border-radius: 25px;
+}
+
+.gridTitle {
+    font-size: 30px;
+    font-weight: bold;
+    color:bisque;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.gridContent {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    padding: 20px 30px 30px 30px;
+}
+
+.gridText {
+    padding: 0px 30px 0px 30px;
+    font-size: 18px;
+}
+
+.gridImg {
+    max-height: 200px;
+    border-radius: 25px;
+    border-color:aqua;
+    border-style: solid;
+    border-width: thick;
+}
+
+.recipeBox {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    padding: 20px 30px 30px 30px;
+}
+
+.recipeImg {
+    max-height: 300px;
+    border-radius: 25px;
+    border-color:aqua;
+    border-style: solid;
+    border-width: thick;
+    margin-top: 30px;
+}
+
+.recipeInfo {
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    background-color:darkturquoise;
+    height: fit-content;
+    margin: 30px 40px 30px 40px;
+    border-radius: 25px;
+}
+
+.recipeTitle {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0px 30px 0px 30px;
+}
+
+.recipeText {
+    padding: 0px 30px 0px 30px;
+    font-size: 18px;
+}
+
+.ingredientsTitle {
+    background-color:cadetblue;
+    margin-left: 30px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+}
+
+.prepBox {
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+    background-color:darkturquoise;
+    height: fit-content;
+    margin: 10px 40px 30px 40px;
+    border-radius: 25px;
+}
+
+li {
+    font-size: 18px;
+    padding: 0px 20px 10px 20px;
+}
