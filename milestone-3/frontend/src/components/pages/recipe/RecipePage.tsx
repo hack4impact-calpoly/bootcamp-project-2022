@@ -1,11 +1,11 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
 import "./RecipePage.css";
 
 import { useParams } from "react-router-dom";
 
-import Recipe from "src/util/Recipe";
+import Recipe, { NONE } from "src/util/Recipe";
 import recipeData from "src/data/recipes.json";
-import { isExternal, getRecipeFromId } from "src/util/ExternalRecipePort";
+import { isExternal, getRecipeFromId, addIngredient, addInstruction, externalRecipesLoaded, loadExternalRecipes } from "src/util/ExternalRecipePort";
 
 import ElementsManipulator from "src/components/misc/ElementsManipulator";
 
@@ -16,19 +16,39 @@ export default function RecipePage() {
         throw new TypeError("bruh moment: id is undefined");
     }
 
-    let recipe:Recipe;
-    let imagePath:string;
-    if (isExternal(id)) {
-        recipe = getRecipeFromId(id);
-        imagePath = recipe.image;
-    } else {
-        let index:number = parseInt(id);
-        recipe = recipeData.list[index];
-        imagePath = process.env.PUBLIC_URL + "/" + recipe.image;
-    }
+    const [recipe, setRecipe] = React.useState<Recipe>(NONE);
+    const [image, setImage] = React.useState(<img className="recipe-image"/>)
+    const [allIngredients, setAllIngredients] = React.useState<string[]>([]);
+    const [allPreparationSteps, setAllPreparationSteps] = React.useState<string[]>([]);
+
+    React.useEffect(() => {
+        loadExternalRecipes((recipes) => {
+            //then
+            let recipeNew = getRecipeFromId(id);
+            setRecipe(recipeNew);
+            setImage(<img className="recipe-image" src={recipeNew.image}/>);
+
+            setAllIngredients(recipeNew.ingredients);
+            setAllPreparationSteps(recipeNew.instructions);
+        });
+    }, []);
+
     
-    const [allIngredients, setAllIngredients] = React.useState(recipe.ingredients);
-    const [allPreparationSteps, setAllPreparationSteps] = React.useState(recipe.instructions);
+    if (!isExternal(id)) {
+        let index:number = parseInt(id);
+        setRecipe(recipeData.list[index]);
+        setImage(<img className="recipe-image" src={process.env.PUBLIC_URL + "/" + recipe.image}/>);
+    }
+
+    const addToIngredients = (ingredient: string) => {
+        addIngredient(recipe, ingredient);
+        setAllIngredients([...allIngredients, ingredient]);
+    }
+
+    const addToInstructions = (instruction: string) => {
+        addInstruction(recipe, instruction);
+        setAllPreparationSteps([...allPreparationSteps, instruction]);
+    }
 
     // general
     const toListItem = (str:string) => (<li>{str}</li>);
@@ -52,7 +72,7 @@ export default function RecipePage() {
                                 <ElementsManipulator
                                     placeholder="1 cup of awesome sauce"
                                     buttonText="Add Ingredient"
-                                    onButtonClick={(inputIngredient) => setAllIngredients([...allIngredients, inputIngredient])}
+                                    onButtonClick={(inputIngredient) => addToIngredients(inputIngredient)}
                                 />
                             </ul>
                         </div>
@@ -66,7 +86,7 @@ export default function RecipePage() {
                                 <ElementsManipulator
                                     placeholder="Mix in water"
                                     buttonText="Add Instruction"
-                                    onButtonClick={(inputInstruction) => setAllPreparationSteps([...allPreparationSteps, inputInstruction])}
+                                    onButtonClick={(inputInstruction) => addToInstructions(inputInstruction)}
                                 />
                             </ol>
                         </div>
@@ -74,7 +94,7 @@ export default function RecipePage() {
                 </div>
 
                 {/* Recipe Image */}
-                <img className="recipe-image" src={imagePath}/>
+                {image}
         
             </main>
         </div>

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, PropsWithChildren } from "react";
+import React, { ChangeEvent } from "react";
 
 export default function ElementsManipulator(props: {
         placeholder?: string,

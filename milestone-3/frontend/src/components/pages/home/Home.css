@@ -21,7 +21,7 @@
 }
 
 #dish-list {
-    
+    margin-bottom: 10vh;
 }
 
 .dish-card {
@@ -45,6 +45,8 @@
     border: 8px solid;
     border-radius: 6%;
     border-color: aqua;
+    max-width: 456px;
+    max-height: 456px;
 }
 
 .dish-image:hover {

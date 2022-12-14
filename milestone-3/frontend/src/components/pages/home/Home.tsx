@@ -4,12 +4,12 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 
 import Recipe from "src/util/Recipe";
-import recipeData from "src/data/recipes.json";
+//import recipeData from "src/data/recipes.json";
 
 import { loadExternalRecipes } from "src/util/ExternalRecipePort";
 
 export default function Home() {
-    const recipes = recipeData.list;
+    //const recipes = recipeData.list;
     const [externalRecipes, setExternalRecipes] = React.useState<Recipe[]>([])
 
     React.useEffect(() => {
@@ -38,7 +38,7 @@ export default function Home() {
 
                 {/* Recipes List */}
                 <div id="dish-list">
-                    {recipes.map(dishPreview)}
+                    {/*recipes.map(dishPreview)*/}
                     {externalRecipes.map(dishPreview)}
                 </div>
             </main>

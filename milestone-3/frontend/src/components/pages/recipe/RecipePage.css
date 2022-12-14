@@ -59,6 +59,7 @@
 
 .recipe-image {
     overflow: hidden;
+    margin-left: auto;
     width: 50vw;
     height: 92vh;
 }
