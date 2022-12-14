@@ -38,19 +38,17 @@ export default function RecipePage(props: RecipePageProps) {
  
   
    const { name } = useParams<nameParams>();
- 
-    useEffect(()=>{
-      setAllInstructions(recipe.instructions)
-    },[recipe.instructions]) 
+  
+  
+   useEffect(()=>{
+    setAllIngredients(recipe.ingredients)
+    setAllInstructions(recipe.instructions)
+  },[recipe.ingredients, recipe.instructions]) 
 
-    useEffect(()=>{
-        setAllIngredients(recipe.ingredients)
-    },[recipe.ingredients])
 
   
 	useEffect(() => {
         if (props.external) {
-          // make an API call with the url param & setRecipe
           fetch("https://bootcamp-milestone-4.onrender.com/recipe/" +name?.replace(/ /g,"%20"))
          .then((res) => res.json())
          .then((data) => setRecipe(data[0]));
@@ -62,13 +60,9 @@ export default function RecipePage(props: RecipePageProps) {
             const myRecipe:any = data.find((recipe:Recipe)=>recipe.name===name) 
             setRecipe(myRecipe)
           })
-        
-          // query all of your recipe data for the recipe you want & setRecipe
-          // const myRecipe:any = recipes.find((recipe:Recipe)=>recipe.name===id)
-          // setRecipe(myRecipe)
         }
       }, [name, props.external]);
-        // return (...)
+ 
     
 
  
@@ -120,7 +114,7 @@ export default function RecipePage(props: RecipePageProps) {
       if (userConfirm){
         const url=`http://localhost:3001/recipe/${name}/ingredient/delete`
         const targeIngredient = await e?.target?.id
-        console.log("target", targeIngredient)
+      
         await fetch(url, {
           method: "PUT",
           headers: {
@@ -141,12 +135,39 @@ export default function RecipePage(props: RecipePageProps) {
       }else{
         return 
       }
-
-
-
-     
     }
-//   console.log(externalRecipes,"--------------->>>")
+
+
+    const deleteInstruction=async (e:any)=>{
+      const text="Are you sure you want to remove it?"
+      const userConfirm= window.confirm(text);
+      
+      if (userConfirm){
+        const url=`http://localhost:3001/recipe/${name}/instruction/delete`
+        const targeInstruction = await e?.target?.id
+     
+        await fetch(url, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({instruction:targeInstruction}),
+        })
+        .catch(error => {
+          window.alert(error);
+          return;
+        }); 
+
+        const newInstruction:any= allInstructions.filter(( instruction )=> {
+          return instruction!== targeInstruction;
+        });
+        setAllInstructions(newInstruction)
+       
+      }else{
+        return 
+      }
+    }
+ 
   return (
     <div className='recipe_page' >
       <header>
@@ -168,9 +189,8 @@ export default function RecipePage(props: RecipePageProps) {
                 </ul>
                 <input
                     placeholder="2 cups of spinach"
-                    value={newIngredient} // add newIngredient as the input's value
-                    onChange={(e: any) => {  //ChangeEvent<HTMLInputElement>
-                        // this event handler updates the value of newIngredient
+                    value={newIngredient}  
+                    onChange={(e: any) => {  
                         setNewIngredient(e.target.value);
                     }}
                     />
@@ -180,14 +200,13 @@ export default function RecipePage(props: RecipePageProps) {
                 <h3>Instructions</h3>
                 <ol>
                 {allInstructions.map((instruction:string, index)=>
-                    <li className='list_item' key={index}>{instruction}</li>
+                    <li className='list_item' id={instruction} onClick={e=>deleteInstruction(e)} key={index}>{instruction}</li>
                 )} 
                 </ol>
                 <input
                     placeholder="Instruction in detail..."
-                    value={newInstruction} // add newIngredient as the input's value
-                    onChange={(e: any) => {  //ChangeEvent<HTMLInputElement>
-                        // this event handler updates the value of newIngredient
+                    value={newInstruction}  
+                    onChange={(e: any) => {   
                         setNewInstruction(e.target.value);
                     }}
                     />
