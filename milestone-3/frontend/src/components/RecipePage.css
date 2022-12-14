@@ -74,6 +74,7 @@
  
 li {
     cursor: pointer;
+    width: fit-content;  /* make <li> width fit the text length */
   }
  
 
