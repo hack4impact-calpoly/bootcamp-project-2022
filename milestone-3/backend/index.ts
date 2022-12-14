@@ -45,11 +45,21 @@ router.get("/recipe/:recipeName", async (req: Request, res: Response) => {
 
 // For adding a new recipe to the database
 router.post("/recipe", async (req: Request, res: Response) => {
-  // Uses the .create() function built into Mongoose's Document class to
-  // create a new document based on the requester input. This input is interpreted as 
-  // a JSON input as a result of app.use(express.json())
-  await RecipeModel.create(req.body)
-  res.send("Recipe was added successfully")
+  try {
+    // Uses the .create() function built into Mongoose's Document class to
+    // create a new document based on the requester input. This input is interpreted as 
+    // a JSON input as a result of app.use(express.json())
+    await RecipeModel.create(req.body)
+    res.send("Recipe was added successfully")
+  } catch(error) {
+    let message = 'Unknown error'
+    if (error instanceof Error) message = error.message
+    // For any errors, updates the request status, sends the error message to the requester,
+    // and logs the error message to the console
+    res.status(500).send(message)
+    console.log(`Error:${message}`)
+  }
+  
 })
 
 // For adding a new ingredient to the first recipe matching a particular name
@@ -63,20 +73,28 @@ router.put("/recipe/:recipeName/ingredient", async (req: Request, res: Response)
   // "name": {the name inputted into a URL} 
   const recipe = await RecipeModel.findOne({"name": recipeName})
   
-  // Checks if the recipe variable is truthy (i.e., NOT null)
-  if(recipe)
-  {
-    // Appends the new ingredient to the recipe's ingredients property
-    recipe.ingredients.push(ingredient)
-    // Runs Mongoose's .save() on the new recipe, updating it in the database
-    await recipe.save()
-    // Sends a confirmation message to the user
-    res.send("Recipe successfully updated with new ingredient")
-  }
-  else
-  {
-    // Sends a failure message to the user
-    res.send("Recipe not found")
+  try {  // Checks if the recipe variable is truthy (i.e., NOT null)
+    if(recipe)
+    {
+      // Appends the new ingredient to the recipe's ingredients property
+      recipe.ingredients.push(ingredient)
+      // Runs Mongoose's .save() on the new recipe, updating it in the database
+      await recipe.save()
+      // Sends a confirmation message to the user
+      res.send("Recipe successfully updated with new ingredient")
+    }
+    else
+    {
+      // Sends a failure message to the user
+      res.send("Recipe not found")
+    }
+  } catch(error) {
+    let message = 'Unknown error'
+    if (error instanceof Error) message = error.message
+    // For any errors, updates the request status, sends the error message to the requester,
+    // and logs the error message to the console
+    res.status(500).send(message)
+    console.log(`Error:${message}`)
   }
 })
 
@@ -91,20 +109,29 @@ router.put("/recipe/:recipeName/instruction", async (req: Request, res: Response
   // "name": {the name inputted into a URL} 
   const recipe = await RecipeModel.findOne({"name": recipeName})
   
+  try {
   // Checks if the recipe variable is truthy (i.e., NOT null)
-  if(recipe)
-  {
-    // Appends the new ingredient to the recipe's ingredients property
-    recipe.instructions.push(instruction)
-    // Runs Mongoose's .save() on the new recipe, updating it in the database
-    await recipe.save()
-    // Sends a confirmation message to the user
-    res.send("Recipe successfully updated with new step")
-  }
-  else
-  {
-    // Sends a failure message to the user
-    res.send("Recipe not found")
+    if(recipe)
+    {
+      // Appends the new ingredient to the recipe's ingredients property
+      recipe.instructions.push(instruction)
+      // Runs Mongoose's .save() on the new recipe, updating it in the database
+      await recipe.save()
+      // Sends a confirmation message to the user
+      res.send("Recipe successfully updated with new step")
+    }
+    else
+    {
+      // Sends a failure message to the user
+      res.send("Recipe not found")
+    }
+  } catch(error) {
+    let message = 'Unknown error'
+    if (error instanceof Error) message = error.message
+    // For any errors, updates the request status, sends the error message to the requester,
+    // and logs the error message to the console
+    res.status(500).send(message)
+    console.log(`Error:${message}`)
   }
 })
 
