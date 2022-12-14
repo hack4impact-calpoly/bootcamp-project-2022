@@ -72,14 +72,14 @@
 }
 
  
-li {
+.list_item {
     cursor: pointer;
     width: fit-content;  /* make <li> width fit the text length */
   }
  
 
  
-li:hover {
+.list_item:hover {
     text-decoration: line-through;
     color: #cb997e;
 }

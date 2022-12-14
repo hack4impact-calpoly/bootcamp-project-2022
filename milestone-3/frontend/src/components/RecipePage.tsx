@@ -142,7 +142,7 @@ export default function RecipePage(props: RecipePageProps) {
                 <h3>Ingredients</h3>
                 <ul id="description">
                 {allIngredients.map((ingredient:string, index)=>
-                    <li id={ingredient} onClick={e=>deleteIngredient(e)} key={index}>{ingredient}</li>
+                    <li className="list_item" id={ingredient} onClick={e=>deleteIngredient(e)} key={index}>{ingredient}</li>
                 )}
                 </ul>
                 <input
