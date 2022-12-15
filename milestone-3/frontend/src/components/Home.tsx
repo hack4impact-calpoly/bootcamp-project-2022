@@ -1,41 +1,43 @@
 import React, { useEffect, useState } from 'react';
-import recipes from '../recipeData';
+// import recipes from '../recipeData';
 import RecipePreview from '../components/recipePreview';
-import { Recipe } from '../recipeData';
+// import { Recipe } from '../recipeData';
 import { RecipePreviewProps } from '../components/recipePreview';
 
+interface Recipe {
+  external: boolean;
+  name: string;
+  description: string;
+  image: string;
+  ingredients: string[];
+  instructions: string[];
+  _id: string
+}
+
 export default function Home(){
-  const [externalRecipes, setExternalRecipes] = useState<RecipePreviewProps[]>([]);
-  useEffect(() =>{
-    fetch("https://bootcamp-milestone-4.onrender.com/recipe")
-      .then((res) => res.json())
-      .then((data) => setExternalRecipes(data));
+  const [recipes, setRecipes] = useState<Recipe[]>([])
+
+  useEffect(() => {
+    fetch("http://localhost:3001/recipe")
+    .then((response) => response.json())
+    .then(recipeData => {
+      setRecipes(recipeData)
+      console.log(recipeData)
+    })
+    .catch((err) => console.log(err))
   }, [])
     return(
       <div>
         <div className='upper-class'>
             {[...recipes].map((recipe) => (
     <RecipePreview
+      _id= {recipe._id}
       name={recipe.name}
       description={recipe.description}
       image={recipe.image}
       ingredients={recipe.ingredients}
       instructions={recipe.instructions}
-      external = {false}
-    />
-    
-  ))}
-        </div>
-        <br/>
-        <div className='upper-class'>
-            {[...externalRecipes].map((recipe) => (
-    <RecipePreview
-      name={recipe.name}
-      description={recipe.description}
-      image={recipe.image}
-      ingredients={recipe.ingredients}
-      instructions={recipe.instructions}
-      external = {true}
+      external = {recipe.external}
     />
     
   ))}

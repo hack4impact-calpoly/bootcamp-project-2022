@@ -1,8 +1,16 @@
 import { Request, Response, Express } from "express"; // Importing the required types
 import Recipe from "./models/recipeSchema"; // Importing the Recipe schema
 
+
 const express = require("express"); // 1. Includes the Express library
 const app: Express = express(); // 2. Initializes the Express application
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT');
+  next();
+});
 
 const mongoose = require("mongoose"); // Importing the Mongoose library for working with MongoDB
 const connection_url = "mongodb+srv://admin:LyrLDXvV8xnA1JCf@cluster0.ra7xb3t.mongodb.net/?retryWrites=true&w=majority" // Connection URL for our MongoDB database
@@ -39,8 +47,7 @@ app.get('/recipe/:recipeName', async (req: Request, res: Response) => {
     })
     if (rec) {
         // If the recipe is found, send it as response
-        res.send(`Recipe found!     
-        ${rec}`)    
+        res.send(rec)    
     } else{
         // If the recipe is not found, send an error message
         res.send("Could not find recipe :(")

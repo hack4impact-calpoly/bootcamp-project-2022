@@ -1,74 +1,98 @@
 import React, { ChangeEvent } from 'react'
-import "../recipeData.ts"
 import "./recipePreview.css"
 import { useParams } from 'react-router-dom';
-import { Recipe } from '../recipeData';
 import Navbar from './navbar';
-import recipes from '../recipeData'; 
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-interface RecipePageProps{
-    external?: boolean;
+interface Recipe{
+    name: string,
+    description: string,
+    image: string,
+    ingredients: string[],
+    instructions: string[],
 }
+
 // Create a new interface so that the data fetched from the API can be used
 interface Recipe_ext extends Recipe{
     '_id'? : string,
-    '__v'? : number
+    '__v'? : number,
+    external?: boolean;
 }
 
-export default function RecipePage(props: RecipePageProps) {
+export default function RecipePage() {
     // Use the `useParams` hook to access the URL parameters.
     const { name } = useParams(); 
 
     // Create state variables for the recipe, new ingredient and new instruction.
-    const [recipe, setRecipe] = useState<Recipe_ext>(recipes[0]);
+    const [recipe, setRecipe] = useState<Recipe_ext>({
+        name: "",
+        description: "",
+        image: "",
+        ingredients: [],
+        instructions: [],
+        external: false,
+        _id: "",
+        __v: 0
+    });
+    
+    const [error, setError] = useState("");
     const [newIngredient, setNewIngredient] = useState('');
     const [allIngredients, setAllIngredients] = useState<string[]>([]);
     const [newInstruction, setNewInstruction] = useState('');
     const [allInstructions, setAllInstructions] = useState<string[]>([]);
 
-    // Create error variable for testing
-    const [error, setError] = useState("");
+    useEffect(() => {
+        fetch(`http://localhost:3001/recipe/${name}`)
+        .then((response) => response.json())
+        .then(recipeData => {
+            setRecipe(recipeData)
+            setAllIngredients(recipeData.ingredients)
+            setAllInstructions(recipeData.instructions)
+        })
+        .catch(err => console.log(err))
+    }, [name])
 
-    useEffect(() =>{
-        // Checks whether external API needs to be used
-        if (props.external) {
-            fetch(`https://bootcamp-milestone-4.onrender.com/recipe/${name}`)
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.length === 0){
-                    setError("Sorry, this recipe does not exist")
-                } else {
-                    setError("")
-                    setRecipe(data[0])
 
-                    // Update the allIngredients and allInstructions state variables
-                    // with the ingredients and instructions from the selected recipe.
-                    setAllIngredients(data[0].ingredients);
-                    setAllInstructions(data[0].instructions);
-                }
-            })
-        } // If recipe is not external, then look for recipe in the imported recipe list
-        else {
-            let recipe_temp = recipes.find(i => i.name === name);
-            if (recipe_temp === undefined) { 
-                recipe_temp = recipes[0];
+    function addIngredient(){
+        fetch(
+            `http://localhost:3001/recipe/${name}/ingredient`,{
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "ingredient": newIngredient
+                })
             }
-            setRecipe(recipe_temp);
+            ).then(() => {
+                setAllIngredients([...allIngredients,newIngredient])
+                setNewIngredient("")
+            })
+            .catch(err => console.log(err))
+    }
 
-            // Update the allIngredients and allInstructions state variables
-            // with the ingredients and instructions from the selected recipe.
-            setAllIngredients(recipe_temp.ingredients);
-            setAllInstructions(recipe_temp.instructions);
-        }
-    }, [name, props.external]
-    )
-
+    function addInstruction(){
+        fetch(
+            `http://localhost:3001/recipe/${name}/instruction`,{
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "instruction": newInstruction
+                })
+            }
+            ).then(() => {
+                setAllInstructions([...allInstructions,newInstruction]);
+                setNewInstruction("")
+            })
+            .catch(err => console.log(err))
+    }
+    
     return (
     <body>
         <div className='recipe-box'>
-
             <div>
                 <h1>{recipe.name}</h1>
 
@@ -90,12 +114,7 @@ export default function RecipePage(props: RecipePageProps) {
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setNewIngredient(e.target.value)}
                 />
-                <button onClick={() => 
-                {
-                    setAllIngredients([...allIngredients, newIngredient]);
-                    // Resets the value inside the input box
-                    setNewIngredient("");
-                }}
+                <button onClick={addIngredient}
                 >
                     Add Ingredient
                 </button>
@@ -122,15 +141,11 @@ export default function RecipePage(props: RecipePageProps) {
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setNewInstruction(e.target.value)}
                 />
-                <button onClick={() => 
-                {
-                    setAllInstructions([...allInstructions, newInstruction]);
-                    // resets the value inside the input box
-                    setNewInstruction("");
-                }}
+                <button onClick={addInstruction}
                 >
                     Add Instruction
                 </button>
+
         </div>
     </body>
     )

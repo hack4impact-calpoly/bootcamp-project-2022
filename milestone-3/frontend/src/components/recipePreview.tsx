@@ -1,5 +1,4 @@
 import React from 'react';
-import '../recipeData.ts'
 import './recipePreview.css'
 import { Link } from 'react-router-dom';
 
@@ -14,6 +13,7 @@ export interface Recipe {
 
 export interface RecipePreviewProps extends Recipe{
   external: boolean,
+  _id: string
 }
 
 export default function RecipePreview(props: RecipePreviewProps) {
@@ -24,7 +24,7 @@ export default function RecipePreview(props: RecipePreviewProps) {
           <img className="thumbnail" alt={props.name} src={props.image}/>
           <div className='about'>
             {/* `recipe/${props.short}` links to recipe page */}
-              <h2 className="dish-title"><Link to = {`${props.external?"externalRecipe":"recipe"}/${props.name}`}>{props.name}</Link></h2>
+              <h2 className="dish-title"><Link to = {`/recipe/${props.name}`}>{props.name}</Link></h2>
               <h3 className="description">{props.description}</h3>
           </div>
     </div>
