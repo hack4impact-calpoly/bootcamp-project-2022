@@ -1,9 +1,10 @@
 import React from 'react';
 import './recipePreview.css'
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card, CardImg } from 'react-bootstrap';
 
 export interface Recipe {
-
   name: string;
   description: string;
   image: string;
@@ -12,7 +13,7 @@ export interface Recipe {
 }
 
 export interface RecipePreviewProps extends Recipe{
-  external: boolean,
+  // external: boolean,
   _id: string
 }
 
@@ -20,13 +21,19 @@ export default function RecipePreview(props: RecipePreviewProps) {
   return (
 		// replace everything between the <div> & </div> tags
 		// with your code from earlier milestones
-    <div className="dish-box">
-          <img className="thumbnail" alt={props.name} src={props.image}/>
-          <div className='about'>
-            {/* `recipe/${props.short}` links to recipe page */}
-              <h2 className="dish-title"><Link to = {`/recipe/${props.name}`}>{props.name}</Link></h2>
-              <h3 className="description">{props.description}</h3>
-          </div>
-    </div>
+    <Card className="mb-3">
+      <CardImg
+        variant="top"
+        src={props.image}
+        alt={props.name}
+        style={{ width: '150px', height: '150px' }}
+      />
+      <Card.Body>
+        <Card.Title>
+          <Link to={`/recipe/${props.name}`}>{props.name}</Link>
+        </Card.Title>
+        <Card.Text>{props.description}</Card.Text>
+      </Card.Body>
+    </Card>
   );
 }

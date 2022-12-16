@@ -2,10 +2,11 @@ import './App.css';
 import Navbar from "./components/navbar";
 import Home from "./components/Home";
 import About from "./components/About";
-// import recipes from "./recipeData.js";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import RecipePage from './components/recipePage';
 import { useEffect, useState } from 'react';
+
+import { Button } from 'react-bootstrap';
 
 interface Recipe {
   name: string,
@@ -13,7 +14,7 @@ interface Recipe {
   image: string,
   ingredients: string[],
   instructions: string[],
-  external: boolean
+  // external: boolean
 }
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
           <Route path='about' element={<About />} />
           <Route path='index' element={<Home />} />
           <Route path='/recipe/:name' element={<RecipePage />}/>
-          <Route path="index/externalRecipe/:name" element={<RecipePage external />}/>
+          {/* <Route path="index/externalRecipe/:name" element={<RecipePage external />}/> */}
         </Routes>
       </div>
     </BrowserRouter>

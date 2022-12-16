@@ -63,7 +63,7 @@ app.post('/recipe', async (req: Request, res: Response) => {
         image: req.body.image,
         ingredients: req.body.ingredients,
         instructions: req.body.instructions,
-        external: req.body.external
+        // external: req.body.external
     }).catch((err) => {
         // If there is an error creating the recipe, send an error message
         res.send(`ERROR Recipe could not be added because of the following error:        

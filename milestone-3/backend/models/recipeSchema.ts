@@ -6,7 +6,7 @@ export interface IRecipe extends Document {
     image: string,
     ingredients: string[],
     instructions: string[],
-    external: boolean
+    // external: boolean
 }
 
 const RecipeSchema = new Schema<IRecipe>({
@@ -30,10 +30,10 @@ const RecipeSchema = new Schema<IRecipe>({
         type: [String],
         required: true
     },
-    external: {
-        type: Boolean,
-        required: false
-    }
+    // external: {
+    //     type: Boolean,
+    //     required: false
+    // }
 });
 
 const Recipe = model<IRecipe>("Recipe", RecipeSchema)

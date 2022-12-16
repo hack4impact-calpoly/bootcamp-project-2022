@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import Navbar from './navbar';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { Container, Row, Col, ListGroup, Image, Form, Button, InputGroup, FormControl } from 'react-bootstrap';
 
 interface Recipe{
     name: string,
@@ -17,7 +18,7 @@ interface Recipe{
 interface Recipe_ext extends Recipe{
     '_id'? : string,
     '__v'? : number,
-    external?: boolean;
+    // external?: boolean;
 }
 
 export default function RecipePage() {
@@ -31,7 +32,7 @@ export default function RecipePage() {
         image: "",
         ingredients: [],
         instructions: [],
-        external: false,
+        // external: false,
         _id: "",
         __v: 0
     });
@@ -91,63 +92,116 @@ export default function RecipePage() {
     }
     
     return (
-    <body>
-        <div className='recipe-box'>
-            <div>
-                <h1>{recipe.name}</h1>
+    // <body>
+    //     <div className='recipe-box'>
+    //         <div>
+    //             <h1>{recipe.name}</h1>
 
-                {/* Ingredients */}
-                <h2>Ingredients</h2>
-                <ul className='ingredients'>
-                    {/* Maps each items in the ingredients array to a list item */}
-                    {allIngredients.map(
-                        item => (
-                            <li className="ingredient"><label className="container">{item}<input type="checkbox" />
-                            <span className="checkmark"></span>
-                            </label></li>
-                        )
-                    )}
-                </ul>
-                <input 
-                placeholder='2 cups of spinach'
-                value = {newIngredient} // add newIngredient as the input's value
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setNewIngredient(e.target.value)}
-                />
-                <button onClick={addIngredient}
-                >
-                    Add Ingredient
-                </button>
-            </div>
-                <div>
-                    <img className="thumbnail-large" alt={recipe.name} src={recipe.image} />
-                </div>             
-        </div>
+    //             {/* Ingredients */}
+    //             <h2>Ingredients</h2>
+    //             <ul className='ingredients'>
+    //                 {/* Maps each items in the ingredients array to a list item */}
+    //                 {allIngredients.map(
+    //                     item => (
+    //                         <li className="ingredient"><label className="container">{item}<input type="checkbox" />
+    //                         <span className="checkmark"></span>
+    //                         </label></li>
+    //                     )
+    //                 )}
+    //             </ul>
+    //             <input 
+    //             placeholder='2 cups of spinach'
+    //             value = {newIngredient} // add newIngredient as the input's value
+    //             onChange={(e: ChangeEvent<HTMLInputElement>) =>
+    //             setNewIngredient(e.target.value)}
+    //             />
+    //             <button onClick={addIngredient}
+    //             >
+    //                 Add Ingredient
+    //             </button>
+    //         </div>
+    //             <div>
+    //                 <img className="thumbnail-large" alt={recipe.name} src={recipe.image} />
+    //             </div>             
+    //     </div>
         
-        <div>
-            {/* Instructions */}
-            <h2>Instructions</h2>
-            <ol className='instructions'>
-                {/* Maps each item in the instructions array to a list item. */}
-                {allInstructions.map(
-                    item => (
-                        <li>{item}</li>
-                    )
-                )}
-            </ol>
-            <input 
-                placeholder='Mix everything in a bowl'
-                value = {newInstruction} // add newIngredient as the input's value
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setNewInstruction(e.target.value)}
-                />
-                <button onClick={addInstruction}
-                >
-                    Add Instruction
-                </button>
+    //     <div>
+    //         {/* Instructions */}
+    //         <h2>Instructions</h2>
+    //         <ol className='instructions'>
+    //             {/* Maps each item in the instructions array to a list item. */}
+    //             {allInstructions.map(
+    //                 item => (
+    //                     <li>{item}</li>
+    //                 )
+    //             )}
+    //         </ol>
+    //         <input 
+    //             placeholder='Mix everything in a bowl'
+    //             value = {newInstruction} // add newIngredient as the input's value
+    //             onChange={(e: ChangeEvent<HTMLInputElement>) =>
+    //             setNewInstruction(e.target.value)}
+    //             />
+    //             <button onClick={addInstruction}
+    //             >
+    //                 Add Instruction
+    //             </button>
 
-        </div>
-    </body>
+    //     </div>
+    // </body>
+    <Container>
+    <Row>
+      <Col xs={8}>
+        <h1>{recipe.name}</h1>
+
+        {/* Ingredients */}
+        <h2>Ingredients</h2>
+        <ListGroup variant="flush">
+          {/* Maps each item in the ingredients array to a list item */}
+          {allIngredients.map((item) => (
+            <ListGroup.Item>{item}</ListGroup.Item>
+          ))}
+        </ListGroup>
+        <Form>
+          <Form.Control
+            placeholder="2 cups of spinach"
+            value={newIngredient} // add newIngredient as the input's value
+            onChange={(e) => setNewIngredient(e.target.value)}
+          />
+          <Button variant="primary" onClick={addIngredient}>
+            Add Ingredient
+          </Button>
+        </Form>
+      </Col>
+      <Col xs={4}>
+        <Image src={recipe.image} thumbnail />
+      </Col>
+    </Row>
+    <Row>
+        <Col md={12}>
+        <h2>Instructions</h2>
+        <ListGroup variant="flush">
+  {allInstructions.map((instruction) => (
+    <ListGroup.Item key={instruction}>{instruction}</ListGroup.Item>
+  ))}
+</ListGroup>
+
+<InputGroup className="mb-3">
+  <FormControl
+    placeholder="Enter a new instruction"
+    value={newInstruction}
+    onChange={(e: ChangeEvent<HTMLInputElement>) => setNewInstruction(e.target.value)}
+  />
+  <InputGroup>
+    <InputGroup.Text id="add-instruction-button" onClick={addInstruction}>
+      Add Instruction
+    </InputGroup.Text>
+  </InputGroup>
+</InputGroup>
+        </Col>
+      </Row>
+    </Container>
+
     )
 }
 

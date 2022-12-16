@@ -1,0 +1,182 @@
+:root {
+    --primary-color: #fefae0;
+    --secondary-color: #606c38;
+    --tertiary-color: #283618;
+    --quaternary-color: #f1ebbf;
+    --accent-color: pink;
+  }
+  
+  body {
+    background-color: var(--primary-color);
+  }
+  
+  h1 {
+    font-family: fantasy;
+    color: var(--secondary-color);
+    font-size: 40px;
+  }
+  
+  h2, .description {
+    color: var(--tertiary-color);
+    font-family: 'Bradley Hand', cursive;
+    font-size: 30px;
+    text-decoration: none;
+  }
+  
+  th, td {
+    color: var(--tertiary-color);
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+  }
+  
+  td {
+    font-family: 'Bradley Hand', cursive;
+  }
+  
+  li {
+    color: var(--tertiary-color);
+    font-family: 'Bradley Hand', cursive;
+  }
+  
+  input {
+    background-color: var(--accent-color);
+  }
+  
+  #but {
+    color: var(--tertiary-color);
+  }
+  
+  #but:hover {
+    background-color: var(--secondary-color);
+    color: var(--quaternary-color);
+  }
+  
+  .dish-box{
+      display: flex;
+      flex-direction: row;
+      background-color: var(--quaternary-color);
+      border: var(--quaternary-color) solid 5px;
+      border-radius: 15px;
+      flex-wrap: nowrap;
+  }
+  .thumbnail {
+      width: 20%;
+      height: 20%;
+      padding: 10px;
+  }
+  .dish-title{
+      text-decoration: none;
+      background-color: var(--secondary-color);
+      color: var(--primary-color);
+      font-size: 40px;
+  }
+  
+  .description{
+      display: flex;
+      border: 10px solid var(--quaternary-color);
+  }
+  .about{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: nowrap;
+      padding: 30px;
+  }
+  .top-left-panel{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .panel-button{
+    border: #f1ebbf 10px solid;
+    color: #606c38;
+    background-color: #f1ebbf;
+    text-decoration: none;
+  }
+  
+  .top-panel{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #f1ebbf;
+  }
+  
+  a{
+    text-decoration: none;
+    color: #fefae0;
+  }
+  
+  a:hover{
+    background-color: #f1ebbf;
+    color: #283618;
+  }
+  
+  /* Control Checkbox functionality */
+  .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #fefae0;
+  }
+  
+  .container:hover input ~ .checkmark {
+    background-color: #f1ebbf;
+  }
+    
+  .container input:checked ~ .checkmark {
+    background-color: #f1ebbf;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid #606c38;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  .instructions{
+    font-size: 20px;
+  }
+  .title{
+    text-decoration: none;
+  }
+  

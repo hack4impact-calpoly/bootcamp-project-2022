@@ -5,7 +5,7 @@ import RecipePreview from '../components/recipePreview';
 import { RecipePreviewProps } from '../components/recipePreview';
 
 interface Recipe {
-  external: boolean;
+  // external: boolean;
   name: string;
   description: string;
   image: string;
@@ -37,7 +37,7 @@ export default function Home(){
       image={recipe.image}
       ingredients={recipe.ingredients}
       instructions={recipe.instructions}
-      external = {recipe.external}
+      // external = {recipe.external}
     />
     
   ))}
