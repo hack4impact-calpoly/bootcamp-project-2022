@@ -182,7 +182,7 @@ export default function RecipePage() {
         <h2>Instructions</h2>
         <ListGroup variant="flush">
   {allInstructions.map((instruction) => (
-    <ListGroup.Item key={instruction}>{instruction}</ListGroup.Item>
+    <ListGroup.Item key={allInstructions.indexOf(instruction) >= 0 ? allInstructions.indexOf(instruction) : instruction}>{instruction}</ListGroup.Item>
   ))}
 </ListGroup>
 
