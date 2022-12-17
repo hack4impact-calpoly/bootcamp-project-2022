@@ -5,8 +5,10 @@ import About from "./components/About";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import RecipePage from './components/recipePage';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 import { Button } from 'react-bootstrap';
+import Random from './components/Random';
 
 interface Recipe {
   name: string,
@@ -28,6 +30,10 @@ function App() {
   }, [])
   return (
     // Links to all pages.
+    <div>
+      <Helmet>
+        <link rel="stylesheet" href="./App.css" />
+      </Helmet>
     <BrowserRouter> 
       <Navbar/>
       <div>
@@ -35,11 +41,13 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='about' element={<About />} />
           <Route path='index' element={<Home />} />
+          <Route path='random' element={<Random />} />
           <Route path='/recipe/:name' element={<RecipePage />}/>
           {/* <Route path="index/externalRecipe/:name" element={<RecipePage external />}/> */}
         </Routes>
       </div>
     </BrowserRouter>
+    </div>
   );
 }
 

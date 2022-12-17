@@ -27,7 +27,7 @@ export default function RecipePage() {
 
     // Create state variables for the recipe, new ingredient and new instruction.
     const [recipe, setRecipe] = useState<Recipe_ext>({
-        name: "",
+        name: "RECIPE NOT FOUND", // If wrong recipe is entered in the search box
         description: "",
         image: "",
         ingredients: [],
