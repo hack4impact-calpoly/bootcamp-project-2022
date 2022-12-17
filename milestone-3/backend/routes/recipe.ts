@@ -79,4 +79,31 @@ router.put("/Recipe/:name/instruction", async (req: Request, res: Response) => {
     }
 });
 
+// deletes recipe 
+router.delete("/Recipe/:name", async (req: Request, res: Response) => {
+  const {name} = req.params;
+  const recipes = await Recipe.findOneAndDelete({
+    name: name,
+    });
+  res.send(recipes);
+  console.log(recipes);
+})
+
+// deletes recipe ingredients
+router.delete("/Recipe/:name/ingredient", async (req: Request, res: Response) => {
+  const name = req.params.name;
+  const ingredient = req.body.newIngredient;
+  const recipes = await Recipe.findOneAndDelete({name: name});
+  if (recipes)
+  {
+      recipes.ingredients = [...recipes.ingredients, ingredient];
+      await recipes.save();
+      res.send("Ingredient Deleted");
+  }
+
+  else {
+      res.send("Failed to delete new ingredient");
+  }
+})
+
 export default router;

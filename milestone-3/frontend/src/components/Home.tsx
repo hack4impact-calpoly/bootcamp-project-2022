@@ -14,7 +14,6 @@ export default function Home()
         fetch(`http://localhost:3001/Recipe`)
         .then((res) => res.json())
         .then((data) => setAllRecipes(data));
-        // console.log(data);
     }, []);
 
     return (

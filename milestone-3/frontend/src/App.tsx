@@ -3,7 +3,6 @@ import Navbar from "./components/navbar";
 import About from "./components/About";
 import Home from "./components/Home";
 import RecipePage from "./components/RecipePage";
-import recipes from './recipeData';
 import {Recipe} from './recipeData';
 
 import React, { useEffect, useState } from 'react';
