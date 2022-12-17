@@ -4,7 +4,6 @@ import "./navbar.css";
 import { Link } from 'react-router-dom';
 import { Navbar, Button, Nav, NavDropdown, Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 export default function Navbar_x() {
   return (
     // <Navbar bg="light" expand="lg">
@@ -22,6 +21,9 @@ export default function Navbar_x() {
     //     </Nav>
     //   </Navbar.Collapse>
     // </Navbar>
+
+    //==========================================
+
     <Navbar bg="light" expand="lg">
     <Navbar.Brand href="/index">Swayam's Recipes</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -45,5 +47,6 @@ export default function Navbar_x() {
           </Form>
     </Navbar.Collapse>
   </Navbar>
+
   );
 }
