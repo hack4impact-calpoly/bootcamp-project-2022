@@ -1,28 +1,20 @@
 import React from "react";
 import "./navbar.css";
-
-import { Link } from 'react-router-dom';
-import { Navbar, Button, Nav, NavDropdown, Form } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
+import { Navbar, Button, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 export default function Navbar_x() {
-  return (
-    // <Navbar bg="light" expand="lg">
-    //   <Navbar.Brand href="/index">Swayam's Recipes</Navbar.Brand>
-    //   <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    //   <Navbar.Collapse id="basic-navbar-nav">
-    //     <Nav className="mr-auto"></Nav>
-    //     <Nav>
-    //       <Button variant="outline-primary" className="mr-2">
-    //         <Link to="index" className="nav-link">Home</Link>
-    //       </Button>
-    //       <Button variant="outline-primary" className="mr-2">
-    //         <Link to="about" className="nav-link">About</Link>
-    //       </Button>
-    //     </Nav>
-    //   </Navbar.Collapse>
-    // </Navbar>
 
-    //==========================================
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+
+    const searchInput = document.querySelector("input[type='search']") as HTMLInputElement;
+    const searchQuery = searchInput.value;
+
+    navigate(`/recipe/${searchQuery}`);
+  }
+  return (
 
     <Navbar bg="light" expand="lg">
     <Navbar.Brand href="/index">Swayam's Recipes</Navbar.Brand>
@@ -43,7 +35,7 @@ export default function Navbar_x() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success" onClick={handleSearch}>Search</Button>
           </Form>
     </Navbar.Collapse>
   </Navbar>
