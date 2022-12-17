@@ -44,7 +44,7 @@ const RecipePage = (props: RecipePageProps) => {
                 });
         } else {
             // fetch from my API
-            fetch(`http://localhost:3001/recipe/${id}`)
+            fetch(`https://myrecipes-backend.onrender.com/recipe/${id}`)
                 .then((res) => res.json())
                 .then((data) => {
                     console.log(data);
@@ -75,13 +75,16 @@ const RecipePage = (props: RecipePageProps) => {
         setAllIngredients([...allIngredients, newIngredient]);
 
         //update database
-        fetch(`http://localhost:3001/recipe/${recipe.link_name}/ingredient`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                ingredient: newItem,
-            }),
-        }).catch((err) => console.log("Error:", err));
+        fetch(
+            `https://myrecipes-backend.onrender.com/recipe/${recipe.link_name}/ingredient`,
+            {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    ingredient: newItem,
+                }),
+            }
+        ).catch((err) => console.log("Error:", err));
     }
 
     function addInstruction(newItem: string) {
@@ -89,13 +92,16 @@ const RecipePage = (props: RecipePageProps) => {
         setAllInstrutctions([...allInstructions, newInstruction]);
 
         //update database
-        fetch(`http://localhost:3001/recipe/${recipe.link_name}/instruction`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                instruction: "hello",
-            }),
-        }).catch((err) => console.log("Error:", err));
+        fetch(
+            `https://myrecipes-backend.onrender.com/recipe/${recipe.link_name}/instruction`,
+            {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    instruction: "hello",
+                }),
+            }
+        ).catch((err) => console.log("Error:", err));
     }
 
     return (

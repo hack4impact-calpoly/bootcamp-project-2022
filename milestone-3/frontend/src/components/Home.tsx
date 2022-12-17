@@ -20,7 +20,7 @@ function Home() {
             .then((data) => {
                 setExternalRecipes(data);
             });
-        fetch("http://localhost:3001/recipe")
+        fetch("https://myrecipes-backend.onrender.com/recipe")
             .then((res) => res.json())
             .then((data) => {
                 setMyRecipes(data);
