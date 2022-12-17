@@ -12,8 +12,11 @@ export default function About() {
         <Col md={8}>
           <h1>About Me</h1>
           <p>
-            My name is Swayam and this page was created as a part of Hack4Impact - Cal Poly's dev bootcamp.
+            My name is Swayam and this website was created as a part of Hack4Impact - Cal Poly's dev bootcamp.
           </p>
+          <p>
+        You can find me on <a href="https://www.instagram.com/sway.1351">Instagram</a>, <a href="https://github.com/sway4em">GitHub</a>, and <a href="https://linkedin.com/in/swayamchidrawar">LinkedIn</a>.
+      </p>
         </Col>
       </Row>
     </Container>

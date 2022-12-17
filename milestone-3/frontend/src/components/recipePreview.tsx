@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css'
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, CardImg } from 'react-bootstrap';
+import { Card, CardImg, Row } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
 
 export interface Recipe {
@@ -26,20 +26,24 @@ export default function RecipePreview(props: RecipePreviewProps) {
       <Helmet>
         <link rel="stylesheet" href="./App.css" />
       </Helmet>
-    <Card className="card mb-3">
-      <CardImg
-        variant="top"
-        src={props.image}
-        alt={props.name}
-        style={{ width: '150px', height: '150px'}}
-      />
-      <Card.Body className='card-body'>
-        <Card.Title>
-          <Link to={`/recipe/${props.name}`}>{props.name}</Link>
-        </Card.Title>
-        <Card.Text><p>{props.description}</p></Card.Text>
-      </Card.Body>
-    </Card>
+      <Card className="card mb-3">
+        <Card.Body className='card-body'>
+          <Row>
+            <Card.Img
+              variant="top"
+              src={props.image}
+              alt={props.name}
+              style={{ width: '150px', height: '150px' }}
+            />
+            <Card.Text>
+              <Card.Title>
+                <Link to={`/recipe/${props.name}`}><h4>{props.name}</h4></Link>
+              </Card.Title>
+              <p>{props.description}</p>
+            </Card.Text>
+          </Row>
+        </Card.Body>
+      </Card>
     </div>
 
 
