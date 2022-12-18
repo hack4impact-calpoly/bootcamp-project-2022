@@ -96,7 +96,7 @@ export default function RecipePage() {
         <h1>{recipe.name}</h1>
 
         {/* Ingredients */}
-        <h2>Ingredients</h2>
+        <h3>Ingredients</h3>
         <ListGroup variant="flush">
           {/* Maps each item in the ingredients array to a list item */}
           {allIngredients.map((item) => (
@@ -120,29 +120,25 @@ export default function RecipePage() {
     </Row>
     <Row>
         <Col md={12}>
-        <h2>Instructions</h2>
+        <h3>Instructions</h3>
         <ListGroup variant="flush">
   {allInstructions.map((instruction) => (
     <ListGroup.Item key={allInstructions.indexOf(instruction) >= 0 ? allInstructions.indexOf(instruction) : instruction}>{instruction}</ListGroup.Item>
   ))}
 </ListGroup>
-
-<InputGroup className="mb-3">
-  <FormControl
-    placeholder="Enter a new instruction"
-    value={newInstruction}
-    onChange={(e: ChangeEvent<HTMLInputElement>) => setNewInstruction(e.target.value)}
-  />
-  <InputGroup>
-    <InputGroup.Text id="add-instruction-button" onClick={addInstruction}>
-      Add Instruction
-    </InputGroup.Text>
-  </InputGroup>
-</InputGroup>
+<Form>
+    <Form.Control
+            placeholder="Enter Instruction"
+            value={newInstruction} // add newIngredient as the input's value
+            onChange={(e) => setNewInstruction(e.target.value)}
+          />
+          <Button variant="primary" onClick={addInstruction}>
+            Add Instruction
+          </Button>
+        </Form>
         </Col>
       </Row>
     </Container>
-
     )
 }
 

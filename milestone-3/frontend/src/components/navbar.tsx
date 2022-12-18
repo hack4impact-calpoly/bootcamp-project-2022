@@ -26,9 +26,9 @@ export default function Navbar_x() {
             navbarScroll
           >
             <Nav.Link href="/index">Home</Nav.Link>
-            <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/random">Random</Nav.Link>
             <Nav.Link href="/add">Add Recipe</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control

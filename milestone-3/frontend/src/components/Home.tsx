@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import RecipePreview from '../components/recipePreview';
 import { RecipePreviewProps } from '../components/recipePreview';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card, CardImg, Row } from 'react-bootstrap';
 interface Recipe {
   name: string;
   description: string;
@@ -24,8 +25,8 @@ export default function Home(){
   }, [])
     return(
       <div>
-        <div className='upper-class'>
             {[...recipes].map((recipe) => (
+              <div className='card-columns'>
     <RecipePreview
       _id= {recipe._id}
       name={recipe.name}
@@ -34,9 +35,10 @@ export default function Home(){
       ingredients={recipe.ingredients}
       instructions={recipe.instructions}
     />
+              </div>
+
     
   ))}
         </div>
-      </div>
     )
 }

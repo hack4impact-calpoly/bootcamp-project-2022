@@ -19,14 +19,28 @@ export interface RecipePreviewProps extends Recipe{
 
 export default function RecipePreview(props: RecipePreviewProps) {
   return (
-    <div>
-      <Helmet>
+
+    <div className="card">
+      <img style={{ width: '150px', height: '150px' }} className="card-img-top" src={props.image} alt="Card image cap"/>
+      <div className="card-body">
+        <h5 className="card-title"><Link to={`/recipe/${props.name}`}><h4 className='card-title'>{props.name}</h4></Link></h5>
+        <p className="card-text">{props.description}</p>
+      </div>
+    </div>
+
+
+  );
+}
+
+      {/* The Helmet is the same as <head> */}
+      {/* <Helmet>
         <link rel="stylesheet" href="./App.css" />
-      </Helmet>
-      <Card className="card mb-3">
+      </Helmet> */}
+      {/* <Card className="card border-dark bg-light mb-3">
         <Card.Body className='card-body'>
           <Row>
             <Card.Img
+              className="card-img-top"
               variant="top"
               src={props.image}
               alt={props.name}
@@ -34,15 +48,10 @@ export default function RecipePreview(props: RecipePreviewProps) {
             />
             <Card.Text>
               <Card.Title>
-                <Link to={`/recipe/${props.name}`}><h4>{props.name}</h4></Link>
+                <Link to={`/recipe/${props.name}`}><h4 className='card-title'>{props.name}</h4></Link>
               </Card.Title>
-              <p>{props.description}</p>
+              <p className='card-body'>{props.description}</p>
             </Card.Text>
           </Row>
         </Card.Body>
-      </Card>
-    </div>
-
-
-  );
-}
+      </Card> */}

@@ -36,7 +36,7 @@ export default function AddRecipeForm(){
       }
     })
       .then(res => {
-        setMessage('Recipe added successfully!');
+        setMessage('Recipe added successfully!'); 
         setName('');
         setDescription('');
         setImage('');
@@ -58,6 +58,8 @@ export default function AddRecipeForm(){
 
   return (
     <Form onSubmit={handleSubmit}>
+    
+    {/* Displays message when recipe is added. */}
     <p style={{color: 'green'}}>{message?message:""}</p>
     <Form.Group>
       <Form.Label for="name">Name:</Form.Label>
