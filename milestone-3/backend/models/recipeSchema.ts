@@ -6,7 +6,6 @@ export interface IRecipe extends Document {
     image: string,
     ingredients: string[],
     instructions: string[],
-    // external: boolean
 }
 
 const RecipeSchema = new Schema<IRecipe>({
