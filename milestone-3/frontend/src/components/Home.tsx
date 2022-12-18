@@ -3,7 +3,6 @@ import RecipePreview from '../components/recipePreview';
 import { RecipePreviewProps } from '../components/recipePreview';
 
 interface Recipe {
-  // external: boolean;
   name: string;
   description: string;
   image: string;
@@ -14,7 +13,6 @@ interface Recipe {
 
 export default function Home(){
   const [recipes, setRecipes] = useState<Recipe[]>([])
-
   useEffect(() => {
     fetch("http://localhost:3001/recipe")
     .then((response) => response.json())
