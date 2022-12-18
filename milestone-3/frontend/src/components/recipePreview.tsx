@@ -14,14 +14,11 @@ export interface Recipe {
 }
 
 export interface RecipePreviewProps extends Recipe{
-  // external: boolean,
   _id: string
 }
 
 export default function RecipePreview(props: RecipePreviewProps) {
   return (
-		// replace everything between the <div> & </div> tags
-		// with your code from earlier milestones
     <div>
       <Helmet>
         <link rel="stylesheet" href="./App.css" />

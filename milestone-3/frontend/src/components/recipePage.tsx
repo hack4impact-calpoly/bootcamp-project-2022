@@ -18,7 +18,6 @@ interface Recipe{
 interface Recipe_ext extends Recipe{
     '_id'? : string,
     '__v'? : number,
-    // external?: boolean;
 }
 
 export default function RecipePage() {
@@ -32,7 +31,6 @@ export default function RecipePage() {
         image: "",
         ingredients: [],
         instructions: [],
-        // external: false,
         _id: "",
         __v: 0
     });
@@ -92,63 +90,6 @@ export default function RecipePage() {
     }
     
     return (
-    // <body>
-    //     <div className='recipe-box'>
-    //         <div>
-    //             <h1>{recipe.name}</h1>
-
-    //             {/* Ingredients */}
-    //             <h2>Ingredients</h2>
-    //             <ul className='ingredients'>
-    //                 {/* Maps each items in the ingredients array to a list item */}
-    //                 {allIngredients.map(
-    //                     item => (
-    //                         <li className="ingredient"><label className="container">{item}<input type="checkbox" />
-    //                         <span className="checkmark"></span>
-    //                         </label></li>
-    //                     )
-    //                 )}
-    //             </ul>
-    //             <input 
-    //             placeholder='2 cups of spinach'
-    //             value = {newIngredient} // add newIngredient as the input's value
-    //             onChange={(e: ChangeEvent<HTMLInputElement>) =>
-    //             setNewIngredient(e.target.value)}
-    //             />
-    //             <button onClick={addIngredient}
-    //             >
-    //                 Add Ingredient
-    //             </button>
-    //         </div>
-    //             <div>
-    //                 <img className="thumbnail-large" alt={recipe.name} src={recipe.image} />
-    //             </div>             
-    //     </div>
-        
-    //     <div>
-    //         {/* Instructions */}
-    //         <h2>Instructions</h2>
-    //         <ol className='instructions'>
-    //             {/* Maps each item in the instructions array to a list item. */}
-    //             {allInstructions.map(
-    //                 item => (
-    //                     <li>{item}</li>
-    //                 )
-    //             )}
-    //         </ol>
-    //         <input 
-    //             placeholder='Mix everything in a bowl'
-    //             value = {newInstruction} // add newIngredient as the input's value
-    //             onChange={(e: ChangeEvent<HTMLInputElement>) =>
-    //             setNewInstruction(e.target.value)}
-    //             />
-    //             <button onClick={addInstruction}
-    //             >
-    //                 Add Instruction
-    //             </button>
-
-    //     </div>
-    // </body>
     <Container>
     <Row>
       <Col xs={8}>

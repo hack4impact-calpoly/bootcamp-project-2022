@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import recipes from '../recipeData';
 import RecipePreview from '../components/recipePreview';
-// import { Recipe } from '../recipeData';
 import { RecipePreviewProps } from '../components/recipePreview';
 
 interface Recipe {
@@ -37,7 +35,6 @@ export default function Home(){
       image={recipe.image}
       ingredients={recipe.ingredients}
       instructions={recipe.instructions}
-      // external = {recipe.external}
     />
     
   ))}

@@ -15,8 +15,6 @@ export default function Navbar() {
     <Button variant="primary" className="mr-1">
         <Link to="about" id='but'>About</Link>
     </Button>
-            {/* <h2 className="panel-button"><Link to="index" id='but'>Home</Link></h2> */}
-            {/* <h2 className="panel-button"><Link to="about" id='but'>About Me</Link></h2> */}
         </div>
     </div>
     </header>
