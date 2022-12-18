@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-export interface Recipe {
+import { Form, Button } from 'react-bootstrap';
+
+interface Recipe {
     name: string;
     description: string;
     image: string;
@@ -7,7 +9,7 @@ export interface Recipe {
     instructions: string[];
 }
 
-const AddRecipeForm: React.FC = () => {
+export default function AddRecipeForm(){
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
@@ -55,38 +57,32 @@ const AddRecipeForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-    {message && <p>{message}</p>}
-      <label>
-        Name:
-        <input type="text" value={name} onChange={event => setName(event.target.value)} />
-      </label>
-      <br />
-      <label>
-        Description:
-        <textarea value={description} onChange={event => setDescription(event.target.value)} />
-      </label>
-      <br />
-      <label>
-        Image URL:
-        <input type="text" placeholder="" value={image} onChange={event => setImage(event.target.value)} />
-      </label>
-      <br />
-      <img src={image} alt="image preview unavailable" style={{ width: '150px', height: '150px' }}></img>
-      <br />
-      <label>
-        Ingredients:
-        <input type="text" placeholder='spinach,potatoes' value={ingredients.join(',')} onChange={handleIngredientChange} />
-      </label>
-      <br />
-      <label>
-        Instructions:
-        <textarea placeholder={`Preheat Oven to 350F \nAdd eggs and mix well`} value={instructions.join('\n')} onChange={handleInstructionChange} />
-      </label>
-      <br />
-      <button type="submit">Add Recipe</button>
-    </form>
+    <Form onSubmit={handleSubmit}>
+    <p style={{color: 'green'}}>{message?message:""}</p>
+    <Form.Group>
+      <Form.Label for="name">Name:</Form.Label>
+      <Form.Control type="text" id="name" value={name} onChange={event => setName(event.target.value)} />
+    </Form.Group>
+    <Form.Group>
+      <Form.Label for="description">Description:</Form.Label>
+      <Form.Control type="textarea" id="description" value={description} onChange={event => setDescription(event.target.value)} />
+    </Form.Group>
+    <Form.Group>
+      <Form.Label for="image">Image URL:</Form.Label>
+      <Form.Control type="text" id="image" value={image} onChange={event => setImage(event.target.value)} />
+    </Form.Group>
+    <Form.Group>
+        <img src={image} alt="image preview unavailable" style={{ width: '150px', height: '150px', color: 'red' }} />
+    </Form.Group>
+    <Form.Group>
+      <Form.Label for="ingredients">Ingredients:</Form.Label>
+      <Form.Control type="text" id="ingredients" placeholder='spinach,potatoes' value={ingredients.join(',')} onChange={handleIngredientChange} />
+    </Form.Group>
+    <Form.Group>
+      <Form.Label for="instructions">Instructions:</Form.Label>
+      <Form.Control type="text" id="instructions" placeholder={`Preheat Oven to 350F \nAdd eggs and mix well`} value={instructions.join('\n')} onChange={handleInstructionChange} />
+    </Form.Group>
+    <Button type="submit" variant="primary">Add Recipe</Button>
+    </Form>
   );
 };
-
-export default AddRecipeForm;
