@@ -53,7 +53,7 @@ export default function AddRecipeForm(){
   };
 
   const handleInstructionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInstructions(event.target.value.split('\n'));
+    setInstructions(event.target.value.split(';'));
   };
 
   return (
@@ -82,7 +82,7 @@ export default function AddRecipeForm(){
     </Form.Group>
     <Form.Group>
       <Form.Label for="instructions">Instructions:</Form.Label>
-      <Form.Control type="text" id="instructions" placeholder={`Preheat Oven to 350F \nAdd eggs and mix well`} value={instructions.join('\n')} onChange={handleInstructionChange} />
+      <Form.Control type="text" id="instructions" placeholder={`Preheat Oven to 350F;Add eggs and mix well`} value={instructions.join(';')} onChange={handleInstructionChange} />
     </Form.Group>
     <Button type="submit" variant="primary">Add Recipe</Button>
     </Form>
