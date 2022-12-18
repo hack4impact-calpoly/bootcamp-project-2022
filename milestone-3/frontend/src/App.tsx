@@ -9,6 +9,7 @@ import { Helmet } from 'react-helmet';
 
 import { Button } from 'react-bootstrap';
 import Random from './components/Random';
+import AddRecipeForm from './components/AddNewRecipe';
 
 interface Recipe {
   name: string,
@@ -16,7 +17,6 @@ interface Recipe {
   image: string,
   ingredients: string[],
   instructions: string[],
-  // external: boolean
 }
 
 function App() {
@@ -33,6 +33,8 @@ function App() {
     <div>
       <Helmet>
         <link rel="stylesheet" href="./App.css" />
+        <link rel="icon" href="https://previews.123rf.com/images/pshonka/pshonka2006/pshonka200600154/149118370-chef-cooking-cap-vector-icon-graph-symbol-for-cooking-web-site-design-logo-app-ui.jpg"/>
+        <title>Swayam's Recipes</title>
       </Helmet>
     <BrowserRouter> 
       <Navbar/>
@@ -42,8 +44,8 @@ function App() {
           <Route path='about' element={<About />} />
           <Route path='index' element={<Home />} />
           <Route path='random' element={<Random />} />
+          <Route path='add' element={<AddRecipeForm />} />
           <Route path='/recipe/:name' element={<RecipePage />}/>
-          {/* <Route path="index/externalRecipe/:name" element={<RecipePage external />}/> */}
         </Routes>
       </div>
     </BrowserRouter>

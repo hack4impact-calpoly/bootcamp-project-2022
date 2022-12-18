@@ -40,6 +40,7 @@ export default function RecipePage() {
     const [allIngredients, setAllIngredients] = useState<string[]>([]);
     const [newInstruction, setNewInstruction] = useState('');
     const [allInstructions, setAllInstructions] = useState<string[]>([]);
+    const [position, setPosition] = useState<number>();
 
     useEffect(() => {
         fetch(`http://localhost:3001/recipe/${name}`)
@@ -50,7 +51,7 @@ export default function RecipePage() {
             setAllInstructions(recipeData.instructions)
         })
         .catch(err => console.log(err))
-    }, [name])
+    }, [name, allInstructions,position])
 
 
     function addIngredient(){
@@ -61,7 +62,8 @@ export default function RecipePage() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    "ingredient": newIngredient
+                    "ingredient": newIngredient,
+                    "position": position
                 })
             }
             ).then(() => {
@@ -79,11 +81,14 @@ export default function RecipePage() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    "instruction": newInstruction
+                    "instruction": newInstruction,
+                    // sets position to NaN if the position is not possible
+                    "position": position?position<=allInstructions.length?position:NaN:NaN
                 })
             }
             ).then(() => {
                 setAllInstructions([...allInstructions,newInstruction]);
+                setPosition(NaN)
                 setNewInstruction("")
             })
             .catch(err => console.log(err))
@@ -123,19 +128,24 @@ export default function RecipePage() {
         <h3>Instructions</h3>
         <ListGroup variant="flush">
   {allInstructions.map((instruction) => (
-    <ListGroup.Item key={allInstructions.indexOf(instruction) >= 0 ? allInstructions.indexOf(instruction) : instruction}>{instruction}</ListGroup.Item>
+    <ListGroup.Item key={allInstructions.indexOf(instruction) >= 0 ? allInstructions.indexOf(instruction) : instruction}>{allInstructions.indexOf(instruction)+ 1 + ". " + instruction}</ListGroup.Item>
   ))}
 </ListGroup>
-<Form>
+<Form onSubmit={addInstruction}>
     <Form.Control
             placeholder="Enter Instruction"
             value={newInstruction} // add newIngredient as the input's value
             onChange={(e) => setNewInstruction(e.target.value)}
           />
+    <Form.Control
+            placeholder="Enter Position"
+            value={position?position:''} // add newIngredient as the input's value
+            onChange={(e) => setPosition(parseInt(e.target.value))}
+          />
           <Button variant="primary" onClick={addInstruction}>
             Add Instruction
           </Button>
-        </Form>
+</Form>
         </Col>
       </Row>
     </Container>
