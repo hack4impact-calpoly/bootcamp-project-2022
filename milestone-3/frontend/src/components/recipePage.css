@@ -1,0 +1,10 @@
+.sub-section-content {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: "Papyrus";
+    margin-bottom: 15px;
+}
+
+.text {
+    font-family: "Papyrus"
+}

@@ -1,0 +1,10 @@
+.text {
+    font-family: "Papyrus"
+}
+
+.navigator {
+    display: flex;
+    font-family: "Papyrus";
+    align-items: right;
+}
+
