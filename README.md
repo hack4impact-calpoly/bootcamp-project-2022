@@ -1,14 +1,18 @@
-
-# Getting Started With Your Project
-This is the start of your 2022 bootcamp project!
-
-This repo will serve as a place to "turn in" your work. More info about bootcamp can be found on the [Developer Bootcamp Notion Page](https://h4i.notion.site/Developer-Bootcamp-2022-27ea8d57abff452abe572e31b8762f8e).
-
-As you work, be sure to make comments in your code both for your understanding and ours during review! Please do this reading on [code comments](https://stackoverflow.blog/2021/12/23/best-practices-for-writing-code-comments/)! When making commits, be sure to follow the requirements listed on this page regarding [Git Templates & Etiquette](https://h4i.notion.site/Git-Templates-Etiquette-9726a4c2b17d48c89ea51b8303389473).
-
-To submit your work, create a pull request from your own fork (DO NOT MERGE if you are able to). Fill out the pull request template before you pull or your submission will be automatically rejected! For more information visit this page on [Turning in Work](https://h4i.notion.site/Turning-in-Work-652e6bf24fac4103b30847618591a658)
-
-This allows us to review your work in a reasonably quick manner.
-
-For a walkthrough of how to turn in your work, check out this [Notion Page about git!](https://h4i.notion.site/Turning-in-Work-652e6bf24fac4103b30847618591a658)
-If you are still stuck, leave a message in the #cp-bootcamp-help channel on Slack, or reach out to one of your Bootcamp Instructors!
+# Created as part of Hack4Impact-Cal Poly's dev bootcampt
+## To view this site do one of the following:
+### 1. Direct Link
+#### The site is deployed [here ](https://swayams-recipes.vercel.app/).
+#### If interested you can access the backend API [here](https://swayams-recipes.onrender.com/).
+#### NOTE: The site might take a few minutes to load as the API needs to kick in.
+### 2. Run locally
+#### Step 1: Clone this repo
+#### Step 2: Run the following block in the root directory:
+```ts
+cd backend
+npm run dev
+```
+#### Step 3: Run the following block in the root directory:
+```ts
+cd frontend
+npm start
+```
