@@ -298,7 +298,7 @@ export default function RecipePage(props: Props){
                             </div>
                             </>
                                 ))}
-                            {(indexCategory.current  === -1 && newCategory ! ===  '') && 
+                            {(indexCategory.current  === -1 && newCategory !==  '') && 
                                 <div className="ingredient">
                                 <h3 className="white70">{newCategory}</h3>
                                 <ul>
