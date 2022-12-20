@@ -24,4 +24,6 @@
     height:200px;
     padding:1px 1px;
     border:4px dotted white;
+    margin-right:20px;
 }
+/* why does this css affect recipePage */

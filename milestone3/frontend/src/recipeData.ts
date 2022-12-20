@@ -11,7 +11,7 @@ export interface Recipe {
   description: "Two non-Newtonian liquids band together for the concoction of all time.",
   image: "/pby.png",
   ingredients: ["1 jar of Peanut Butter (preferably Crunchy)","1 cup of Beijing Yogurt (may substitute with regular or Greek, but YMMV)"],
-  instructions:["Open the cup of Beijing Yogurt.","Open the jar of peanut butter.", "Add 3-4 spoonfuls (or however many you want) of peanut butter into the Beijing yogurt.","Bask in the glory of the non-Newtonian<sup>2</sup> liquid."]
+  instructions:["Open the cup of Beijing Yogurt.","Open the jar of peanut butter.", "Add 3-4 spoonfuls (or however many you want) of peanut butter into the Beijing yogurt.","Bask in the glory of the non-Newtonian² liquid."]
 
   },
 
