@@ -1,4 +1,10 @@
 # Created as part of Hack4Impact-Cal Poly's dev bootcampt
+### Built With
+ - MongoDB
+ - Express.js
+ - React.js
+ - Node.js
+ - TypeScript
 ## To view this site do one of the following:
 ### 1. Direct Link
 #### The site is deployed [here ](https://swayams-recipes.vercel.app/).
