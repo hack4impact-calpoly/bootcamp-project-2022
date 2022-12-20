@@ -1,0 +1,12 @@
+.important_titles {
+    display: flex;
+    color:black;
+    align-items: center;
+    justify-content: center;
+    background-color: darkolivegreen;
+}
+
+.big_text {
+    color: black;
+    font-size: xx-large;
+}
