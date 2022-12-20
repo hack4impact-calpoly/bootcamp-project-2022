@@ -16,8 +16,6 @@ export default function Home(){
 
         return(
     <main>
-        
-
             
         <h1 className="bighead" >  TOP DISHES TO SATISFY YOUR PALATE</h1>
         {recipes.map((recipe) => (
