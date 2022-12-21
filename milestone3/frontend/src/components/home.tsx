@@ -7,7 +7,7 @@ import { Recipe } from "../recipeData";
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
     useEffect(() => {
-      fetch("http://localhost:3001/recipe")
+      fetch("http://localhost:3001/recipe/")
         .then((res) => res.json())
         .then((data) => setRecipes(data))
         .catch((error) => console.log(error));
