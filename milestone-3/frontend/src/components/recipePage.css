@@ -1,3 +1,18 @@
+.sub-section {
+    display: flex;
+    border: 5px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: rgb(228, 207, 243);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right: 30px;
+    padding-left: 30px;
+
+}
+
 .sub-section-content {
     display: flex;
     flex-wrap: wrap;
@@ -7,4 +22,12 @@
 
 .text {
     font-family: "Papyrus"
+}
+
+.recipe-images-main {
+    width: 300px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
 }
