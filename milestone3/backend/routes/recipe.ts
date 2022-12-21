@@ -42,12 +42,12 @@ router.post("/", async (req: Request, res: Response) => {
 // add an ingredient
 router.put("/:name/ingredient", async (req: Request, res: Response) => {
   const recipeName = req.params.name;
-  const ingredient = req.body.ingredient;
+  const newIngredient = req.body.newIngredient;
   const recipe = await Recipe.findOne({ name: recipeName });
 
   if (recipe) {
     try {
-      recipe.ingredients = [...recipe.ingredients, ingredient];
+      recipe.ingredients = [...recipe.ingredients, newIngredient];
       await recipe.save();
       res.send("Ingredient added");
     } catch (error) {
@@ -60,11 +60,11 @@ router.put("/:name/ingredient", async (req: Request, res: Response) => {
 // add an instruction
 router.put("/:name/instruction", async (req: Request, res: Response) => {
     const recipeName = req.params.name;
-    const instruction = req.body.instruction;
+    const newInstruction = req.body.newInstruction;
     const recipe = await Recipe.findOne({ name: recipeName });
     if (recipe) {
       try {
-        recipe.instructions = [...recipe.instructions, instruction];
+        recipe.instructions = [...recipe.instructions, newInstruction];
         await recipe.save();
         res.send("Instruction added");
       } catch (error) {

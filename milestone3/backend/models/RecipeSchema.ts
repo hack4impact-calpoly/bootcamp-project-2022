@@ -18,6 +18,6 @@ const RecipeSchema = new Schema<IRecipe>({
   { collection: "Recipes" }
 );
 
-const Recipe = model<IRecipe>('Recipes', RecipeSchema);
+const Recipe = model<IRecipe>("Recipes", RecipeSchema);
 
 export default Recipe;
