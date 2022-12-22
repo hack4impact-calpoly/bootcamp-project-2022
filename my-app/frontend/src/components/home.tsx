@@ -27,7 +27,7 @@ export default function Home()
         <div className="intro">
         <h1> Milestone 3 </h1>
             <h2>Check them out</h2>
-        </div>
+        </div> 
             <div className="cards"> 
                 {all.map(recipe =>
                     <RecipePreview name = {recipe.name} image={recipe.image} description={recipe.description} ingredients={recipe.ingredients} instructions={recipe.instructions}/>)};
