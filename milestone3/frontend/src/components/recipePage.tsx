@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import './recipePage.css';
-import recipes, { Recipe } from "../recipeData";
+import { Recipe } from "../recipeData";
 
 interface RecipePageProps {
     external?: boolean;
@@ -26,19 +26,15 @@ function RecipePage(props: RecipePageProps) {
     const [newInstruction, setNewInstruction] = useState("");
     
     useEffect(() => {
-        if (props.external) {
-            // make an API call with the url param & setRecipe
             fetch("http://localhost:3001/recipe/" + name)
             .then((res) => res.json())
-            .then((data) => setRecipe(data[0]));
+            .then((data) => {
+                setRecipe(data);
+                setAllIngredients(data.ingredients);
+                setAllInstructions(data.instructions);
+        })
             console.log("data: " + recipe);
-        } else {
-            // query all of your recipe data for the recipe you want & setRecipe
-            setRecipe(
-                recipes.find((recipe) => recipe?.name === name) || recipes[0]
-            );
-        }
-        }, [name, props.external]);
+    }, [name]);
     
     useEffect(() => {
         setAllIngredients(recipe.ingredients);
