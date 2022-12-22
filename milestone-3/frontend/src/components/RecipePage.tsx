@@ -90,6 +90,7 @@ const AddInstruction = () => {
   placeholder="2 cups of spinach"
   value={newIngredient} // add newIngredient as the input's value
   onChange={(e: ChangeEvent<HTMLInputElement>) => {
+    // update new ingredient
     setNewIngredient(e.target.value);
   }}
 />
