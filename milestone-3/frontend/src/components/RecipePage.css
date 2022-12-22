@@ -1,0 +1,79 @@
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    }
+    
+    .flex-image {
+    width: 300px;
+    margin-right: 40px;
+    margin-left: 20px;
+    border: 5px solid;
+    border-color: black;
+    border-radius: 20px;
+    }
+    
+    .flex-content {
+    flex-basis: 320px;
+    flex-grow: 1;
+    }
+    
+    ol li {
+    margin-left: 35px;
+    }
+
+    .Ing {
+    margin-right: 1350px;
+    margin: 10px;
+    }
+    
+    .Prep{
+    margin-top: 30px;
+    margin-right: 1305px;
+    margin-left: 20px;
+    padding-bottom: 10px;
+    }
+
+
+
+.button {
+    margin-left: 10px;
+    padding: 15px 25px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: rgb(141, 59, 200);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.add {
+    margin-top: 20px;
+    border: 3px solid gray;
+    border-radius: 20px;
+    padding-left: 10px;
+    margin-right: 800px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.add2 {
+    margin-left: 20px;
+    margin-top: 20px;
+    border: 3px solid gray;
+    border-radius: 20px;
+    margin-right: 1140px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    flex-grow: 1;
+    
+}
