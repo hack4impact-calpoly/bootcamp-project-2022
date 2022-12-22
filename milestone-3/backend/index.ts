@@ -13,6 +13,16 @@ mongoose.connect(connection_url)
 app.use(express.json());
 
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    res.header("Access-Control-Allow-Methods", "GET,POST,OPTIONS,DELETE,PUT");
+    next();
+    });
+
 app.get("/recipe", async (req: Request, res: Response) => {
   const recipes = await Recipe.find({})
   res.send(recipes)
