@@ -1,0 +1,72 @@
+  h1
+  {
+    color: green;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  #description
+  {
+    color: blue;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+
+  p{
+      font-family: Arial, Helvetica, sans-serif;
+  }
+
+  h2
+  {
+    color:goldenrod;
+  }
+
+  ul, #ingred {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 10px;
+  }
+
+  .food
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #instructions
+  {
+    color: yellow;
+  }
+
+  #description
+  {
+    color: greenyellow;
+    font-weight: bold;
+  }
+
+  #ingred
+  {
+    display: flex;
+    flex-wrap: wrap;
+    color: violet;
+    font-weight: bold;
+  }
+
+  input
+  {
+    background-color: wheat;
+    margin: 5px;
+    padding: 5px;
+    color: blue;
+  }
+
+  button
+  {
+    color: white;
+    background-color: rgb(238, 79, 79);
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 5px;
+  }

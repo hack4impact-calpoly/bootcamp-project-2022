@@ -1,0 +1,27 @@
+.header
+{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin: 5px;
+    align-self: flex-end;
+}
+
+.header-links {
+    display: flex;
+    list-style: none;
+    gap: 16px;
+  }
+
+  a
+  {
+    text-decoration: none;
+    color: white;
+  }
+
+h2
+{
+  font-size: 36px;
+  font-weight: bolder;
+  color: rgb(240, 235, 227);
+}
