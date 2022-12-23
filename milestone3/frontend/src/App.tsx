@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
 import RecipePreview from './components/recipePreview';
-import recipes from "./recipeData";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import RecipePage from "./components/recipePage";
 

@@ -1,7 +1,6 @@
 import React, { useState, ChangeEvent, useEffect} from 'react';
 import './recipePreview.css'
 import {Recipe} from "../recipeData"
-import recipes from "../recipeData"
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 
@@ -26,24 +25,36 @@ export default function RecipePage(props: RecipePageProps)    {
     const [allInstructions, setAllInstructions] = useState(recipe.instructions); /* not re-rendering*/
     
     function addIngredient() {
+      fetch("http://localhost:3001/recipe/" + id + "/ingredient", 
+        {method: "PUT", 
+        headers: {"Content-Type": "application/json"}, 
+        body: JSON.stringify({
+            newIngredient: newIngredient,
+        })})
       setAllIngredients([...allIngredients, newIngredient])
       console.log(allIngredients)
     }
 
     function addInstruction() {
+      fetch("http://localhost:3001/recipe/" + id + "/instruction", 
+      {method: "PUT", 
+      headers: {"Content-Type": "application/json"}, 
+      body: JSON.stringify({
+          newInstruction: newInstruction,
+      })})
       setAllInstructions([...allInstructions, newInstruction])
       console.log(allInstructions)
     }
 
     useEffect(() => {
-      if (props.external) {
-          fetch("https://bootcamp-milestone-4.onrender.com/recipe/"+id)
-            .then((res) => res.json())
-            .then((data) => {setRecipe(data[0])})
-      } else {
-          setRecipe(recipes.find(x=> x.name == id) || recipes[0])
-      }
-    }, [id, props.external]);
+      fetch("http://localhost:3001/recipe/"+id)        
+      .then((res) => res.json())
+      .then((data) => { 
+        setAllIngredients(data.ingredients);
+        setAllInstructions(data.instructions);      
+        setRecipe(data);
+      })
+  });
 
 
   return (

@@ -1,28 +1,26 @@
 import { homedir } from "os"
 import { Link } from 'react-router-dom';
 import RecipePreview from './recipePreview';
-import recipes, {Recipe} from "../recipeData";
+import {Recipe} from "../recipeData";
 import React, { useEffect, useState } from "react";
 
 
 export default function Home(){
 
-    const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+    const [databaseRecipes, setDatabaseRecipes] = useState<Recipe[]>([]);
     useEffect(() => {
-        fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+        fetch("http://localhost:3001/recipe")
           .then((res) => res.json())
-          .then((data) => setExternalRecipes(data));
+          .then((data) => setDatabaseRecipes(data));
       }, []);
 
         return(
     <main>
             
         <h1 className="bighead" >  TOP DISHES TO SATISFY YOUR PALATE</h1>
-        {recipes.map((recipe) => (
+
+        {databaseRecipes.map((recipe) => (
         <RecipePreview {...recipe} />
-        ))}
-        {externalRecipes.map((recipe) => (
-        <RecipePreview external {...recipe} />
         ))}
     </main>  
         )
