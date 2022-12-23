@@ -6,7 +6,7 @@ const express = require("express"); // 1. includes Express
 const app: Express = express(); // 2. initializes Express
 app.use(express.json());
 const mongoose = require('mongoose');
-const connection_url = 'mongodb+srv://admin:<password>@cluster0.yoipixd.mongodb.net/RecipesDB?retryWrites=true&w=majority'
+const connection_url = 'mongodb+srv://admin:bootcamph4idAtab4se@cluster0.yoipixd.mongodb.net/RecipesDB?retryWrites=true&w=majority'
 
 //to fix CORS error
 app.use((req, res, next) => {
