@@ -1,0 +1,29 @@
+.recdiv{
+    font-family: "Futura-CondensedExtraBold", Futura, sans-serif; 
+    border:4px dotted blue;
+    padding:100px;
+    margin: 50px;
+}
+
+.recdiv2{
+    display:flex;
+    justify-content: space-between;
+}
+.rectit{
+    font-size: 30px;
+    color:fuchsia;
+}
+.recdes{
+    font-family: "Futura-CondensedExtraBold", Futura, sans-serif; 
+    color:orange;
+}
+
+
+.recpic{
+    width:300px;
+    height:200px;
+    padding:1px 1px;
+    border:4px dotted white;
+    margin-right:20px;
+}
+/* why does this css affect recipePage */
