@@ -1,0 +1,47 @@
+.entire-page{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.recipe-header{
+    background-color: #006d77;
+    padding: 1% 1%;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    width:100%;
+    color: #f4f4f4;
+    text-decoration: underline;
+    text-decoration-color: #f4f4f4;
+    font-style: italic;
+}
+
+.main_header{
+    display: flex;
+    justify-content: center;;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    color: #15616d;
+    font-weight: 600;
+}
+
+.recipe{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #83c5be;
+    border-radius: 10px;
+}
+
+.about-me{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10%;
+}
+
+.about-me-img{
+    width: 60%;
+    height: 60%;
+    border-radius: 25px;
+    border: 6px solid #006d77;}
