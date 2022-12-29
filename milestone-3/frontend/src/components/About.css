@@ -15,6 +15,11 @@
     font-style: italic;
 }
 
+.recipe-page-first{
+    display: flex;
+    width: 85%;
+}
+
 .main_header{
     display: flex;
     justify-content: center;;
