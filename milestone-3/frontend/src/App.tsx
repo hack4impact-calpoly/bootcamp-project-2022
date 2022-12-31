@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Navbar from "./components/navbar";
@@ -8,7 +8,6 @@ import Home from "./components/Home";
 
 function App() {
   return (
-    <body>
       <BrowserRouter>
 
         <Navbar/>
@@ -22,11 +21,13 @@ function App() {
         </Routes>
 
         <Routes>
-              <Route path = "/:id" element ={<RecipePage/>}/>
+              <Route path = "recipe/:id" element ={<RecipePage />}/>
         </Routes>
 
+        <Routes>
+              <Route path = "externalRecipe/:id" element ={<RecipePage external />}/>
+        </Routes>
       </BrowserRouter>
-    </body>
   );
 } 
 
