@@ -58,14 +58,14 @@ interface RecipePageProps {
         </h1>
         <div className="recipe-page-first">
         <img 
-            src= {recipe.image}
-            alt= {recipe.altDesc}
-            className="recipe-img"
+            src = {recipe.image}
+            alt = {recipe.altDesc}
+            className = "recipe-img"
             />
-        <div className="recipe-desc-ingr">
-        <p className="page-card-desc">{recipe.description}</p>
+        <div className = "recipe-desc-ingr">
+        <p className = "page-card-desc">{recipe.description}</p>
 
-        <div className="ingredients">
+        <div className = "ingredients">
         <div className = "body-ingredients">
           <h3 className = "page-recipe-header main-header">Ingredients</h3>
                 <ul>
@@ -75,7 +75,7 @@ interface RecipePageProps {
                 </ul>
         <div>
               <input
-                  placeholder="2 cups of spinach"
+                  placeholder = "2 cups of spinach"
                   value={newIngredient} // add newIngredient as the input's value
                   onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     // this event handler updates the value of newIngredient
@@ -90,7 +90,7 @@ interface RecipePageProps {
           </div>
           </div>
           </div>
-        <div className="instructions">
+        <div className = "instructions">
                   <h3 className="recipe-header-page main-header">instructions</h3>
                       <ol>
                         {allInstructions.map(function(name, index) {
@@ -98,7 +98,7 @@ interface RecipePageProps {
                           })}
                       </ol>
               <input
-                  placeholder= "Sauté for 30 seconds"
+                  placeholder = "Sauté for 30 seconds"
                   value={newInstructions} // add newInstructions as the input's value
                   onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   // this event handler updates the value of newInstructions
