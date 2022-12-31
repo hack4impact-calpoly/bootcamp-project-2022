@@ -50,3 +50,32 @@ body{
     justify-content: left;
     margin-left: 10px;
 }
+
+/* styling for the input and buttons that add elements to the recipe page*/
+.recipe_page_add_elements{
+    margin: 3px;
+    font-size: large;
+    padding: 5px;
+    border: black;
+    border-radius: 1px;
+    border-style: groove;
+    width: fit-content;
+
+}
+
+input{
+    background-color: #C0B7B1;
+    width: fit-content;
+}
+
+button{
+    color: #C0B7B1;
+    background-color: #7C238C;
+}
+
+button:active{
+    color: #C0B7B1;
+    background-color: #621c6e;
+}
+
+
