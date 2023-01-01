@@ -1,0 +1,31 @@
+export interface Recipe {
+    name: string;
+    description: string;
+    image: string;
+    ingredients: string[];
+    instructions: string[];
+}
+
+const recipes: Recipe[] = [
+    {"name": "Omellete",
+    "description":  "An egg dish that's folded in half and filled with cheese, meat, or vegetables.",
+    "image": "https://www.anchordairy.com/content/dam/countries/malaysia/anchor/website_assets/recipes/recipe_category_topdowntile/meals/550-anchor-recipes-06_cheesy_omelette_chicken_wrap-topdown-1024x1024px.png",
+    "ingredients": ["2 eggs", "2 tbsp ( 30 mL ) water", "Pinch salt", "Pinch pepper", "Filling ingredients"],
+    "instructions": ["Whisk eggs, water, salt and pepper.", "Spray 8-inch (20 cm) non-stick skillet with cooking spray. Heat over medium heat. Pour in egg mixture. As eggs set around edge of skillet, with spatula, gently", "push cooked portions toward centre of skillet. Tilt and rotate skillet to allow uncooked egg to flow into empty spaces.", "When eggs are almost set on surface but still look moist, cover half of omelette with filling. Slip spatula under unfilled side; fold over onto filled half.", "Cook for a minute, then slide omelette onto plate."]},
+
+    {"name": "Paneer Tikka",
+    "description":  "An Indian dish made from chunks of paneer marinated in spices and grilled in a tandoor.",
+    "image": "https://www.pinksalt828.com/wp-content/uploads/2022/01/paneer.png",
+    "ingredients": ["1½ tablespoon oil", "1 to 1½ teaspoon red chilli powder", "½ to ¾ teaspoon salt", "¼ teaspoon turmeric", "1 teaspoon garam masala", "1 to 1½ teaspoon coriander powder", "1 teaspoon chaat masala (optional)", "1 teaspoon kasuri methi (dried fenugreek leaves)", "1¼ teaspoon ginger garlic paste", "6 tablespoons greek yogurt or thick hung curd (¼ cup + 2 tbsp) (refer notes)", "200 grams paneer", "1 large onion", "10 to 12 cubes layers separated", "1 red capsicum", "1 green capsicum"],
+    "instructions": ["Stir together thick yogurt (refer notes), chilli powder, garam masala, turmeric, coriander powder, kasuri methi, chaat masala, ginger garlic paste and salt.", "Optional for restaurant flavor - In a small pan, mix 1 tablespoon besan with the oil called for in the recipe (1½ tablespoons). Fry on a low heat until fragrant. Cool this and mix in the marinade along with ajwain.", "Pour oil and mix everything well. Check salt and spice. If needed add more salt and chilli.", "Add the cubed capsicum and onions. Mix well. Then add paneer cubes and gently coat them with the marinade.", "Cover and rest this in the fridge for 1 to 2 hours. Overnight marination may break the paneer.", "Begin to thread the chunks of capsicum, onion and paneer alternately on the skewer.", "If making in oven, you can use large bamboo skewers. If making on tawa, you can use small ones. You will be able to thread these on 3 large or 4 small skewers.", "Preheat the oven at 450 F or 230 C for at least 15 mins.", "Prepare a baking tray and line a parchment paper.", "Place the skewers on the tray. Spray oil to avoid the paneer and veggies drying out.", "Grill them for 10 to 11 mins. Brush them with the leftover marinade. This will prevent them from turning dry.", "Move the tray to a higher rack and broil for 2 to 3 mins until slightly charred.", "Do adjust the grill timings based on your oven and the size of paneer cubes. Over cooking may char them too much. When they are golden or lightly charred, take them off the oven.", "Brush paneer tikka with butter or mustard oil. Serve them with mint chutney, onion and lemon wedges.", "Optional: For restaurant flavors, Place a small steel bowl in the serving plate. Burn a wood charcoal piece on direct fire until red hot. Keep it in the bowl. Pour ½ tsp ghee over it. It should begin to smoke immediately. Cover with a foil and let it smoke for 5 to 6 mins."]}, 
+    
+    {"name": "Mac N Cheese",
+    "description":  "Cheese sauce, traditionally using macaroni and cheddar, baked in a casserole or sometimes cooked on a stovetop.",
+    "image": "https://www.pngarts.com/files/1/Macaroni-And-Cheese-Transparent-Background-PNG.png",
+    "ingredients": ["1 lb. dried elbow pasta", "1/2 cup unsalted butter", "1/2 cup all purpose flour", "1 1/2 cups whole milk", "2 1/2 cups half and half", "4 cups shredded medium sharp cheddar cheese divided (measured after shredding)", "2 cups shredded Gruyere cheese divided (measured after shredding)", "1/2 Tbsp. salt", "1/2 tsp. black pepper", "1/4 tsp. paprika"],
+    "instructions": ["Preheat oven to 325 degrees F and grease a 3 qt baking dish (9x13\").  Set aside.", "Bring a large pot of salted water to a boil.  When boiling, add dried pasta and cook 1 minute less than the package directs for al dente.  Drain and drizzle with a little bit of olive oil to keep from sticking.", "While water is coming up to a boil, shred cheeses and toss together to mix, then divide into three piles.  Approximately 3 cups for the sauce, 1 1/2 cups for the inner layer, and 1 1/2 cups for the topping.", "Melt butter in a large saucepan over MED heat.  Sprinkle in flour and whisk to combine.  Mixture will look like very wet sand.  Cook for approximately 1 minute, whisking often.  Slowly pour in about 2 cups or so of the milk/half and half, while whisking constantly, until smooth.  Slowly pour in the remaining milk/half and half, while whisking constantly, until combined and smooth.", "Continue to heat over MED heat, whisking very often, until thickened to a very thick consistency.  It should almost be the consistency of a semi thinned out condensed soup.", "Remove from the heat and stir in spices and 1 1/2 cups of the cheeses, stirring to melt and combine.  Stir in another 1 1/2 cups of cheese, and stir until completely melted and smooth.", "In a large mixing bowl, combine drained pasta with cheese sauce, stirring to combine fully.  Pour half of the pasta mixture into the prepared baking dish.  Top with 1 1/2 cups of shredded cheeses, then top that with the remaining pasta mixture.", "Sprinkle the top with the last 1 1/2 cups of cheese and bake for 15 minutes, until cheesy is bubbly and lightly golden brown."]},
+]
+
+
+
+export default recipes;
