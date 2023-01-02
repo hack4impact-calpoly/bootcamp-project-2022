@@ -9,6 +9,12 @@ const connection_url = "mongodb+srv://newUser:newPassword@hack4impactcluster.xzc
 mongoose.connect(connection_url)
 .then(()=> console.log('Successfully connected'))
 .catch((error:Error)=> console.error(`Could not connect due to ${error}`))
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT');
+  next();
+});
 app.use(express.json());
 
 app.get("/recipe", async (req: Request, res: Response) => {
