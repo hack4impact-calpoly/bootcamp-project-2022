@@ -1,0 +1,172 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #054F48;
+  text-decoration: none;
+  margin: 0 2%;
+  font-size: 80%;
+}
+nav {
+  display: flex;
+  align-items: center;
+}
+.nav-links {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #054F48;
+  margin: 0 30px;
+}
+h2 {
+  display: flex;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #054F48;
+  font-size: 28px;
+  margin: 4% 0 0 0;
+}
+.cards {
+  display: flex;
+  background-color: #FFCB45;
+  border-radius: 20px;
+  flex-direction: column;
+  width: fit-content;
+  margin: 6% 2% 0 2%;
+  border: 2px solid #054F48 ;
+}
+.card-img {
+  width: 100%;
+  height: 70%;
+  border-radius: 20px 20px 0 0;
+}
+p {
+  margin: 10px 40px 60px 40px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 90%;
+  color: #054F48;
+}
+.button {
+  border: 2px solid #054F48;
+  background-color: #FFCB45;
+  color: #054F48;
+  border-radius: 40px;
+  padding: 4%;
+  margin: 10% 8% 4% 8%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 100%;
+  font-weight: bolder;
+  max-width: fit-content;
+  text-decoration: none;
+  text-align: center;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.three-cards {
+  display: flex;
+  margin: 0 12% 0;
+} 
+body {
+  background-color: #FFFCF5;
+}
+.pg-content {
+  display: flex;
+  flex-direction: row;
+  margin: 6% 0;
+}
+.pg-cards {
+  margin: 0 50px 0 50px;
+  background-color: #FFCB45;
+  border-radius: 20px;
+  margin: 0 2% 0 15%; 
+  width: 30%;
+  height: 100%;
+  border: 2px solid #054F48;
+}
+.instructions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #054F48;
+  width: 80%;
+  border-radius: 20px;
+  margin: 0 15% 0 2%;
+}
+.instruction-btn {
+  border: 2px solid #054F48;
+  background-color: #FFFCF5;
+  color: #054F48;
+  border-radius: 40px; 
+  padding: 16px;
+  margin: 20% 0 8% 0;
+  width: fit-content;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.ingredients, .prep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+ol, ul {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #054F48;
+  font-size: 16px;
+  max-width: 270px;
+  line-height: 180%;
+  margin: 0 2% 8% 4%;
+}
+.about-content {
+  display: flex;
+  background-color: #FFCB45;
+  border-radius: 20px;
+  flex-direction: column;
+  margin: 10% 30%;
+  border: 2px solid #054F48;
+}
+
