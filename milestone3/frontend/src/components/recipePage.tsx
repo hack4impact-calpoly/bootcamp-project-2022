@@ -1,26 +1,75 @@
 import React from 'react';
 import {ChangeEvent, useState, useEffect} from 'react';
 import './recipePage.css';
-import recipes from '../recipeData';
-import { Recipe } from '../recipeData';
 import { useParams } from 'react-router-dom';
 
 
-interface RecipePage {
-    external?: boolean;
-}
-
-export default function RecipePage(props: RecipePage) {
+interface Recipe {
+    name: string;
+    description: string;
+    image: string;
+    ingredients: string[];
+    instructions: string[]; // type not capitalized
     
-    //prop
-    const { id } = useParams();
-    const [recipe, setRecipe] = useState({name: "", description: "", image: "", ingredients: [""], instructions: [""]})
+  }
+export default function Recipe() {
+    
+    //useParams
+    const { name } = useParams();
+    //states: recipe
+    const [recipe, setRecipe] = useState<Recipe>({
+        name: "",
+        description: "",
+        image: "", 
+        ingredients: [], 
+        instructions: []
+    })
     //states - ingredient
     const [ingredients, setIngredients] = useState(recipe ? recipe.ingredients : [""])
     const [newIngredient, setNewIngredient] = useState("");
     //states - instructions
     const [instructions, setInstructions] = useState(recipe ? recipe.instructions : [""])
     const [newInstruction, setNewInstruction] = useState("");
+    
+    useEffect(() => {
+        fetch("http://localhost:3001/recipe/" + name)
+        .then((response) => response.json())
+        .then(recipeData => {
+            setRecipe(recipeData[0]);
+            setIngredients(recipeData[0].ingredients);
+            setInstructions(recipeData[0].instructions);}).catch(err => console.log(err))
+    }, [name])
+
+    //make changes (add ing/ins) persist
+
+    async function addIngredient(){
+        
+        await fetch("http://localhost:3001/recipe/" + name + "/ingredient", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+           },
+            body: JSON.stringify({ingredient: newIngredient})
+        })
+            
+        
+        setIngredients([...ingredients, newIngredient])
+        
+    }
+
+
+    async function addInstruction(){
+        await fetch("http://localhost:3001/recipe/" + name + "/instruction", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+           },
+            body: JSON.stringify({instruction: newInstruction})
+        })
+            
+        
+        setInstructions([...instructions, newInstruction])
+    }
 
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
         setNewIngredient(event.currentTarget.value);
@@ -29,29 +78,14 @@ export default function RecipePage(props: RecipePage) {
         setNewInstruction(event.currentTarget.value);
     }
 
-    
-
     useEffect(() => {
-        if (props.external) {
-            fetch("https://bootcamp-milestone-4.onrender.com/recipe/" + id)
-            .then((res) => res.json())
-            .then((data) => {
-                setRecipe(data[0]);
-                setIngredients(data[0].ingredients);
-                setInstructions(data[0].instructions);})
-        }
-
-        else {
-            let data = recipes.find(x =>  x.name == id)
-            setRecipe(data ? data : {name: "", description: "", image: "", ingredients: [""], instructions: [""]})
-            if (data){
-                setRecipe(data)
-                setIngredients(data.ingredients)
-                setInstructions(data.instructions)
-            }
-          // query all of your recipe data for the recipe you want & setRecipe
-        }
-      }, [id, props.external]);
+        fetch("https://localhost:3001/recipe/" + name)
+        .then((res) => res.json())
+        .then((data) => {
+            setRecipe(data[0]);
+            setIngredients(data[0].ingredients);
+            setInstructions(data[0].instructions);})
+      }, [name]);
 
       
     return (
@@ -73,7 +107,6 @@ export default function RecipePage(props: RecipePage) {
                 </h3>
             </ul>
 
-
             <div className = "flex-container5">
                 <h3 className = 'text'> Add Ingredient:</h3>
                 <div className = "inputbutton">
@@ -83,16 +116,12 @@ export default function RecipePage(props: RecipePage) {
                         onChange={handleChange}
                         
                     />
-                    <button className = "button" onClick={() => setIngredients([...ingredients, newIngredient])}>
+                    <button className = "button" onClick={addIngredient}>
                         Add Ingredient
                     </button>
                 </div>
             </div>
-
-            
-
             {/* Instructions */}
-
             
                 {/* used map to change make a unordered list of all list elements for instructions*/}
                 <h1 className = "important text"> Instructions </h1>
@@ -103,25 +132,22 @@ export default function RecipePage(props: RecipePage) {
                 </ol>
             
             <div className = "flex-container5">
-                <h3 className = 'text'> Add Instructions:</h3>
+                <h3 className = 'text'> Add Instruction:</h3>
                 <div className = "inputbutton">
                     <input
                         placeholder="Mix well and serve"
                         value={newInstruction} // add newInstruction as the input's value
                         onChange={handleChange2}
                     />
-                    <button className= "button"onClick={() => setInstructions([...instructions, newInstruction])}>
+                    <button className= "button"onClick={addInstruction}>
                         Add Instruction
                     </button>
                 </div>
             </div>
-
-
         </div> 
-    
     )
 }
-RecipePage.defaultProps = {
+Recipe.defaultProps = {
   external: false,
 };
 

@@ -26,7 +26,10 @@ router.put("/recipe/:name/ingredient", async(req: Request, res: Response) => {
         await recipe.save();
         res.send("Added Ingredient");
     }
-    res.send("Could not add ingredient.")
+    else{
+        res.send("Could not add ingredient.")
+    }
+    
 })
 
 // update: instruction
@@ -38,7 +41,10 @@ router.put("/recipe/:name/instruction", async(req: Request, res: Response) => {
         await recipe.save();
         res.send("Added Instruction");
     }
-    res.send("Could not add instruction.")
+    else{
+        res.send("Could not add instruction.")
+    }
+
 })
 
 // add new recipe
