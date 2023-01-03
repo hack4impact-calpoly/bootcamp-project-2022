@@ -1,5 +1,5 @@
 import  { ChangeEvent, useState } from 'react';
-import { Link } from "react-router-dom";
+
 
 interface Recipe {
     name: string;
@@ -10,14 +10,12 @@ interface Recipe {
 }
 
 function RecipePage(props: Recipe) {
-    
-
   const [newIngredient, setNewIngredient] = useState('');
   const [allIngredients, setAllIngredients] = useState(props.ingredients);
   const [newInstruction, setNewInstruction] = useState('');
   const [allInstructions, setAllInstructions] = useState(props.instructions);
 
-    return (
+return (
     <div>
     <h1 className="text">{props.name}</h1>
     <div className="sub-section">
@@ -30,7 +28,7 @@ function RecipePage(props: Recipe) {
     <div className="sub-section">
         <strong className="text">Ingredients</strong>
          <ul>
-            {allIngredients.map(ingredient => 
+            {allIngredients.map((ingredient: any) => 
             <li className="text" key={ingredient}>{ingredient}</li>)}
         </ul>
     </div>
@@ -48,7 +46,7 @@ function RecipePage(props: Recipe) {
     <div className="sub-section">
         <strong className="text">Instructions</strong>
         <ol>
-            {allInstructions.map(instruction =>
+            {allInstructions.map((instruction: any) =>
             <li className="text" key={instruction}>{instruction}</li>)}
         </ol>
     </div>
@@ -63,7 +61,8 @@ function RecipePage(props: Recipe) {
     Add Instruction
     </button>
    
-    </div>);
+    </div>
+);
 
     
 }

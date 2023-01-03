@@ -6,10 +6,8 @@ import './App.css';
 import recipes from "./recipeData.json"
 import RecipePage from "./components/recipePage";
 import {
-    BrowserRouter as BrowserRouter,
-    Routes,
-    Route
-} from 'react-router-dom';
+    BrowserRouter as BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import RecipePreview from "./components/recipePreview";
 import {Recipe} from "./types";
 
@@ -22,8 +20,8 @@ useEffect(() => {
     .then((data) => setExternalRecipes(data));
 },[]);
 
-  return (
-    <div>
+return (
+  <div>
     <BrowserRouter>
         <Navbar />
         <Routes>
@@ -45,12 +43,10 @@ useEffect(() => {
                 ingredients={recipe.ingredients}
                 instructions={recipe.instructions}  />} />
             )) }
-				    
         
         </Routes>
     </BrowserRouter>
-
-    </div>
+  </div>
   );
 }
 
