@@ -1,0 +1,58 @@
+/*container - used to align img on about page*/
+.container{
+    background-color: #FF5733;
+    padding: 10px 10px;
+    position: relative;
+    top: 50%;
+    left: 35%;
+    align-items: center;
+    align-content: center;
+    margin-top: 10px;
+    border:  black;
+    border-radius: 10px;
+}
+
+/*flex box - used for headers (title and navigation) on all files*/
+.flex-container{
+    background-color: #FF5733;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 3;
+    margin-left: 3;
+    justify-content: space-between;
+    padding: 5px;
+    
+}
+/*flex container for the navigation links (smaller font and in a row!)*/
+.flex-container2{
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+/*padding so that there is space between the 'home' and 'about' links*/
+.padding{
+    padding: 5px;
+}
+
+
+/*this class is used by select words (ex- ingredients, instructions) to place emphasis*/
+.important{
+    color: #FF5733;
+    font: 300px; 
+}
+
+/*this was not used, as it did not work. I hoped to make the header title larger! */
+.essential{
+    font: 500px;
+}
+
+.text{
+    text-align: center;
+}
+.image{
+    align-items: center;
+}
+

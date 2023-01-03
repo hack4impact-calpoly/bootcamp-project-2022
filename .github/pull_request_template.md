@@ -1,17 +1,17 @@
-# Milestone: {Milestone #}
-# Developer: {Full Name}
+# Milestone: 1
+# Developer: Ryan Agdassi
 
 ### Pull Request Summary
 
-{Describe the purpose of your pull request}
+I completed milestone one- I updated the recipe home page and linked 3 different recipe pages and an about page. I also incorporated a css file that sets the theming and flex box's, etc for the website.
 
 ### Pull Request Checklist
-- [ ] Code is neat, readable, and works
-- [ ] Comments are appropriate
-- [ ] The commit message follows our guidelines
-- [ ] The milestone number is specified
-- [ ] The developer name is specified
-- [ ] The summary is completed
+- [x] Code is neat, readable, and works
+- [x] Comments are appropriate
+- [x] The commit message follows our guidelines
+- [x] The milestone number is specified
+- [x] The developer name is specified
+- [x] The summary is completed
 
 ### Reviewer Checklist  - PULL REQUEST REVIEWER ONLY
 

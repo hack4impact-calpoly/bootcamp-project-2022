@@ -1,0 +1,27 @@
+/*flex box - used for headers (title and navigation) on all files*/
+.flex-container{
+    background-color: #FF5733;
+    flex-direction:row;
+    align-items:baseline;
+    margin-right: 30;
+    margin-left: 30;
+    display: flex;
+    justify-content:first baseline;
+    padding: 5px;
+    font-size: 20px;
+
+    
+  }
+/*flex container for the navigation links (smaller font and in a row!)*/
+.flex-container2{
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+  }
+
+/*padding so that there is space between the 'home' and 'about' links*/
+.padding{
+    padding: 5px;
+  }
+
+ 
