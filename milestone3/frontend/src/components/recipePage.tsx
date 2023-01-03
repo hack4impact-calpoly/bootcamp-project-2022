@@ -54,7 +54,7 @@ export default function Recipe() {
             
         
         setIngredients([...ingredients, newIngredient])
-        
+        setNewIngredient("")
     }
 
 
@@ -69,6 +69,7 @@ export default function Recipe() {
             
         
         setInstructions([...instructions, newInstruction])
+        setNewInstruction("")
     }
 
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
