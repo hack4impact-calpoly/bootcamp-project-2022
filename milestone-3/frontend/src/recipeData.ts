@@ -1,3 +1,4 @@
+
 export interface Recipe {
     name: string;
     description: string;
@@ -5,7 +6,7 @@ export interface Recipe {
     ingredients: string[];
     instructions: string[];
   }
-export const recipe: Recipe[] = [
+const recipes: Recipe[] = [
     {name: 'Spicy Vodka Pasta', 
     description: 'Spice up your home cooking with this irresistible low FODMAP pasta!', 
     image: 'https://www.kimscravings.com/wp-content/uploads/2021/01/creamy-pasta-sauce-7.jpg', 
@@ -21,15 +22,5 @@ export const recipe: Recipe[] = [
     image: 'https://alittlebityummy.com/wp-content/uploads/2021/05/Low-FODMAP-Sticky-Garlic-Tofu-Veggie-Bowl.jpg.webp', 
     ingredients:['120g carrots', '70g sweet potatoes', '2 tsp olive oil', '100g firm tofu', '2 tsp corn starch', '1 tsp soy sauce', '2 tsp pure maple syrup', '1/4 tsp sesame seeds', '2 tsp garlic infused oil', '180g pre-cooked grain brown rice', '30g spinach', '2 tbsp green onions/scallions'], 
     instructions:['Preheat the oven to 200ºC (355ºF) fan bake function. Line a roasting tray with baking paper.', 'Peel the carrot and sweet potato, then cut into small chunks. Place in the roasting tray, drizzle in olive oil and season generously with salt and pepper. Place in the oven. Cook for ten minutes and then flip and cook for a further 5 to 10 minutes until golden brown and tender.', 'While the veggies roast, cook the tofu. Cut the tofu into small cubes and place in a bowl. Sprinkle with the cornflour/starch and mix until well covered (it’s okay if there is still some flour left in the bottom of the bowl. Drizzle over the soy sauce, maple syrup and sesame seeds. Mix to combine.', 'Cook the tofu. Place a medium-sized non-stick frypan over medium-high heat. Add the garlic infused oil. Add the tofu and scrape any sauce into the pan. Quickly push the tofu through the sauce so it caramelises onto the tofu. Cook for 2 minutes, then flip and cook for another 2 minutes (the outside of the tofu should go golden brown). Add the spinach to the pan and wilt for 1 minute. Remove from heat.', 'Heat the precooked rice in the microwave until hot.',  'Add the roasted veggies, brown rice, sticky tofu, and spinach to a bowl. Season with black pepper. Top with chopped spring onion/scallion leaves and season with black pepper.']} 
-  ];
-
-export interface Aboutme {
-    name: string;
-    description: string;
-    image: string;
-}
-export const aboutme: Aboutme[] = [
-    {name: 'Angel Jeen', 
-    description: 'I cant cook low FODMAP because I love garlic too much.', 
-    image: 'https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png',}
 ];
+export default recipes;

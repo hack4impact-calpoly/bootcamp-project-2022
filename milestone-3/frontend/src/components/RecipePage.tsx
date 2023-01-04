@@ -1,5 +1,5 @@
-import '../App.css';
 
-export default function Recipe() {
+
+export default function RecipePage() {
     return <div></div>
 }
