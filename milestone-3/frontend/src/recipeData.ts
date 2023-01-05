@@ -16,7 +16,7 @@ export interface Recipe {
         "1 Flour Tortilla",
         "1/8 cup Shredded Mexican Cheese Blend",
         "1 cup of Carne Asada",
-        "Salsa",
+        "Salsa"
     ],
     instructions: [
         "Heat your pan over medium heat.",
