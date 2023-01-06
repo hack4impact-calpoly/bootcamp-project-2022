@@ -1,23 +1,22 @@
 import Navbar from "./components/navbar";
-import {useState, ChangeEvent, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import Home from "./components/home";
 import About from "./components/about";
 import './App.css';
-import recipes from "./recipeData.json"
+//import recipes from "./recipeData.json"
 import RecipePage from "./components/recipePage";
 import {
     BrowserRouter as BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import RecipePreview from "./components/recipePreview";
 import {Recipe} from "./types";
 
 function App() {
 const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
 
 useEffect(() => {
-  fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+  fetch("http://localhost:3001/recipe")
     .then((res) => res.json())
-    .then((data) => setExternalRecipes(data));
+    .then((data) => setExternalRecipes(data)).catch(err => console.log(err));
 },[]);
 
 return (
