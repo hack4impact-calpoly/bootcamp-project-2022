@@ -1,0 +1,22 @@
+/* I want all pages to have this color and font style */
+body{
+    background-color: #C0B7B1;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* very brief styling for a very brief about page */
+.about_section{
+    margin: 10px;
+}
+
+/* link to tasty's website is contained within an image that was otherwise too big for the webpage  */
+#tasty_logo{
+    width: 20%;
+    height: 20%;
+}
+
+/* enlarges the tasty logo in the about page as to make it appear more interactable */
+#tasty_logo:hover{
+    width: 21%;
+    height: 21%;
+}

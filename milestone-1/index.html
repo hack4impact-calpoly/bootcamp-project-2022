@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan's Recipes</title>
+    <link rel="stylesheet" href = "index.css">
+</head>
+<body>
+    <!-- This block creates the banner at the top of the page. It has the website name, which can be clicked to take to the home page, as well as a home and about link -->
+    <div class = "banner">
+        <a style = "text-decoration: none" href = "index.html">
+            <div class = "banner-head">
+                <!-- Link to home page as well -->
+                <h1>Ryan's Recipes</h1>
+            </div>
+        </a>
+        <nav class = "navbar">
+            <a style = "text-decoration: none" href = "index.html"> 
+                <div class = "navbar_item">
+                    <!-- "Proper" home "button" -->
+                    <p> Home </p>
+                </div>
+            </a>
+            <a style = "text-decoration: none" href= "about.html"> 
+                <div class = "navbar_item">
+                    <!-- Link to the about page of the website -->
+                    <p> About </p>
+                </div>
+            </a>
+        </nav>
+    </div>
+    <!-- Class "recipe" refers to the cards present on the site that contain a recipe name, description, and image -->
+    <div class = "recipe">
+        <!-- Recipe names can be clicked to take to the recipe page, no text decoration as to make them look cleaner -->
+        <a style = "text-decoration: none;" href = "brownies.html">
+            <!-- head gets its own class to change margin, color, and make it stand out -->
+            <h2 class = "recipe_head"> Fudgy Brownies </h2>
+        </a>
+        <!-- The content is a seperate div from the recipe name, as the name and content are stacked in columns, but the picture and description are side by side -->
+        <div class = "recipe_content">
+            <!-- p gets its own class to make small margin fix for a cleaner look -->
+            <p class = "recipe_p"> These are the most fudgy brownies you will ever make. Filled with chocolate chunks, these brownies will satisfy anyone who loves all things chocolate.</p>
+            <!-- Image class in order to give border, standardize sizing -->
+            <img class = "food_preview" src = "https://img.buzzfeed.com/video-api-prod/assets/fafe8090b4f3434f80c33b6e4ce40e24/BFV21539_BestFudgyBrownies-ThumbB1080.jpg?resize=1200:*">
+        </div>
+    </div>
+    <!-- Other two recipe cards are constructed identical to one another and to above, simply with different name, description, and image -->
+    <div class = "recipe">
+        <a style = "text-decoration: none;" href = "cookies.html">
+            <h2 class = "recipe_head"> Chocolate Chip Cookies</h2>
+        </a>
+        <div class = "recipe_content">
+            <p class = "recipe_p"> Perhaps the best classic chocolate chip cookie recipe you will find. This recipe includes a couple of tips and tricks to take your homemade cookies to the next level. </p>
+            <img class = "food_preview" src = "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/62298.jpg">
+        </div>
+    </div>
+    <div class = "recipe">
+        <a style = "text-decoration: none;" href = "cinnamonrolls.html">
+            <h2 class = "recipe_head"> Cinnamon Rolls</h2>
+        </a>
+        <div class = "recipe_content">
+            <p class = "recipe_p"> Perfect for breakfast, a snack, or a warm dessert. These cinnamon rolls will leave your tastebuds wanting more. </p>
+            <img class = "food_preview" src = "https://img.buzzfeed.com/video-api-prod/assets/9d589367531e4c12a4937e30e521c865/fbthumb.jpg?resize=1200:*">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+/* I want all pages to have this color and font style */
+body{
+    background-color: #C0B7B1;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* The banner at the top of each page does not change, will always be this color, always take to home and about, etc. */
+.banner{
+    background-color: #42033D;
+    padding: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* class inside the banner to change font color of website name */
+.banner-head{
+    color: #C0B7B1;
+}
+
+/* effects properties of the navbar within the banner, which contains links to home and about page */
+.navbar{
+    display: flex;
+    flex-direction: row; 
+    padding: 1%;
+}
+
+/* properties within the navbar, effected on to individual items */
+.navbar_item{ 
+    background-color: #42033D;
+    color: #C0B7B1;
+    padding: 5px;
+    margin-left: 1px;
+    border-style: outset;
+    border-radius: 1px;
+    border-color: #590552;
+}
+
+/* navbar items brighten when hovered */
+.navbar_item:hover{
+    background-color: #590552;
+}
+
+/* effects properties of the three recipe cards on the home page */
+.recipe{
+    margin: 2%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: #7C238C;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #7C238C;
+}
+
+/* recipe card head and border color darken a bit when the card is hovered over */
+.recipe:hover{
+    background-color: #661e73;
+    border-color: #661e73;
+}
+
+/* the content within the recipe card, seperate from the head, which has recipe name */
+/* contains general styling for the description and image */
+.recipe_content{
+    display: flex;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: large;
+    flex-direction: row;
+    background-color: #7A7265;
+    justify-content: space-between;
+}
+
+/* cleaner margins for the description within recipe card */
+.recipe_p{
+    margin-left: 15px;
+}
+
+/* head of recipe card, different font color, cleaner margin */
+.recipe_head{
+    margin-left: 10px;
+    color: #C0B7B1;
+}
+
+/* image within recipe_content. standardize all image sizes, gives border and fits better within recipe card */
+.food_preview{
+    margin: 1%;
+    justify-content: right;
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    border-radius: 10px;
+    height: 300px;
+    width: 300px;
+}
+
+/* very brief styling for a very brief about page */
+.about_section{
+    margin: 10px;
+}
+
+/* link to tasty's website is contained within an image that was otherwise too big for the webpage  */
+#tasty_logo{
+    width: 20%;
+    height: 20%;
+}
+
+/* enlarges the tasty logo in the about page as to make it appear more interactable */
+#tasty_logo:hover{
+    width: 21%;
+    height: 21%;
+}
+
+/* general flex for the recipe page of each recipe. Puts the (picture of the food) and the (ingredient list, name, and description) in a row  */
+.recipe_page_flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1%;
+}
+
+/* similar to the food preview of the recipe card, but larger  */
+.food_full_size{
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    border-radius: 10px;
+    height: 600px;
+    width: 600px;
+}
+
+/* the word "prepartation" gets its own background and styling on the recipe page */
+.preparation_accent{
+    padding: 10px;
+    background-color: #7C238C;
+    color: #C0B7B1;
+    font-size: x-large;
+}
+
+/* the word "prepartation" gets its own background and styling on the recipe page*/
+.ingredient_accent{
+    padding: 10px;
+    background-color: #7C238C;
+    color: #C0B7B1;
+    font-size: x-large;
+    margin: 1%;
+}
+
+/* any non-special items within recipe page are given a bit more room and are made larger to make the website overall more "full" */
+.recipe_page_text{
+    margin: 1%;
+    font-size: large;
+}
+
+/* increase margin for the preparation and its list to a constant 10px  */
+.prep_and_list_margin{
+    justify-content: left;
+    margin-left: 10px;
+}
+
+/* cinnamon roll recipe ingredients split between dough, filling, and frosting, so makes the words of dough, filling, and frosting further from left edge of website  */
+.cinnamon_roll_ingredient_seperator{
+    margin-left: 10px;
+}
