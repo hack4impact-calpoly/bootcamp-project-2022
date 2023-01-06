@@ -55,7 +55,7 @@ router.put("/recipe/:name/ingredient", async (req: Request, res: Response) => {
             }
         }
     }
-    res.send("Failed to add ingredient");
+    // res.send("Failed to add ingredient");
 })
 
 // update an instruction on a specific recipe 
@@ -73,7 +73,7 @@ router.put("/recipe/:name/instruction", async (req: Request, res: Response) => {
             }
         }
     }
-    res.send("Failed to add instructions");
+    // res.send("Failed to add instructions");
 })
 
 export default router;

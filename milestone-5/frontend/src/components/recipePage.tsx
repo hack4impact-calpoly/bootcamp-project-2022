@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent, useEffect } from 'react';
 import './recipePage.css';
 import { useParams } from 'react-router-dom';
-import { Recipe } from '../recipeData';
+import { Recipe } from '../App';
 
 interface RecipeProps{
     recipeProps: Recipe[];
@@ -17,18 +17,11 @@ export default function RecipePage( props : RecipeProps ) {
     const [allInstructions, setAllInstructions] = useState(["recipe.instructions"]);
     //list of recipes not fetched from API, used to check to see if state variables need to be updated once external recipes are fetched
     const nonExternalRecipes = [...props.recipeProps]
-    // on the click of the "add ingredients" button, the ingredient in the input box is destructed into the list of all ingredients
-    const setIngredientsClick = () => {
-        setAllIngredients([...allIngredients, newIngredient]);
-    }
+   
     // updates every change made in the add ingredients text box, but does not add them to the list of all ingredients 
     const handeOnChangeNewIngredient = (e: ChangeEvent<HTMLInputElement>) => {
         // this event handler updates the value of newIngredient
         setNewIngredient(e.target.value);
-    }
-    // these two do the same thing as the ingredients functions above, but with instruction list instead
-    const setInstructionsClick = () => {
-        setAllInstructions([...allInstructions, newInstruction]);
     }
     const handeOnChangeNewInstruction = (e: ChangeEvent<HTMLInputElement>) => {
         // this event handler updates the value of newInstruction
@@ -36,7 +29,7 @@ export default function RecipePage( props : RecipeProps ) {
     }
     useEffect(() => {
         if(props.external){
-            fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+            fetch("http://localhost:3001/recipe")
                 .then((res) => res.json())
                 .then((data) => setExternalRecipes(data));
         } 
@@ -57,6 +50,39 @@ export default function RecipePage( props : RecipeProps ) {
     if (!recipe){
         // sets recipe equal to a default, it should instead return some default webpage but I can't do that because then the state variables will break
         recipe = {name: "default", description: "default", image: "default", ingredients: ["default"], instructions: ["default"]}
+    }
+     // on the click of the "add ingredients" button, the ingredient in the input box is destructed into the list of all ingredients
+    const addIngredient = () => {
+        if(recipe){
+        fetch(`http://localhost:3001/recipe/${recipe.name}/ingredient`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                ingredient: newIngredient
+            })
+        })
+        .then((res) => console.log(res));
+        setAllIngredients([...allIngredients, newIngredient]);
+        }
+    }
+
+    // these two do the same thing as the ingredients functions above, but with instruction list instead
+    const addInstruction = () => {
+        if(recipe){
+        fetch(`http://localhost:3001/recipe/${recipe.name}/instruction`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                instruction: newInstruction
+            })
+        })
+        .then((res) => console.log(res))
+        setAllInstructions([...allInstructions, newInstruction]);
+        }
     }
 
     // dynamic list items for each ingredients in each recipe's list
@@ -81,7 +107,7 @@ export default function RecipePage( props : RecipeProps ) {
                                 value = {newIngredient} // add newIngredient as the input's value
                                 onChange={handeOnChangeNewIngredient}
                             />
-                            <button onClick={setIngredientsClick}>
+                            <button onClick={addIngredient}>
                                 Add Ingredient
                             </button>
                         </div>
@@ -100,7 +126,7 @@ export default function RecipePage( props : RecipeProps ) {
                             value = {newInstruction} // add newInstruction as the input's value
                             onChange={handeOnChangeNewInstruction}
                         />
-                        <button onClick={setInstructionsClick}>
+                        <button onClick={addInstruction}>
                             Add Instruction
                         </button>
                     </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './recipePreview.css';
 import { Link } from 'react-router-dom';
-import { Recipe } from '../recipeData';
+import { Recipe } from '../App';
 
 interface RecipePreviewProps extends Recipe{
   external?: boolean;
