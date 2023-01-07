@@ -4,7 +4,7 @@ export interface Recipe {
     image: string;
     ingredients: string[];
     instructions: string[];
-    altDesc: string
+    altDesc: string;
   }
 
   const recipes: Recipe[] = [

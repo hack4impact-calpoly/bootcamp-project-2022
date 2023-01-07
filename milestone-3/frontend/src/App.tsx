@@ -5,6 +5,17 @@ import Navbar from "./components/navbar";
 import RecipePage from './components/RecipePage'
 import About from "./components/About";
 import Home from "./components/Home";
+import { response } from 'express';
+import recipeData from '/recipeData';
+
+interface Recipe{ 
+      name: string;
+      description: string;
+      image: string;
+      ingredients: string[];
+      instructions: string[];
+      altDesc: string;
+}
 
 function App() {
   return (
@@ -13,19 +24,12 @@ function App() {
         <Navbar/>
 
         <Routes>
-              <Route path = "/aboutme" element ={<About/>}/>
-        </Routes>
-
-        <Routes>
+            <Route path = "/aboutme" element ={<About/>}/>
             <Route path = "/" element = {<Home/>} />
-        </Routes>
+            <Route path = "/:name" element ={<RecipePage/>}/>
+            <Route path = "recipe/:name" element ={<RecipePage />}/>
+            <{/*Route path = "externalRecipe/:name" element ={<RecipePage external />} */}>
 
-        <Routes>
-              <Route path = "recipe/:id" element ={<RecipePage />}/>
-        </Routes>
-
-        <Routes>
-              <Route path = "externalRecipe/:id" element ={<RecipePage external />}/>
         </Routes>
       </BrowserRouter>
   );
