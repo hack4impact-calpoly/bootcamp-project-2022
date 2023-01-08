@@ -1,0 +1,37 @@
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFCB45;
+    border-radius: 20px;
+    margin: 20% 4% 0 4%;
+    border: 2px solid #054F48 ;
+  }
+  .button {
+    border: 2px solid #054F48;
+    background-color: #FFCB45;
+    border-radius: 40px;
+    padding: 4%;
+    margin: 10% 8% 4% 8%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    font-weight: bolder;
+    max-width: fit-content;
+    text-decoration: none;
+    text-align: center;
+  }
+  p {
+    margin: 10px 40px 40px 40px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    color: #054F48;
+  }
+.center {
+    display: flex;
+    justify-content: center;
+}

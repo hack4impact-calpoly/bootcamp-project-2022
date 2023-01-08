@@ -8,7 +8,7 @@ export default function Home() {
       {/* header */}
       <h2>Discover easy and tasty low FODMAP recipes!</h2>
       {/* 3 cards */}
-      <div className="three-cards">
+      <div className='three-cards'>
         {recipes.map((recipe, index)=> 
           <div key={index}>
             <Preview 

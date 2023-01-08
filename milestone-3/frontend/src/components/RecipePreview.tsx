@@ -9,8 +9,8 @@ export default interface Preview {
 
 export default function Preview(props: Preview) {
     return (
-        <div className="three-cards">
-            <div className="cards">
+        <div>
+            <div className="cards" >
                 <img className="card-img" src={props.image} />
                 <div className="card-body">
                     <Link to="" className="button">{props.name}</Link>

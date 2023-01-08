@@ -1,6 +1,8 @@
 .three-cards {
     display: flex;
-    margin: 0 12% 0;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
   } 
   h2 {
     display: flex;
