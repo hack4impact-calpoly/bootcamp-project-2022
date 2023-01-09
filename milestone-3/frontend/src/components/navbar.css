@@ -1,0 +1,21 @@
+.header 
+{
+    color: #ede7e3;
+    font-weight: 600;
+}
+
+header
+{
+    padding: 2% 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #15616d;
+}
+
+nav{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
