@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import RecipePreview from "./RecipePreview";
 import recipes, { Recipe } from "../recipeData";
+import "./Home.css";
 
 
 export default function Home() {
-    // State var to store the list of Hu's Chews recipes
-    const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+    const [recipes, setRecipes] = useState<Recipe[]>([]);
 
     // useEffect hook for any GET request. Queries the api for recipes
     useEffect(() => {
         // two .then() calls bc both fetch() and json() are asynch functions
-        fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+        fetch("http://localhost:3001/recipe")
           .then((res) => res.json())
-          .then((data) => setExternalRecipes(data));
+          .then((data) => setRecipes(data));
       }, []);
 
     return (
@@ -28,21 +28,9 @@ export default function Home() {
                     ingredients = {recipe.ingredients}
                     instructions = {recipe.instructions}
                     altDesc = {recipe.altDesc}
-                    external = {false}
                         />
                     )}
 
-            {externalRecipes.map((recipe) =>
-                            <RecipePreview 
-                                name = {recipe.name}
-                                description = {recipe.description} 
-                                image = {recipe.image}
-                                ingredients = {recipe.ingredients}
-                                instructions = {recipe.instructions}
-                                altDesc = {recipe.altDesc}
-                                external = {true}
-                                    />
-                                )}
-        </main>
+            </main>
             );
         }
