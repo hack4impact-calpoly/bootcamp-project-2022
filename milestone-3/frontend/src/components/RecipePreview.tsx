@@ -13,7 +13,7 @@ export default function Preview(props: Preview) {
             <div className="cards" >
                 <img className="card-img" src={props.image} />
                 <div className="card-body">
-                    <Link to="" className="button">{props.name}</Link>
+                    <Link to={`/recipes/${props.name}`} className="button">{props.name}</Link>
                     <p>{props.description}</p>
                 </div>
             </div>

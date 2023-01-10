@@ -9,7 +9,7 @@ export interface Recipe {
 const recipes: Recipe[] = [
     {name: 'Spicy Vodka Pasta', 
     description: 'Spice up your home cooking with this irresistible low FODMAP pasta!', 
-    image: 'https://i.postimg.cc/wTFBt7nv/creamy-pasta-sauce-7.jpg', 
+    image: 'https://i.postimg.cc/7ZkmJ2QC/ccreamy-pasta-sauce.jpg',
     ingredients:['2 tbs garlic infused olive oil', '1/4 cup tomato paste', '1/3 cup reduced fat cream (lactose-free if necessary)', '1/4 cup vodka', '1 tsp chilli flakes', '1 tsp butter', '1/4 cup parmesan cheese', 'Basil leaves', '1/2 cup spring onion greens'], 
     instructions:['Bring a large pot of salted water to the boil and cook pasta until al dente.', 'In a large pan or saucepan over medium heat, heat the olive oil. Add tomato paste and cook for 1-2 minutes.', 'Add in the cream and vodka, and cook for 2 minutes. Add the red chilli flakes and butter and stir for a minute or until the butter has melted through.', 'Add 2 tbs of water if the sauce appears too thick, then stir through the parmesan cheese. Stir in the cooked pasta until well combined.', 'Serve immediately and garnish with spring onion greens, basil, salt and pepper.']}, 
     {name: 'Lemon Chicken & Rice', 
