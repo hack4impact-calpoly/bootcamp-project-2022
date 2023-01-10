@@ -1,4 +1,4 @@
-import  { ChangeEvent, useState } from 'react';
+import  { ChangeEvent, useEffect, useState } from 'react';
 
 
 interface Recipe {
@@ -10,11 +10,45 @@ interface Recipe {
 }
 
 function RecipePage(props: Recipe) {
+  
+
   const [newIngredient, setNewIngredient] = useState('');
   const [allIngredients, setAllIngredients] = useState(props.ingredients);
   const [newInstruction, setNewInstruction] = useState('');
   const [allInstructions, setAllInstructions] = useState(props.instructions);
+  const addIngredient = () => {
 
+    fetch(`http://localhost:3001/recipe/${props.name}/ingredient`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            ingredient: newIngredient
+        })
+        
+    })
+    .then((res) => console.log(res));
+    setAllIngredients([...allIngredients, newIngredient]);
+
+}  
+
+const addInstruction = () => {
+ 
+    fetch(`http://localhost:3001/recipe/${props.name}/instruction`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            instruction: newInstruction
+        })
+
+    })
+    .then((res) => console.log(res));
+    setAllInstructions([...allInstructions, newInstruction]);
+    
+}
 return (
     <div>
     <h1 className="text">{props.name}</h1>
@@ -39,9 +73,7 @@ return (
         setNewIngredient(e.target.value);
     }}
     />
-     <button onClick={() => setAllIngredients([...allIngredients, newIngredient])}>
-    Add Ingredient
-    </button>
+     <button onClick={addIngredient}>Add Ingredient</button>
 
     <div className="sub-section">
         <strong className="text">Instructions</strong>
@@ -57,10 +89,10 @@ return (
         setNewInstruction(f.target.value);
     }}
     />
-    <button onClick={() => setAllInstructions([...allInstructions, newInstruction])}>
+    <button onClick={addInstruction}>
     Add Instruction
     </button>
-   
+    
     </div>
 );
 

@@ -2,16 +2,26 @@ import { Express } from "express";
 import { Request, Response } from "express";
 import Recipe from "./models/recipeSchema";
 import mongoose from "mongoose";
+import cors from "cors";
 
 const express = require("express"); // 1. includes Express
 const app: Express = express(); // 2. initializes Express
+app.use(cors());
 app.use(express.json());
+
 
 const url = "mongodb+srv://admin:Password123!@cluster0.wpowvdu.mongodb.net/RecipesDB?retryWrites=true&w=majority";
 
 mongoose.connect(url)
 .then(() => console.log("Connected to MongoDB!"))
 .catch((err) => console.log(`Error connecting to DB: ${err}`));
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT');
+    next();
+  });
 
 app.get('/', (_req, res) => {
   res.send('Hello world!')

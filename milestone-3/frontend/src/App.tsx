@@ -11,12 +11,12 @@ import {
 import {Recipe} from "./types";
 
 function App() {
-const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+const [recipes, setRecipes] = useState<Recipe[]>([]);
 
 useEffect(() => {
   fetch("http://localhost:3001/recipe")
     .then((res) => res.json())
-    .then((data) => setExternalRecipes(data)).catch(err => console.log(err));
+    .then((data) => setRecipes(data)).catch(err => console.log(err));
 },[]);
 
 return (
@@ -26,16 +26,9 @@ return (
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            
             {recipes.map((recipe) =>(
               <Route path={`/recipe/${recipe.name}`} element={<RecipePage 
-                name={recipe.name}
-                description={recipe.description}
-                image={recipe.image}
-                ingredients={recipe.ingredients}
-                instructions={recipe.instructions} />} />
-            )) }
-            {externalRecipes.map((recipe) =>(
-              <Route path={`/externalRecipe/${recipe.name}`} element={<RecipePage 
                 name={recipe.name}
                 description={recipe.description}
                 image={recipe.image}
