@@ -1,0 +1,23 @@
+{
+  "name": "bootcamp-project-2022",
+  "version": "1.0.0",
+  "description": "This is the start of your 2022 bootcamp project!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aryaramchander1/bootcamp-project-2022.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aryaramchander1/bootcamp-project-2022/issues"
+  },
+  "homepage": "https://github.com/aryaramchander1/bootcamp-project-2022#readme",
+  "dependencies": {
+    "cowsay": "^1.5.0"
+  }
+}

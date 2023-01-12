@@ -1,0 +1,76 @@
+.header {
+    display: flex;
+    border: 5px solid black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Papyrus";
+    background-color: rgb(193, 164, 213);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-bottom: 20px;
+}
+
+.sub-section {
+    display: flex;
+    border: 5px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: rgb(228, 207, 243);
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right: 30px;
+    padding-left: 30px;
+
+}
+
+.sub-section-content {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: "Papyrus";
+    margin-bottom: 15px;
+}
+
+.navigation {
+    display: flex;
+    font-family: "Papyrus";
+    align-items: right;
+}
+
+.recipe-images-home {
+    width: 200px;
+    border: 3px solid black;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.recipe {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.recipe-images-main {
+    width: 300px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.recipe-content {
+    flex-basis: 300px;
+    flex-grow: 1;
+}
+
+.text {
+    font-family: "Papyrus"
+}

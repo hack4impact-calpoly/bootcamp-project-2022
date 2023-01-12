@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    border: 5px solid black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Papyrus";
+    background-color: rgb(193, 164, 213);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-bottom: 20px;
+}
+
+.text {
+    font-family: "Papyrus"
+}
+
+.navigator {
+    display: flex;
+    justify-content: center;
+    font-family: "Papyrus";
+    align-items: normal;
+}
