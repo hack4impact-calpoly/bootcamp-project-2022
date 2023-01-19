@@ -3,7 +3,8 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import RecipePage from './components/RecipePage';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import recipes from './recipeData';
 
 export default function App() {
   return (
@@ -12,7 +13,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home  />} />
         <Route path="about" element={<About />} />
-        <Route path="route/:id" element={<RecipePage />} />
+        {recipes.map(recipe=>
+        <Route path="recipes/:name" element={<RecipePage {...recipe}/>} /> )}
       </Routes>
     </BrowserRouter>
   );

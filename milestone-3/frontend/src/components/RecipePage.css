@@ -1,0 +1,65 @@
+.pg-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin: auto;
+    width: 100%;
+    padding: 2%;
+  }
+  .cards {
+    display: flex;
+    background-color: #FFCB45;
+    border-radius: 20px;
+    flex-direction: column;
+    max-width: 320px;
+    border: 2px solid #054F48 ;
+    height: 520px;
+    margin: 65px 5% 0 2%; 
+  }
+ .prep {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    border: 2px solid #054F48;
+    width: 80%;
+    height: fit-content;
+    border-radius: 20px;
+    margin: 65px 5% 0 2%;
+    padding: 2%;
+  }
+.ingredients, .instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+  ol, ul {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #054F48;
+    font-size: 16px;
+    max-width: 400px;
+    line-height: 180%;
+    margin: 0 2% 8% 4%;
+  }
+  .instruction-btn {
+    border: 2px solid #054F48;
+    background-color: #FFFCF5;
+    color: #054F48;
+    border-radius: 40px; 
+    padding: 12px;
+    margin: 40px 0 36px 0;
+    width: fit-content;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .card-img {
+    max-width: 320px;
+    border-radius: 20px 20px 0 0;
+  }
