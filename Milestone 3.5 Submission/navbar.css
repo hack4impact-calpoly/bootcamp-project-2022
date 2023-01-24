@@ -1,0 +1,26 @@
+.Navbar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:darkred;
+    height: 100px;
+    padding: 30px 40px 30px 40px;
+}
+
+.Switchpages{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 300px;
+}
+
+#title{
+    font-size: 50px;
+    font: 450;
+    color:wheat;
+}
+#pagetitle {
+    font-size: 20px;
+    font-weight: bold;
+    color:wheat;
+}
