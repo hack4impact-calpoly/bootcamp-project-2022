@@ -1,16 +1,17 @@
 import './Home.css';
 import Preview  from './RecipePreview';
-import recipeData, { Recipe } from '../recipeData';
+import { Recipe } from '../recipeData';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
 
-  const [externalRecipes, setExternalRecipes] = useState<Recipe[]>([]);
+  const [myRecipes, setMyRecipes] = useState<Recipe[]>([]);
   useEffect(() => {
-    fetch("https://bootcamp-milestone-4.onrender.com/recipe")
+    fetch("http://localhost:3001/recipe")
     .then((res) => res.json())
-    .then((data) => setExternalRecipes(data))
-  }, [])
+    .then((data) => setMyRecipes(data))
+    .catch((error) => console.log(error));
+  }, []);
 
   return (
     <div>
@@ -18,23 +19,10 @@ export default function Home() {
       <h2>Discover easy and tasty low FODMAP recipes!</h2>
       {/* 3 cards */}
       <div className='three-cards'>
-        {recipeData.map((recipe, index)=> 
+        {myRecipes.map((recipe, index)=> 
           <div key={index}>
             <Preview 
               external={false}
-              name={recipe.name}
-              image={recipe.image}
-              description={recipe.description}
-              key={index} 
-              ingredients={[]} 
-              instructions={[]}           
-              />
-          </div>
-        )}
-        {externalRecipes.map((recipe, index)=> 
-          <div key={index}>
-            <Preview 
-              external={true}
               name={recipe.name}
               image={recipe.image}
               description={recipe.description}

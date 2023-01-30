@@ -1,4 +1,4 @@
-import recipeData, { Recipe } from "../recipeData";
+import { Recipe } from "../recipeData";
 import './RecipePage.css';
 import { useParams } from "react-router-dom";
 import { useState, ChangeEvent, useEffect } from 'react';
@@ -24,20 +24,39 @@ export default function RecipePage(props: RecipePageProps) {
     const [allInstructions, setAllInstructions] = useState(recipes.instructions);
 
     useEffect(() => {
-        if (props.external) {
-            fetch('https://bootcamp-milestone-4.onrender.com/recipe/' + name)
-            .then((res) => res.json())
-            .then((data) => setRecipes(data[0]))
-        } else {
-            const rec = recipeData.find(recipe => recipe.name === name)!;
-            setRecipes(rec)
-        }
-    }, [name, props.external]);
+        fetch('http://localhost:3001/recipe/' + name)
+        .then((res) => res.json())
+        .then((data) => {
+            setRecipes(data[0])
+            setAllIngredients(data[0].ingredients)
+            setAllInstructions(data[0].instructions)
+        })
+        .catch((error) => console.log(error));
+    }, []);
+    
+    function addIngredient() {
+        fetch('http://localhost:3001/recipe/' + name + '/ingredient',
+            {
+                method: "PUT", 
+                headers: {"Content-Type": "application/json"}, 
+                body: JSON.stringify({ingredient: newIngredient})
+            })
+            .catch((error) => console.log(error));
+            setAllIngredients([...allIngredients, newIngredient]);
+            setNewIngredient("");
+    }
 
-    useEffect(() => {
-        setAllIngredients(recipes.ingredients);
-        setAllInstructions(recipes.instructions);
-    }, [recipes]);
+    function addInstruction() {
+        fetch('http://localhost:3001/recipe/' + name + '/instruction',
+            {
+                method: "PUT", 
+                headers: {"Content-Type": "application/json"}, 
+                body: JSON.stringify({instruction: newInstruction})
+            })
+            .catch((error) => console.log(error));
+            setAllInstructions([...allInstructions, newInstruction]);
+            setNewInstruction("");
+    }
 
     return (
     <div>
@@ -81,8 +100,7 @@ export default function RecipePage(props: RecipePageProps) {
                         />
                     </div>
                     <button
-                        onClick={() => 
-                        setAllIngredients([...allIngredients, newIngredient])}>
+                        onClick={addIngredient}>
                         Add Ingredient
                     </button>
                 </div>
@@ -100,8 +118,7 @@ export default function RecipePage(props: RecipePageProps) {
                         />
                     </div>
                     <button
-                        onClick={() => 
-                        setAllInstructions([...allInstructions, newInstruction])}>
+                        onClick={addInstruction}>
                         Add Instruction
                     </button>
                 </div>

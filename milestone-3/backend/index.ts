@@ -14,6 +14,13 @@ mongoose
   .catch((error: any) => 
     console.log(`Could not connect due to ${error}`));
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS,DELETE,PUT');
+  next();
+});
+
 app.get("/", (req, res) =>{
   res.send("Hello World!");
 });
