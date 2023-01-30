@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #054F48;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+  .logo {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFFCF5;
+    text-decoration: none;
+    margin: 0 2%;
+    font-size: 80%;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  .nav-links {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFFCF5;
+    margin: 0 30px;
+  }
